@@ -1,0 +1,36 @@
+{
+  "name": "ai-build-radar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "WATCHPACK_POLLING=true next dev --hostname 127.0.0.1 --port 3100",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3100",
+    "ingest": "tsx scripts/ingest.ts",
+    "worker": "tsx scripts/worker.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "sync:supabase": "tsx scripts/sync.ts",
+    "schema:export": "tsx scripts/export-schema.ts",
+    "reprocess": "tsx scripts/reprocess.ts"
+  },
+  "dependencies": {
+    "@next/env": "^16.3.8",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.2",
+    "lucide-react": "^1.51.0",
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

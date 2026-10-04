@@ -1,0 +1,21 @@
+# Credentials and machine-specific configuration
+**/.env*
+!**/.env.example
+**/LOCAL-ACCESS.txt
+# Dependencies, generated build files and transient runtime data
+**/node_modules/
+**/.next/
+**/*.tsbuildinfo
+**/__pycache__/
+**/*.log
+**/*.tmp
+**/people-feed.lock
+**/data/
+# User-submitted notes stay local
+**/learning-data/inbox/
+# Scratch downloads, research intermediates and local ZIP backups
+work/
+**/work/
+outputs/backups/
+.DS_Store
+**/.DS_Store

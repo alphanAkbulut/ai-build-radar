@@ -1,0 +1,15 @@
+import type { Source } from './schema';
+export const sources: Source[] = [
+ {id:'hn',name:'Hacker News',kind:'Community',intervalMinutes:15,intervalLabel:'15 dk',enabled:true,url:'https://github.com/HackerNews/API',license:'Public API; linked content retains original rights',scope:'Latest 80 Show HN stories; AI-development signals only',adapter:'hn'},
+ {id:'github',name:'GitHub',kind:'Repository',intervalMinutes:45,intervalLabel:'45 dk',enabled:true,url:'https://docs.github.com/en/rest/search/search',license:'Public metadata; repository licenses vary',scope:'2 watched searches × 20 recently updated repositories; not exhaustive',adapter:'github'},
+ {id:'builders',name:'Watched builders / experts',kind:'People',intervalMinutes:45,intervalLabel:'45 dk',enabled:false,url:'https://example.invalid',license:'Configure per feed',scope:'No watchlist configured',adapter:null},
+ {id:'x',name:'X',kind:'Social',intervalMinutes:75,intervalLabel:'60–90 dk',enabled:false,url:'https://docs.x.com',license:'Provider API terms',scope:'API access required; midpoint 75 minutes configured',adapter:null},
+ {id:'reddit',name:'Reddit',kind:'Community',intervalMinutes:90,intervalLabel:'90 dk',enabled:false,url:'https://www.reddit.com/dev/api',license:'Provider API terms',scope:'Communities and API access required',adapter:null},
+ {id:'producthunt',name:'Product Hunt',kind:'Launches',intervalMinutes:180,intervalLabel:'3 saat',enabled:false,url:'https://api.producthunt.com/v2/docs',license:'Provider API terms',scope:'API access required',adapter:null},
+ {id:'onesvibe',name:"One’s Vibe",kind:'Open dataset',intervalMinutes:360,intervalLabel:'6 saat',enabled:true,url:'https://github.com/JefferyLee/awesome-vibe-coded-apps',license:'CC0 1.0',scope:'120 most recently published records from the public catalog; upstream publication date ≠ product launch date',adapter:'onesvibe'},
+ {id:'communities',name:'Tool communities',kind:'Directory',intervalMinutes:360,intervalLabel:'6 saat',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Source selection pending',adapter:null},
+ {id:'youtube',name:'YouTube',kind:'Video',intervalMinutes:540,intervalLabel:'9 saat',enabled:false,url:'https://developers.google.com/youtube/v3',license:'Provider API terms',scope:'Channels and API access required',adapter:null},
+ {id:'ecosystems',name:'Official ecosystems',kind:'Official',intervalMinutes:180,intervalLabel:'3 saat',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Official feeds pending',adapter:null},
+ {id:'directories',name:'Low-change directories',kind:'Directory',intervalMinutes:1080,intervalLabel:'18 saat',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Directory selection pending',adapter:null},
+ {id:'docs',name:'Static docs',kind:'Documentation',intervalMinutes:1440,intervalLabel:'Günlük',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Documentation URLs pending',adapter:null}
+];

@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}:{reset:()=>void}){return <div className="empty"><h2>Veriler yüklenemedi</h2><p>Kaynak bağlantısını ve yerel kayıt dosyasını kontrol edin. Bu durum boş veri olarak gösterilmez.</p><button className="primary" onClick={reset}>Yeniden dene</button></div>;}
