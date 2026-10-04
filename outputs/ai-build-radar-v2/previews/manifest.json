@@ -1,0 +1,28 @@
+{
+  "build_8ba329cec04a1346b2c9480a": {
+    "url": "https://robvagin.github.io/metaballs",
+    "capturedAt": "2026-10-04T20:00:30.018Z",
+    "method": "browser-screenshot",
+    "label": "Canlı demo",
+    "interactive": true
+  },
+  "build_70f5df424be997736d4abb1f": {
+    "url": "https://robvagin.github.io/motion-pad",
+    "capturedAt": "2026-10-04T20:01:24.581Z",
+    "method": "browser-screenshot",
+    "label": "Canlı demo",
+    "interactive": true
+  },
+  "build_a16df0a33af95a90f0153b4d": {
+    "url": "https://play.linnaeus-game.workers.dev",
+    "capturedAt": "2026-10-04T20:04:52.016Z",
+    "method": "browser-screenshot",
+    "label": "Web oyunu"
+  },
+  "build_166fd6ccedd0b5203ad21711": {
+    "url": "https://arash009.github.io/fieldbook",
+    "capturedAt": "2026-10-04T20:09:17.045Z",
+    "method": "browser-screenshot",
+    "label": "Uygulamanın örnek demosu"
+  }
+}

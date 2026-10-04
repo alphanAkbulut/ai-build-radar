@@ -1,0 +1,1029 @@
+[
+  {
+    "slug": "llm-council",
+    "name": "LLM Council",
+    "category": "AI deneyimleri",
+    "title": "Birden çok cevabı karşılaştır, ortak sonucu göster",
+    "hook": "Anonim değerlendirme ve sentez akışı, tek sohbet ekranına farklı bir bakış getiriyor.",
+    "site": "https://github.com/karpathy/llm-council",
+    "repo": "https://github.com/karpathy/llm-council",
+    "checkedAt": "2026-10-04T21:34:29.068924+00:00",
+    "ai": "Builder-stated",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "LLM Council works together to answer your hardest questions",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Model cevaplarını ayrı sekmelerde göster",
+      "Değerlendirme aşamasında model adlarını gizle",
+      "Sonuç ile kaynak cevaplar arasında geçiş ekle"
+    ],
+    "checks": [
+      "Eksik veya başarısız cevap sonuçtan ayırt edilmeli",
+      "API maliyeti ve aşama ilerlemesi görünmeli"
+    ],
+    "tools": [
+      "React",
+      "Sunucu API katmanı"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "Karpathy README’de projenin %99 vibe coded olduğunu söylüyor. Bu geliştirici beyanıdır; bağımsız doğrulama değildir. Yerel kurulum ve ücretli model API erişimi gerekebilir."
+    ],
+    "popularity": {
+      "stars": 25147,
+      "forks": 4378,
+      "checkedAt": "2026-10-04T21:34:29.068924+00:00",
+      "sourceUrl": "https://github.com/karpathy/llm-council"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/karpathy/llm-council/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      },
+      {
+        "label": "Karpathy’nin proje deposu",
+        "url": "https://github.com/karpathy/llm-council",
+        "note": "Yazar ilişkisi; başka projelere verilmiş bir onay değildir."
+      }
+    ],
+    "license": "Belirlenmedi",
+    "media": {
+      "url": "https://raw.githubusercontent.com/karpathy/llm-council/master/header.jpg",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/karpathy/llm-council/blob/master/README.md"
+    },
+    "influence": "Andrej Karpathy’nin kendi projesi",
+    "aiEvidence": "https://github.com/karpathy/llm-council/blob/master/README.md"
+  },
+  {
+    "slug": "excalidraw",
+    "name": "Excalidraw",
+    "category": "Görsel etkileşim",
+    "title": "Düşünceyi sürüklenebilir bir çizime dönüştür",
+    "hook": "El çizimi karakteri ve serbest tuval, bir fikri anlatmayı kolaylaştırıyor.",
+    "site": "https://excalidraw.com",
+    "repo": "https://github.com/excalidraw/excalidraw",
+    "checkedAt": "2026-10-04T21:34:29.069761+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Demoyu aç",
+    "observations": [
+      "Virtual whiteboard for sketching hand-drawn like diagrams",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Üç şekilli bir tuval prototipi kur",
+      "Seçme, taşıma ve geri alma ekle",
+      "Çizimi dışa aktar"
+    ],
+    "checks": [
+      "Geri alma önceki durumu doğru getirmeli",
+      "Klavye ve dokunma ile seçim çalışmalı"
+    ],
+    "tools": [
+      "Canvas veya SVG",
+      "Durum geçmişi"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 133504,
+      "forks": 15572,
+      "checkedAt": "2026-10-04T21:34:29.069761+00:00",
+      "sourceUrl": "https://github.com/excalidraw/excalidraw"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/excalidraw/excalidraw/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "MIT",
+    "media": {
+      "url": "https://excalidraw.nyc3.cdn.digitaloceanspaces.com/github%2Fproduct_showcase.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/excalidraw/excalidraw/blob/master/README.md"
+    }
+  },
+  {
+    "slug": "tldraw",
+    "name": "tldraw",
+    "category": "Görsel etkileşim",
+    "title": "Kendi araçlarınla sonsuz bir tuval kur",
+    "hook": "Özel şekiller ve araçlar, çizim yüzeyini ürünün bir parçasına dönüştürebilir.",
+    "site": "https://tldraw.dev/examples",
+    "repo": "https://github.com/tldraw/tldraw",
+    "checkedAt": "2026-10-04T21:34:29.820433+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Özel bir kart şekli tanımla",
+      "Kartı tuvalde taşı ve yakınlaştır",
+      "Kaydetme ve yeniden açma akışı ekle"
+    ],
+    "checks": [
+      "Yakınlaştırmada içerik okunmalı",
+      "Kaydedilen konumlar korunmalı"
+    ],
+    "tools": [
+      "tldraw SDK",
+      "React"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 50748,
+      "forks": 3547,
+      "checkedAt": "2026-10-04T21:34:29.820433+00:00",
+      "sourceUrl": "https://github.com/tldraw/tldraw"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/tldraw/tldraw/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "NOASSERTION",
+    "media": {
+      "url": "https://raw.githubusercontent.com/tldraw/tldraw/main/assets/github-hero-light.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/tldraw/tldraw/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "xyflow",
+    "name": "React Flow",
+    "category": "Görsel etkileşim",
+    "title": "İş akışını bağlanabilir düğümlerle anlat",
+    "hook": "Bağlantıları görünür kılmak, karmaşık bir süreci keşfedilebilir yapıyor.",
+    "site": "https://reactflow.dev",
+    "repo": "https://github.com/xyflow/xyflow",
+    "checkedAt": "2026-10-04T21:34:29.835283+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "React Flow | Svelte Flow - Powerful open source libraries for building node-based UIs with React (https://reactflow.dev) or Svelte (https://svelteflow.dev). Ready out-of-the-box and infinitely customizable.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Girdi, işlem ve çıktı düğümleri kur",
+      "Bağlantı oluşturma ve silme ekle",
+      "Geçersiz bağlantılar için anlaşılır hata göster"
+    ],
+    "checks": [
+      "Silinen düğümün bağlantıları temizlenmeli",
+      "Geçersiz akış çalıştırılmamalı"
+    ],
+    "tools": [
+      "React Flow",
+      "React"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 38583,
+      "forks": 2541,
+      "checkedAt": "2026-10-04T21:34:29.835283+00:00",
+      "sourceUrl": "https://github.com/xyflow/xyflow"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/xyflow/xyflow/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "MIT"
+  },
+  {
+    "slug": "drawdb",
+    "name": "drawDB",
+    "category": "Veri ve araçlar",
+    "title": "Veritabanını çizerek tasarla",
+    "hook": "Şema diyagramından SQL üretimi, görsel düzenleme ile somut çıktı arasında köprü kuruyor.",
+    "site": "https://drawdb.app",
+    "repo": "https://github.com/drawdb-io/drawdb",
+    "checkedAt": "2026-10-04T21:34:29.828332+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Demoyu aç",
+    "observations": [
+      "Free, simple, and intuitive online database diagram editor and SQL generator.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "İki tablo ve ilişkiyi çiz",
+      "Alan tiplerini düzenlenebilir yap",
+      "SQL önizlemesi ve indirme ekle"
+    ],
+    "checks": [
+      "Üretilen SQL örnek şemayla eşleşmeli",
+      "Belirsiz tipler sessizce dönüştürülmemeli"
+    ],
+    "tools": [
+      "Diyagram bileşeni",
+      "SQL şema modeli"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 39830,
+      "forks": 3282,
+      "checkedAt": "2026-10-04T21:34:29.828332+00:00",
+      "sourceUrl": "https://github.com/drawdb-io/drawdb"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/drawdb-io/drawdb/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "AGPL-3.0",
+    "media": {
+      "url": "https://raw.githubusercontent.com/drawdb-io/drawdb/main/drawdb.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/drawdb-io/drawdb/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "jsoncrack-com",
+    "name": "JSON Crack",
+    "category": "Veri ve araçlar",
+    "title": "JSON içindeki ilişkileri görselleştir",
+    "hook": "Uzun bir veri metnini keşfedilebilir bir grafiğe çevirmek güçlü bir öğrenme örneği.",
+    "site": "https://jsoncrack.com",
+    "repo": "https://github.com/AykutSarac/jsoncrack.com",
+    "checkedAt": "2026-10-04T21:34:29.857169+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Demoyu aç",
+    "observations": [
+      "✨ Innovative and open-source visualization application that transforms various data formats, such as JSON, YAML, XML and CSV into interactive graphs.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "JSON girişini doğrula",
+      "İç içe alanları açılabilir düğümlere dönüştür",
+      "Seçilen düğümün veri yolunu göster"
+    ],
+    "checks": [
+      "Hatalı JSON anlaşılır hata vermeli",
+      "Büyük dosyada öğe sınırı bulunmalı"
+    ],
+    "tools": [
+      "JSON parser",
+      "Grafik bileşeni"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 44473,
+      "forks": 3570,
+      "checkedAt": "2026-10-04T21:34:29.857169+00:00",
+      "sourceUrl": "https://github.com/AykutSarac/jsoncrack.com"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/AykutSarac/jsoncrack.com/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      },
+      {
+        "label": "Hacker News tartışması",
+        "url": "https://news.ycombinator.com/item?id=32626873",
+        "note": "README’de bağlantılanan tartışma; yorumların duygu analizi yapılmadı."
+      }
+    ],
+    "license": "Apache-2.0",
+    "media": {
+      "url": "https://raw.githubusercontent.com/AykutSarac/jsoncrack.com/main/apps/www/public/assets/editor.webp",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/AykutSarac/jsoncrack.com/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "langflow",
+    "name": "Langflow",
+    "category": "AI deneyimleri",
+    "title": "AI akışını adım adım incele",
+    "hook": "Görsel akış tasarımı, ara sonuçları incelemeyi öğrenilebilir hale getiriyor.",
+    "site": "https://langflow.org",
+    "repo": "https://github.com/langflow-ai/langflow",
+    "checkedAt": "2026-10-04T21:34:30.613284+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Üç aşamalı bir metin akışı kur",
+      "Her aşamanın girdi ve çıktısını göster",
+      "Akışı kaydet ve yeniden yükle"
+    ],
+    "checks": [
+      "Başarısız aşama açıkça işaretlenmeli",
+      "Gizli anahtarlar kaydedilen akışa girmemeli"
+    ],
+    "tools": [
+      "Akış editörü",
+      "Sunucu API katmanı"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 155502,
+      "forks": 10178,
+      "checkedAt": "2026-10-04T21:34:30.613284+00:00",
+      "sourceUrl": "https://github.com/langflow-ai/langflow"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/langflow-ai/langflow/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "MIT"
+  },
+  {
+    "slug": "open-webui",
+    "name": "Open WebUI",
+    "category": "AI deneyimleri",
+    "title": "Farklı modellere tek bir sohbet kapısı aç",
+    "hook": "Model seçimi ve sohbet geçmişi, yeniden kullanılabilecek temel ürün desenleri.",
+    "site": "https://openwebui.com",
+    "repo": "https://github.com/open-webui/open-webui",
+    "checkedAt": "2026-10-04T21:34:30.634814+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Model seçici ve sohbet görünümü kur",
+      "Yanıt akışını ve durdurmayı ekle",
+      "Sohbet geçmişini sakla"
+    ],
+    "checks": [
+      "Model değişimi görünür olmalı",
+      "Bağlantı hatasında mesaj kaybolmamalı"
+    ],
+    "tools": [
+      "Sohbet bileşenleri",
+      "Model API adaptörü"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 153952,
+      "forks": 22503,
+      "checkedAt": "2026-10-04T21:34:30.634814+00:00",
+      "sourceUrl": "https://github.com/open-webui/open-webui"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/open-webui/open-webui/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "NOASSERTION",
+    "media": {
+      "url": "https://raw.githubusercontent.com/open-webui/open-webui/main/demo.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/open-webui/open-webui/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "anything-llm",
+    "name": "AnythingLLM",
+    "category": "AI deneyimleri",
+    "title": "Belgelerden cevaba, cevaptan kaynağa git",
+    "hook": "Belge yükleme ve kaynaklı cevap, güveni arayüzün içine taşıyabilir.",
+    "site": "https://anythingllm.com",
+    "repo": "https://github.com/Mintplex-Labs/anything-llm",
+    "checkedAt": "2026-10-04T21:34:30.668205+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Örnek belge yükleme alanı kur",
+      "Belgeden alıntı ve kaynak bağlantısı göster",
+      "Kaynak bulunamadığında bunu açıkça belirt"
+    ],
+    "checks": [
+      "Alıntı belgedeki metne karşılık gelmeli",
+      "Silinen belge aramadan kaldırılmalı"
+    ],
+    "tools": [
+      "Belge ayrıştırıcı",
+      "Arama katmanı"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 66714,
+      "forks": 7449,
+      "checkedAt": "2026-10-04T21:34:30.668205+00:00",
+      "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      },
+      {
+        "label": "Geliştiricinin YouTube demosu",
+        "url": "https://youtu.be/f95rGD9trL0",
+        "note": "README bağlantısı doğrulandı; video izlenmedi, zaman damgalı inceleme henüz yok."
+      }
+    ],
+    "license": "MIT",
+    "media": {
+      "url": "https://github.com/Mintplex-Labs/anything-llm/releases/download/v1.11.2/AnythingLLM720p.gif",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/master/README.md"
+    }
+  },
+  {
+    "slug": "khoj",
+    "name": "Khoj",
+    "category": "AI deneyimleri",
+    "title": "Kişisel bilgi arşivini araştırılabilir yap",
+    "hook": "Not ve belgeleri sorularla keşfetmek, arama deneyimi için verimli bir referans.",
+    "site": "https://app.khoj.dev",
+    "repo": "https://github.com/khoj-ai/khoj",
+    "checkedAt": "2026-10-04T21:34:31.385761+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Demoyu aç",
+    "observations": [
+      "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "İki örnek notu aramaya aç",
+      "Cevap yanında kullanılan notları listele",
+      "Kaynak filtresi ekle"
+    ],
+    "checks": [
+      "Kaynak dışı iddia ayrıştırılmalı",
+      "Kullanıcılar birbirinin belgelerine erişmemeli"
+    ],
+    "tools": [
+      "Metin araması",
+      "Kaynak gösterimi"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 37559,
+      "forks": 2497,
+      "checkedAt": "2026-10-04T21:34:31.385761+00:00",
+      "sourceUrl": "https://github.com/khoj-ai/khoj"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/khoj-ai/khoj/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  {
+    "slug": "whisper-cpp",
+    "name": "whisper.cpp",
+    "category": "Tarayıcı ve modeller",
+    "title": "Sesi okunabilir metne dönüştür",
+    "hook": "Yerel konuşma tanıma, ses arayüzlerinin nasıl kurulabileceğini gösteriyor.",
+    "site": "https://github.com/ggml-org/whisper.cpp",
+    "repo": "https://github.com/ggml-org/whisper.cpp",
+    "checkedAt": "2026-10-04T21:34:31.474229+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Port of OpenAI's Whisper model in C/C++",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Kısa örnek ses dosyası seçimi ekle",
+      "İşlem ilerlemesini göster",
+      "Çıktıyı düzenlenebilir metne dönüştür"
+    ],
+    "checks": [
+      "Desteklenmeyen dosya anlaşılır hata vermeli",
+      "İşlem iptal edilebilmeli"
+    ],
+    "tools": [
+      "whisper.cpp",
+      "İlerleme arayüzü"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 54128,
+      "forks": 6210,
+      "checkedAt": "2026-10-04T21:34:31.474229+00:00",
+      "sourceUrl": "https://github.com/ggml-org/whisper.cpp"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/ggml-org/whisper.cpp/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "MIT"
+  },
+  {
+    "slug": "transformers-js",
+    "name": "Transformers.js",
+    "category": "Tarayıcı ve modeller",
+    "title": "Model deneyimini tarayıcıya taşı",
+    "hook": "Metin, görüntü ve ses görevlerini aynı ürün içinde deneme fikri güçlü.",
+    "site": "https://huggingface.co/docs/transformers.js",
+    "repo": "https://github.com/huggingface/transformers.js",
+    "checkedAt": "2026-10-04T21:34:31.538623+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server!",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Tek bir küçük model görevi seç",
+      "Model indirme ilerlemesini göster",
+      "Örnek girdi ve sonuç karşılaştırması ekle"
+    ],
+    "checks": [
+      "İlk indirme maliyeti görünmeli",
+      "Desteklenmeyen cihazda açıklama sunulmalı"
+    ],
+    "tools": [
+      "Transformers.js",
+      "Web Worker"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 16339,
+      "forks": 1195,
+      "checkedAt": "2026-10-04T21:34:31.538623+00:00",
+      "sourceUrl": "https://github.com/huggingface/transformers.js"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/huggingface/transformers.js/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "Apache-2.0"
+  },
+  {
+    "slug": "web-llm",
+    "name": "WebLLM",
+    "category": "Tarayıcı ve modeller",
+    "title": "Tarayıcı içinde çalışan bir sohbet deneyimi kur",
+    "hook": "WebGPU tabanlı çıkarım, model yükleme deneyimini ürün tasarımının bir parçası yapıyor.",
+    "site": "https://chat.webllm.ai/",
+    "repo": "https://github.com/mlc-ai/web-llm",
+    "checkedAt": "2026-10-04T21:34:31.496333+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Demoyu aç",
+    "observations": [
+      "High-performance In-browser LLM Inference Engine ",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Cihaz desteği kontrolü ekle",
+      "Model indirme ve yükleme durumlarını ayır",
+      "Akışlı yanıt ve durdurma ekle"
+    ],
+    "checks": [
+      "Model hazır olmadan mesaj gönderilmemeli",
+      "Bellek veya GPU hatası açıklanmalı"
+    ],
+    "tools": [
+      "WebLLM",
+      "WebGPU"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 19225,
+      "forks": 1389,
+      "checkedAt": "2026-10-04T21:34:31.496333+00:00",
+      "sourceUrl": "https://github.com/mlc-ai/web-llm"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/mlc-ai/web-llm/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "Apache-2.0"
+  },
+  {
+    "slug": "gradio",
+    "name": "Gradio",
+    "category": "Prototip ve uygulama",
+    "title": "Bir fonksiyonu denenebilir demoya çevir",
+    "hook": "Örnek girdiler ve hızlı sonuç alanı, teknik bir fikri anlaşılır kılabilir.",
+    "site": "https://www.gradio.app",
+    "repo": "https://github.com/gradio-app/gradio",
+    "checkedAt": "2026-10-04T21:34:32.207083+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Build and share delightful machine learning apps, all in Python. 🌟 Star to support our work!",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Tek işlev için giriş ve çıktı alanları kur",
+      "Hazır örnekler ekle",
+      "Yükleniyor ve hata durumlarını göster"
+    ],
+    "checks": [
+      "Her örnek gerçek işlevi çalıştırmalı",
+      "Uzun işlem sırasında tekrar gönderim kontrol edilmeli"
+    ],
+    "tools": [
+      "Gradio",
+      "Python"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 43674,
+      "forks": 3616,
+      "checkedAt": "2026-10-04T21:34:32.207083+00:00",
+      "sourceUrl": "https://github.com/gradio-app/gradio"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/gradio-app/gradio/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "Apache-2.0",
+    "media": {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/gradio-guides/gif-version.gif",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/gradio-app/gradio/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "streamlit",
+    "name": "Streamlit",
+    "category": "Veri ve araçlar",
+    "title": "Veriyi etkileşimli bir mini uygulamaya dönüştür",
+    "hook": "Kaydırıcı ve filtrelerin sonucu hemen değiştirmesi, keşfetmeyi kolaylaştırıyor.",
+    "site": "https://streamlit.io",
+    "repo": "https://github.com/streamlit/streamlit",
+    "checkedAt": "2026-10-04T21:34:32.244899+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Streamlit — A faster way to build and share data apps.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Örnek veri ve iki filtre kur",
+      "Grafik ile tabloyu aynı filtreye bağla",
+      "Boş sonuç durumunu tasarla"
+    ],
+    "checks": [
+      "Grafik ve tablo aynı satırları temsil etmeli",
+      "Boş filtre uygulamayı bozmamalı"
+    ],
+    "tools": [
+      "Streamlit",
+      "Python"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 45897,
+      "forks": 4405,
+      "checkedAt": "2026-10-04T21:34:32.244899+00:00",
+      "sourceUrl": "https://github.com/streamlit/streamlit"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/streamlit/streamlit/blob/develop/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "Apache-2.0",
+    "media": {
+      "url": "https://user-images.githubusercontent.com/7164864/217936487-1017784e-68ec-4e0d-a7f6-6b97525ddf88.gif",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/streamlit/streamlit/blob/develop/README.md"
+    }
+  },
+  {
+    "slug": "dyad",
+    "name": "Dyad",
+    "category": "Prototip ve uygulama",
+    "title": "Uygulama üretimini gözlenebilir bir akışa çevir",
+    "hook": "Yerel AI uygulama geliştiricisi, üretim deneyimi için bir referans.",
+    "site": "https://dyad.sh",
+    "repo": "https://github.com/dyad-sh/dyad",
+    "checkedAt": "2026-10-04T21:34:32.262204+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Local, open-source AI app builder for power users ✨ v0 / Lovable / Replit / Bolt alternative 🌟 Star if you like it!",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "İstek, öneri ve önizleme aşamalarını tasarla",
+      "Önerilen değişikliği uygulamadan göster",
+      "Geri dönüş noktası ekle"
+    ],
+    "checks": [
+      "Onaysız dosya değişikliği yapılmamalı",
+      "Başarısız üretimde önceki sürüm korunmalı"
+    ],
+    "tools": [
+      "Önizleme paneli",
+      "Değişiklik karşılaştırması"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 21659,
+      "forks": 2666,
+      "checkedAt": "2026-10-04T21:34:32.262204+00:00",
+      "sourceUrl": "https://github.com/dyad-sh/dyad"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/dyad-sh/dyad/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "NOASSERTION",
+    "media": {
+      "url": "https://github.com/user-attachments/assets/f6c83dfc-6ffd-4d32-93dd-4b9c46d17790",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/dyad-sh/dyad/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "bolt-diy",
+    "name": "bolt.diy",
+    "category": "Prototip ve uygulama",
+    "title": "İstekten çalışan önizlemeye giden yolu göster",
+    "hook": "Kod ve uygulama önizlemesini birlikte sunmak, üretim sürecini görünür yapıyor.",
+    "site": "https://github.com/stackblitz-labs/bolt.diy",
+    "repo": "https://github.com/stackblitz-labs/bolt.diy",
+    "checkedAt": "2026-10-04T21:34:32.726227+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "Prompt, run, edit, and deploy full-stack web applications using any LLM you want!",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "İstek ve önizleme panellerini ayır",
+      "Çalıştırma hatalarını görünür kıl",
+      "Düzeltme önerisini kullanıcıya göster"
+    ],
+    "checks": [
+      "Başarısız derleme başarı gibi sunulmamalı",
+      "API maliyetleri sınırlandırılmalı"
+    ],
+    "tools": [
+      "Kod editörü",
+      "İzole önizleme"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
+    ],
+    "popularity": {
+      "stars": 19931,
+      "forks": 10599,
+      "checkedAt": "2026-10-04T21:34:32.726227+00:00",
+      "sourceUrl": "https://github.com/stackblitz-labs/bolt.diy"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/stackblitz-labs/bolt.diy/blob/main/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      }
+    ],
+    "license": "MIT",
+    "media": {
+      "url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/main/public/social_preview_index.jpg",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/stackblitz-labs/bolt.diy/blob/main/README.md"
+    }
+  },
+  {
+    "slug": "autoresearch",
+    "name": "Autoresearch",
+    "category": "Araştırma ve deney",
+    "title": "Küçük deneyleri ölç, karşılaştır, geri al",
+    "hook": "Sınırlı süreli deney ve ölçüm geçmişi, bir optimizasyon döngüsünü anlaşılır kılıyor.",
+    "site": "https://github.com/karpathy/autoresearch",
+    "repo": "https://github.com/karpathy/autoresearch",
+    "checkedAt": "2026-10-04T21:34:29.059070+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "AI agents running research on single-GPU nanochat training automatically",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Örnek verilerle deney listesi kur",
+      "Her denemede tek değişken ve ölçüt kaydet",
+      "Sonuçları karşılaştır ve geri alma ekle"
+    ],
+    "checks": [
+      "Süre ve maliyet sınırı uygulanmalı",
+      "Farklı donanım ölçümleri eşdeğer sayılmamalı"
+    ],
+    "tools": [
+      "Deney günlüğü",
+      "Karşılaştırma tablosu"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez.",
+      "İleri düzey, yerel kurulum ve GPU gerektiren araştırma örneği; tek tıklamayla web demosu değildir."
+    ],
+    "popularity": {
+      "stars": 97272,
+      "forks": 13543,
+      "checkedAt": "2026-10-04T21:34:29.059070+00:00",
+      "sourceUrl": "https://github.com/karpathy/autoresearch"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/karpathy/autoresearch/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      },
+      {
+        "label": "Karpathy’nin proje deposu",
+        "url": "https://github.com/karpathy/autoresearch",
+        "note": "Yazar ilişkisi; başka projelere verilmiş bir onay değildir."
+      }
+    ],
+    "license": "Belirlenmedi",
+    "media": {
+      "url": "https://raw.githubusercontent.com/karpathy/autoresearch/master/progress.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/karpathy/autoresearch/blob/master/README.md"
+    },
+    "influence": "Andrej Karpathy’nin kendi projesi"
+  },
+  {
+    "slug": "nanochat",
+    "name": "nanochat",
+    "category": "Araştırma ve deney",
+    "title": "Model deneyini yeniden üretilebilir hale getir",
+    "hook": "Eğitim, değerlendirme ve sohbet adımlarını birlikte görmek bütünsel bir öğrenme fırsatı.",
+    "site": "https://github.com/karpathy/nanochat",
+    "repo": "https://github.com/karpathy/nanochat",
+    "checkedAt": "2026-10-04T21:34:29.079697+00:00",
+    "ai": "Unknown",
+    "inspection": "source",
+    "access": "Projeyi incele",
+    "observations": [
+      "The best ChatGPT that $100 can buy.",
+      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
+    ],
+    "exercise": [
+      "Örnek deney yapılandırması oluştur",
+      "Sonuçlara sürüm ve donanım bilgisi ekle",
+      "İki denemenin ölçütlerini karşılaştır"
+    ],
+    "checks": [
+      "Eksik ölçüm sıfır sayılmamalı",
+      "Aynı olmayan koşullar işaretlenmeli"
+    ],
+    "tools": [
+      "Deney yapılandırması",
+      "Sonuç tablosu"
+    ],
+    "limits": [
+      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
+      "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez.",
+      "İleri düzey, yerel kurulum ve GPU gerektiren araştırma örneği; tek tıklamayla web demosu değildir."
+    ],
+    "popularity": {
+      "stars": 58424,
+      "forks": 8184,
+      "checkedAt": "2026-10-04T21:34:29.079697+00:00",
+      "sourceUrl": "https://github.com/karpathy/nanochat"
+    },
+    "sources": [
+      {
+        "label": "Geliştirici açıklaması / README",
+        "url": "https://github.com/karpathy/nanochat/blob/master/README.md",
+        "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
+      },
+      {
+        "label": "Karpathy’nin proje deposu",
+        "url": "https://github.com/karpathy/nanochat",
+        "note": "Yazar ilişkisi; başka projelere verilmiş bir onay değildir."
+      }
+    ],
+    "license": "MIT",
+    "media": {
+      "url": "https://raw.githubusercontent.com/karpathy/nanochat/master/dev/scaling_laws_jan26.png",
+      "label": "Geliştiricinin repo görseli / animasyonu",
+      "sourceUrl": "https://github.com/karpathy/nanochat/blob/master/README.md"
+    },
+    "influence": "Andrej Karpathy’nin kendi projesi"
+  }
+]

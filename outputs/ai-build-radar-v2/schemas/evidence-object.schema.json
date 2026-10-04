@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "buildId": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceRecordId": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Verified",
+        "Builder-stated",
+        "Derived",
+        "Unknown"
+      ]
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "quote": {
+      "type": "string"
+    },
+    "locator": {
+      "type": "string"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "publishedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "rawId": {
+      "type": "string"
+    },
+    "extractorVersion": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "strength": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "buildId",
+    "sourceId",
+    "sourceRecordId",
+    "field",
+    "value",
+    "status",
+    "sourceUrl",
+    "quote",
+    "locator",
+    "observedAt",
+    "publishedAt",
+    "contentHash",
+    "rawId",
+    "extractorVersion",
+    "rationale",
+    "strength",
+    "supersedes"
+  ],
+  "additionalProperties": false
+}

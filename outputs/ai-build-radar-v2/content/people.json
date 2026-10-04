@@ -1,0 +1,8 @@
+[
+ {"id":"simon","name":"Simon Willison","focus":"AI ile küçük araçlar, kodlama deneyleri ve uygulama kanıtları","website":"https://simonwillison.net/","feed":"https://simonwillison.net/atom/everything/","sourceLabel":"Simon’ın kişisel blogu","topics":["Uygulama geliştirme","Araçlar"]},
+ {"id":"ethan","name":"Ethan Mollick","focus":"AI kullanımı, iş akışları ve insanların modellerle nasıl çalıştığı","website":"https://www.oneusefulthing.org/","feed":"https://www.oneusefulthing.org/feed","sourceLabel":"One Useful Thing","topics":["Kullanım deneyimi","Fikirler"]},
+ {"id":"chip","name":"Chip Huyen","focus":"AI sistem tasarımı, değerlendirme ve açık kaynak keşfi","website":"https://huyenchip.com/","feed":"https://huyenchip.com/feed.xml","sourceLabel":"Chip Huyen’ın blogu","topics":["AI mühendisliği","Değerlendirme"]},
+ {"id":"lilian","name":"Lilian Weng","focus":"Ajanlar, model davranışları ve araştırma açıklamaları","website":"https://lilianweng.github.io/","feed":"https://lilianweng.github.io/index.xml","sourceLabel":"Lil’Log","topics":["Araştırma","Ajanlar"]},
+ {"id":"swyx","name":"swyx / Latent.Space","focus":"AI mühendisliği, ürün geliştiren ekipler ve teknik söyleşiler","website":"https://www.latent.space/","feed":"https://www.latent.space/feed","sourceLabel":"Latent.Space · ortak yayın, tüm yazılar swyx’e ait değil","topics":["AI mühendisliği","Söyleşiler"]},
+ {"id":"karpathy","name":"Andrej Karpathy","focus":"Model geliştirme, öğrenme ve AI ile üretim","website":"https://karpathy.bearblog.dev/","feed":"https://karpathy.bearblog.dev/feed/","sourceLabel":"Karpathy’nin blogu · X akışını kapsamaz","topics":["Araştırma","Uygulama geliştirme"]}
+]

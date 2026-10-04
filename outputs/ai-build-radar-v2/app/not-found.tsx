@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <main className="empty"><h1>Build bulunamadı</h1><Link href="/builds">Builds’e dön →</Link></main>;}

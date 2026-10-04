@@ -1,0 +1,5 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {people,peopleReferences,filterPeopleEntries,type FeedEntry} from '../lib/people';
+test('people references retain provenance and a registered author',()=>{assert.equal(new Set(people.map(p=>p.id)).size,people.length);for(const r of peopleReferences){assert.ok(people.some(p=>p.id===r.personId));assert.equal(new URL(r.source).protocol,'https:');assert.ok(r.relationship);assert.ok(r.learning);}});
+test('person and search filters intersect rather than exposing unrelated authors',()=>{const entries:FeedEntry[]=[{id:'1',personId:'simon',title:'An AI tool',url:'https://example.org',publishedAt:null,author:null,kind:'Yazı',sourceUrl:'https://example.org/feed'},{id:'2',personId:'ethan',title:'Another tool',url:'https://example.org/2',publishedAt:null,author:null,kind:'Yazı',sourceUrl:'https://example.org/feed'}];assert.equal(filterPeopleEntries(entries,'simon','tool').length,1);assert.equal(filterPeopleEntries(entries,'ethan','Simon').length,0);assert.equal(filterPeopleEntries(entries,'','Simon').length,1);});

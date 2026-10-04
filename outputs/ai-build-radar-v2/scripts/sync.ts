@@ -1,0 +1,14 @@
+import nextEnv from '@next/env';
+import {createClient} from '@supabase/supabase-js';
+import {readStore} from '../lib/store';
+import {sources} from '../lib/sources';
+nextEnv.loadEnvConfig(process.cwd());
+const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
+if(!url||!key)throw new Error('Configure Supabase URL and worker-only service role credential in .env.local');
+const client=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
+const store=await readStore();
+const {data,error}=await client.rpc('import_radar_snapshot',{snapshot:store,registry:sources});
+if(error)throw new Error(`Atomic import failed: ${error.message}`);
+const {count,error:readError}=await client.from('build_entities').select('id',{count:'exact',head:true});
+if(readError||count!==data.builds)throw new Error('Readback failed after import');
+console.log(JSON.stringify({imported:data,readbackBuilds:count}));

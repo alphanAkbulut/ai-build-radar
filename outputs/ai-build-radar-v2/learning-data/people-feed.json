@@ -1,0 +1,535 @@
+{
+  "checkedAt": "2026-10-04T21:51:34.940166+00:00",
+  "sources": [
+    {
+      "personId": "simon",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    },
+    {
+      "personId": "ethan",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    },
+    {
+      "personId": "chip",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    },
+    {
+      "personId": "lilian",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    },
+    {
+      "personId": "swyx",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    },
+    {
+      "personId": "karpathy",
+      "lastAttempt": "2026-10-04T21:51:34.940166+00:00",
+      "lastSuccess": "2026-10-04T21:51:34.940166+00:00",
+      "status": "ok",
+      "count": 8,
+      "added": 8
+    }
+  ],
+  "entries": [
+    {
+      "id": "345f1755705d282a19e9",
+      "personId": "simon",
+      "title": "We're going to need default hard budget caps on pretty much everything",
+      "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+      "publishedAt": "2026-10-03T23:34:02+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "637b19621e90d6890598",
+      "personId": "simon",
+      "title": "September sponsors-only newsletter",
+      "url": "https://simonwillison.net/2026/Oct/3/newsletter/",
+      "publishedAt": "2026-10-03T22:00:31+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "d43d2f13301d3339cfd2",
+      "personId": "swyx",
+      "title": "[AINews] not much happened today",
+      "url": "https://www.latent.space/p/ainews-not-much-happened-today-cee",
+      "publishedAt": "2026-10-03T08:45:15+00:00",
+      "author": "Latent.Space",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "0300916b911fbe76cc93",
+      "personId": "swyx",
+      "title": "Inside-Out AI: Rebuilding Airbnb Behind the Scenes and Across the Guest Experience",
+      "url": "https://www.latent.space/p/airbnb",
+      "publishedAt": "2026-10-02T14:04:49+00:00",
+      "author": "Richard MacManus",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "901948bef614fb42cdf7",
+      "personId": "swyx",
+      "title": "[AINews] Pi 1.0, Pi Durable, and AIE NYC",
+      "url": "https://www.latent.space/p/ainews-pi-10-pi-durable-and-aie-nyc",
+      "publishedAt": "2026-10-02T06:40:53+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "da0034913ac66df22838",
+      "personId": "swyx",
+      "title": "Academia is for Ambition — Alex Zhang, MIT",
+      "url": "https://www.latent.space/p/rlm",
+      "publishedAt": "2026-10-02T00:28:04+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "249d6601b3fbb8a4b895",
+      "personId": "ethan",
+      "title": "The Dot and the Swarm",
+      "url": "https://www.oneusefulthing.org/p/the-dot-and-the-swarm",
+      "publishedAt": "2026-10-01T10:54:12+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "015ccf980c076bf61e27",
+      "personId": "swyx",
+      "title": "[AINews] Gemini 4 Argon: GDM’s answer to Astra/Fable, with 1M output",
+      "url": "https://www.latent.space/p/ainews-gemini-4-argon-gdms-answer",
+      "publishedAt": "2026-10-01T06:45:05+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "e48a7f736f56ad596c7c",
+      "personId": "simon",
+      "title": "Quoting Matthew Green",
+      "url": "https://simonwillison.net/2026/Oct/1/matthew-green/",
+      "publishedAt": "2026-10-01T06:29:01+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "cfe32cdb08fcc91ab019",
+      "personId": "swyx",
+      "title": "Why Dwarkesh is Wrong about Computer Use + How OpenAI shipped its Jev competitor in 1 Week",
+      "url": "https://www.latent.space/p/devday-2026",
+      "publishedAt": "2026-09-30T22:23:40+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "b28db22be2dee5fac2e8",
+      "personId": "simon",
+      "title": "He Built This City",
+      "url": "https://simonwillison.net/2026/Sep/30/he-built-this-city/",
+      "publishedAt": "2026-09-30T21:54:19+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "3439063e9fd745f73599",
+      "personId": "swyx",
+      "title": "[AINews] OpenAI DevDay 2026: Dots, 6.1 Sol, Ultrafast, Decisions API, Agents API, Spaces, Marketplace, and 1.2 Billion ChatGPT WAU",
+      "url": "https://www.latent.space/p/ainews-openai-devday-2026-dots-61",
+      "publishedAt": "2026-09-30T05:53:10+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "c48f1ff5058b49fc9610",
+      "personId": "simon",
+      "title": "Quoting Anthropic Frontier Red Team",
+      "url": "https://simonwillison.net/2026/Sep/29/anthropic-frontier-red-team/",
+      "publishedAt": "2026-09-29T22:20:28+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "41625591abfe53de1f2e",
+      "personId": "simon",
+      "title": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
+      "url": "https://simonwillison.net/2026/Sep/29/hn-49898129/",
+      "publishedAt": "2026-09-29T18:27:48+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "023d364db8b33fc2047d",
+      "personId": "simon",
+      "title": "Photo Scrubber — local face blur & metadata removal",
+      "url": "https://simonwillison.net/2026/Sep/29/photo-scrubber/",
+      "publishedAt": "2026-09-29T16:45:27+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "d3b185d971abc0ead807",
+      "personId": "simon",
+      "title": "OpenAI DevDay 2026 live blog",
+      "url": "https://simonwillison.net/2026/Sep/29/openai-devday-2026-live-blog/",
+      "publishedAt": "2026-09-29T15:55:13+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "9803e98a2bb634456a90",
+      "personId": "swyx",
+      "title": "[AINews] AMD buys World Labs for $8.2B, as Atlas solves sparse reconstruction problem for robotics, design and more",
+      "url": "https://www.latent.space/p/ainews-amd-buys-world-labs-for-82b",
+      "publishedAt": "2026-09-29T02:55:27+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.latent.space/feed"
+    },
+    {
+      "id": "e76b74dfee5283947a0c",
+      "personId": "ethan",
+      "title": "The Overhang",
+      "url": "https://www.oneusefulthing.org/p/the-overhang",
+      "publishedAt": "2026-09-18T17:54:32+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "2dcdd65e20c25a81e4e4",
+      "personId": "ethan",
+      "title": "Agency and Agents",
+      "url": "https://www.oneusefulthing.org/p/agency-and-agents",
+      "publishedAt": "2026-08-31T00:24:35+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "d53d2d2cbde8d7768f5a",
+      "personId": "ethan",
+      "title": "An opinionated guide to which AI to use to do stuff",
+      "url": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22",
+      "publishedAt": "2026-07-23T18:05:24+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "bc65587780a40f677f2a",
+      "personId": "lilian",
+      "title": "Harness Engineering for Self-Improvement",
+      "url": "https://lilianweng.github.io/posts/2026-07-04-harness/",
+      "publishedAt": "2026-07-04T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "60bb7368a0c2a0856cdc",
+      "personId": "ethan",
+      "title": "The twilight of the chatbots",
+      "url": "https://www.oneusefulthing.org/p/the-twilight-of-the-chatbots",
+      "publishedAt": "2026-06-30T22:18:12+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "d01eba4a302808d5277d",
+      "personId": "lilian",
+      "title": "Scaling Laws, Carefully",
+      "url": "https://lilianweng.github.io/posts/2026-06-24-scaling-laws/",
+      "publishedAt": "2026-06-24T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "8fa21667c4bd4dc9f11a",
+      "personId": "ethan",
+      "title": "What it feels like to work with Mythos",
+      "url": "https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos",
+      "publishedAt": "2026-06-09T17:11:22+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "58d643e93202eb2a0c7c",
+      "personId": "ethan",
+      "title": "Co-Existence and the End of Co-Intelligence",
+      "url": "https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence",
+      "publishedAt": "2026-06-04T21:13:42+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "5aefa95579dc940977dc",
+      "personId": "ethan",
+      "title": "Choosing to Stay Human",
+      "url": "https://www.oneusefulthing.org/p/choosing-to-stay-human",
+      "publishedAt": "2026-05-26T19:56:01+00:00",
+      "author": "Ethan Mollick",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://www.oneusefulthing.org/feed"
+    },
+    {
+      "id": "b6c090862f529eab05a5",
+      "personId": "karpathy",
+      "title": "Sequoia Ascent 2026 summary",
+      "url": "https://karpathy.bearblog.dev/sequoia-ascent-2026/",
+      "publishedAt": "2026-04-30T16:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "ca5be40ee3c10c03433c",
+      "personId": "karpathy",
+      "title": "2025 LLM Year in Review",
+      "url": "https://karpathy.bearblog.dev/year-in-review-2025/",
+      "publishedAt": "2025-12-19T18:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "f8512fa8a2edee0aa8f7",
+      "personId": "karpathy",
+      "title": "Chemical hygiene",
+      "url": "https://karpathy.bearblog.dev/chemical-hygiene/",
+      "publishedAt": "2025-12-18T18:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "28c33ce2ab9e6e93efb1",
+      "personId": "karpathy",
+      "title": "Auto-grading decade-old Hacker News discussions with hindsight",
+      "url": "https://karpathy.bearblog.dev/auto-grade-hn/",
+      "publishedAt": "2025-12-10T15:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "311e0ad0afc7786b1057",
+      "personId": "karpathy",
+      "title": "The space of minds",
+      "url": "https://karpathy.bearblog.dev/the-space-of-minds/",
+      "publishedAt": "2025-11-29T18:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "b0781ee1a1f3e38c6300",
+      "personId": "karpathy",
+      "title": "Verifiability",
+      "url": "https://karpathy.bearblog.dev/verifiability/",
+      "publishedAt": "2025-11-17T17:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "ead2bd9f277679b9ebd3",
+      "personId": "karpathy",
+      "title": "Animals vs Ghosts",
+      "url": "https://karpathy.bearblog.dev/animals-vs-ghosts/",
+      "publishedAt": "2025-10-01T17:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "ebb155c1ad2cd8bb6406",
+      "personId": "lilian",
+      "title": "Why We Think",
+      "url": "https://lilianweng.github.io/posts/2025-05-01-thinking/",
+      "publishedAt": "2025-05-01T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "2c3ae22852e1a30051e4",
+      "personId": "karpathy",
+      "title": "Vibe coding MenuGen",
+      "url": "https://karpathy.bearblog.dev/vibe-coding-menugen/",
+      "publishedAt": "2025-04-27T12:00:00+00:00",
+      "author": "karpathy",
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://karpathy.bearblog.dev/feed/"
+    },
+    {
+      "id": "76538638f16246099321",
+      "personId": "chip",
+      "title": "Common pitfalls when building generative AI applications",
+      "url": "https://huyenchip.com//2025/01/16/ai-engineering-pitfalls.html",
+      "publishedAt": "2025-01-16T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "bfaa013c39d0485af2b6",
+      "personId": "chip",
+      "title": "Agents",
+      "url": "https://huyenchip.com//2025/01/07/agents.html",
+      "publishedAt": "2025-01-07T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "570615e019d1cc740913",
+      "personId": "lilian",
+      "title": "Reward Hacking in Reinforcement Learning",
+      "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/",
+      "publishedAt": "2024-11-28T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "072d8a96eb7fc91224a2",
+      "personId": "chip",
+      "title": "Building A Generative AI Platform",
+      "url": "https://huyenchip.com//2024/07/25/genai-platform.html",
+      "publishedAt": "2024-07-25T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "d342305e68818550acc2",
+      "personId": "lilian",
+      "title": "Extrinsic Hallucinations in LLMs",
+      "url": "https://lilianweng.github.io/posts/2024-07-07-hallucination/",
+      "publishedAt": "2024-07-07T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "513220f5b91c5314014d",
+      "personId": "chip",
+      "title": "Measuring personal growth",
+      "url": "https://huyenchip.com//2024/04/17/personal-growth.html",
+      "publishedAt": "2024-04-17T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "001c923ae8027edfbd63",
+      "personId": "lilian",
+      "title": "Diffusion Models for Video Generation",
+      "url": "https://lilianweng.github.io/posts/2024-04-12-diffusion-video/",
+      "publishedAt": "2024-04-12T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "223c0177e5f8b9592121",
+      "personId": "chip",
+      "title": "What I learned from looking at 900 most popular open source AI tools",
+      "url": "https://huyenchip.com//2024/03/14/ai-oss.html",
+      "publishedAt": "2024-03-14T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "f60e531b1c3c82dc7732",
+      "personId": "chip",
+      "title": "Predictive Human Preference: From Model Ranking to Model Routing",
+      "url": "https://huyenchip.com//2024/02/28/predictive-human-preference.html",
+      "publishedAt": "2024-02-28T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "fe9d3bc7a1c8514af401",
+      "personId": "lilian",
+      "title": "Thinking about High-Quality Human Data",
+      "url": "https://lilianweng.github.io/posts/2024-02-05-human-data-quality/",
+      "publishedAt": "2024-02-05T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "61e285c7b20f16f97ece",
+      "personId": "chip",
+      "title": "Generation configurations: temperature, top-k, top-p, and test time compute",
+      "url": "https://huyenchip.com//2024/01/16/sampling.html",
+      "publishedAt": "2024-01-16T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    },
+    {
+      "id": "3092873dd67884e15d04",
+      "personId": "lilian",
+      "title": "Adversarial Attacks on LLMs",
+      "url": "https://lilianweng.github.io/posts/2023-10-25-adv-attack-llm/",
+      "publishedAt": "2023-10-25T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://lilianweng.github.io/index.xml"
+    },
+    {
+      "id": "5d4bcc225ee9c9bca76f",
+      "personId": "chip",
+      "title": "Multimodality and Large Multimodal Models (LMMs)",
+      "url": "https://huyenchip.com//2023/10/10/multimodal.html",
+      "publishedAt": "2023-10-10T00:00:00+00:00",
+      "author": null,
+      "kind": "Yazı / paylaşım",
+      "sourceUrl": "https://huyenchip.com/feed.xml"
+    }
+  ]
+}
