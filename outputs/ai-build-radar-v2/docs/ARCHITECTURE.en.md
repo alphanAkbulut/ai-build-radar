@@ -171,6 +171,10 @@ Local mode can manually trigger currently due sources. Registered does not mean 
 
 `GET /api/update-summary` returns recent run status only to an authenticated session and marks it private/no-store; its counts derive from the same runs shown in `/sources`. `POST /api/analytics` checks session, same origin, payload size, and schema before storing a permitted local event. `POST /api/people-summary` validates the existing feed entry and language with similar safeguards; without a connected provider it returns `NOT_CONFIGURED` instead of inventing a summary. These are not public integration contracts. User text and secrets must not leak into source control or responses.
 
+### 7.12 `/briefing` — Sourced 48-hour Radar briefing
+
+[`lib/briefing.ts`](../lib/briefing.ts) derives a readable 48-hour or seven-day slice from existing Build/Evidence/Run data. Measured attention, new discovery, and mere mentions stay distinct; a builder statement is not a virality score. A headline highlight requires **two independent attention platforms for the same product**; single-platform observations appear in a smaller separate list. The view never pads the highlights to five or eight entries. A category movement excludes “Other” and requires at least three distinct products, each with two independent attention sources. The source table reports actual attempts and each source's latest run status; configured but unrun sources are not counted as successes. This page neither scans new sources nor generates an original AI summary. The [source-expansion audit](SOURCE-EXPANSION.en.md) records the prompt's candidates and missing integrations.
+
 ## 8. File ownership, versioning, and data privacy
 
 | Location | Authoritative content | Update path |

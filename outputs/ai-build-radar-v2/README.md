@@ -10,6 +10,7 @@
 
 - [Mimari hafıza](docs/ARCHITECTURE.md) ([English](docs/ARCHITECTURE.en.md)): veri akışı, karar kuralları, her ekranın ve alanın görevi, listeleme, dosya sahipliği, mevcut sınırlar. Ürün mantığı için ana başvuru.
 - Konu belgeleri: [veri ve kanıt](docs/MODEL.md), [kaynak kapsamı](docs/PROJECT-CONTEXT.md), [değerlendirme](docs/EVALUATION.md), [seçki](docs/SELECTION.md), [insanlar ve fikirler](docs/PEOPLE.md), [özetler](docs/SUMMARIES.md), [analitik](docs/ANALYTICS.md), [mobil](docs/MOBILE.md). Tarihli pilot/doğrulama belgeleri güncel durum raporu sayılmaz.
+- [Günlük AI ürün promptu için kaynak denetimi](docs/SOURCE-EXPANSION.md) ([English](docs/SOURCE-EXPANSION.en.md)): doğrulanan kaynak adayları, erişim/lisans sınırları ve entegrasyon sırası. Mevcut veriden üretilen kısa okuma `/briefing` ekranındadır.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
 
 ## Bugünkü sınır
