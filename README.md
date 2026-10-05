@@ -9,6 +9,8 @@ Evidence-based project discovery and a learning collection for people building w
 
 These are snapshots versioned at the time this repository was created, not reconstructed historical commit dates. Future changes should be committed in focused increments; milestone tags should remain immutable.
 
+For the current product logic, data flow, selection rules and known limits, see the [v2 architecture memory](outputs/ai-build-radar-v2/docs/ARCHITECTURE.md). The [v2 application README](outputs/ai-build-radar-v2/README.md) is the local run guide.
+
 ## Restore
 
 Install Node.js and pnpm. Run `pnpm install --frozen-lockfile` in the desired application directory. Copy `.env.example` to `.env.local` and configure a new private password and session secret; credentials are deliberately not backed up here.
