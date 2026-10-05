@@ -36,7 +36,7 @@ Kaynak toplama, tekilleştirme, açıklama adayı çıkarma ve bazı ilgi sinyal
 
 ## 3. Kaynak kaydı ve tarama
 
-Kaynakların tek kayıt noktası [`lib/sources.ts`](../lib/sources.ts) dosyasıdır. Her kaynakta kimlik, ad, tür, URL, lisans/kullanım notu, kapsam, aralık, `enabled` ve adapter bulunur. **Kayıtlı, etkin, başarılı taranmış ve bağımsız keşif kaynağı** farklı şeylerdir. Yerel modda 26 satır kayıtlı; 14 etkin keşif, 3 etkin zenginleştirme vardır. GitHub Trending public/hosted modda kapalıdır. Kod en az 10 etkin keşif kaynağını şart koşar. Public hedefi 25 gerçekten çalışan bağımsız keşif kaynağıdır. Son başarılı koşu ve gerçek kapsama `/sources` ekranından okunur.
+Kaynakların tek kayıt noktası [`lib/sources.ts`](../lib/sources.ts) dosyasıdır. Her kaynakta kimlik, ad, tür, URL, lisans/kullanım notu, kapsam, aralık, `enabled` ve adapter bulunur. **Kayıtlı, etkin, başarılı taranmış ve bağımsız keşif kaynağı** farklı şeylerdir. Yerel modda 36 satır kayıtlı; 24 etkin keşif, 3 etkin zenginleştirme vardır. GitHub Trending public/hosted modda kapalıdır. Kod en az 10 etkin keşif kaynağını şart koşar. Public hedefi 25 gerçekten çalışan bağımsız keşif kaynağıdır. Son başarılı koşu ve gerçek kapsama `/sources` ekranından okunur.
 
 | Etkin keşif | Aralık | Alınan kapsam ve yorum sınırı |
 | --- | ---: | --- |
@@ -176,6 +176,8 @@ Yerel modda zamanı gelen kaynaklar elle başlatılabilir. Kayıtlı kaynak çal
 ### 7.12 `/briefing` — 48 saatlik kaynaklı Radar özeti
 
 [`lib/briefing.ts`](../lib/briefing.ts) mevcut Build/Evidence/Run verisinden son 48 saatlik veya 7 günlük okunabilir bir kesit çıkarır. Ölçülen ilgi, yalnız yeni keşif ve yalnız bahsedilme ayrı kalır; geliştirici beyanı viralite puanı olmaz. Ana öne çıkanlar için **aynı üründe en az iki bağımsız ilgi platformu** gerekir; tek platformdaki ölçümler ayrı, küçük bir listede görünür. Beş-sekiz başlık zorla doldurulmaz. “Diğer” dışındaki bir kategori hareketi için en az üç ayrı ürünün her birinde iki bağımsız ilgi kaynağı gerekir. Kaynak tablosu dönemde gerçekten yapılan denemeleri ve son koşunun durumunu gösterir; ayarlarda kayıtlı fakat çalışmamış kaynak başarı sayılmaz. Bu ekran yeni kaynak taramaz veya özgün AI özeti üretmez. [Kaynak genişletme denetimi](SOURCE-EXPANSION.md) prompttaki adayları ve eksik entegrasyonları kaydeder.
+
+Sayfanın başında gerçek demo, önizleme, kaynaklı amaç, ayırt edici öğrenme gerekçesi ve adım kapısını geçmiş dersler ayrı ve doğrudan bağlantılı gösterilir. Önceden “Yeni adaylar” denilen bölüm artık “Yeni keşfedilen ürünler”dir: Radar'ın son 48 saat/7 günde ilk gördüğü ve üreticinin AI geliştirme beyanı bulunan ürünler. Bu, seçki adayı olarak inceleme alanına girebilir; zaman penceresinden düşünce arşivde kalır, fakat ancak [`selectionFor`](../lib/selection.ts) kapısı geçilirse öğrenme koleksiyonunda görünür. Kaynak tablosunda okunan yazı/kayıt ile kabul edilen proje bağlantısı ayrı sütundur; bir yazı birden çok bağlantı verebilir.
 
 Hugging Face trend kanıtı yalnız gerçek ilk 20 trend listesinden gelir; toplam beğeni sorgusunda görünen `trendingScore` tek başına yeterli değildir. Liste sırası kaynak verisi olarak saklanır; en az 24 saat arayla iki ölçüm varsa sıra değişimi gösterilir. Tek platformlu kayıtların kaynak dağılımı `/briefing` içinde görünür. [TrendRadar karşılaştırması](TRENDRADAR-BENCHMARK.md) bu tercihlerin gerekçesini açıklar.
 

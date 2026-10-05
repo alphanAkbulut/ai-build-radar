@@ -1,6 +1,6 @@
 # Günlük AI ürün promptu: kaynak denetimi ve entegrasyon sırası
 
-**Durum:** 5 Ekim 2026 itibarıyla doğrulanan kaynakların değerlendirmesi; aşağıdaki adaylar **çalışan collector** sayılmaz. Anlık çalışma kaydı `/sources` sayfasındadır. [English](SOURCE-EXPANSION.en.md).
+**Durum:** 5 Ekim 2026 kaynak denetimi. Aşağıdaki yeni yayın akışları çalışır; daha sonraki aday tablosu **çalışan collector** sayılmaz. Anlık çalışma kaydı `/sources` sayfasındadır. [English](SOURCE-EXPANSION.en.md).
 
 ## Prompttan alınan ürün kararı
 
@@ -8,7 +8,15 @@ Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl 
 
 `/briefing` artık son 48 saat veya 7 günde mevcut kaynakların ürettiği ilgi, geliştirici beyanıyla yeni keşif ve gerçek tarama kapsamını ayrı gösterir. Ana kart için aynı üründe en az iki bağımsız ilgi platformu arar; tek platform ölçümlerini ayrı, küçük bir listede tutar. Top 5–8'i doldurmak için veri uydurmaz; kategori hareketinde “Diğer” etiketini kullanmaz ve en az üç çok kaynaklı ürün arar. Yenilik, fayda, ürün kalitesi ve “wrapper” değerlendirmesi otomatik hesaplanmıyor; bunlar demo incelemesi olmadan puanlanmamalı.
 
-## Doğrulanmış kaynak adayları
+## Bağlanan on bağımsız yayın akışı
+
+`content/publications.json` içindeki **Interconnects, Import AI, SemiAnalysis, Ben's Bites, The Gradient, Sebastian Ruder, AI Tidbits, MarkTechPost, Lenny's Newsletter ve The Pragmatic Engineer** doğrudan kendi RSS akışlarından okunur. Son 20 yazı içindeki açık GitHub repo / Hugging Face Space bağlantıları ayrıştırılır. Genel ürün/yazılım yayınları olan son ikisinde AI konulu başlık filtresi vardır. Yazı **45 günden eskiyse** bağlantı yeni keşif diye işlenmez; yayın tarihi ürünün çıkış tarihi değildir. Bağlantı, yazarın onayı veya AI ile geliştirme kanıtı değildir. Aynı URL diğer kaynaklarla kimlik üzerinden eşleşir; kaynak ayrı korunur.
+
+**İlk gerçek koşu, 5 Ekim 2026:** on akışın onu da `completed`; toplam 160 yazı/kayıt okundu ve 39 proje bağlantısı kabul edildi. 34 bağlantı o sırada yeni Build kaydı açtı; bu **34 yeni çalışan demo** veya **34 AI ile geliştirilmiş ürün** iddiası değildir. SemiAnalysis, The Gradient, Sebastian Ruder ve AI Tidbits akışlarında son 20 yazıda sınırı geçen güncel proje bağlantısı bulunmadı; başarılı tarama ile yararlı yeni aday üretimi farklıdır. Sonraki koşular ve hatalar için `/sources` esas alınır. Akışların içerik ve yeniden kullanım koşulları public yayın öncesi ayrıca incelenmelidir.
+
+Bu akışlar kullanıcı promptundaki blog/bülten boşluğunu kapatır. Product Hunt, X, Reddit, YouTube, çok dilli Asya yayınları ve resmî laboratuvar duyuruları hâlâ ayrı entegrasyon işleridir; on akış bunların yerini almış sayılmaz. GitHub Trending'in iki sayfası yine tek platform sinyalidir.
+
+## Doğrulanmış fakat henüz bağlı olmayan kaynak adayları
 
 | Kaynak | Doğrulanan durum | Radar'da doğru kullanım | Entegrasyon |
 | --- | --- | --- | --- |

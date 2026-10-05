@@ -1,0 +1,12 @@
+[
+  {"id":"interconnects","name":"Interconnects","url":"https://www.interconnects.ai/feed","topicGate":false},
+  {"id":"import-ai","name":"Import AI · Jack Clark","url":"https://jack-clark.net/feed/","topicGate":false},
+  {"id":"semianalysis","name":"SemiAnalysis","url":"https://semianalysis.com/feed/","topicGate":false},
+  {"id":"bens-bites","name":"Ben's Bites","url":"https://www.bensbites.com/feed","topicGate":false},
+  {"id":"the-gradient","name":"The Gradient","url":"https://thegradient.pub/rss/","topicGate":false},
+  {"id":"ruder","name":"Sebastian Ruder","url":"https://www.ruder.io/rss/","topicGate":false},
+  {"id":"ai-tidbits","name":"AI Tidbits","url":"https://www.aitidbits.ai/feed","topicGate":false},
+  {"id":"marktechpost","name":"MarkTechPost","url":"https://www.marktechpost.com/feed/","topicGate":false},
+  {"id":"lennys-newsletter","name":"Lenny's Newsletter · AI yazıları","url":"https://www.lennysnewsletter.com/feed","topicGate":true},
+  {"id":"pragmatic-engineer","name":"The Pragmatic Engineer · AI yazıları","url":"https://newsletter.pragmaticengineer.com/feed","topicGate":true}
+]

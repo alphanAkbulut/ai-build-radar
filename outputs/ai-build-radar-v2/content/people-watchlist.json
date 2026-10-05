@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-10-05",
+  "origin": "User-supplied research candidates; names and groupings are not evidence of current roles, endorsements, or monitored activity.",
+  "groups": [
+    {"id":"research","label":"Araştırma ve akademi","names":["Geoffrey Hinton","Yoshua Bengio","Yann LeCun","Fei-Fei Li","Demis Hassabis","Andrew Ng","Ilya Sutskever","Kaiming He","Jeff Dean","Stuart Russell"]},
+    {"id":"products","label":"Ürün ve şirket liderliği","names":["Sam Altman","Jensen Huang","Dario Amodei","Elon Musk","Mark Zuckerberg","Sundar Pichai","Satya Nadella","Mustafa Suleyman","Arthur Mensch","Liang Wenfeng"]},
+    {"id":"global","label":"Diğer küresel öncüler","names":["Kai-Fu Lee","Yang Zhilin","Andrej Karpathy","Alexandr Wang","Aravind Srinivas","Oriol Vinyals","François Chollet","Anima Anandkumar","Joelle Pineau","C. C. Wei"]}
+  ],
+  "verifiedPublicationFeeds": [
+    {"name":"Andrej Karpathy","sourceId":"feed-karpathy","scope":"Personal blog only; social posts and interviews are not covered."}
+  ]
+}

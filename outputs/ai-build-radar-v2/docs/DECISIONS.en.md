@@ -13,7 +13,7 @@
 | D07 | Roughly 30 thorough cases beat many shallow cards. “Featured” is a quality claim. | Target; first five R05, production capacity R11. |
 | D08 | Separate the maker's evidenced method from Radar's **recommended** reproduction method. | Partly in lessons; real adaptation test R10. |
 | D09 | The site cannot automatically know another AI chat or user's repository. A handoff prompt first inspects the current project and checks fit. | Boundary exists; quality test R10. |
-| D10 | At least ten enabled independent discovery sources; public target 25 **working** independent sources. Two GitHub pages do not equal two platforms. | Local registry has 14 enabled discovery sources; actual success is on `/sources`. R06–R07. |
+| D10 | At least ten enabled independent discovery sources; public target 25 **working** independent sources. Two GitHub pages do not equal two platforms. | Local registry has 24 enabled discovery sources; actual success is on `/sources`. R06–R07. |
 | D11 | The local worker runs only while the Mac runs; failed scans stay visible. Last check differs from last success. | Implemented; hosted operation R12. |
 | D12 | Turkish is the first UI language, not a permanent content restriction. Missing summaries never masquerade as translations. | Language-keyed records ready, paid provider off; R09/R13. |
 | D13 | Accounts, comments, follow, maker showcases, and monetization are not today's MVP gate. Prove visitor value first. | Product ideas; demand/moderation review before R17. |
@@ -22,6 +22,7 @@
 | D16 | Research Gate, model announcements, and theoretical papers are not working-app cards. | No separate page yet; R16. |
 | D17 | Do not infer a universal “AI signature” from code style. Keep owner statements, specific agent-authored commit records, and AI product features as separate claims; never generalize one commit to a whole product. | [Evidence limits and primary sources](AI-DEVELOPMENT-EVIDENCE.en.md) are recorded. No code-authorship detector or provider telemetry runs today; R01 will measure errors. |
 | D18 | If a source-specific publication claim lacks supporting evidence, **do not display it**; keep its raw history. Discovery can stay broad, while visitor-facing news uses stricter rules shared across surfaces. | Lobsters discussions now need matching raw source/record IDs, content hash, and an `ai`/`ml` tag in feed, detail sources, and current evidence. R01 will measure false positives across other sources. |
+| D19 | A project link in a publication is evidence of a **mention** only; article time is not product launch time, and a link is not personal praise. Keep the person research watchlist separate from running feeds. | Ten independent publication RSS feeds are connected and completed their first live runs. Of 30 suggested people, only Karpathy's blog is connected to an existing personal feed. Links in articles older than 45 days do not become new candidates; official lab news remains a separate task. |
 
 ## Open decisions
 

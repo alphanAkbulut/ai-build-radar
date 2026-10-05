@@ -3,6 +3,7 @@ import {spawn} from 'node:child_process';
 import path from 'node:path';
 import {z} from 'zod';
 import people from '../content/people.json';
+import publications from '../content/publications.json';
 import {getJson,getText} from './http';
 import type {Batch} from './collectors';
 import type {Candidate} from './schema';
@@ -23,6 +24,11 @@ export function huggingFaceCandidates(popularInput:unknown,trendingInput:unknown
 export function parseFeed(text:string):Promise<{fetched:number;references:z.infer<typeof reference>[]} >{
  return new Promise((resolve,reject)=>{const child=spawn('python3',[path.join(process.cwd(),'scripts/discovery_feed.py')],{stdio:['pipe','pipe','pipe']});let output='',error='';const timer=setTimeout(()=>child.kill(),10000);child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>error+=b);child.on('error',reject);child.stdin.on('error',()=>{});child.on('close',code=>{clearTimeout(timer);if(code!==0){reject(new Error('Feed parser failed: '+error.slice(-300)));return;}try{resolve(z.object({fetched:z.number(),references:z.array(reference)}).parse(JSON.parse(output)));}catch(e){reject(e);}});child.stdin.end(text);});
 }
+export function publicationReferenceAllowed(title:string,topicGate:boolean){return !topicGate||/\b(?:AI|LLM|agent|model|prompt|eval|Claude|GPT|Gemini|machine learning)\b/i.test(title);}
+export function recentPublicationReference(publishedAt:string|null,now=Date.now()){
+ const age=now-Date.parse(publishedAt||'');
+ return Number.isFinite(age)&&age>=0&&age<=45*86400000;
+}
 export async function discover(sourceId:string):Promise<Batch>{
  if(['devcommunity','lobsters'].includes(sourceId))return community(sourceId);
  const batch:Batch={candidates:[],fetched:0,filtered:0,invalid:0,errors:[]};
@@ -31,8 +37,15 @@ export async function discover(sourceId:string):Promise<Batch>{
   const trending=await getJson('https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=20');
   return huggingFaceCandidates(popular,trending);
  }
- const person=people.find(p=>'feed-'+p.id===sourceId);if(!person?.feed)throw new Error('Unknown discovery source');
- const parsed=await parseFeed(await getText(person.feed));batch.fetched=parsed.fetched;
- for(const r of parsed.references){const c:Candidate={recordId:r.article+'#'+r.url,name:r.url.split('/').at(-1)!,url:r.url,aliases:[],description:`${person.name} yayınında bağlantısı geçen aday. Yazı: ${r.title}. Bağlantı verilmesi övgü veya AI ile geliştirme kanıtı değildir.`,creator:null,category:'uncategorized',publishedAt:r.publishedAt,sourceUrl:r.article,raw:r,claims:[{field:'editorial_reference',value:r.article,status:'Verified',quote:r.label||r.url,locator:'feed article hyperlink',rationale:'Explicit project link in feed content; not endorsement, authorship or AI development evidence.',strength:.8}]};batch.candidates.push(c);}
+ const person=people.find(p=>'feed-'+p.id===sourceId);
+ const publication=publications.find(p=>'publication-'+p.id===sourceId);
+ const feed=person?.feed||publication?.url;
+ if(!feed)throw new Error('Unknown discovery source');
+ const parsed=await parseFeed(await getText(feed));batch.fetched=parsed.fetched;
+ const publisher=person?.name||publication!.name;
+ for(const r of parsed.references){
+  if(publication&&(!recentPublicationReference(r.publishedAt)||!publicationReferenceAllowed(r.title,publication.topicGate))){batch.filtered++;continue;}
+  const c:Candidate={recordId:r.article+'#'+r.url,name:r.url.split('/').at(-1)!,url:r.url,aliases:[],description:`${publisher} yayınında bağlantısı geçen aday. Yazı: ${r.title}. Bağlantı verilmesi övgü veya AI ile geliştirme kanıtı değildir.`,creator:null,category:'uncategorized',publishedAt:r.publishedAt,sourceUrl:r.article,raw:r,claims:[{field:'editorial_reference',value:r.article,status:'Verified',quote:r.label||r.url,locator:'feed article hyperlink',rationale:'Explicit project link in feed content; not endorsement, authorship or AI development evidence.',strength:.8}]};batch.candidates.push(c);
+ }
  return batch;
 }

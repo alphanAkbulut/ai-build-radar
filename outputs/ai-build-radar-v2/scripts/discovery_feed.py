@@ -21,7 +21,7 @@ def parse(raw):
   fields={local(c):c for c in e};title=''.join(fields['title'].itertext()) if 'title' in fields else ''
   link=next((c.get('href') or c.text or '' for c in e if local(c)=='link' and c.get('rel','alternate')=='alternate'),'')
   date=next((c.text for c in e if local(c) in ('published','pubDate','updated')),None)
-  try: date=(datetime.fromisoformat(date.replace('Z','+00:00')) if 'T' in date else parsedate_to_datetime(date)).isoformat()
+  try: date=(datetime.fromisoformat(date.replace('Z','+00:00')) if re.match(r'^\d{4}-\d\d-\d\d[T ]',date) else parsedate_to_datetime(date)).isoformat()
   except (ValueError,TypeError,AttributeError):date=None
   content=' '.join(''.join(c.itertext()) for c in e if local(c) in ('content','encoded','description','summary'))
   parser=Links();parser.feed(content);seen=set()

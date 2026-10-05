@@ -1,6 +1,6 @@
 # Daily AI product prompt: source audit and integration order
 
-**Status:** Evaluation of sources verified on 5 October 2026; candidates below are **not running collectors**. `/sources` is authoritative for live run history. [Türkçe](SOURCE-EXPANSION.md).
+**Status:** Source audit on 5 October 2026. The publication feeds below are running; the later candidate table is **not** a set of working collectors. `/sources` is authoritative for live run history. [Türkçe](SOURCE-EXPANSION.md).
 
 ## Product decision from the prompt
 
@@ -8,7 +8,15 @@ Radar primarily discovers working AI products and, where possible, explains how 
 
 `/briefing` now separates measured attention, new discoveries with builder statements, and actual scan coverage for the last 48 hours or 7 days. A headline card requires attention measured on two independent platforms for the same product; single-platform observations remain in a smaller separate list. It does not invent five to eight highlights when the evidence is thin. Category movement excludes “Other” and needs at least three products with multi-source attention. Novelty, usefulness, product quality, and “wrapper” status are not scored automatically without product review.
 
-## Verified source candidates
+## Ten connected independent publication feeds
+
+`content/publications.json` contains direct RSS feeds for **Interconnects, Import AI, SemiAnalysis, Ben's Bites, The Gradient, Sebastian Ruder, AI Tidbits, MarkTechPost, Lenny's Newsletter, and The Pragmatic Engineer**. Radar parses explicit GitHub repository and Hugging Face Space links from the latest 20 articles. The last two are broad product/engineering publications and use an AI-topic title gate. Links from articles older than **45 days** are excluded so historical projects do not become today's discoveries; article date is not product-launch date. A link is neither endorsement nor proof of AI-assisted development. Matching URLs deduplicate across sources while keeping provenance.
+
+**First live run, 5 October 2026:** all ten completed; 160 articles/records read and 39 project links accepted. Of those, 34 created Build records at the time; this is **not** a claim of 34 working demos or 34 AI-developed products. SemiAnalysis, The Gradient, Sebastian Ruder, and AI Tidbits produced no recent qualifying links in their latest 20 articles. A completed scan and a useful new candidate are different things. Check `/sources` for later runs and failures. Reuse rights require separate review before public launch.
+
+These feeds address the blog/newsletter gap in the user's prompt. Product Hunt, X, Reddit, YouTube, multilingual Asian publications, and first-party lab announcements remain separate integrations; ten feeds do not stand in for them. GitHub Trending's two pages are still one platform signal.
+
+## Verified but not yet connected source candidates
 
 | Source | What was verified | Proper Radar use | Integration |
 | --- | --- | --- | --- |

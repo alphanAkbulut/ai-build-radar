@@ -13,7 +13,7 @@
 | D07 | Yaklaşık 30 kapsamlı vaka, çok sayıda yüzeysel karttan değerlidir. “Seçilmiş” kalite iddiasıdır. | Hedef; ilk 5 vaka R05, üretim ölçeği R11. |
 | D08 | Geliştiricinin kanıtlı yöntemi ile Radar'ın **önerdiği** yeniden uygulama yöntemi ayrı yazılır. | Derslerde kısmen var; gerçek uyarlama testi R10. |
 | D09 | Başka AI sohbeti veya kod deposu site tarafından otomatik bilinmez. Prompt önce mevcut projeyi inceleyip uyumu sorar. | Prompt akışında sınır var; R10 kalite testi. |
-| D10 | Kaynak sayısında en az 10 etkin bağımsız keşif kaynağı; public hedefi 25 **çalışan** bağımsız kaynak. Aynı GitHub'ın iki sayfası iki platform değildir. | Yerel registry 14 etkin keşif; fiilî son başarı `/sources` ile kontrol edilir. R06–R07. |
+| D10 | Kaynak sayısında en az 10 etkin bağımsız keşif kaynağı; public hedefi 25 **çalışan** bağımsız kaynak. Aynı GitHub'ın iki sayfası iki platform değildir. | Yerel registry 24 etkin keşif; fiilî son başarı `/sources` ile kontrol edilir. R06–R07. |
 | D11 | Yerel worker yalnız Mac açıkken çalışır; başarısız tarama görünür kalır. “Son kontrol” ve “son başarı” farklıdır. | Uygulandı; hosted işletim R12. |
 | D12 | İlk arayüz dili Türkçe, içerik sistemi gelecekte çok dilli. Olmayan özet çevrilmiş gibi görünmez. | Dil bazlı kayıt hazır, ücretli üretici kapalı; R09/R13. |
 | D13 | Üyelik, yorum, follow, geliştirici vitrini ve monetizasyon bugünkü MVP kapısı değildir. Önce ziyaretçi değerini kanıtla. | Ürün fikri; R17 öncesi talep ve moderasyon incelemesi. |
@@ -22,6 +22,7 @@
 | D16 | Research Gate, model duyurusu ve teorik makale çalışan uygulama kartı gibi sunulmaz. | Ayrı ekran yok; R16. |
 | D17 | Kod biçiminden evrensel bir “AI imzası” çıkarma. Üretici beyanını, belirli agent commit kaydını ve AI özellikli ürünü ayrı iddialar olarak tut; tek commit'i tüm ürüne genelleme. | [Kanıt sınırları ve birincil kaynaklar](AI-DEVELOPMENT-EVIDENCE.md) yazıldı. Bugün otomatik kod yazarlığı tespiti veya sağlayıcı telemetrisi yok; R01 ile hatalar ölçülecek. |
 | D18 | Kaynağa özel yayın iddiasında kanıt eksikse **gösterme**; ham geçmişi silme. Toplama geniş kalabilir, ziyaretçiye açık gündem daha sıkı ve aynı kuralı kullanan yüzeylerden üretilir. | Lobsters tartışması için ham kaynak/kayıt/hash eşleşmesi ve `ai`/`ml` etiketi gündem, detay kaynağı ve güncel kanıtta ortak kapı oldu. Diğer kaynaklarda yanlış pozitif ölçümü R01. |
+| D19 | Yayın akışındaki proje bağlantısını yalnız **bahsedilme** kanıtı olarak al; tarihli yazıyı ürün lansmanı veya kişisel övgü yapma. Kişi izleme listesini çalışan akışlardan ayrı tut. | On bağımsız yayın akışı doğrudan RSS ile bağlı; ilk gerçek taramaları tamamlandı. 30 kişilik araştırma listesinde yalnız Karpathy blogu mevcut kişisel feed'e bağlı. Eski (>45 gün) yayın bağlantıları yeni aday yapılmaz; resmî lab haberleri ayrı iş olarak kalır. |
 
 ## Açık kararlar
 

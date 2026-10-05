@@ -24,8 +24,8 @@
 
 | Alan | Mevcut durum |
 | --- | --- |
-| Kaynak | Yerel modda 26 kayıtlı satırdan 14 bağımsız keşif kaynağı, ayrıca 3 zenginleştirme işi etkin (GitHub Trending yalnız yerel modda açılır). Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. Public hedefi 25 **çalışan bağımsız keşif kaynağıdır**. |
-| Veri | GitHub araması, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters ve sekiz kişi yayını üzerinden adaylar; ayrıca GitHub Trending repo/geliştirici listeleri aynı platformun ayrı sinyali olarak okunur. Bütün internet taranmıyor. |
+| Kaynak | Yerel modda 36 kayıtlı satırdan 24 bağımsız keşif kaynağı, ayrıca 3 zenginleştirme işi etkin (GitHub Trending yalnız yerel modda açılır). Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. Public hedefi 25 **çalışan bağımsız keşif kaynağıdır**. |
+| Veri | GitHub araması, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, sekiz kişi yayını ve on bağımsız yayın akışındaki açık proje bağlantıları üzerinden adaylar; ayrıca GitHub Trending repo/geliştirici listeleri aynı platformun ayrı sinyali olarak okunur. Bütün internet taranmıyor. |
 | Seçki | Kaynaklı amaç, yakın zamanda denenmiş demo, gerçek önizleme, fark ve öğrenme adımları gerekir. Bu kapı otomatik “wow” değerlendirmesi yapmaz. |
 | Erişim | Yerel parola ve oturumla private. Supabase şeması hazır; bağlı hosted proje/public dağıtım yok. |
 | AI özet | Harici AI API’si bağlı değil. Hazır olmayan dilde özet üretilmiş gibi gösterilmez. |

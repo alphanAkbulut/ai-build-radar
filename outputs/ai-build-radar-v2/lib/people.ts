@@ -1,6 +1,8 @@
 import registry from '../content/people.json';
+import watchlist from '../content/people-watchlist.json';
 import references from '../content/people-references.json';
 export const people=registry;
+export const peopleWatchlist=watchlist;
 export const peopleReferences=references;
 export type FeedEntry={id:string;personId:string;title:string;url:string;publishedAt:string|null;author:string|null;kind:string;sourceUrl:string;excerpt?:string};
 export type FeedSource={personId:string;lastAttempt:string;lastSuccess:string|null;status:'ok'|'failed';count:number;added:number;error?:string};

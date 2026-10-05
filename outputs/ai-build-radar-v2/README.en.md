@@ -24,8 +24,8 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 
 | Area | Current implementation |
 | --- | --- |
-| Sources | In local mode, 26 registered rows; 14 enabled independent discovery sources plus 3 enabled enrichment jobs (GitHub Trending runs only locally). Enabled does not mean successfully scanned: read `/sources`. The public target is 25 **working independent discovery sources**. |
-| Discovery | Candidates from GitHub search, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, and eight author publications; GitHub Trending repository/developer lists add a separate signal from the same platform. This is not a crawl of the whole web. |
+| Sources | In local mode, 36 registered rows; 24 enabled independent discovery sources plus 3 enabled enrichment jobs (GitHub Trending runs only locally). Enabled does not mean successfully scanned: read `/sources`. The public target is 25 **working independent discovery sources**. |
+| Discovery | Candidates from GitHub search, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, eight author publications, and explicit project links in ten independent publication feeds; GitHub Trending repository/developer lists add a separate signal from the same platform. This is not a crawl of the whole web. |
 | Learning selection | Requires a sourced purpose, recently tested interaction, real preview, concrete differentiator, and application steps. The gate does not automatically judge “wow” quality. |
 | Access | Private local password and session. A Supabase schema exists, but no connected hosted project or public deployment. |
 | AI summaries | No external AI API is connected. Missing-language summaries are not presented as generated translations. |
