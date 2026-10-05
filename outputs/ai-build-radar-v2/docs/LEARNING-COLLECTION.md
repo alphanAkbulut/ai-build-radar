@@ -1,37 +1,21 @@
-# Öğrenme koleksiyonu — önceki pilot notları
+# Öğrenme koleksiyonu — tarihsel pilot kaydı
 
-Bu belge ilk pilotun tarihsel kaydıdır. Güncel yayın koşulları, gündem/öğrenme ayrımı ve doğrulanmış sınırlar için [EVALUATION.md](EVALUATION.md) esas alınır. 5 Ekim güncellemesinde ziyaretçiden puan veya kaynak isteme formları ders sayfasından kaldırıldı; önceki private kayıtlar korunuyor. Seçkide beş gerçek demo incelemesi ve bunların canlı ekran görüntüleri bulunuyor.
+**Belge türü:** 4–5 Ekim 2026 pilotunun geçmişi. Güncel yayın kuralı [SELECTION.md](SELECTION.md), ürün değerlendirmesi [EVALUATION.md](EVALUATION.md), ekran akışları [ARCHITECTURE.md](ARCHITECTURE.md) içindedir. [English](LEARNING-COLLECTION.en.md). Buradaki eski sayılar güncel seçki veya canlı demo sağlığı değildir.
 
-Ana sayfa editoryal koleksiyondur. /candidates son 24 saatte bulunan adaylar; /builds tüm arşivdir. Ingestion hiçbir adayı otomatik öğrenme incelemesine dönüştürmez. Eski v1 korunur.
+## Pilotun evrimi
 
-İlk iki pilot Motion Pad ve Metaballs: mevcut tarayıcı gözlemleri ve gerçek ekran görüntüleriyle oluşturuldu. AI geliştirme statüleri Unknown. Tam kurs, doğrulanmış özgün stack veya topluluk tarafından beğenilmiş ürün iddiası yoktur. Uygulama reçeteleri öneridir, ayrı bir projede uçtan uca uygulanıp doğrulanmadı.
+İlk iki örnek Motion Pad ve Metaballs'tı; yerel tarayıcı gözlemi ve gerçek ekran görüntüsüyle hazırlanmıştı. Bunlar daha sonra başka kaynaklı örneklerle genişletildi. 5 Ekim'deki 21 kayıtlı ara sürümde 19 açık kaynak projenin README/GitHub metaverisi incelendi; yıldız/fork değerleri ölçüm anına aitti, puan veya büyüme hızı değildi. O tarihte README incelemesi yapılan kayıtların çoğunda canlı ürün etkileşimi denenmemişti. Bazı kaynak bağlantıları ve önerilen egzersizler eklendi; bunlar tam kurs veya geliştiricinin özgün prompt/stack bilgisi sayılmadı.
 
-## Editoryal kabul kontrolü
-- Gösterilebilir deneyim ve zaman damgalı gözlem.
-- Belirli bir öğrenme hedefi ve somut etkileşim.
-- Gözlem, yorum, geliştirici beyanı, çıkarım ayrımı.
-- Kaynak bağlantısı ve bilinmeyenler.
-- Uyarlama adımları ve kabul kontrolleri.
-- Kullanıcı değerlendirmesiyle yeniden inceleme.
+Daha sonra kayıt sayısı 23'e çıktı ve `lib/selection.ts` beş ayrı giriş kontrolünü uygulamaya başladı. 5 Ekim kodundan hesaplanan anlık sonuç **5 seçilmiş / 18 inceleme arşivi** idi; sayılar değişebilir. Ana sayfanın varsayılan sekmesi **Gündem**dir; **Bundan öğren** ayrı sekmedir. `/candidates` son 24 saat listesi değildir: seçkiyi geçmeyen keşifler için sınırlı bir inceleme görünümüdür. `/builds` tekilleştirilmiş tam arşivdir. Otomatik ingestion bir adayı derse yükseltmez.
 
-Statüler: aday → ön inceleme → derin inceleme → pilot → gözden geçirilmiş öğrenme içeriği. Bu sürümde geçişler otomatik değil; lessons.ts editoryal kaydıyla yönetilir. İlk iki kayıt pilot düzeyindedir.
+İlk pilotta ders sayfasında kullanıcı puanı ve ek kaynak önerisi formları denenmişti. 5 Ekim güncellemesinde bu formlar ziyaretçi arayüzünden kaldırıldı. `app/(private)/learn/actions.ts` içinde eski, oturum gerektiren kayıt yolu ve private inbox verisi kalmış olabilir; bunlar etkin kullanıcı akışı veya otomatik kaynak doğrulaması değildir. Eski test sonuçları kendi tarihindeki davranışı kanıtlar, bugünkü ekranı değil.
 
-## Kaynak ve geri bildirim
-Ders sayfasında YouTube/geliştirici/doküman/kullanıcı incelemesi/kod önerisi alınır. URL, ilgili saniye, ilişki (bağımsız/geliştirici/sponsorlu/bilinmiyor), not ve kayıt zamanı saklanır. Kaynaklar pending-review durumuyla learning-data/inbox altında, oturum gerektiren Server Action ile yazılır. Her öneri ayrı dosyadır; ingestion verisini değiştirmez. Form gönderimi sonrası kuyruk yenilenir.
+## Bugün korunması gereken ayrımlar
 
-YouTube arama, transkript indirme ve otomatik video analizi henüz bağlı değildir. Video bağlantısı tek başına içeriğin izlendiğini, görsel davranışın doğrulandığını veya lisans iznini kanıtlamaz. İleride onaylanan bölüm için başlık, yayın tarihi, kontrol zamanı, alıntı sınırı ve özellik bağlantısı korunmalı.
+- Demo gözlemi, README okuması, geliştirici beyanı ve Radar yorumu ayrı kaynak statüleridir.
+- Önizleme statik görüntüdür; canlı site veya animasyon kanıtı değildir.
+- AI kullanan ürünün AI ile geliştirildiği sonucu çıkarılamaz. Motion Pad/Metaballs hakkında geliştirici beyanı vardır; seçki dışına düşmüş olmaları beyanı geçersiz kılmaz.
+- Radar'ın uyarlama önerisi orijinal kod veya üretim yöntemi diye gösterilmez. `Projeme uyarla` ayrıca yeniden üretim kontrolüne bağlıdır.
+- Video bağlantısı izlenmiş bölüm veya kullanıcı övgüsü sayılmaz. YouTube transkript/yorum analizi bağlı değildir.
 
-Promptlar kullanıcının proje bağlamı ile oluşturulur ve kopyalanır. Orijinal prompt/stack gibi sunulmaz. Kaynak kod lisansı bilinmiyorsa davranıştan özgün uygulama istenir.
-
-## Doğrulama
-Production build ve learning.test.ts geçti. Tarayıcıda dersin açılması, prompt kopyalama, değerlendirme kaydı ve kuyruğun güncellenmesi doğrulandı. Yalnızca test için oluşturulan işaretli geri bildirim kaydı test sonrası kaldırıldı.
-
-## 5 Ekim 2026 — 21 örneklik başlangıç koleksiyonu
-
-2 önceki canlı demo gözlemine, 19 uluslararası açık kaynak proje için README ve GitHub API incelemesi eklendi. Kaynak anlık görüntüleri `work/research/`, kullanıcıya gösterilen kaynaklar ve ölçümler `content/researched-lessons.json` içindedir. GitHub yıldız/fork değerleri ölçüm tarihiyle gösterilir; rating, trend hızı veya kalite puanı değildir. Flowise arşivli olduğu için seçkiye alınmadı.
-
-Karpathy'nin LLM Council, Autoresearch ve nanochat projeleri yazar ilişkisiyle etiketlendi; başka ürünlere onay verdiği iddia edilmez. LLM Council README'sindeki vibe coding beyanı Builder-stated olarak işaretlendi. Diğer 20 örnekte AI geliştirme yöntemi Unknown. AI özelliği ile AI tarafından geliştirilme ayrı kavramlardır.
-
-Her yeni örnek için özgün uygulama egzersizi, önerilen araçlar ve kabul kontrolleri var. Bunlar uygulanıp doğrulanmış tam kurslar değildir. 19 yeni projenin canlı kullanım testi yapılmadı. Repo görselleri güncel ekran görüntüsü olarak etiketlenmez. AnythingLLM YouTube bağlantısı ve JSON Crack HN tartışması kaynak olarak eklenmiştir; video içeriği ve yorum analizi henüz yapılmadı. Kaynak incelemeleri otomatik tarama robotunun güncelleme tarihinden bağımsız anlık görüntülerdir.
-
-Ana sayfa varsayılan olarak tüm 21 örneği gösterir. AI durumu, öğrenme alanı ve metin araması ile daraltılabilir. Kaynak ve geri bildirim formları koleksiyondaki tüm slug'ları kabul eder, bilinmeyen slug'ları reddeder.
+Bu geçmişi yeniden üretmek için dönemin commit ve içerik kayıtları gerekir. Güncel durum için kodla birlikte `/sources`, ana sayfa ve seçki kontrolü okunmalıdır.

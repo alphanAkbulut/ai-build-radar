@@ -1,5 +1,7 @@
 # Yerel kullanım analitiği
 
+**Durum:** 5 Ekim 2026 yerel uygulaması. [English](ANALYTICS.en.md).
+
 `/analytics` yetkili kullanıcılar için son 7/30 UTC takvim günündeki toplam Dene ve Bundan öğren tıklamalarını proje bazında gösterir. Koleksiyon kartlarının ana eylemleri ve ders sayfasındaki demo/dış proje eylemi ölçülür. Aday havuzu, kaynak kodu bağlantıları, kart görselleri, makaleler, sayfa görüntülemeleri ve tekil ziyaretçiler bu sürümün kapsamında değildir.
 
 Client, açık data-radar-action işaretli gerçek kullanıcı click olaylarını gönderir. Yeni sekme ve klavye tıklamaları normal gezinmeyi engellemeden fetch keepalive kullanır. Orta tuş ve bağlam menüsü ölçülmez. GPC veya DNT etkinse gönderilmez; ağ hataları kullanıcı akışını bozmaz, kayıp olaylar mümkündür.

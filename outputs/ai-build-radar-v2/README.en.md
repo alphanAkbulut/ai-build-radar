@@ -9,10 +9,13 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 ## Documentation
 
 - [Architecture memory](docs/ARCHITECTURE.en.md) ([Türkçe](docs/ARCHITECTURE.md)) is the primary explanation of data flow, evidence, decisions, every page, listing rules, operational behavior, ownership, and known limits.
-- Topic documents: [data and evidence](docs/MODEL.md), [source coverage](docs/PROJECT-CONTEXT.md), [evaluation](docs/EVALUATION.md), [selection](docs/SELECTION.md), [people and ideas](docs/PEOPLE.md), [summaries](docs/SUMMARIES.md), [analytics](docs/ANALYTICS.md), and [mobile](docs/MOBILE.md). These topic documents are currently in Turkish; dated pilots and checks are not live status reports.
+- Topic documents (each in English/Turkish): [data and evidence](docs/MODEL.en.md), [project context](docs/PROJECT-CONTEXT.en.md), [evaluation](docs/EVALUATION.en.md), [selection](docs/SELECTION.en.md), [people and ideas](docs/PEOPLE.en.md), [summaries](docs/SUMMARIES.en.md), [analytics](docs/ANALYTICS.en.md), and [mobile](docs/MOBILE.en.md). Each page links its counterpart.
+- The [learning-collection pilot](docs/LEARNING-COLLECTION.en.md) and [Phase 1 validation](docs/VALIDATION.en.md) are dated history, not current runtime reports.
 - [Source audit for the daily AI product prompt](docs/SOURCE-EXPANSION.en.md) ([Türkçe](docs/SOURCE-EXPANSION.md)) records verified candidate sources, access/licensing constraints, and integration order. `/briefing` offers a short read derived from existing data.
 - [TrendRadar comparison](docs/TRENDRADAR-BENCHMARK.en.md) ([Türkçe](docs/TRENDRADAR-BENCHMARK.md)) records runtime evidence, aggregator dependencies, and the ranking/source-visibility ideas adapted for Radar.
 - [AGENTS.md](AGENTS.md) defines agent working rules, not the product architecture.
+
+**Documentation maintenance rule:** With every product/code change, update the affected screen and business rule in the [architecture memory](docs/ARCHITECTURE.en.md) and matching English/Turkish topic documents. Verify “current” numbers against code; use `/sources` run records for working coverage and additions. Preserve old measurements as dated pilot history instead of presenting them as today's state. Code is the executable contract; a GitHub push does not back up live ingestion data or local passwords.
 
 ## Current boundaries
 

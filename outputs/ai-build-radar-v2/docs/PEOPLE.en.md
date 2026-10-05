@@ -1,0 +1,11 @@
+# People and ideas — local MVP
+
+**Status:** code as of 5 October 2026. [Türkçe](PEOPLE.md). Inspect `/people` and `/sources` for current feed success.
+
+`/people` contains **15 profiles**, eight of which have public blog/newsletter feeds. A profile without a feed is not automatically monitored for new posts. The eight feeds also count as independent discovery sources in `lib/sources.ts`, while the page uses its separate cache. `content/people.json` defines profiles; `content/people-references.json` holds manually reviewed person–project links. Own project, use statement, and example/reference are distinct. Quoting someone else's view does not imply the feed owner's endorsement. Latent.Space is a collective publication, and known authors are shown separately.
+
+`scripts/people_feed.py` reads RSS/Atom, retaining up to eight titles, URLs, authors, and publication dates per feed. Full article bodies are not stored or displayed. A basic AI/software keyword filter narrows Simon Willison's broad feed; it is not semantic quality evaluation. Feeds do not cover all social posts or likes and may lag.
+
+An authorized page visit refreshes a missing or older-than-45-minute cache. This is **not** a continuously running social-media worker; without a new request no refresh happens. Results live in `learning-data/people-feed.json`, separate from the ingestion store and Git. A lock and atomic replacement guard concurrent writes. Source failure retains previous successful entries; last attempt and success remain distinct. Empty results do not erase previous populated data. Network timeouts, size caps, HTTPS/redirect checks, and XML entity/DOCTYPE rejection limit input.
+
+X/LinkedIn activity, paid articles, automatic endorsement inference, persistent personalized follow lists, and follower scores are not implemented. A title alone is not proof the article was read or approved. For generated summaries see [Summaries](SUMMARIES.en.md); the provider is currently disabled.

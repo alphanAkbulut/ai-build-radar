@@ -1,11 +1,11 @@
-# On-demand summaries
+# İstek üzerine çok dilli özetler
 
-Provider deliberately disabled at the user's request. No credentials or paid calls are configured. Existing editorial Turkish summaries remain visible; selecting another language never relabels them as translations.
+**Durum:** 5 Ekim 2026 kodu. [English](SUMMARIES.en.md). Kullanıcının seçimiyle harici AI sağlayıcısı şimdilik bağlı değildir; API anahtarı veya ücretli çağrı yoktur. Mevcut editoryal Türkçe özetler görünür. Başka bir dili seçmek Türkçe metni çeviri olarak yeniden etiketlemez; özeti olmayan diller menüde pasiftir.
 
-Prepared flow: authenticated same-origin POST with registered entry ID and supported language; source text is read only from that author's registered RSS feed. No arbitrary article URL fetching. Short/unavailable source text fails rather than summarizing a title. Partial RSS content is labeled. Output is plain React text, not executable HTML.
+Hazırlanan akışta oturumlu, aynı origin'den POST isteği yalnız kayıtlı yazı kimliği ve desteklenen dili kabul eder. Kaynak metin yalnız yazarın kayıtlı RSS akışından okunur; ziyaretçinin verdiği rastgele URL'ye gidilmez. Metin kısa veya erişilemezse yalnız başlıktan özet uydurulmaz. Kısmi feed içeriği kısmi diye gösterilir. Sonuç yürütülebilir HTML değil düz React metnidir.
 
-Generated storage is private local learning-data/summaries (gitignored). Cache is per article/language with source hash and version. After 24h, fetch source and reuse unchanged content. A cross-process lock prevents parallel generations. Ten attempts/day globally, 24,000 source characters, bounded output, no automatic retries. A crashed generation leaves a lock requiring operator inspection. This is a private PoC, not a distributed production quota service.
+Yerel üretilmiş özet klasörü `learning-data/summaries` Git dışındadır. Önbellek makale ve dile ayrılır, kaynak/sürüm bilgisi saklar; 24 saatten sonra kaynak tekrar okunur, değişmemiş içerik yeniden kullanılır. Çapraz süreç kilidi paralel üretimi sınırlar. Özel PoC sınırları: genel günlük 10 deneme, en çok 24.000 kaynak karakteri, sınırlı çıktı ve otomatik yeniden deneme yok. Çöken üretim kilidinin operatörce incelenmesi gerekir. Bu, dağıtık production kota servisi değildir.
 
-Before enabling: select provider/model, implement bounded request with untrusted source text isolated from system instructions, no tools, credentials server-only; validate actual output quality, language, provider errors and measured cost. Add storage/cache concurrency integration tests and live provider verification. Current tests cover input/output bounds, disabled provider, source matching, partial-source labeling and XML rejection; live AI generation is not tested.
+Sağlayıcı açılmadan önce model ve ücret kararı, güvenilmeyen kaynak metnini talimattan ayıran sınırlı istek, sunucuda saklanan kimlik bilgileri, dil/kalite/hata ve maliyet testleri gerekecek. Mevcut testler girdi/çıktı sınırları, kapalı sağlayıcı, kaynak eşleşmesi, kısmi içerik etiketi ve XML reddini kapsar; canlı AI üretimi test edilmedi. Arayüz şimdilik Türkçe; özet hattı `tr/en/ja/ko/zh` dillerini tanır. Tüm ürünün çok dilli olması ayrı hedeftir.
 
-UI interface remains Turkish. Summary language plumbing supports tr/en/ja/ko/zh; complete product localization is a separate future task.
+Açık teknik borç: mimari belgede açıklandığı gibi kaynak hash'i ve prompt sürümü henüz tüm cache anahtarında tam uygulanmıyor; sağlayıcı bağlanmadan düzeltilmelidir.

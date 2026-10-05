@@ -1,6 +1,8 @@
 # İnsanlar & fikirler — yerel MVP
 
-`/people`, altı seçilmiş açık blog/bülten akışını tek ekranda sunar. `content/people.json` kaynak kayıtları; `content/people-references.json` elle incelenmiş kişi-proje ilişkileridir. Kendi projesi, kullanım beyanı ve örnek gösterme ayrı etiketlenir. Başkasının alıntılanan görüşü, akış sahibinin onayı olarak yorumlanmaz. Latent.Space ortak yayındır; bilinen yazar adları ayrıca gösterilir.
+**Durum:** 5 Ekim 2026 kodu. [English](PEOPLE.en.md). Anlık feed başarısı için `/people` ve `/sources` kontrol edilir.
+
+`/people`, 15 kişi profili ve bunların sekizindeki açık blog/bülten akışını tek ekranda sunar. Profil olmak otomatik izlenen yayın olmak değildir: feed URL’si olmayan yedi profil için yeni yazı taraması yapılmaz. Sekiz feed ayrıca `lib/sources.ts` içinde bağımsız keşif kaynağıdır; buradaki sayfa önbelleği ise ayrı çalışır. `content/people.json` kaynak kayıtları; `content/people-references.json` elle incelenmiş kişi-proje ilişkileridir. Kendi projesi, kullanım beyanı ve örnek gösterme ayrı etiketlenir. Başkasının alıntılanan görüşü, akış sahibinin onayı olarak yorumlanmaz. Latent.Space ortak yayındır; bilinen yazar adları ayrıca gösterilir.
 
 `scripts/people_feed.py` RSS ve Atom okur; kişi başına en fazla sekiz başlık, bağlantı, yazar ve tarih tutar. Tam yazı gövdeleri saklanmaz veya gösterilmez. Simon'ın geniş akışı temel AI/yazılım kelime filtresiyle daraltılır. Bu anlamsal değerlendirme veya kalite puanı değildir. Kaynakların yayınladığı feed tüm sosyal medya etkinliğini kapsamaz; blog feed'i gecikmiş olabilir.
 

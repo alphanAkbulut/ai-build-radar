@@ -1,31 +1,33 @@
 # Seçki, ilgi ve öğrenme
 
-Ana seçkide şu an 7 örnek var. Diğer 14 inceleme silinmedi; İnceleme arşivi filtresinde ve mevcut detay adreslerinde duruyor. `selectionFor` her öne çıkan örnek için somut seçilme gerekçesi taşır. Ürün açıklaması, ilgi kanıtı, AI geliştirme kanıtı ve Radar’ın uygulama önerisi birbirinin yerine geçmez.
+**Durum:** 5 Ekim 2026 kodu; anlık sayılar inceleme tarihine göre değişebilir. [English](SELECTION.en.md). Ana kuralın teknik kaynağı `lib/selection.ts`, gündemin kaynağı `lib/evaluation.ts`, etkin kaynakların kaynağı `lib/sources.ts` dosyalarıdır.
 
-## İlgi toplama
+## Gündeme girme
 
-`attention` kaynağı her 15 dakikada en fazla 6 proje için çalışır; koleksiyon projeleri önce, diğer adaylar sonra gelir. Bir projeyi günlük, başarısız sorguyu 6 saat sonra yeniden kontrol eder. Hacker News Algolia araması her proje için en fazla iki URL sorgusu ve sorgu başına 50 hikâyeyle sınırlıdır. Sadece tam canonical URL eşleşmesi kabul edilir; benzer isimler, çatallar ve projenin adını içeren başka siteler otomatik onay sayılmaz. Sonuç yokluğu tüm internette ilgi olmadığı anlamına gelmez.
+Gündem bir ürünün neden **şimdi** görünür olduğunu söyler. Ayrı site adresi, anlamlı açıklama ve çözülmemiş kimlik çatışması olmamalıdır. Son yedi gündeki olay ve son 48 saatteki kanıt kontrolü gerekir. Akış üç ayrı nedeni karıştırmaz: **ölçülen ilgi**, **AI ile geliştirme beyanıyla yeni keşif**, **kaynaklı bahsedilme**. Yeni keşif Radar'ın görme tarihidir; lansman veya popülerlik değildir. Kaynak adı, olay tarihi ve kanıt bağlantısı kartta görünür.
 
-50 puan veya 20 yorum: Radar’ın açıklanan ilgi eşiği. Son 7 gündeki paylaşım ve son 48 saatte başarılı kontrol varsa güncel ilgi, eski tarihliyse geçmiş ilgi etiketi kullanılır. Başarısız veya eski kontrol güncel etiket üretemez. Yorum sayısı övgü anlamına gelmez. Duygu analizi, X/LinkedIn/YouTube ilgi taraması ve genel web makalesi eşleştirme henüz otomatik değil.
+Hacker News ve Lobsters için bir projeyle ilişkilendirilmiş paylaşımda **en az 50 puan veya 20 yorum** platform içi ilgi eşiğidir. Yorum sayısı övgü demek değildir. Hugging Face'te yalnız gerçek ilk 20 trend yanıtı platform içi trend kanıtı üretir; en çok beğenilen 30 kaydın `trendingScore` alanı tek başına yetmez. Platform sırası saklanır; sıra değişimi için en az 24 saat aralıklı iki gözlem gerekir. GitHub'da toplam yıldız hız değildir: en az 24 saat aralıklı karşılaştırılabilir ölçümde **+25 yıldız** ve yakın tarihli son gözlem aranır. Kişi yazısında bir URL geçmesi övgü değil **bahsedilme** olur. Platformların sayıları tek bir global puanda toplanmaz.
 
-GitHub toplam yıldızı hız sayılmaz. En az 24 saat, en çok 8 gün aralıklı iki mevcut kanıt gözlemi varsa gerçek tarihler arasındaki net değişim gösterilir. Bu değer kendiliğinden trend veya bağımsız kullanıcı onayı sayılmaz.
+`attention` zenginleştirmesi 15 dakikada bir en çok altı projeyi kontrol eder. Hacker News Algolia'da en çok iki kanonik URL sorgusu ve sorgu başına 50 hikâye kullanır; isim benzerliği eşleşme değildir. Proje bazında normal tekrar yaklaşık bir gün, hatada altı saattir. Bu yol X, LinkedIn veya YouTube'daki ilgiyi ölçmez. Güçlü Hacker News sonucu bulunmaması başka yerde ilgi yokluğu anlamına gelmez.
 
-Simon Willison’ın 13 Mart 2026 tarihli Autoresearch/Liquid yazısı elle okunmuş yöntem referansıdır; güncel trend etiketi üretmez. Geliştiricinin tam AI prompt geçmişi bilinmiyorsa uygulama reçetesi orijinal yöntem gibi sunulmaz.
+## Öğrenme seçkisine girme
 
-## Yayın kontrolü
+Öğrenme kartı, gündem kartının otomatik genişletilmiş hali değildir. `selectionFor` ancak şu beş koşul birlikte sağlanırsa `featured` verir:
 
-Otomatik açıklama ve ilgi toplamak, çalışan ürün veya uygulanmış kurs kanıtı değildir. Ana seçkiye girmek için somut öğrenme çıktısı, kaynak, egzersiz ve kabul kontrolleri bulunmalıdır. Mevcut rehberler Radar önerisidir; iki canlı demo gözlemi dışındaki projeler README incelemesidir. Otomatik adaylar koleksiyona kendiliğinden terfi etmez.
+1. Ne yaptığı kaynak URL'siyle açıklanmış.
+2. Temel demo etkileşimi son 30 gün içinde denenmiş ve bulgu yazılmış.
+3. Gerçek demo önizlemesi kaydedilmiş.
+4. Projeye özgü bir öğrenme gerekçesi hazırlanmış.
+5. Uyarlama amacı, en az üç adım ve iki kabul kontrolü mevcut.
 
-İlgi verisi yerel radar.json içindeki attention alanında saklanır. Private yerel PoC kapsamında çalışır; Supabase okuma/senkronizasyonuna bu alan henüz dahil edilmedi.
+5 Ekim'de koddan hesaplanan anlık durum **23 ders kaydı: 5 seçilmiş, 18 inceleme arşivinde**. Bu sayı zamanla, özellikle 30 günlük demo kontrolü eskidiğinde değişir; ekrandaki sayı esas alınır. Arşiv kaydı silinmiş veya kalitesiz sayılmaz, fakat seçilmiş ders diye sunulmaz. Demosu denenmemiş otomatik adayların derse dönüşmemesi bilinçli kapıdır.
 
-## Keşif kapsamı: en az 10, canlıya geçişte 25
+Kontrol bugün içeriğin varlığı ve tarihe bakar; metnin doğruluğunu, gerçek kullanıcı övgüsünü veya “vay be” etkisini otomatik değerlendirmez. İnceleme kayıtları `content/lesson-reviews.json` içinde editoryaldir; otomatik tarayıcı gezintisi, yorum duygu analizi ve her aday için ders üretimi yoktur. `Projeme uyarla` düğmesinin ayrıca yeniden üretim testi kapısı vardır (`lib/adaptation.ts`). Radar'ın önerdiği araçlar geliştiricinin kullandığı araçlar diye sunulmaz.
 
-Mevcut üç kaynağa Hugging Face Spaces ve altı bağımsız yayın bağlandı: Simon Willison, Ethan Mollick, Chip Huyen, Lilian Weng, Latent.Space, Andrej Karpathy. Böylece 4 platform/katalog ve 6 yayın, toplam 10 bağımsız keşif kaynağı vardır. Bunlar 10 sosyal platform değildir. Yayınların son 20 RSS/Atom girdisindeki açık GitHub depo ve Hugging Face Spaces bağlantıları alınır; metin içinde bağlantısız geçen isimler, genel web sitesi bağlantıları ve tam yazı sayfaları bu sürümde taranmaz. Kaynak yayının tarihi proje çıkış tarihi değildir. Her bağlantı kaynak yazıyla saklanır; atıf övgü sayılmaz. Hugging Face en çok toplam beğeni alan 30 Space döndürür; bu seçim yeni veya hızla yükselen projeler iddiası taşımaz.
+## Kaynak kapsamı ve metrikler
 
-Yayınlar 45 dakikada, Hugging Face 3 saatte kontrol edilir. Bunlar otomatik aday havuzuna eklenir; seçkiye yayın kontrolü devam eder. Kaynak başına fetched, yazılarda incelenen girdi sayısıdır; bir girdi birden çok proje bağlantısı içerebilir. Başarısız taramalar görünür kalır. 10 kaynak alt sınırı uygulama ve testle korunur; yeni yayın/kaynak eklemek mevcut kaynakların kaldırılmasına gerekçe değildir. Public açılış için 25 çalışan kaynak şarttır; bu hedef henüz tamamlanmamıştır.
+`lib/sources.ts` içinde **25 kayıtlı satır, 14 etkin bağımsız keşif kaynağı ve iki etkin zenginleştirme işi** vardır. Sekiz yazar yayını ayrı feed; GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community ve Lobsters diğer altı keşif kaynağıdır. Kayıtlı/etkin kaynak başarılı taranmış kaynak sayılmaz; `/sources` son denemeyi ve son başarıyı ayrı gösterir. Kod en az 10 etkin bağımsız kaynağı şart koşar; public hedef 25 **çalışan** bağımsız kaynaktır. X, Reddit, Product Hunt ve YouTube satırları henüz etkin değildir. Elle incelenmiş Product Hunt/web adayları sürekli Product Hunt taraması sayılmaz.
 
-## Çok kaynaklı ilgi ve araştırma
+Feed başına son 20 girdideki açık GitHub ve Hugging Face Space bağlantıları aday olur; yazıdaki tarih ürün lansmanı sayılmaz. Hugging Face beğeni sırası büyüme iddiası değildir. DEV reaksiyonu yazıya aittir. Lobsters'ın yalnız `ai` veya `ml` etiketli tartışmaları AI akışına girer. Geçmişte yanlış alınmış konu dışı kanıtlar tarihten silinmez, güncel akışa yansıtılmaz. Kaynağın `fetched` sayısı incelenen kayıt adedidir; benzersiz proje veya kalite puanı değildir.
 
-Hacker News eşiği yalnızca o platformun ölçüsüdür, genel kabul/red şartı değildir. Yeni keşifler artık güncel yayın atıfları, Lobsters tartışmaları ve Hugging Face platform trendlerini de gösterir. Kaynak türleri tek puanda toplanmaz: yazıdaki atıf öneri değildir, DEV tepkileri yazıya aittir, toplam beğeni büyüme değildir. DEV Community ve Lobsters eklenerek sürekli keşif 12 bağımsız kaynağa ulaştı. Hugging Face mevcut beğeni taramasını koruyarak 20 trend kaydı da alır.
-
-Product Hunt ve web araştırmasıyla bulunan elle incelenmiş adaylar research-discoveries.json içinde tarihli kaynaklarıyla yer alır. Bu ayrı araştırma kaydı, Product Hunt'ın sürekli API taramasına bağlandığı anlamına gelmez. Demo ve egzersiz kontrolleri tamamlanmamış adaylar tam kurs olarak sunulmaz.
+İşletim kuralı, ekran sıraları ve yayın sınırları için [mimari hafıza](ARCHITECTURE.md) ve [değerlendirme sözleşmesi](EVALUATION.md) kullanılır.

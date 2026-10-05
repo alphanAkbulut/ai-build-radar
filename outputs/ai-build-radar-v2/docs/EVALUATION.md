@@ -1,6 +1,6 @@
 # Build Radar değerlendirme sözleşmesi
 
-Bu belge **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayırır. Amaç, bir ürün yöneticisinin “AI ile neler yapılıyor, neden dikkat çekiyor, ben nasıl öğrenirim?” sorusuna doğrulanabilir bir yanıt vermektir. Yeni bir model, yaratıcı arayüz veya çözülen gerçek bir sorun aynı derecede seçilme nedeni olabilir. Popülerlik tek ölçüt değildir.
+Bu belge 5 Ekim 2026 itibarıyla **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayırır. [English](EVALUATION.en.md). Amaç, bir ürün yöneticisinin “AI ile neler yapılıyor, neden dikkat çekiyor, ben nasıl öğrenirim?” sorusuna doğrulanabilir bir yanıt vermektir. Yeni bir model, yaratıcı arayüz veya çözülen gerçek bir sorun aynı derecede seçilme nedeni olabilir. Popülerlik tek ölçüt değildir.
 
 ## İki ayrı yayın yüzeyi
 
@@ -17,7 +17,7 @@ Bu belge **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayı
 | İlgi | Platformun kendi trend işareti, zamanlı oy/yorum veya en az 24 saat aralıklı yıldız değişimi | Sayılar kendi platformunda sunulur; platformlar arası toplam puan oluşturulmaz. Makalede bağlantı geçmesi övgü sayılmaz. |
 | Demo | Açılabilir ürün adresi, gerçek arayüz ve kaydedilmiş etkileşim gözlemi | Sadece HTTP 200 veya ekran görüntüsü “çalışan demo” kanıtı değildir. Oturum, ödeme veya donanım gereksinimi belirtilir. |
 | Öğrenme | Farkı gösteren somut davranış, kaynaklı teknik bilgi, Radar'ın önerdiği uyarlama adımları, kabul kontrolleri | Orijinal yöntem ile Radar'ın alternatif yöntemi ayrı yazılır. Bilinmeyen teknoloji “kullanılmış” diye sunulmaz. |
-| Yayın | Önceki kontrollerin tarihi ve kaynağı, editoryal karar, geri çekme nedeni | Bozulan demo veya eski kanıt seçkiyi otomatik yeniden inceleme durumuna taşır. |
+| Yayın | Önceki kontrollerin tarihi ve kaynağı, editoryal karar, geri çekme nedeni | **Hedef:** bozulan demo veya eski kanıt yeniden incelemeye taşınır. Bugün yalnız kayıtlı incelemenin 30 günlük yaş sınırı otomatik kontrol edilir. |
 
 ## Mevcut uygulama ve sınırlar
 
@@ -25,7 +25,7 @@ Bu belge **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayı
 
 Gündem için ayrı site bağlantısı ve anlamlı açıklama gerekir. İlgi veya atıf sinyali son 7 günde gerçekleşmiş ve son 48 saatte kontrol edilmiş olmalıdır. Yeni keşif ise Radar'ın son 7 günde ilk gördüğü doğrudan AI geliştirme beyanıdır; proje çıkış tarihi veya ilgi kanıtı değildir. Makale referansında gerçek yayın tarihi zorunludur; bugün taranan eski bir yazı “bugün bahsedildi” sayılmaz. Mükerrer taramalar son kayda indirgenir. Açıklama kaynağın ortasında kesilmişse yalnızca tamamlanmış cümle gösterilir. Desteklenmeyen veya süresi dolmuş kanıt güncel gündeme taşınmaz.
 
-`lib/selection.ts` koleksiyona giriş için kaynaklı açıklama, son 30 günde gerçek etkileşim incelemesi, kaydedilmiş gerçek demo önizlemesi, ayırt edici gerekçe ve öğrenme adımları ister. Bu kontrol bugün **içeriğin mevcut olup olmadığını** doğrular; anlatının kalitesini veya yeni projelerdeki “vay be” değerini makineyle ölçmez. İncelemeler `content/lesson-reviews.json` içinde elle kaydedilmiştir. Önizleme üretimi, tarayıcıda otonom etkileşim incelemesi, alıntıların olumlu/olumsuz bağlam analizi ve yayın kararının kendi kendine alınması henüz otomatik değildir. Bağlı ücretli AI sağlayıcısı yoktur. Şu an beş seçilmiş örneğin hiçbirinde AI ile geliştirme kanıtı doğrulanmış değildir; AI özelliği sunmaları farklı bir olgudur.
+`lib/selection.ts` koleksiyona giriş için kaynaklı açıklama, son 30 günde gerçek etkileşim incelemesi, kaydedilmiş gerçek demo önizlemesi, ayırt edici gerekçe ve öğrenme adımları ister. Bu kontrol bugün **içeriğin mevcut olup olmadığını** doğrular; anlatının kalitesini veya yeni projelerdeki “vay be” değerini makineyle ölçmez. İncelemeler `content/lesson-reviews.json` içinde elle kaydedilmiştir. Önizleme üretimi, tarayıcıda otonom etkileşim incelemesi, alıntıların olumlu/olumsuz bağlam analizi ve yayın kararının kendi kendine alınması henüz otomatik değildir. Bağlı ücretli AI sağlayıcısı yoktur. 5 Ekim'de koddan hesaplanan 23 ders kaydından beşi seçki kapısını geçiyor; bu beşinin `ai` alanı `Unknown`. AI özelliği sunmaları farklı bir olgudur. Seçki sayısı 30 günlük inceleme süresi dolunca kendiliğinden değişebilir.
 
 ## Bir sonraki geliştirme için kabul ölçütleri
 

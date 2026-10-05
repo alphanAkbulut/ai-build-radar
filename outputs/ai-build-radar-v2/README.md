@@ -9,10 +9,13 @@
 ## Belgeler
 
 - [Mimari hafıza](docs/ARCHITECTURE.md) ([English](docs/ARCHITECTURE.en.md)): veri akışı, karar kuralları, her ekranın ve alanın görevi, listeleme, dosya sahipliği, mevcut sınırlar. Ürün mantığı için ana başvuru.
-- Konu belgeleri: [veri ve kanıt](docs/MODEL.md), [kaynak kapsamı](docs/PROJECT-CONTEXT.md), [değerlendirme](docs/EVALUATION.md), [seçki](docs/SELECTION.md), [insanlar ve fikirler](docs/PEOPLE.md), [özetler](docs/SUMMARIES.md), [analitik](docs/ANALYTICS.md), [mobil](docs/MOBILE.md). Tarihli pilot/doğrulama belgeleri güncel durum raporu sayılmaz.
+- Konu belgeleri (her biri Türkçe/İngilizce): [veri ve kanıt](docs/MODEL.md), [proje bağlamı](docs/PROJECT-CONTEXT.md), [değerlendirme](docs/EVALUATION.md), [seçki](docs/SELECTION.md), [insanlar ve fikirler](docs/PEOPLE.md), [özetler](docs/SUMMARIES.md), [analitik](docs/ANALYTICS.md), [mobil](docs/MOBILE.md). Her sayfadaki dil bağlantısı eş belgesine götürür.
+- [Öğrenme koleksiyonu pilotu](docs/LEARNING-COLLECTION.md) ve [ilk faz doğrulaması](docs/VALIDATION.md) tarihsel kayıtlardır; güncel sayı veya davranış raporu olarak kullanılmaz.
 - [Günlük AI ürün promptu için kaynak denetimi](docs/SOURCE-EXPANSION.md) ([English](docs/SOURCE-EXPANSION.en.md)): doğrulanan kaynak adayları, erişim/lisans sınırları ve entegrasyon sırası. Mevcut veriden üretilen kısa okuma `/briefing` ekranındadır.
 - [TrendRadar karşılaştırması](docs/TRENDRADAR-BENCHMARK.md) ([English](docs/TRENDRADAR-BENCHMARK.en.md)): gerçek çalışma durumu, kaynak bağımlılığı ve Radar'a uyarlanan sıra/kaynak görünürlüğü.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
+
+**Doküman güncelleme kuralı:** Her ürün/kod değişikliğinde etkilenen ekran ve iş kuralını [mimari hafızada](docs/ARCHITECTURE.md) ve ilgili Türkçe/İngilizce konu belgelerinde birlikte düzeltin. “Şu an” sayıları koddan doğrulayın; işleyen kaynak ve yeni kayıt sayıları için `/sources` koşu kaydına bakın. Eski ölçümü tarihli pilot belgesinde koruyun, bugünkü durum diye sunmayın. Kodun kendisi sözleşmenin uygulamasıdır; GitHub’a push canlı ingestion verisini veya yerel parolayı yedeklemez.
 
 ## Bugünkü sınır
 

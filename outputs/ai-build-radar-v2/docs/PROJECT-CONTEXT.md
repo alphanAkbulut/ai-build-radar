@@ -1,5 +1,7 @@
 # Koleksiyonun bağlam kuralı
 
+**Durum:** 5 Ekim 2026 yerel uygulaması ve editoryal kayıtları. [English](PROJECT-CONTEXT.en.md).
+
 Koleksiyondaki her proje `content/project-context.json` içinde kaynaklı bir açıklama taşır. Kartın ürün türü, başlığı ve kısa açıklaması bu kayıttan gelir; öğrenme egzersizinin başlığı ürün tanımı olarak kullanılmaz. Arama bu bağlam alanlarını da kapsar.
 
 - `what`: somut işlev ve çıktı; birincil kaynağın Türkçe özeti.

@@ -1,6 +1,6 @@
 # Phase 1 doğrulama raporu
 
-Ölçüm: 2026-10-04T17:04:38.263138+00:00 (UTC). Bu rapor sabit bir anlık görüntüdür; çalışan scheduler dashboard sayılarını daha sonra değiştirebilir.
+**Tarihsel ölçüm:** 2026-10-04T17:04:38.263138+00:00 (UTC). [English](VALIDATION.en.md). Bu rapor sabit bir ilk faz anlık görüntüsüdür; bugünkü kaynak sayısını veya test durumunu anlatmaz. Güncel işleyiş için [mimari hafıza](ARCHITECTURE.md), gerçek tarama için `/sources` esas alınır.
 
 ## Gerçek kaynak verisi
 

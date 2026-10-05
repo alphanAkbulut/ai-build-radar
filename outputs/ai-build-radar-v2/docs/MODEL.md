@@ -1,6 +1,6 @@
-# Phase 1 veri sözleşmesi ve yöntem
+# Veri sözleşmesi ve yöntem
 
-Bu belge uygulanmış **yerel PoC** davranışını anlatır; hosted production sistem iddiası değildir. Makine tarafından doğrulanan sözleşmeler `lib/schema.ts` ve `schemas/*.schema.json` içindedir.
+Bu belge 5 Ekim 2026 itibarıyla uygulanmış **yerel PoC** davranışını anlatır; hosted production sistem iddiası değildir. Makine tarafından doğrulanan sözleşmeler `lib/schema.ts` ve `schemas/*.schema.json` içindedir. Anlık kaynak/koşu sayıları için `/sources` esas alınır. [English](MODEL.en.md).
 
 ## İlişkiler
 
@@ -31,7 +31,7 @@ Daily Snapshot → UTC day / source count / evidence count
 | `sourceIds` | Kaydın gözlendiği kaynaklar |
 | `reviewRequired`, `reviewReasons` | Belirsiz kimlik eşleşmesi |
 
-AI tool, model, AI role, stack, capability gibi alanlar canonical entity’de kanıtsız string’ler olarak çoğaltılmaz. `Evidence Object.field` üzerinden tutulur ve görünüm üretir. İlk collector’lar `ai_tools`, `tech_stack`, `primary_language`, `repository`, `github_stars`, `hn_mention`, `discovery_reason`, `catalog_membership` ve metadata alanlarını üretir. `models`, `ai_roles`, `capabilities` için alan kanıtı üreten collector henüz yoktur. UI’da model Unknown’dır.
+AI tool, model, AI role, stack, capability gibi alanlar canonical entity’de kanıtsız string’ler olarak çoğaltılmaz. `Evidence Object.field` üzerinden tutulur ve görünüm üretir. Collector’lar kaynak türüne göre `ai_tools`, `tech_stack`, `primary_language`, `repository`, `github_stars`, `hn_mention`, `discovery_reason`, `catalog_membership`, `community_discussion`, `editorial_reference`, `platform_trending`, `platform_rank` ve metadata alanlarını üretebilir. Bir platform sırası veya yıldız sayısı AI ile geliştirme kanıtı değildir. `models`, `ai_roles`, `capabilities` için alan kanıtı üreten collector henüz yoktur; model bilinmiyorsa UI Unknown gösterir.
 
 ## Evidence Object
 
@@ -73,9 +73,9 @@ Kaynağın gerçekten çekildiği zaman `SourceRecord.fetchedAt` alanındadır v
 
 Worker 30 saniyede bir registry’nin etkin ve zamanı gelen kaynaklarını kontrol eder. Bu **30 saniyede kaynak taraması** değildir. Her kaynak için son başarı/deneme/sonraki zaman saklanır. Önceki plandaki sıklıklar kullanıcı tarafından verilmiş son değerlerle değiştirildi.
 
-HTTP timeout 20 saniyedir. Yalnızca üç izinli API host’u fetch edilir; redirect izlenmez. Sağlayıcı 429/403 geri dönüşündeki bekleme/reset sınırı ve exponential backoff sonraki source denemesini geciktirir. Parse hataları `invalid`, bilinçli scope dışı kayıtlar `filtered`, kısmen alınan batch `partial`, kaynak başarısızlığı `failed` olarak ayrılır. Sayımlar örneklem kapsamıyla birlikte okunmalıdır.
+Registry collector HTTP isteklerinde zaman aşımı 20 saniyedir. `lib/http.ts` yalnız açık izin listesindeki kaynak host’larına gider ve yönlendirmeyi izlemez; liste üç host’la sınırlı değildir. Public proje sayfası okuma ayrı `lib/public-page.ts` sınırından geçer: adresin halka açık IP’ye çözümlenmesi, bağlantıya sabitlenmesi ve her yönlendirmenin yeniden denetlenmesi gerekir. Sağlayıcı 429/403 geri dönüşündeki bekleme/reset sınırı ve exponential backoff sonraki kaynak denemesini geciktirir. Parse hataları `invalid`, bilinçli kapsam dışı kayıtlar `filtered`, kısmen alınan batch `partial`, kaynak başarısızlığı `failed` olarak ayrılır. Sayımlar örneklem kapsamıyla birlikte okunmalıdır.
 
-Yerel mod: uzun rastgele parola, imzalı 8 saatlik HttpOnly/SameSite=Strict cookie, failed-login sınırlaması, tüm veri okumalarında ve ingestion server action’da authorization; sunucu yalnızca 127.0.0.1’de dinler. Local cookie HTTP loopback içindir; local mod public host’a taşınmaz. `robots.txt` ve noindex erişim kontrolü olarak kullanılmaz.
+Yerel mod: uzun rastgele parola, imzalı **180 günlük** HttpOnly/SameSite=Strict oturum çerezi, başarısız giriş sınırlaması ve private okuma/yazma yollarında yetki kontrolü kullanır. Masaüstü sunucusu `127.0.0.1:3101` üzerinde dinler; ayrı LAN başlatıcısı aynı Wi-Fi için `3102` portunu açabilir. Yerel HTTP oturumu internet yayını için uygun değildir. `robots.txt` ve noindex erişim kontrolü olarak kullanılmaz.
 
 Supabase: authenticated olması tek başına yetmez; `private_members` UUID üyeliği RLS okuma koşuludur. Dashboard user JWT ile okur; client insert/update/delete yetkisi yoktur. Snapshot importer yalnızca service role için açıktır; transaction içindeki tüm referanslar ve alias’lar doğrulanır. DB sahibi/service role operasyonel olarak güçlü rollerdir; append-only garantisi importer’ın çalışma davranışıdır, DB yöneticisini engelleme iddiası değildir.
 

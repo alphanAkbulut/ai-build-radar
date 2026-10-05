@@ -47,7 +47,7 @@ The primary contracts are `lib/schema.ts` for stored entities/evidence/runs, `li
 | One’s Vibe | 6 h | Latest 120 entries in an open catalog. Its classifications are third-party assertions. |
 | Hugging Face Spaces | 3 h | Thirty most-liked and twenty platform-trending Spaces, deduplicated. |
 | DEV Community | 3 h | Public GitHub links in selected AI articles and article reactions. Article reaction counts are not product ratings. |
-| Lobsters | 90 min | Relevant current stories and discussion counts. |
+| Lobsters | 90 min | Current stories tagged `ai` or `ml` and their discussion counts; generic technology tags do not qualify. |
 | Eight author publications | 45 min | Defined feeds for Simon Willison, Ethan Mollick, Chip Huyen, Lilian Weng, swyx, Andrej Karpathy, Takuya Matsuyama, and Eugene Yan; open repository/Space links are candidates. A mention is not an endorsement. |
 
 `project-context` and `attention` are **enrichment jobs** whose queues are checked every 15 minutes; they do not count as independent discovery sources. Context reads a README or safely accessible public page for up to 12 due builds per run. Attention queries exact Hacker News URLs for up to six. Newly discovered builds with direct AI-development statements lead that queue, followed by lessons and general candidates. Normal per-build recheck is approximately daily, with shorter retry after errors.
@@ -165,7 +165,7 @@ Local mode can manually trigger currently due sources. Registered does not mean 
 
 ### 7.10 Login, shared shell, and private media
 
-`/login` creates a short-lived HMAC session from the local password; private pages call `requireAuth`. Shared layout provides desktop/mobile navigation, theme choice, and the compact update status. `/preview/[id]` serves only allowed manifest media after authentication. Clicking an external demo leaves Radar for a third-party site. Static `public/spotlights/` assets have no separate auth gate and need review before hosted/public launch. Bad credentials, unknown build IDs, missing media, and source failures must not appear as successful states.
+`/login` creates a signed 180-day HMAC session from the local password; private pages call `requireAuth`. Shared layout provides desktop/mobile navigation, theme choice, and the compact update status. `/preview/[id]` serves only allowed manifest media after authentication. Clicking an external demo leaves Radar for a third-party site. Static `public/spotlights/` assets have no separate auth gate and need review before hosted/public launch. Bad credentials, unknown build IDs, missing media, and source failures must not appear as successful states.
 
 ### 7.11 Local API boundaries behind the pages
 

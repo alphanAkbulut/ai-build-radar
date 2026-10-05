@@ -45,7 +45,7 @@ Kaynakların tek kayıt noktası [`lib/sources.ts`](../lib/sources.ts) dosyasıd
 | One’s Vibe | 6 saat | Açık katalogdan en yeni 120 kayıt; katalog sınıflandırması üçüncü taraf çıkarımıdır. |
 | Hugging Face Spaces | 3 saat | En çok beğenilen 30 ve platformda trend 20 Space, tekrarlar elenerek. |
 | DEV Community | 3 saat | Seçili AI yazılarındaki açık GitHub bağlantıları ve yazı reaksiyonları; yazı tepkisi ürün puanı değildir. |
-| Lobsters | 90 dk | Gündemdeki ilgili hikâyeler ve tartışma sayıları. |
+| Lobsters | 90 dk | `ai` veya `ml` etiketli gündem hikâyeleri ve tartışma sayıları; genel teknoloji etiketleri yeterli değildir. |
 | Sekiz kişi yayını | 45 dk | Simon Willison, Ethan Mollick, Chip Huyen, Lilian Weng, swyx, Andrej Karpathy, Takuya Matsuyama ve Eugene Yan’ın tanımlı feed’lerinden açık repo/Space bağlantıları. Bahsetmek onaylamak değildir. |
 
 `project-context` ve `attention` 15 dakikada bir kuyruk kontrol eden **zenginleştirme** işleridir; yeni bağımsız keşif kaynağı sayılmaz. İlk iş her turda en çok 12 vadesi gelen proje için README veya güvenle okunabilen public sayfa inceler. İkincisi en çok 6 proje için Hacker News’te tam URL eşleşmesi arar; son 7 günde keşfedilmiş doğrudan AI geliştirme beyanlı kayıtlar kuyrukta öne gelir, ardından dersler ve genel adaylar izlenir. Proje bazında normal tekrar aralığı günlük, hatada daha kısadır.
@@ -163,7 +163,7 @@ Yerel modda zamanı gelen kaynaklar elle başlatılabilir. Kayıtlı kaynak çal
 
 ### 7.10 Giriş, kabuk ve özel medya
 
-`/login` yerel şifreyle kısa ömürlü HMAC oturumu açar; private sayfalar `requireAuth` ile korunur. Ortak yerleşim masaüstü/telefon gezinmesini, tema seçimini ve kompakt son güncelleme göstergesini taşır. `/preview/[id]` yalnız oturumlu, manifestteki izinli görüntüleri verir; harici demo bağlantısı üçüncü taraf alana geçer. `public/spotlights/` dosyalarının ayrıca oturum kapısı yoktur; hosted/public sürüm öncesi ele alınmalıdır. Giriş hatası, geçersiz proje kimliği, eksik medya ve kaynak hatası başarı ekranı gibi sunulmaz.
+`/login` yerel şifreyle 180 günlük imzalı HMAC oturumu açar; private sayfalar `requireAuth` ile korunur. Ortak yerleşim masaüstü/telefon gezinmesini, tema seçimini ve kompakt son güncelleme göstergesini taşır. `/preview/[id]` yalnız oturumlu, manifestteki izinli görüntüleri verir; harici demo bağlantısı üçüncü taraf alana geçer. `public/spotlights/` dosyalarının ayrıca oturum kapısı yoktur; hosted/public sürüm öncesi ele alınmalıdır. Giriş hatası, geçersiz proje kimliği, eksik medya ve kaynak hatası başarı ekranı gibi sunulmaz.
 
 ### 7.11 Sayfaları besleyen yerel API sınırları
 
