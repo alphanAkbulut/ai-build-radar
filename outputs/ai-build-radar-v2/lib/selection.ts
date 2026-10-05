@@ -1,3 +1,4 @@
+import reviews from '../content/lesson-reviews.json';
 import type {Lesson} from './lessons';
 const reasons:Record<string,string>={
  'llm-council':'Tek model cevabı yerine anonim karşılaştırma ve sentez akışını gösteriyor; Karpathy’nin kendi denemesi ve AI geliştirme beyanı kaynaklı.',
@@ -9,5 +10,16 @@ const reasons:Record<string,string>={
  'gradio':'Bir Python işlevini başkalarının deneyebileceği arayüze çevirme yolunu örnek kodla gösteriyor; model demosu yapmak isteyenler için uygulanabilir.',
  'web-llm':'Modeli sunucu yerine tarayıcıda çalıştırma yaklaşımını paket ve demo ile gösteriyor; yükleme ve cihaz sınırları öğrenme konusu.'
 };
-export function selectionFor(l:Lesson){return {featured:!!reasons[l.slug] && l.slug!=='motion-pad',reason:l.slug==='motion-pad'?'Animasyon ayarlarını sürükleyerek keşfetme fikri için inceleniyor. Ana seçkiye dönmesi için kısa bir etkileşim demosu ve denenmiş uygulama rehberi gerekiyor.':reasons[l.slug]||'Temel kaynak incelemesi var; ana seçki için ayırt edici özellik ve uygulanabilir öğrenme incelemesi henüz yeterince derinleştirilmedi.',learning:l.purpose.application};}
+export type SelectionReview={level:string;url:string;finding:string;checkedAt:string};
+export function selectionFor(l:Lesson,review:SelectionReview|undefined=(reviews as Record<string,SelectionReview>)[l.slug],now=Date.now()){
+ const age=review?now-Date.parse(review.checkedAt):NaN;
+ const checks=[
+  {id:'purpose',label:'Ne yaptığı ve geliştirici açıklaması kaynaklı',passed:!!l.purpose.what.trim()&&/^https:\/\//.test(l.purpose.source)},
+  {id:'demo',label:'Temel etkileşim son 30 günde denenmiş',passed:!!review&&review.level==='interaction'&&/^https:\/\//.test(review.url)&&review.finding.trim().length>0&&Number.isFinite(age)&&age>=0&&age<=30*86400000},
+  {id:'difference',label:'Ayırt edici öğrenme gerekçesi yazılmış',passed:!!reasons[l.slug]},
+  {id:'learning',label:'Öğrenme amacı, adımlar ve kabul kontrolleri hazır',passed:!!l.purpose.application.trim()&&l.exercise.length>=3&&l.checks.length>=2&&l.exercise.every(x=>!!x.trim())&&l.checks.every(x=>!!x.trim())}
+ ];
+ const missing=checks.filter(c=>!c.passed).map(c=>c.label);
+ return {featured:missing.length===0,checks,missing,reason:reasons[l.slug]||'Ayırt edici öğrenme gerekçesi henüz hazırlanmadı.',learning:l.purpose.application};
+}
 export const methodReference={url:'https://simonwillison.net/2026/Mar/13/',publishedAt:'2026-03-13',label:'Simon Willison · Autoresearch yaklaşımının Liquid’de kullanımı',note:'Yazı, Tobias Lütke’nin Liquid optimizasyonunda benzer bir deney döngüsü kullanmasını inceliyor. Mart 2026 tarihli yöntem örneği; bugünün trend kanıtı değil.'};
