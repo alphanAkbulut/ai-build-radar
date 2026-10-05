@@ -12,8 +12,9 @@ test('new publication sources are independent and broad publications exclude unr
  assert.equal(publications.length,10);
  for(const publication of publications)assert.ok(discoverySources.some(source=>source.id==='publication-'+publication.id&&source.url===publication.url));
  assert.equal(publicationReferenceAllowed('Distributed databases with Peter Mattis',true),false);
+ assert.equal(publicationReferenceAllowed('A business model for small teams',true),false);
  assert.equal(publicationReferenceAllowed('Advanced evals: AI failures in your product',true),true);
- assert.equal(publicationReferenceAllowed('Designing an agent interface',true),true);
+ assert.equal(publicationReferenceAllowed('Designing an AI agent interface',true),true);
  const now=Date.parse('2026-10-05T12:00:00Z');
  assert.equal(recentPublicationReference('2024-10-05T12:00:00Z',now),false);
  assert.equal(recentPublicationReference(null,now),false);

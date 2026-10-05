@@ -24,7 +24,7 @@ export function huggingFaceCandidates(popularInput:unknown,trendingInput:unknown
 export function parseFeed(text:string):Promise<{fetched:number;references:z.infer<typeof reference>[]} >{
  return new Promise((resolve,reject)=>{const child=spawn('python3',[path.join(process.cwd(),'scripts/discovery_feed.py')],{stdio:['pipe','pipe','pipe']});let output='',error='';const timer=setTimeout(()=>child.kill(),10000);child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>error+=b);child.on('error',reject);child.stdin.on('error',()=>{});child.on('close',code=>{clearTimeout(timer);if(code!==0){reject(new Error('Feed parser failed: '+error.slice(-300)));return;}try{resolve(z.object({fetched:z.number(),references:z.array(reference)}).parse(JSON.parse(output)));}catch(e){reject(e);}});child.stdin.end(text);});
 }
-export function publicationReferenceAllowed(title:string,topicGate:boolean){return !topicGate||/\b(?:AI|LLM|agent|model|prompt|eval|Claude|GPT|Gemini|machine learning)\b/i.test(title);}
+export function publicationReferenceAllowed(title:string,topicGate:boolean){return !topicGate||/\b(?:AI|LLM|machine learning|(?:coding|AI) agents?|prompts?|prompting|evals?|evaluation|Claude|GPT|Gemini)\b/i.test(title);}
 export function recentPublicationReference(publishedAt:string|null,now=Date.now()){
  const age=now-Date.parse(publishedAt||'');
  return Number.isFinite(age)&&age>=0&&age<=45*86400000;
