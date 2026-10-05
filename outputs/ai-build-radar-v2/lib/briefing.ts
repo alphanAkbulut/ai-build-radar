@@ -1,13 +1,15 @@
 import {evaluateFeed,type FeedCard,type FeedSignal} from './evaluation';
+import {publishableFeed} from './publication';
 import {discoverySources,sources} from './sources';
 import type {Run,Store} from './schema';
 
 const HOUR=3600000;
 const within=(at:string,after:number,now:number)=>{const time=Date.parse(at);return Number.isFinite(time)&&time>=after&&time<=now;};
 export type BriefingItem={card:FeedCard;signals:FeedSignal[]};
-export function dailyBriefing(store:Store,now=Date.now(),hours=48){
+export function dailyBriefing(store:Store,now=Date.now(),hours=48,publishedOnly=false){
  const after=now-hours*HOUR;
- const feed=evaluateFeed(store,now);
+ const candidates=evaluateFeed(store,now);
+ const feed=publishedOnly?publishableFeed(candidates,store,now):candidates;
  const items=[...feed.momentum,...feed.mentioned,...feed.discovered].map(card=>({card,signals:card.signals.filter(signal=>within(signal.eventAt,after,now))})).filter(item=>item.signals.length);
  const measured=items.filter(item=>item.signals.some(s=>s.kind==='momentum')).sort((a,b)=>{
   const sourceDifference=new Set(b.signals.filter(s=>s.kind==='momentum').map(s=>s.source)).size-new Set(a.signals.filter(s=>s.kind==='momentum').map(s=>s.source)).size;

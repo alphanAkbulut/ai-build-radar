@@ -6,6 +6,8 @@
 
 Ürünün iki katmanı vardır: güncel ve kaynaklı **keşif/haber akışı** ile demosu incelenmiş az sayıdaki örnekten oluşan **öğrenme koleksiyonu**. Kaynakta bulunmak veya yüksek yıldız almak tek başına koleksiyona giriş sağlamaz.
 
+**Yayın kuralı:** Kaynak taraması geniştir; ana Gündem ve Radar özeti ürün kartları şu anda yalnız aynı site URL'sinde yakın zamanda temel etkileşimi denenmiş, gerçek önizlemesi ve öğrenme gerekçesi kayıtlı ürünleri gösterir. Repo, AI geliştirme beyanı veya site URL'si tek başına **Dene** kartı oluşturmaz. `/builds` ve `/candidates` yayın vitrini değil inceleme arşividir. Bu geçici dar kapı otomatik demo kontrolü ve tam dersten ayrı ürün yayın kuralı geliştirilene kadar korunur ([R03](https://github.com/alphanAkbulut/ai-build-radar/issues/3)).
+
 ## Belgeler
 
 - [Ürün hafızası](docs/PRODUCT-STRATEGY.md) ([English](docs/PRODUCT-STRATEGY.en.md)): kim için, neden, ziyaretçi akışı, korunacak ayrımlar ve başarı tanımı. [Fazlı yol haritası](docs/ROADMAP.md) ([English](docs/ROADMAP.en.md)) iş sırasını ve kabul ölçütlerini; [karar kaydı](docs/DECISIONS.md) ([English](docs/DECISIONS.en.md)) tercihlerin gerekçesini tutar. Yaşayan 18 iş [private GitHub panosunda](https://github.com/users/alphanAkbulut/projects/2) ve depo Issues'da izlenir.

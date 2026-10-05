@@ -6,6 +6,8 @@
 
 The product has two distinct surfaces: a timely, sourced **discovery/news feed** and a smaller **learning collection** whose demos and learning steps have been reviewed. Being found by a source or collecting stars never automatically qualifies a project as a lesson.
 
+**Publication rule:** Source collection stays broad; product cards in the home feed and Radar briefing currently require a recent core interaction on the same site URL, an actual matching preview, and a recorded learning reason. A repository, AI-builder statement, or site URL alone never creates a **Try** card. `/builds` and `/candidates` are review archives, not product showcases. This deliberately narrow interim gate remains until automated demo checks and a product-publication path separate from full lessons are built ([R03](https://github.com/alphanAkbulut/ai-build-radar/issues/3)).
+
 ## Documentation
 
 - [Product memory](docs/PRODUCT-STRATEGY.en.md) ([Türkçe](docs/PRODUCT-STRATEGY.md)) records who this serves, why, the visitor journey, crucial distinctions, and success criteria. The [phased roadmap](docs/ROADMAP.en.md) ([Türkçe](docs/ROADMAP.md)) defines work order and acceptance; the [decision log](docs/DECISIONS.en.md) ([Türkçe](docs/DECISIONS.md)) records rationale. Eighteen live tasks are on the [private GitHub board](https://github.com/users/alphanAkbulut/projects/2) and repository Issues.

@@ -93,7 +93,7 @@ Eight topic categories in `lib/discovery.ts` use name/description heuristics and
 
 ## 6. Two evaluation gates: attention versus a practical lesson
 
-**Timely feed:** `lib/evaluation.ts` requires a separate site URL, a meaningful description, and no unresolved identity conflict. A URL alone does not establish a working demo. The default group requires direct AI-development evidence (`Verified` or a `Builder-stated` owner claim); AI products with unknown development methods are shown separately. Each group displays its *specific sourced signal*:
+**Timely feed:** `lib/evaluation.ts` requires a separate site URL, a meaningful description, and no unresolved identity conflict. A URL alone does not establish a working demo. `lib/publication.ts` additionally requires a real interaction review within 30 days, an interactive preview for the same site URL, and the `selectionFor` gate before showing visitor-facing cards. This is an intentionally narrow interim gate until dependable demo review can be scaled without a full lesson. The default group requires direct AI-development evidence (`Verified` or a `Builder-stated` owner claim); AI products with unknown development methods are shown separately. Each group displays its *specific sourced signal*:
 
 - Hacker News or Lobsters: at least **50 points or 20 comments** on a matching story. This is a platform threshold, not a universal quality score.
 - GitHub: at least **25 additional stars** across comparable observations at least 24 hours apart, with a recent final measurement. A total star count is not growth.
@@ -101,7 +101,7 @@ Eight topic categories in `lib/discovery.ts` use name/description heuristics and
 - An author article or other dated editorial reference: **mentioned**, with source/date. A mention is not praise or recommendation.
 - A repository owner's explicit AI-development tool statement first observed by Radar in the past seven days: **new discovery**. This is neither measured attention nor a product launch date.
 
-Cards show the source, event or observation time, Radar's first-seen time, and last evidence check. Measured attention precedes new discoveries, which precede mentions; each class sorts by its relevant event time. New discoveries from one run have nearly identical timestamps, so their order is not a quality or popularity ranking. Incompatible platform metrics are not summed into a fictional global hype score. Comment sentiment is not systematically measured. Feed eligibility is not lesson eligibility.
+Cards show the source, event or observation time, Radar's first-seen time, and last evidence check. Measured attention precedes new discoveries, which precede mentions; each class sorts by its relevant event time. New discoveries from one run have nearly identical timestamps, so their order is not a quality or popularity ranking. Incompatible platform metrics are not summed into a fictional global hype score. Comment sentiment is not systematically measured. A raw signal does not automatically qualify for a visitor-facing feed or lesson. The interim gate currently limits both to the same reviewed builds, while the two surfaces still explain different things.
 
 **Learning collection:** `lib/selection.ts` marks a lesson `featured` only when all five checks pass:
 
@@ -119,9 +119,9 @@ The intended journey is **notice a sourced signal → try the actual site → in
 
 ### 7.1 `/` or `/?view=feed` — This week's attention
 
-**Purpose:** A legible, news-like stream of recently noticed working sites and dated mentions. The page reads `dashboardStore` and applies `evaluateFeed` (section 6). Measured **attention** cards come before newly **mentioned** cards; each class uses source-event recency. No universal cross-platform score is claimed.
+**Purpose:** A legible, news-like stream of recently noticed working sites and dated mentions. The page reads `dashboardStore`; `evaluateFeed` produces sourced events and `publishableFeed` selects actually tested demos. Measured **attention** cards come before newly **mentioned** cards; each class uses source-event recency. No universal cross-platform score is claimed.
 
-Each card explains the product, signal **type + platform + date + count where available**, source link, and **Try** link to the actual site. A reviewed lesson adds **Learn from this** and a lesson marker. An image appears only where a linked reviewed lesson has the relevant capture. Cards load eight at a time, with another eight on request. Being on this feed does not mean Radar has tested the demo or verified the AI-building method. No current matching signal should result in an honest empty state rather than promoting old items as fresh.
+Each card explains the product, signal **type + platform + date + count where available**, source link, and **Try** link to the actual site. Under this interim gate every published card has a reviewed lesson and matching real demo capture, so **Learn from this** appears. Cards load eight at a time, with another eight on request. A feed card still does not independently verify the claimed AI-building method. No current matching signal should result in an honest empty state rather than promoting old items as fresh.
 
 ### 7.2 `/?view=learn` — Learning collection
 
@@ -133,17 +133,17 @@ A card includes real media, sourced purpose, a concrete **why open this**, trans
 
 **Purpose:** Expose discovered builds not yet featured, so researchers can triage them without calling them ready-made lessons. Featured lessons are excluded. The default view favors the AI-evidenced group and builds with a site URL. Search, source, evidence, site/code, and eight heuristic category filters are available. Verified visual captures sort first, then most recently first-seen builds. The page currently displays only the first 24 results, with no complete pagination here; `/builds` is the full archive.
 
-Large visual cards require a capture matching the actual site URL. Others stay compact; “awaiting visual discovery” does not claim a completed editorial review. Detail, site, and code links stay distinct. When a lesson record exists but fails the five checks, missing checks can be shown. Candidate order is a triage convenience, not a quality or trend ranking.
+Large visual cards require a tested demo and interactive capture matching the actual site URL. Others stay compact under “Review records”; merely having a site URL is not a usable demo and does not receive a **Try** action. Source and evidence links remain in the archive. When a lesson record exists but fails the five checks, missing checks can be shown. Candidate order is a triage convenience, not a quality or trend ranking.
 
 ### 7.4 `/builds` — Complete build archive
 
-**Purpose:** Preserve searchable, deduplicated Build Entities beyond the smaller news and learning surfaces. Filters cover AI evidence, site/code, source, and category. The evidence-based “built with AI” and **uncertain** groups remain visible; `Derived` and `Unknown` are not discarded. Valid captures sort before first-seen recency. Pagination has 18 results per page and preserves URL filters.
+**Purpose:** Preserve searchable, deduplicated Build Entities beyond the smaller news and learning surfaces. Filters cover AI evidence, site/code, source, and category. The evidence-based “built with AI” and **uncertain** groups remain visible; `Derived` and `Unknown` are not discarded. Publication-eligible reviewed demos sort before first-seen recency. Pagination has 18 results per page and preserves URL filters.
 
 The total is not a count of recommended lessons. First seen is not launch date or proof of growth. A build without a site can remain in the archive, but must not be offered as a working demo. An empty filtered result does not by itself prove that all sources scanned successfully; inspect `/sources`.
 
 ### 7.5 `/builds/[id]` — Build dossier
 
-**Purpose:** Expand each short card into inspectable claims. Site and code are separate destinations. Context displays sourced **what it does / likely purpose** plus `complete`, `partial`, `missing`, `failed`, or `blocked` extraction state. Attention cites its platform and last check. Identity conflicts surface a review warning rather than a silently merged record.
+**Purpose:** Expand each short card into inspectable claims. A reviewed demo gets the primary site action; otherwise the page says that a usable demo is unverified. Code and raw source URLs remain separate evidence links. Context displays sourced **what it does / likely purpose** plus `complete`, `partial`, `missing`, `failed`, or `blocked` extraction state. Attention cites its platform and last check. Identity conflicts surface a review warning rather than a silently merged record.
 
 The evidence trail shows field-level source, excerpt/locator, observed and optional published dates, class, and history. Unknown model fields remain unknown. A derived category can differ from the source's own taxonomy. README-derived intent is a sourced candidate explanation, not an interview with the builder.
 
@@ -195,6 +195,7 @@ The current publication projection requires the raw record, matching source/reco
 | --- | --- | --- |
 | `lib/sources.ts` | Source definitions and intervals | Code change, then verify successful runs. |
 | `lib/pipeline.ts`, `lib/schema.ts` | Ingestion, identity/evidence persistence contract | Code and relevant schema tests. |
+| `lib/evaluation.ts`, `lib/publication.ts` | Candidate events and visitor-facing tested-demo publication | Test signal timing and publication eligibility separately. |
 | `data/radar.json` or `RADAR_DATA_DIR` | Live builds, evidence, raw records, runs, source states, attention | One worker, lock, atomic replacement; excluded from Git. |
 | `content/*.json` | Curated lessons, purpose, people, references, review, adaptation checks | Sourced, reviewable repository change. |
 | `previews/manifest.json`, `previews/*.png` | Real captures with capture records | New capture and URL check; `/preview/[id]` needs session. |

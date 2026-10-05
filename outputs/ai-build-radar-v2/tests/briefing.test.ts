@@ -14,6 +14,7 @@ test('a new builder statement is a discovery, never a viral highlight',()=>{
  const brief=dailyBriefing(store,now);
  assert.equal(brief.measured.length,0);
  assert.equal(brief.discovered.length,1);
+ assert.equal(dailyBriefing(store,now,48,true).discovered.length,0);
  assert.equal(brief.themes.length,0);
  assert.equal(brief.attemptedSources,1);
  assert.equal(brief.completedSources,0);

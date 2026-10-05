@@ -6,21 +6,21 @@ import {lessons} from '@/lib/lessons';
 import {selectionFor} from '@/lib/selection';
 
 export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[];mentioned:FeedCard[]}}){
- const [group,setGroup]=useState<'ai'|'uncertain'>('ai');
- const [limit,setLimit]=useState(8);
  const proven=feedByDevelopmentEvidence(feed,'ai');
  const uncertain=feedByDevelopmentEvidence(feed,'uncertain');
+ const [group,setGroup]=useState<'ai'|'uncertain'>(proven.length?'ai':'uncertain');
+ const [limit,setLimit]=useState(8);
  const cards=group==='ai'?proven:uncertain;
  const date=(at:string)=>new Date(at).toLocaleString('tr-TR',{timeZone:'Europe/Istanbul',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
  return <section className="radar-feed-view" aria-label="Bu haftanın gündemi">
   <div className="radar-feed-intro">
    <p className="eyebrow">KAYNAKLI KEŞİF</p>
    <h2>Bu haftanın gündemi</h2>
-   <p>AI ile geliştirme kanıtı bulunan projeler önce. <strong>İlgi gördü</strong> ölçülen etkileşimi, <strong>Yeni keşif</strong> Radar’ın ilk gördüğü üretici beyanını, <strong>Bahsedildi</strong> ise kaynak bağlantısını anlatır. Bunlar ürünün çıkış tarihi veya kalite puanı değildir.</p>
+   <p>Burada yalnızca açılıp temel etkileşimi denenmiş, gerçek önizlemesi kaydedilmiş ürünler görünür. <strong>İlgi gördü</strong> ölçülen etkileşimi, <strong>Yeni keşif</strong> Radar’ın ilk gördüğü üretici beyanını, <strong>Bahsedildi</strong> ise kaynak bağlantısını anlatır. Bunlar ürünün çıkış tarihi veya kalite puanı değildir.</p>
   </div>
   <div className="feed-groups" role="group" aria-label="AI ile geliştirilme kanıtı"><button type="button" className={group==='ai'?'selected':''} aria-pressed={group==='ai'} onClick={()=>{setGroup('ai');setLimit(8);}}>AI ile geliştirilenler <span>{proven.length}</span></button><button type="button" className={group==='uncertain'?'selected':''} aria-pressed={group==='uncertain'} onClick={()=>{setGroup('uncertain');setLimit(8);}}>Geliştirme yöntemi belirsiz <span>{uncertain.length}</span></button></div>
-  <p className="feed-group-note">{group==='ai'?'Üretici açıklamasında AI geliştirme aracı açıkça belirtilmiş projeler. Site bağlantısı ve açıklaması vardır; canlı demo ve öğrenme içeriği yalnızca ayrıca incelenenlerde hazırdır.':'AI ürün gündeminden sinyaller. Bir AI ürünü olmak, AI ile geliştirilmiş olmak anlamına gelmez; bu projeler ayrı tutulur.'}</p>
-  {cards.length===0?<div className="lesson-panel"><p>Bu grupta son 7 güne ait kaynaklı kayıt yok. Son tarama ve kaynak durumunu Kaynaklar sayfasında görebilirsin.</p><Link href="/sources">Kaynak durumuna bak →</Link></div>:<div className="discovery-briefs">{cards.slice(0,limit).map(card=>{
+  <p className="feed-group-note">{group==='ai'?'AI geliştirme kanıtı veya üretici beyanı bulunan, demosu incelenmiş projeler. Beyan bağımsız doğrulama değildir.':'Demosu incelenmiş AI ürünleri. Bir AI ürünü olmak, AI ile geliştirilmiş olmak anlamına gelmez; bu projeler ayrı tutulur.'}</p>
+  {cards.length===0?<div className="lesson-panel"><p>Bu grupta son 7 güne ait hem kaynaklı sinyali hem de denenmiş demosu bulunan ürün yok. Ham keşifler inceleme alanında kalır; açılmayan veya denenmemiş bir siteyi burada ürün diye göstermiyoruz.</p><Link href="/?view=learn">İncelenmiş örnekleri gör →</Link></div>:<div className="discovery-briefs">{cards.slice(0,limit).map(card=>{
    const lesson=lessons.find(l=>l.buildId===card.id);
    const reviewed=lesson&&selectionFor(lesson).featured?lesson:null;
    const relevantSignals=card.signals.filter(signal=>signal.kind===(card.status==='momentum'?'momentum':card.status==='mentioned'?'mention':'discovery')).slice(0,2);

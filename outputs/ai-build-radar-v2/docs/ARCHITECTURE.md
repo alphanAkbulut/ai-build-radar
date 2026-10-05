@@ -91,7 +91,7 @@ Sekiz konu kategorisi [`lib/discovery.ts`](../lib/discovery.ts) içinde isim/aç
 
 ## 6. Gündem ve seçki: iki ayrı değerlendirme kapısı
 
-**Gündem:** [`lib/evaluation.ts`](../lib/evaluation.ts) ayrı bir site URL’si, anlamlı açıklama ve çözülmemiş kimlik çakışması olmamasını arar. URL’nin bulunması canlı demoyu doğrulamaz. Varsayılan grup doğrudan AI geliştirme kanıtı olanlardır (`Verified` veya üretici beyanı `Builder-stated`); geliştirme yöntemi belirsiz AI ürünleri ayrı sekmede kalır. Her iki grupta kaynaklı sinyal türü ayrıca gösterilir:
+**Gündem:** [`lib/evaluation.ts`](../lib/evaluation.ts) ayrı bir site URL’si, anlamlı açıklama ve çözülmemiş kimlik çakışması olmamasını arar. URL’nin bulunması canlı demoyu doğrulamaz. `lib/publication.ts` ziyaretçiye yayınlanan kartlarda son 30 günlük gerçek etkileşim incelemesi, aynı site URL’sine ait interaktif önizleme ve `selectionFor` kapısını ayrıca arar. Bu, tam ders gerektirmeyen otomatik demo kontrolü gelene kadar bilerek dar bir geçici kapıdır. Varsayılan grup doğrudan AI geliştirme kanıtı olanlardır (`Verified` veya üretici beyanı `Builder-stated`); geliştirme yöntemi belirsiz AI ürünleri ayrı sekmede kalır. Her iki grupta kaynaklı sinyal türü ayrıca gösterilir:
 
 - Hacker News veya Lobsters: ilgili paylaşımda en az **50 puan veya 20 yorum**. Bu platform içi eşiktir; evrensel kalite puanı değildir.
 - GitHub: en az 24 saat arayla karşılaştırılabilir ölçümde **+25 yıldız** ve yakın tarihli son ölçüm. Toplam yıldız artış hızı değildir.
@@ -99,7 +99,7 @@ Sekiz konu kategorisi [`lib/discovery.ts`](../lib/discovery.ts) içinde isim/aç
 - Kişi yazısı/başka referans: kaynak ve yayın tarihi varsa **bahsedildi**. İsim geçmesi övgü veya tavsiye sayılmaz.
 - GitHub sahibinin açıklamasında AI aracıyla yapıldığını doğrudan söyleyen, Radar’ın son 7 günde ilk kez gördüğü kayıt: **yeni keşif**. Bu bir ilgi/trend veya çıkış tarihi değildir.
 
-Kaynak, olay/gözlem zamanı, Radar’ın ilk gördüğü zaman ve son kanıt kontrolü kartta görünür. Önce ölçülmüş ilgi, sonra yeni keşif, ardından bahsedilme gelir; her küme ilgili olay zamanına göre sıralanır. Aynı taramadaki yeni keşiflerin zamanları birbirine yakın olduğundan bu sıralama kalite veya popülerlik derecesi değildir. Platform sayıları sahte bir “global hype skoru”na toplanmaz. Olumlu/olumsuz yorum tonu sistematik ölçülmüyor. Haber akışına girmek öğrenme seçkisine girmek değildir.
+Kaynak, olay/gözlem zamanı, Radar’ın ilk gördüğü zaman ve son kanıt kontrolü kartta görünür. Önce ölçülmüş ilgi, sonra yeni keşif, ardından bahsedilme gelir; her küme ilgili olay zamanına göre sıralanır. Aynı taramadaki yeni keşiflerin zamanları birbirine yakın olduğundan bu sıralama kalite veya popülerlik derecesi değildir. Platform sayıları sahte bir “global hype skoru”na toplanmaz. Olumlu/olumsuz yorum tonu sistematik ölçülmüyor. Ham sinyal öğrenme seçkisine veya ziyaretçi gündemine otomatik giriş sağlamaz. Bugünkü dar yayın kapısı iki yüzeyi aynı incelenmiş projelerle sınırlar; haber zamanı ve ders içeriği ayrı amaçlarla gösterilir.
 
 **Öğrenme koleksiyonu:** [`lib/selection.ts`](../lib/selection.ts) ancak şu beş kontrolün tümü geçerse `featured` üretir:
 
@@ -117,9 +117,9 @@ Ziyaretçi yolculuğu **gündemde fark et → çalışan ürünü dene → kayna
 
 ### 7.1 `/` veya `/?view=feed` — Bu hafta ilgi görenler
 
-**Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur ve `evaluateFeed` ile bölüm 6'daki kurallardan geçirilir. Kart sırası önce ölçülmüş **İlgi gördü**, sonra doğrulanmış yeni **Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
+**Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur; `evaluateFeed` kaynaklı olayları, `publishableFeed` ise gerçekten denenmiş demoları seçer. Kart sırası önce ölçülmüş **İlgi gördü**, sonra doğrulanmış yeni **Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
 
-Kartta proje adı, açıklama, sinyalin **türü + platformu + tarihi + varsa sayısı**, kaynağa bağlantı ve siteye doğrudan giden **Dene** eylemi bulunur. İncelenmiş ders varsa ayrıca **Bundan öğren** bağlantısı ve ders işareti görünür. Görsel yalnız bu projeye bağlı incelenmiş ders/görüntü varsa eklenir; görsel yokluğu gündem sinyalini geçersiz kılmaz. İlk sekiz karttan sonra sekizer yüklenir. Akışa girmek demoyu Radar'ın denediği veya AI geliştirme aracını doğruladığı anlamına gelmez; ziyaretçi bunu detay dosyasından ayırt eder. Eşleşen güncel olay yoksa boş durum gösterilmeli, eski proje yeniymiş gibi taşınmamalıdır.
+Kartta proje adı, açıklama, sinyalin **türü + platformu + tarihi + varsa sayısı**, kaynağa bağlantı ve siteye doğrudan giden **Dene** eylemi bulunur. Bu geçici kapıda bütün yayınlanan kartların incelenmiş dersi ve gerçek demo görüntüsü vardır; **Bundan öğren** bağlantısı görünür. İlk sekiz karttan sonra sekizer yüklenir. Akışa girmek AI geliştirme aracının bağımsız doğrulandığı anlamına gelmez; ziyaretçi bunu detay dosyasından ayırt eder. Eşleşen güncel olay yoksa boş durum gösterilmeli, eski proje yeniymiş gibi taşınmamalıdır.
 
 ### 7.2 `/?view=learn` — Öğrenme koleksiyonu
 
@@ -131,17 +131,17 @@ Kartın görseli, kaynaklı amacı, **neden açmaya değer** olduğu, aktarılab
 
 **Amaç:** Keşfedilmiş ama seçki kapısından geçmemiş kayıtları inceleme kuyruğu olarak görünür kılmak; bunlara “öğrenme dersi hazır” dememek. Seçkideki `featured` kayıtlar ayıklanır. Varsayılan görünüm, AI geliştirme kanıt grubu ve site bağlantısı olanları seçer; arama, kaynak, kanıt, site/kod ve sekiz sezgisel kategori filtresi vardır. Görseli doğrulanmış kayıtlar önce, ardından Radar'ın ilk gördüğü en yeni kayıtlar gelir. Bugün yalnız ilk 24 sonuç gösterilir; bu ekranın tam sayfalaması yoktur. Tüm adayları görmek için `/builds` gerekir.
 
-Görsel kart yalnız manifestte gerçek site URL'siyle eşleşen görüntü varsa çıkar. Diğerleri kompakt sırada durur; “görsel keşfe hazırlanacak” editoryal incelemenin tamamlandığını ima etmez. Detay, site ve kod bağlantıları ayrıdır. Eksik beş seçki kontrolü varsa açıkça listelenir. Aday havuzu bir kalite veya trend sıralaması değildir; araştırma ve triage alanıdır.
+Görsel kart yalnız yayın kapısını geçen, aynı URL’de gerçekten denenmiş ve görüntüsü kaydedilmiş demo için çıkar. Diğerleri “İnceleme kayıtları” altında kompakt durur; site adresinin bulunması kullanılabilir demo sayılmaz ve denenmemiş adrese **Siteyi aç** eylemi verilmez. Kaynak ve kanıt bağlantıları arşivde kalır. Eksik beş seçki kontrolü varsa açıkça listelenir. Aday havuzu bir kalite veya trend sıralaması değildir; araştırma ve triage alanıdır.
 
 ### 7.4 `/builds` — Tam build arşivi
 
-**Amaç:** Tekilleştirilmiş tüm Build Entity kayıtlarını kaybetmeden aratılabilir tutmak. AI kanıtı, site/kod, kaynak ve kategori filtreleri aday görünümüyle ortaktır. Kanıta dayalı “AI ile yapılmış” ve **belirsiz** grupları ayrılır; `Derived`/`Unknown` dışlanmaz. Doğrulanmış görüntüsü olanlar, ardından ilk görülme tarihi kullanılarak sıralanır; 18'li sayfalama URL filtrelerini taşır.
+**Amaç:** Tekilleştirilmiş tüm Build Entity kayıtlarını kaybetmeden aratılabilir tutmak. AI kanıtı, site/kod, kaynak ve kategori filtreleri aday görünümüyle ortaktır. Kanıta dayalı “AI ile yapılmış” ve **belirsiz** grupları ayrılır; `Derived`/`Unknown` dışlanmaz. Önce yayına uygun denenmiş demolar, ardından ilk görülme tarihi kullanılarak sıralanır; 18'li sayfalama URL filtrelerini taşır.
 
 Buradaki proje sayısı, ziyaretçiye önerilen ders sayısı değildir. İlk görülme tarihi çıkış tarihi veya büyüme ölçüsü değildir. Site bağlantısı olmayan proje arşivde kalabilir; demo olarak sunulmaz. Boş filtre sonucu, veri yokluğu ile tarama hatasını aynı şey saymamalıdır; kaynak sağlığı `/sources` üzerinden kontrol edilir.
 
 ### 7.5 `/builds/[id]` — Proje dosyası
 
-**Amaç:** Kartın kısa iddiasını denetlenebilir kayda açmak. Site ve kaynak kod ayrı birincil bağlantılardır. Bağlam bölümünde kaynak metinden çıkarılmış **ne yapıyor / olası amaç** ve çıkarımın `complete`, `partial`, `missing`, `failed` veya `blocked` durumu görünür. İlgi bölümü Hacker News, GitHub veya diğer kaynaklara dayanan sinyali ve son kontrolü açıklar. Bir kimlik çatışması varsa inceleme uyarısı, güvenle birleştirilmiş kayıt gibi sunulmasını engeller.
+**Amaç:** Kartın kısa iddiasını denetlenebilir kayda açmak. Denenmiş demo varsa site birincil eylemdir; yoksa “kullanılabilir demo doğrulanmadı” gösterilir. Kaynak kodu ve ham URL kanıt için ayrı kalır. Bağlam bölümünde kaynak metinden çıkarılmış **ne yapıyor / olası amaç** ve çıkarımın `complete`, `partial`, `missing`, `failed` veya `blocked` durumu görünür. İlgi bölümü Hacker News, GitHub veya diğer kaynaklara dayanan sinyali ve son kontrolü açıklar. Bir kimlik çatışması varsa inceleme uyarısı, güvenle birleştirilmiş kayıt gibi sunulmasını engeller.
 
 Kanıt izinde her alanın kaynağı, kısa alıntı/konum, gözlem ve varsa yayın tarihi, sınıfı ve geçmiş sürümleri bulunur. “Model bilinmiyor” boşluğu bilinçlidir. Kategori orijinal kaynak sınıfından farklıysa türetilmiş etiket olarak okunur. Detay sayfası geliştiricinin niyetine dair kaynaklı aday sunabilir; README yorumunu yaratıcıyla yapılmış röportaj gibi göstermez.
 
@@ -193,6 +193,7 @@ Güncel yayın projeksiyonu Lobsters tartışması için ham kayıt, eşleşen k
 | --- | --- | --- |
 | [`lib/sources.ts`](../lib/sources.ts) | Kaynak kayıtları/sıklıkları | Kod değişikliği; son başarılı koşu ayrıca doğrulanır. |
 | [`lib/pipeline.ts`](../lib/pipeline.ts), [`lib/schema.ts`](../lib/schema.ts) | Toplama, tekilleştirme, ham/kanıt şeması | Kod ve şema testleri. |
+| [`lib/evaluation.ts`](../lib/evaluation.ts), [`lib/publication.ts`](../lib/publication.ts) | Aday olayları ve ziyaretçiye yayınlanan denenmiş demolar | Tarih/sinyal ile yayın kapısı ayrı test edilir. |
 | `data/radar.json` veya `RADAR_DATA_DIR` | Canlı Build, Evidence, raw, runs, sourceStates, attention | Tek worker; kilit ve atomik dosya değiştirme. Git dışında. |
 | `content/*.json` | Editoryal ders, amaç, kişi, referans, demo incelemesi, uyarlama testleri | Kaynaklı, incelenebilir repo değişikliği. |
 | `previews/manifest.json`, `previews/*.png` | Gerçek görüntü ve çekim kaydı | Yeniden çekim/URL denetimiyle. `/preview/[id]` oturum ister. |
