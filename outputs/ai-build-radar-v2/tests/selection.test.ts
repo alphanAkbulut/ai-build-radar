@@ -13,4 +13,5 @@ test('demo evidence does not compensate for missing learning content',()=>{
  assert.equal(selectionFor({...l,exercise:[]},review,now).featured,false);
  assert.equal(selectionFor({...l,purpose:{...l.purpose,source:''}},review,now).featured,false);
  assert.equal(selectionFor({...l,media:undefined,buildId:undefined},review,now).featured,false);
+ assert.equal(selectionFor({...l,media:{url:'https://example.com/hero.png',label:'Repo görseli',sourceUrl:'https://example.com'}},review,now).featured,false);
 });

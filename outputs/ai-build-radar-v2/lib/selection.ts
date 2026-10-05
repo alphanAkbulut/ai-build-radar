@@ -16,10 +16,12 @@ const reasons:Record<string,string>={
 export type SelectionReview={level:string;url:string;finding:string;checkedAt:string};
 export function selectionFor(l:Lesson,review:SelectionReview|undefined=(reviews as Record<string,SelectionReview>)[l.slug],now=Date.now()){
  const age=review?now-Date.parse(review.checkedAt):NaN;
+ const captured=l.buildId?(previews as Record<string,{method?:string;interactive?:boolean}>)[l.buildId]:undefined;
+ const hasRealPreview=!!(l.media?.url.startsWith('/spotlights/')&&l.media.label.includes('Radar'))||!!(captured?.method==='browser-screenshot'&&captured.interactive);
  const checks=[
   {id:'purpose',label:'Ne yaptığı ve geliştirici açıklaması kaynaklı',passed:!!l.purpose.what.trim()&&/^https:\/\//.test(l.purpose.source)},
   {id:'demo',label:'Temel etkileşim son 30 günde denenmiş',passed:!!review&&review.level==='interaction'&&/^https:\/\//.test(review.url)&&review.finding.trim().length>0&&Number.isFinite(age)&&age>=0&&age<=30*86400000},
-  {id:'preview',label:'Gerçek demo önizlemesi kaydedilmiş',passed:!!l.media?.url||!!(l.buildId&&(previews as Record<string,unknown>)[l.buildId])},
+  {id:'preview',label:'Gerçek demo önizlemesi kaydedilmiş',passed:hasRealPreview},
   {id:'difference',label:'Ayırt edici öğrenme gerekçesi yazılmış',passed:!!reasons[l.slug]},
   {id:'learning',label:'Öğrenme amacı, adımlar ve kabul kontrolleri hazır',passed:!!l.purpose.application.trim()&&l.exercise.length>=3&&l.checks.length>=2&&l.exercise.every(x=>!!x.trim())&&l.checks.every(x=>!!x.trim())}
  ];
