@@ -1,4 +1,28 @@
 {
+  "jev-9b-decision-demo": {
+    "kind": "Etkileşimli model demosu",
+    "headline": "Bir soruya cevap değil, kararın olasılıklarını göster",
+    "what": "Kısa bir durum metnine evet/hayır, seçenek veya puan soruları sorar; JEV-9B modelinin olasılık dağılımını canlı gösterir.",
+    "why": "AutoTrust ekibi, hızlı türlendirilmiş kararlarla daha uzun model akıl yürütmesini aynı deneyimde ayırmak istiyor. Demo bu iki yolu karşılaştırılabilir hale getiriyor; tek bir müşteri problemi açıklanmıyor.",
+    "whyBasis": "product",
+    "excerpt": "Give the model one piece of state text and up to four typed questions.",
+    "audience": "AI ürünlerinde yönlendirme, sınıflandırma veya insan onayı tasarlayan ürün ve geliştirme ekipleri.",
+    "application": "Kendi ürününde belirsiz bir otomatik kararı, seçenekleri ve güven düzeyini gösteren denetlenebilir bir akışa dönüştürmek.",
+    "source": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo",
+    "checkedAt": "2026-10-05"
+  },
+  "mimo-rl-explorer": {
+    "kind": "AI ajan değerlendirme gezgini",
+    "headline": "Bir AI ajanının görevini ve nasıl puanlandığını aç",
+    "what": "MiMo-V2.6 veri kümesindeki görevleri alan ve dile göre filtreletir; her görevin talimatını, ortamını ve puanlama yöntemini gösterir.",
+    "why": "FineEnvs ekibi, Xiaomi'nin açık RL görevlerini incelenebilir hale getirmeyi ve isteyenlerin kendi modeliyle rollout yapıp puanları karşılaştırmasını amaçlıyor. README bunun resmi Xiaomi ürünü olmadığını belirtiyor.",
+    "whyBasis": "product",
+    "excerpt": "Browse them, open any task to see everything inside it, then run a rollout",
+    "audience": "AI ajanı ürünleştiren ekipler, benchmark tasarlayanlar ve ürün yöneticileri.",
+    "application": "Kendi ajanının görev, çalışma koşulu ve değerlendirme ölçütlerini kullanıcıya açık bir örnek kataloğunda göstermek.",
+    "source": "https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer/blob/main/README.md",
+    "checkedAt": "2026-10-05"
+  },
   "motion-pad": {
     "kind": "Görsel tasarım aracı",
     "headline": "Animasyonun hızını ve karakterini tek yüzeyden ayarla",

@@ -1,4 +1,28 @@
 {
+  "jev-9b-decision-demo": {
+    "level": "interaction",
+    "url": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo",
+    "finding": "Örnek destek talebi girildi, 'Does this need account support?' sorusu gönderildi. System 1 bir yanıt üretti; true olasılığı %80 olarak gösterildi.",
+    "limitation": "Tek İngilizce soru test edildi; System 2, çoklu soru, mobil ve bağımsız model doğruluğu kontrol edilmedi.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T15:26:00Z"
+  },
+  "mimo-rl-explorer": {
+    "level": "interaction",
+    "url": "https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer",
+    "finding": "Türkçe filtre seçilince liste 93 göreve indi. Bir portföy görevi açıldı; talimat, sandbox ve görsel puanlama ölçütleri okundu.",
+    "limitation": "Keşif akışı test edildi. Gerçek ajan rollout'u giriş ve olası ücret gerektirdiğinden çalıştırılmadı.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T15:28:00Z"
+  },
+  "tldraw": {
+    "level": "interaction",
+    "url": "https://examples.tldraw.com/basic/full?utm_source=docs-embed",
+    "finding": "Temel editörde dikdörtgen çizildi; Geri Al ile şekil silindi, Yinele ile geri geldi.",
+    "limitation": "Tek masaüstü şekli ve geri alma akışı test edildi. Özel şekil geliştirme, kalıcılık ve mobil davranış test edilmedi.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T15:29:00Z"
+  },
   "excalidraw": {
     "level": "interaction",
     "url": "https://excalidraw.com/",
@@ -12,14 +36,6 @@
     "url": "https://chat.webllm.ai/",
     "finding": "Llama-3.2-1B modeliyle kısa bir mesaj gönderildi; model Hello yanıtını üretti ve üretim hızı arayüzde gösterildi.",
     "limitation": "Bu tarayıcıda tek kısa yanıt denendi. Diğer cihazların uyumluluğu ve uzun konuşmalar test edilmedi.",
-    "reviewer": "Radar / Codex",
-    "checkedAt": "2026-10-05T13:53:24Z"
-  },
-  "tldraw": {
-    "level": "interface",
-    "url": "https://tldraw.dev/examples/basic",
-    "finding": "Try example açıldı; gömülü editör ve şekil araçları yüklendi. Dikdörtgen aracı seçildi. Aynı sayfadaki React bileşeni ve CSS örneği okundu.",
-    "limitation": "Araç seçimi gözlendi; çizimin oluşması ve geri alma sonucu doğrulanmadı. Uyarlama rehberi çalıştırılmadı.",
     "reviewer": "Radar / Codex",
     "checkedAt": "2026-10-05T13:53:24Z"
   },

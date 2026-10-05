@@ -12,4 +12,5 @@ test('selection needs actual recent interaction evidence',()=>{
 test('demo evidence does not compensate for missing learning content',()=>{
  assert.equal(selectionFor({...l,exercise:[]},review,now).featured,false);
  assert.equal(selectionFor({...l,purpose:{...l.purpose,source:''}},review,now).featured,false);
+ assert.equal(selectionFor({...l,media:undefined,buildId:undefined},review,now).featured,false);
 });

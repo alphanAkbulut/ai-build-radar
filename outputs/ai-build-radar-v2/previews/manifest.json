@@ -1,4 +1,18 @@
 {
+  "build_fb013c914eb7068cbc7a395e": {
+    "url": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo",
+    "capturedAt": "2026-10-05T15:26:00Z",
+    "method": "browser-screenshot",
+    "label": "System 1 örnek yanıtı",
+    "interactive": true
+  },
+  "build_11b7d6c31392dbbedcf700cc": {
+    "url": "https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer",
+    "capturedAt": "2026-10-05T15:28:00Z",
+    "method": "browser-screenshot",
+    "label": "Görev gezgini",
+    "interactive": true
+  },
   "build_8ba329cec04a1346b2c9480a": {
     "url": "https://robvagin.github.io/metaballs",
     "capturedAt": "2026-10-04T20:00:30.018Z",

@@ -1,0 +1,83 @@
+[
+  {
+    "slug": "jev-9b-decision-demo",
+    "buildId": "build_fb013c914eb7068cbc7a395e",
+    "name": "JEV-9B Decision Demo",
+    "category": "AI deneyimleri",
+    "title": "Serbest sohbet yerine türü belirli, olasılıklı kararlar göster",
+    "hook": "Aynı metne evet/hayır, seçenek ve puan soruları sor; yanıtı tek kelime yerine olasılık dağılımıyla gör.",
+    "site": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo",
+    "repo": "https://huggingface.co/spaces/autotrust/jev-9b-decision-demo/tree/main",
+    "checkedAt": "2026-10-05T15:26:00Z",
+    "ai": "Unknown",
+    "inspection": "demo",
+    "access": "Demoyu aç",
+    "observations": [
+      "Hugging Face Space içinde durum metni ve dört ayrı soru alanı açıldı. Örnek destek talebine evet/hayır sorusu gönderildi; 1 yanıt ve %80 true olasılığı ekranda görüldü.",
+      "Aynı ekranda hızlı System 1 kararı ile System 2'ye yükseltme ayrı sekmeler halinde sunuluyor. Bu testte yalnızca System 1 yolu çalıştırıldı.",
+      "Uygulama kaynakları app.py ve jev_core.py olarak açık. Arayüz Gradio; model kartı Qwen3.5-9B tabanı ve ek karar başlığını açıklıyor."
+    ],
+    "exercise": [
+      "Kendi ürünündeki düşük riskli tek bir karar noktasını seç: örneğin destek mesajını ilgili ekibe yönlendirme. Hangi seçeneklerin geçerli olduğunu ve ne zaman insana aktarılacağını yaz.",
+      "Önce üç örnek mesajla sahte veri kullanan küçük bir arayüz kur. Mesaj, soru türü, seçenekler ve her seçeneğin olasılığını aynı ekranda göster; belirsizliği tek bir kesin etiketle gizleme.",
+      "Gerçek model bağlayacaksan belgelenmiş JEV uç noktasını veya uygun başka bir sınıflandırıcıyı sunucu tarafında kullan. Eşik altındaki güveni insan incelemesine yönlendir; giriş, maliyet ve kişisel veri kurallarını ayrı kontrol et."
+    ],
+    "checks": [
+      "Birden fazla seçenek varsa toplam olasılık ve en güçlü seçeneğin payı anlaşılır görünüyor.",
+      "Belirsiz veya desteklenmeyen girdi otomatik karar gibi sunulmuyor; insan incelemesi yolu açık.",
+      "Model bağlantısı kurulmadan örnek arayüz gerçek çıkarım yapıyormuş gibi görünmüyor."
+    ],
+    "tools": ["Mevcut ürün arayüzü", "Örnek sınıflandırma verisi", "İleride sunucu tarafında model API'si"],
+    "limits": [
+      "Bu test tek kısa İngilizce girdi ve tek evet/hayır sorusuyla sınırlı. Model doğruluğu veya kalibrasyonu bağımsız ölçülmedi.",
+      "Model kartındaki hız ve benchmark sayıları geliştirici ölçümüdür. Yüksek riskli kararlar için uygunluk kanıtı değildir.",
+      "AI ile geliştirilme yöntemi açıklanmadı; AI modeli kullanması, arayüzün AI ile kodlandığını kanıtlamaz."
+    ],
+    "sources": [
+      {"label":"Açık demo kodu", "url":"https://huggingface.co/spaces/autotrust/jev-9b-decision-demo/tree/main", "note":"app.py ve jev_core.py dosyaları açık; Gradio arayüzü ve çıkarım akışı incelenebilir."},
+      {"label":"Model kartı", "url":"https://huggingface.co/autotrust/JEV-9B", "note":"Qwen3.5-9B tabanı, karar başlığı ve geliştirici ölçümleri açıklanıyor."}
+    ],
+    "license": "Apache-2.0"
+  },
+  {
+    "slug": "mimo-rl-explorer",
+    "buildId": "build_11b7d6c31392dbbedcf700cc",
+    "name": "MiMo RL Environment Explorer",
+    "category": "AI deneyimleri",
+    "title": "AI ajanlarının görevini ve puanını görünür kıl",
+    "hook": "Binlerce görevi alan ve dile göre filtrele; bir görevi açınca ajanın talimatını, çalışma ortamını ve puanlama ölçüsünü birlikte gör.",
+    "site": "https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer",
+    "repo": "https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer/tree/main",
+    "checkedAt": "2026-10-05T15:26:00Z",
+    "ai": "Unknown",
+    "inspection": "demo",
+    "access": "Görevleri keşfet",
+    "observations": [
+      "Açık demoda Türkçe filtresi seçildi; liste 93 göreve indi ve harita Webdev görevlerini gösterdi.",
+      "Bir portföy sitesi görevi açıldı. Orijinal talimat, sandbox ortamı ve görsel puanlama ölçütleri aynı ayrıntı sayfasında görüldü.",
+      "README, kaynağın Xiaomi'nin veri kümesi olduğunu; uygulamanın FineEnvs/Hugging Face ekibinin bağımsız gezgini olduğunu belirtiyor. Gerçek rollout için giriş ve ücretli model/sandbox kullanımı gerekebilir."
+    ],
+    "exercise": [
+      "Kendi AI ürününden üç gerçekçi görevi seç; her biri için kullanıcı hedefini, girdiyi ve beklenen teslimi ayrı kaydet.",
+      "Görevleri kategori ve dil ile filtrelenen bir listeye koy. Ayrıntıda talimatı, çalışma koşullarını ve puanlama rubriğini yan yana göster.",
+      "Önce kayıtlı örnek çıktılarla iki yaklaşımı karşılaştır. Puanın hangi kontrolün sonucundan geldiğini ve değerlendirilemeyen durumu ayrı göster; gerçek model çalıştırmasını daha sonra bağla."
+    ],
+    "checks": [
+      "Filtre değişince görev sayısı ve listesi birlikte güncelleniyor.",
+      "Görev ayrıntısında puanlama ölçütü ve sınırları anlaşılır; sonuç ile ölçüt karıştırılmıyor.",
+      "Çalıştırma ücret veya giriş gerektiriyorsa ziyaretçi bunu eylemden önce görüyor."
+    ],
+    "tools": ["Küçük görev veri kümesi", "Filtrelenebilir web arayüzü", "Açık puanlama rubriği"],
+    "limits": [
+      "Görev keşfi ve ayrıntı akışı denendi; ücretli ajan rollout'u çalıştırılmadı ve model kalitesi ölçülmedi.",
+      "README'ye göre uygulama Xiaomi ile bağlantılı resmi ürün değil; Xiaomi veri kümesini kullanan bağımsız gezgin.",
+      "AI ile kodlandığına ilişkin kanıt yok. AI ajanlarını incelemek için kullanılan bir ürün."
+    ],
+    "sources": [
+      {"label":"Geliştirici açıklaması", "url":"https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer/blob/main/README.md", "note":"Kaynak veri kümesi, amaç, rollout akışı ve maliyet koşulları açıklanıyor."},
+      {"label":"Açık uygulama dosyaları", "url":"https://huggingface.co/spaces/FineEnvs/MiMo-RL-Envs-Explorer/tree/main", "note":"Dockerfile, veri hazırlama kodu ve kaynak klasörleri görülebilir."},
+      {"label":"Orijinal MiMo veri kümesi", "url":"https://huggingface.co/datasets/XiaomiMiMo/MiMo-V2.6-RL-oss", "note":"Uygulamanın gezdirdiği görevlerin birincil veri kaynağı."}
+    ],
+    "license": "Apache-2.0"
+  }
+]

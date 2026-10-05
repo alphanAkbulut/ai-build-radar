@@ -1,0 +1,65 @@
+import type {Store,Build,Evidence} from './schema';
+import {attentionKind,starChange} from './attention';
+import {categoryFor,destinations} from './discovery';
+import {sources} from './sources';
+
+export type FeedSignal={kind:'momentum'|'mention';source:string;label:string;url:string;eventAt:string;checkedAt:string};
+export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned';lastEventAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';tools:string[]};
+const WEEK=7*86400000, DAY=86400000;
+function recent(at:string,now:number,limit:number){const age=now-Date.parse(at);return Number.isFinite(age)&&age>=0&&age<=limit;}
+function sourceName(id:string){return sources.find(s=>s.id===id)?.name||id;}
+function latestEvidence(store:Store,buildId:string){
+ const found=new Map<string,Evidence>();
+ for(const e of store.evidence){
+  if(e.buildId!==buildId)continue;
+  const key=[e.sourceId,e.sourceRecordId,e.field].join('|');
+  if(!found.has(key)||e.observedAt>found.get(key)!.observedAt)found.set(key,e);
+ }
+ return [...found.values()];
+}
+function meaningfulDescription(build:Build){
+ const raw=(build.context?.what||build.description||'').trim().replace(/&#?39;|&39;/g,"'").replace(/&amp;/g,'&');
+ const text=raw.endsWith('...')?raw.match(/^.{35,}?[.!?](?=\s|$)/)?.[0]||'':raw;
+ return text.length>=35&&!/Hugging Face üzerinde yayımlanmış etkileşimli demo adayı|yayınında bağlantısı geçen aday|DEV Community yazısında bağlantısı geçen proje/i.test(text)?text:null;
+}
+export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCard|null{
+ const siteUrl=destinations(build).siteUrl,description=meaningfulDescription(build);
+ if(!siteUrl||!description||build.reviewRequired)return null;
+ if(['lobste.rs','dev.to','medium.com','www.medium.com'].includes(new URL(siteUrl).hostname))return null;
+ const signals:FeedSignal[]=[];
+ const key=build.aliases.find(a=>a.startsWith('https://github.com/'))||build.canonicalUrl;
+ const attention=store.attention?.[key];
+ if(attentionKind(attention,now)==='recent')for(const d of attention!.discussions){
+  if(!recent(d.publishedAt,now,WEEK)||(d.points<50&&d.comments<20))continue;
+  signals.push({kind:'momentum',source:'Hacker News',label:`${d.points} puan · ${d.comments} yorum`,url:d.url,eventAt:d.publishedAt,checkedAt:attention!.checkedAt});
+ }
+ const evidence=latestEvidence(store,build.id);
+ const growth=starChange(store.evidence.filter(e=>e.buildId===build.id&&e.field==='github_stars').map(e=>({at:e.observedAt,stars:Number(e.value)})));
+ if(growth&&growth.change>=25&&recent(growth.to,now,2*DAY)){
+  const repo=evidence.find(e=>e.field==='github_stars');
+  if(repo)signals.push({kind:'momentum',source:'GitHub',label:`En az 24 saat arayla ölçülen +${growth.change} yıldız`,url:repo.sourceUrl,eventAt:growth.to,checkedAt:growth.to});
+ }
+ for(const e of evidence){
+  if(!recent(e.observedAt,now,2*DAY))continue;
+  const eventAt=e.publishedAt||e.observedAt;
+  if(!recent(eventAt,now,WEEK))continue;
+  if(e.field==='platform_trending'&&e.sourceId==='huggingface'&&Number(e.value)>0){
+   signals.push({kind:'momentum',source:'Hugging Face',label:'Spaces trend listesinde; platform içi sinyal',url:e.sourceUrl,eventAt,checkedAt:e.observedAt});
+  }else if(e.field==='community_discussion'){
+   const match=e.quote.match(/(\d+) puan\s*·\s*(\d+) yorum/);
+   const points=Number(match?.[1]||0),comments=Number(match?.[2]||0);
+   signals.push({kind:points>=50||comments>=20?'momentum':'mention',source:sourceName(e.sourceId),label:e.quote,url:e.sourceUrl,eventAt,checkedAt:e.observedAt});
+  }else if(e.field==='editorial_reference'&&e.publishedAt){
+   signals.push({kind:'mention',source:sourceName(e.sourceId),label:'Yayında proje bağlantısı',url:e.sourceUrl,eventAt,checkedAt:e.observedAt});
+  }
+ }
+ if(!signals.length)return null;
+ signals.sort((a,b)=>Date.parse(b.eventAt)-Date.parse(a.eventAt));
+ const aiClaims=evidence.filter(e=>e.field==='ai_tools');
+ return {id:build.id,name:build.name,description,category:categoryFor(build).label,siteUrl,signals,status:signals.some(s=>s.kind==='momentum')?'momentum':'mentioned',lastEventAt:signals[0].eventAt,aiStatus:aiClaims[0]?.status||'Unknown',tools:[...new Set(aiClaims.map(e=>e.value))]};
+}
+export function evaluateFeed(store:Store,now=Date.now()){
+ const cards=store.builds.flatMap(b=>{const result=evaluateFeedBuild(store,b,now);return result?[result]:[]});
+ const byRecency=(a:FeedCard,b:FeedCard)=>Date.parse(b.lastEventAt)-Date.parse(a.lastEventAt);
+ return {momentum:cards.filter(c=>c.status==='momentum').sort(byRecency),mentioned:cards.filter(c=>c.status==='mentioned').sort(byRecency)};
+}

@@ -1,4 +1,6 @@
-# Öğrenme koleksiyonu — private pilot
+# Öğrenme koleksiyonu — önceki pilot notları
+
+Bu belge ilk pilotun tarihsel kaydıdır. Güncel yayın koşulları, gündem/öğrenme ayrımı ve doğrulanmış sınırlar için [EVALUATION.md](EVALUATION.md) esas alınır. 5 Ekim güncellemesinde ziyaretçiden puan veya kaynak isteme formları ders sayfasından kaldırıldı; önceki private kayıtlar korunuyor. Seçkide beş gerçek demo incelemesi ve bunların canlı ekran görüntüleri bulunuyor.
 
 Ana sayfa editoryal koleksiyondur. /candidates son 24 saatte bulunan adaylar; /builds tüm arşivdir. Ingestion hiçbir adayı otomatik öğrenme incelemesine dönüştürmez. Eski v1 korunur.
 

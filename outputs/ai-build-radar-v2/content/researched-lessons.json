@@ -111,9 +111,9 @@
     ],
     "license": "MIT",
     "media": {
-      "url": "https://excalidraw.nyc3.cdn.digitaloceanspaces.com/github%2Fproduct_showcase.png",
-      "label": "Geliştiricinin repo görseli / animasyonu",
-      "sourceUrl": "https://github.com/excalidraw/excalidraw/blob/master/README.md"
+      "url": "/spotlights/excalidraw-demo.png",
+      "label": "Radar'ın canlı demo ekran görüntüsü",
+      "sourceUrl": "https://excalidraw.com/"
     }
   },
   {
@@ -122,31 +122,32 @@
     "category": "Görsel etkileşim",
     "title": "Kendi araçlarınla sonsuz bir tuval kur",
     "hook": "Özel şekiller ve araçlar, çizim yüzeyini ürünün bir parçasına dönüştürebilir.",
-    "site": "https://tldraw.dev/examples",
+    "site": "https://examples.tldraw.com/basic/full?utm_source=docs-embed",
     "repo": "https://github.com/tldraw/tldraw",
-    "checkedAt": "2026-10-04T21:34:29.820433+00:00",
+    "checkedAt": "2026-10-05T15:29:00Z",
     "ai": "Unknown",
-    "inspection": "source",
-    "access": "Projeyi incele",
+    "inspection": "demo",
+    "access": "Tuvali dene",
     "observations": [
-      "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
-      "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Bu ilk kaynak incelemesine ek olarak yapılan güncel arayüz ve demo kontrolleri yukarıdaki inceleme notunda belirtilmiştir."
+      "Temel örnekte dikdörtgen çizildi; Geri Al ile kaldırıldı, Yinele ile yeniden gösterildi.",
+      "Resmî örnek sayfası Tldraw React bileşenini ve CSS dosyasını gösteriyor. Kalıcılık varsayılan olarak açık değil; ayrı örneğe yönlendiriyor."
     ],
     "exercise": [
-      "Özel bir kart şekli tanımla",
-      "Kartı tuvalde taşı ve yakınlaştır",
-      "Kaydetme ve yeniden açma akışı ekle"
+      "Önce resmi temel örneği kendi React projenin boş bir sayfasında aç; kapsayıcının ölçüsünü ve tldraw CSS dosyasını ekle.",
+      "Kendi ürününden tek bir nesneyi özel kart şekli olarak tanımla. Taşıma, seçme ve geri almayı kullanıcı akışında dene.",
+      "Kayıt gereksinimi varsa persistence key örneğini ayrıca uygula; sayfayı yenileyip kartın konumunun korunduğunu kontrol et."
     ],
     "checks": [
-      "Yakınlaştırmada içerik okunmalı",
-      "Kaydedilen konumlar korunmalı"
+      "Kart tuvalde oluşturuluyor, seçiliyor ve geri alınabiliyor.",
+      "Yakınlaştırmada içerik okunuyor ve klavyeyle temel araçlara erişiliyor.",
+      "Kalıcılık eklendiyse sayfa yenilendiğinde kayıtlı kart ve konumu korunuyor."
     ],
     "tools": [
       "tldraw SDK",
       "React"
     ],
     "limits": [
-      "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
+      "Temel çizim ve geri alma denendi; özel şekil geliştirme ve kalıcılık bu incelemede çalıştırılmadı.",
       "GitHub yıldızı kullanıcı puanı veya kalite garantisi değildir. Bağımsız yorum analizi henüz tamamlanmadı.",
       "AI ile geliştirilme yöntemi doğrulanmadı. AI özelliği sunmak, AI ile yazılmış olmak anlamına gelmez."
     ],
@@ -163,11 +164,10 @@
         "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
       }
     ],
-    "license": "NOASSERTION",
     "media": {
-      "url": "https://raw.githubusercontent.com/tldraw/tldraw/main/assets/github-hero-light.png",
-      "label": "Geliştiricinin repo görseli / animasyonu",
-      "sourceUrl": "https://github.com/tldraw/tldraw/blob/main/README.md"
+      "url": "/spotlights/tldraw-shape.png",
+      "label": "Radar'ın canlı demo ekran görüntüsü",
+      "sourceUrl": "https://examples.tldraw.com/basic/full?utm_source=docs-embed"
     }
   },
   {
@@ -688,7 +688,12 @@
         "note": "Birincil kaynak; özellik beyanı, bağımsız değerlendirme değil."
       }
     ],
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "media": {
+      "url": "/spotlights/webllm-demo.png",
+      "label": "Radar'ın canlı model yanıtı ekran görüntüsü",
+      "sourceUrl": "https://chat.webllm.ai/"
+    }
   },
   {
     "slug": "gradio",
