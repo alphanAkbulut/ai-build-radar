@@ -1,3 +1,4 @@
+import {collectAttention} from './attention-collector';
 import {enrichContexts} from './context-enrichment';
 import {randomUUID} from 'node:crypto';
 import {BuildSchema,EvidenceSchema,type Candidate,type Store,type Run,type Source} from './schema';
@@ -48,7 +49,7 @@ export async function ingest(options:{force?:boolean;only?:string}={}){
    store.sourceStates[source.id]=state;state.lastAttemptAt=now;state.lastRunId=run.id;store.runs.push(run);await writeStore(store);
    let retryAfter=0;
    try{
-    if(source.adapter==='context'){await enrichContexts(store,run,new Date().toISOString());}else{
+    if(source.adapter==='attention'){await collectAttention(store,run);}else if(source.adapter==='context'){await enrichContexts(store,run,new Date().toISOString());}else{
     const batch=await collectors[source.adapter as 'hn'|'github'|'onesvibe']();run.fetched=batch.fetched;run.filtered=batch.filtered;run.invalid=batch.invalid;run.errors=batch.errors;
     for(const candidate of batch.candidates)ingestCandidate(store,candidate,source.id,run,new Date().toISOString());
     }
@@ -57,7 +58,7 @@ export async function ingest(options:{force?:boolean;only?:string}={}){
     else {state.consecutiveFailures++;state.lastError=run.errors[0]||`${run.invalid} invalid records`;}
    }catch(e){run.status='failed';run.errors.push(e instanceof Error?e.message:'Unknown collector error');state.consecutiveFailures++;state.lastError=run.errors[0];if(e instanceof FetchError)retryAfter=e.retryAfterMs;}
    run.finishedAt=new Date().toISOString();
-   const backoff=state.consecutiveFailures&&source.adapter!=='context'?Math.min(24*60,source.intervalMinutes*2**Math.min(state.consecutiveFailures,6))*60000:source.intervalMinutes*60000;
+   const backoff=state.consecutiveFailures&&!['context','attention'].includes(source.adapter||'')?Math.min(24*60,source.intervalMinutes*2**Math.min(state.consecutiveFailures,6))*60000:source.intervalMinutes*60000;
    state.nextRunAt=new Date(Date.now()+Math.max(backoff,retryAfter)).toISOString();
    completed.push(run);await writeStore(store);
   }

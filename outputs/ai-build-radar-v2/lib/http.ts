@@ -1,5 +1,5 @@
 export class FetchError extends Error { constructor(message:string,public retryAfterMs=0){super(message);} }
-const allowedHosts=new Set(['api.github.com','hacker-news.firebaseio.com','raw.githubusercontent.com']);
+const allowedHosts=new Set(['hn.algolia.com','api.github.com','hacker-news.firebaseio.com','raw.githubusercontent.com']);
 export async function getJson(url:string):Promise<unknown> {
  const u=new URL(url);if(u.protocol!=='https:'||!allowedHosts.has(u.hostname)) throw new Error('Collector URL outside allowlist');
  const headers:Record<string,string>={'User-Agent':'AI-Build-Radar-Private-PoC','Accept':'application/json'};

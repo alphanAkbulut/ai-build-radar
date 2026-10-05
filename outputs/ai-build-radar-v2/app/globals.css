@@ -31,3 +31,5 @@
 @media(max-width:380px){.topbar>span:first-child{display:none}.top-actions{justify-content:space-between;width:100%}.discovery-heading h1{font-size:30px}.school-card>div,.reference-card,.lesson-panel{padding:16px}.people-tabs{gap:14px;font-size:13px}.detail-facts{grid-template-columns:1fr}.detail-heading{flex-wrap:wrap}.discovery-search .primary{min-width:52px}}
 
 .project-kind{display:inline-block;background:#f0f3ed;color:var(--green);border-radius:6px;padding:5px 9px;font-size:12px;line-height:1.5;margin-bottom:12px}.school-card .context-source{display:block;font-size:12px;color:var(--green);margin:12px 0}.lesson-panel blockquote{margin:14px 0;padding-left:16px;border-left:3px solid var(--border);font-size:14px;line-height:1.7}
+
+.attention-evidence{border-top:1px solid var(--border);padding-top:12px;margin-top:14px;font-size:12px}.attention-evidence>strong{font-size:12px;color:var(--green)}.attention-evidence p{font-size:12px!important}.attention-evidence a{color:var(--green)}.selection-reason strong{color:var(--ink)}

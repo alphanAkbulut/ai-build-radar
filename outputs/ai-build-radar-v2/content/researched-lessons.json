@@ -16,9 +16,11 @@
       "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
     ],
     "exercise": [
-      "Model cevaplarını ayrı sekmelerde göster",
-      "Değerlendirme aşamasında model adlarını gizle",
-      "Sonuç ile kaynak cevaplar arasında geçiş ekle"
+      "Önce kayıtlı ve açıkça örnek olarak işaretlenmiş iki cevapla yan yana karşılaştırma ekranı kur; henüz model API maliyeti oluşturma.",
+      "Cevaplara anonim A/B kimliği ver. Değerlendirme görünümünde model adlarını gizle, sonuç görünümünde tekrar göster.",
+      "Sunucu tarafında seçeceğin iki model bağlantısını ekle; anahtarları tarayıcıya koyma. İstek sayısı, zaman aşımı ve bütçe sınırı belirle.",
+      "Her modelin cevabını ve karşı değerlendirmesini ayrı sakla. Sentez sonucundan özgün cevaplara geçiş ekle; çoğunluk görüşünü doğruluk garantisi gibi sunma.",
+      "Bir model yanıt vermediğinde eksik katılımı açıkça göster; tüm akışı başarılı sayma."
     ],
     "checks": [
       "Eksik veya başarısız cevap sonuçtan ayırt edilmeli",
@@ -921,17 +923,22 @@
       "İnceleme kapsamı: geliştiricinin README açıklaması ve GitHub depo metaverisi. Canlı kullanım testi yapılmadı."
     ],
     "exercise": [
-      "Örnek verilerle deney listesi kur",
-      "Her denemede tek değişken ve ölçüt kaydet",
-      "Sonuçları karşılaştır ve geri alma ekle"
+      "Kendi uygulamanda tek bir ölçülebilir hedef seç: örneğin aynı veriyle bir listeyi oluşturma süresi. Önce mevcut testleri çalıştır ve başlangıç ölçümünü kaydet.",
+      "Aynı girdiyi kullanan bir benchmark komutu hazırla. Her denemeyi aynı ortamda birkaç kez çalıştır; sürelerin ortancasını kaydet.",
+      "Codex veya Claude Code’a yalnızca belirlediğin fonksiyonda tek değişiklik önerdir. En fazla 5 deneme ve açık süre sınırı koy; dosya ve araç izinlerini koru.",
+      "Her değişiklikten sonra testleri ve benchmarkı çalıştır. Test başarısızsa veya ölçüm iyileşmiyorsa yalnız o denemenin değişikliğini geri al.",
+      "Deneme, değişiklik, test sonucu ve ölçümü bir tabloda göster. Son değişikliği insan incelemesinden geçir. Bu, model eğitimi reposunun kopyası değil, deney döngüsünün web uygulamasına uyarlamasıdır."
     ],
     "checks": [
-      "Süre ve maliyet sınırı uygulanmalı",
-      "Farklı donanım ölçümleri eşdeğer sayılmamalı"
+      "Aynı girdi ve ortam kullanılmalı; farklı donanım ölçümleri eşdeğer sayılmamalı.",
+      "Testten geçmeyen bir değişiklik hızlı olsa bile kabul edilmemeli.",
+      "Deneme ve süre sınırı gerçekten durdurmalı; ilgisiz dosyalar ve kullanıcı değişiklikleri korunmalı."
     ],
     "tools": [
-      "Deney günlüğü",
-      "Karşılaştırma tablosu"
+      "Mevcut projenin test komutu",
+      "Tekrarlanabilir benchmark komutu",
+      "Git ile deneme geçmişi",
+      "Codex veya Claude Code — Radar’ın uyarlama önerisi"
     ],
     "limits": [
       "Bu egzersiz Radar önerisidir; orijinal uygulamanın yeniden üretildiği veya test edildiği anlamına gelmez.",
