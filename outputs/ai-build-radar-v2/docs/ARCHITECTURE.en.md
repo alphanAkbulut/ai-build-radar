@@ -43,7 +43,7 @@ The primary contracts are `lib/schema.ts` for stored entities/evidence/runs, `li
 | Enabled discovery source | Scheduled interval | Scope and interpretation |
 | --- | ---: | --- |
 | Hacker News | 15 min | AI-related candidates among the latest 80 Show HN posts using keyword filtering. A post does not prove AI-assisted development. |
-| GitHub | 45 min | Twenty recently updated repositories from each of two queries. This is not all of GitHub. |
+| GitHub | 45 min | Up to 100 star-sorted repositories for each of four exact AI builder-statement queries, up to 100 recently updated repositories for two exact queries, and up to 30 from a `vibe-coding` topic query. A GitHub update is not a product launch. API-limited runs are recorded as partial. This does not cover all of GitHub. |
 | One’s Vibe | 6 h | Latest 120 entries in an open catalog. Its classifications are third-party assertions. |
 | Hugging Face Spaces | 3 h | Thirty most-liked and twenty platform-trending Spaces, deduplicated. |
 | DEV Community | 3 h | Public GitHub links in selected AI articles and article reactions. Article reaction counts are not product ratings. |
@@ -83,14 +83,15 @@ Eight topic categories in `lib/discovery.ts` use name/description heuristics and
 
 ## 6. Two evaluation gates: attention versus a practical lesson
 
-**Timely feed:** `lib/evaluation.ts` requires a site URL, a meaningful description, no unresolved identity conflict, a source event within seven days, and a check within 48 hours. It then shows the *specific sourced signal*:
+**Timely feed:** `lib/evaluation.ts` requires a separate site URL, a meaningful description, and no unresolved identity conflict. A URL alone does not establish a working demo. The default group requires direct AI-development evidence (`Verified` or a `Builder-stated` owner claim); AI products with unknown development methods are shown separately. Each group displays its *specific sourced signal*:
 
 - Hacker News or Lobsters: at least **50 points or 20 comments** on a matching story. This is a platform threshold, not a universal quality score.
 - GitHub: at least **25 additional stars** across comparable observations at least 24 hours apart, with a recent final measurement. A total star count is not growth.
 - Hugging Face Spaces: its own platform-trending marker; this does not prove the product was built with AI.
 - An author article or other dated editorial reference: **mentioned**, with source/date. A mention is not praise or recommendation.
+- A repository owner's explicit AI-development tool statement first observed by Radar in the past seven days: **new discovery**. This is neither measured attention nor a product launch date.
 
-Cards show source, time, and quantity when available. Within each signal class, the latest source event sorts first; incompatible platform metrics are not summed into a fictional global hype score. Comment sentiment is not systematically measured. Feed eligibility is not lesson eligibility, and a site URL alone is not a Radar-tested demo.
+Cards show the source, event or observation time, Radar's first-seen time, and last evidence check. Measured attention precedes new discoveries, which precede mentions; each class sorts by its relevant event time. New discoveries from one run have nearly identical timestamps, so their order is not a quality or popularity ranking. Incompatible platform metrics are not summed into a fictional global hype score. Comment sentiment is not systematically measured. Feed eligibility is not lesson eligibility.
 
 **Learning collection:** `lib/selection.ts` marks a lesson `featured` only when all five checks pass:
 

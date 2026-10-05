@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {evaluateFeedBuild} from '../lib/evaluation';
+import {evaluateFeedBuild,evaluateFeed,feedByDevelopmentEvidence} from '../lib/evaluation';
 import type {Build,Evidence,Store} from '../lib/schema';
 
 const now=Date.parse('2026-10-05T15:00:00Z');
@@ -21,8 +21,36 @@ test('platform trend is a platform-specific interest signal; likes alone are not
  assert.match(result!.signals[0].label,/platform içi/);
  assert.equal(evaluateFeedBuild(store([evidence('platform_trending','huggingface','25','2026-10-01T12:00:00Z')]),build,now),null);
 });
+test('a repeated platform snapshot cannot renew an old trend as fresh news',()=>{
+ const old={...evidence('platform_trending','huggingface','3','2026-09-20T12:00:00Z'),id:'old'};
+ const fresh={...evidence('platform_trending','huggingface','25'),id:'fresh'};
+ assert.equal(evaluateFeedBuild(store([old,fresh]),build,now),null);
+});
 test('unavailable destinations and unsupported source summaries cannot enter the feed',()=>{
  const rows=[evidence('platform_trending','huggingface','25')];
  assert.equal(evaluateFeedBuild(store(rows),{...build,reviewRequired:true},now),null);
  assert.equal(evaluateFeedBuild(store(rows),{...build,description:'Hugging Face üzerinde yayımlanmış etkileşimli demo adayı; çalışma durumu henüz doğrulanmadı.'},now),null);
+});
+test('a recent builder statement is a discovery, never fabricated momentum',()=>{
+ const claim={...evidence('ai_tools','github','Claude Code'),status:'Builder-stated' as const,quote:'Built with Claude Code.',publishedAt:null};
+ const result=evaluateFeedBuild(store([claim]),build,now);
+ assert.equal(result?.status,'discovered');
+ assert.equal(result?.lastEventAt,build.firstSeenAt);
+ assert.equal(result?.aiStatus,'Builder-stated');
+ assert.equal(feedByDevelopmentEvidence(evaluateFeed(store([claim]),now),'ai').length,1);
+ assert.equal(feedByDevelopmentEvidence(evaluateFeed(store([claim]),now),'uncertain').length,0);
+ assert.equal(evaluateFeedBuild(store([claim]),{...build,firstSeenAt:'2026-09-01T12:00:00Z'},now),null);
+});
+test('an AI product trend without a builder claim stays in the uncertain group',()=>{
+ const feed=evaluateFeed(store([evidence('platform_trending','huggingface','25')]),now);
+ assert.equal(feedByDevelopmentEvidence(feed,'ai').length,0);
+ assert.equal(feedByDevelopmentEvidence(feed,'uncertain').length,1);
+});
+test('obsolete false-positive tool evidence cannot promote a catalog to AI-built',()=>{
+ const row={...evidence('ai_tools','github','Lovable'),status:'Builder-stated' as const,quote:'A checklist for apps built with Lovable, Cursor and other tools.',publishedAt:null};
+ assert.equal(evaluateFeedBuild(store([row]),build,now),null);
+});
+test('a tool-only repo description is not a meaningful product explanation',()=>{
+ const row={...evidence('ai_tools','github','Lovable'),status:'Builder-stated' as const,quote:'Built with Lovable for a hackathon.',publishedAt:null};
+ assert.equal(evaluateFeedBuild(store([row]),{...build,description:'Built with Lovable for a hackathon.'},now),null);
 });

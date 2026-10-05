@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { getJson } from './http';
+import { FetchError, getJson } from './http';
 import type { Candidate, Claim } from './schema';
 export type Batch={candidates:Candidate[];fetched:number;filtered:number;invalid:number;errors:string[]};
 const claim=(field:string,value:string,status:Claim['status'],quote:string,locator:string,rationale:string,strength:number):Claim=>({field,value,status,quote,locator,rationale,strength});
@@ -20,8 +20,15 @@ export function githubCandidate(row:unknown):Candidate|null{
 }
 export async function github():Promise<Batch>{
  const result:Batch={candidates:[],fetched:0,filtered:0,invalid:0,errors:[]};
- for(const query of ['topic:vibe-coding archived:false is:public','"built with" "Claude Code" in:description archived:false is:public']) {
-  const raw=await getJson(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=updated&order=desc&per_page=20`);
+ const searches=[
+  ...['Claude Code','Lovable'].map(tool=>({query:`"built with ${tool}" in:description archived:false is:public`,sort:'updated',limit:100})),
+  ...['Claude Code','Codex','Lovable','Cursor'].map(tool=>({query:`"built with ${tool}" in:description archived:false is:public`,sort:'stars',limit:100})),
+  {query:'topic:vibe-coding archived:false is:public',sort:'updated',limit:30}
+ ];
+ for(const {query,sort,limit} of searches) {
+  let raw:unknown;
+  try{raw=await getJson(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=${sort}&order=desc&per_page=${limit}`);}
+  catch(error){if(error instanceof FetchError){result.errors.push(`${query}: ${error.message}`);break;}throw error;}
   const parsed=z.object({items:z.array(z.unknown()),incomplete_results:z.boolean()}).parse(raw);
   if(parsed.incomplete_results) result.errors.push('GitHub reports incomplete search results');
   for(const row of parsed.items) {

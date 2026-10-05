@@ -41,7 +41,7 @@ Kaynakların tek kayıt noktası [`lib/sources.ts`](../lib/sources.ts) dosyasıd
 | Etkin keşif | Aralık | Alınan kapsam ve yorum sınırı |
 | --- | ---: | --- |
 | Hacker News | 15 dk | Son 80 Show HN paylaşımından anahtar sözcükle AI ilişkili adaylar. Paylaşım, ürünün AI ile geliştirildiğini kanıtlamaz. |
-| GitHub | 45 dk | İki aramadan yirmişer yakın zamanda güncellenmiş repo; bütün GitHub değildir. |
+| GitHub | 45 dk | AI geliştirme aracını açıkça belirten dört tam ifade sorgusundan yıldız sırasıyla en çok yüzer repo, iki tam ifade sorgusundan güncelleme sırasıyla en çok yüzer repo ve bir `vibe-coding` konu sorgusundan en çok 30 repo. GitHub güncellemesi ürün lansmanı sayılmaz. API sınırında koşu kısmi kaydedilir. Bütün GitHub değildir. |
 | One’s Vibe | 6 saat | Açık katalogdan en yeni 120 kayıt; katalog sınıflandırması üçüncü taraf çıkarımıdır. |
 | Hugging Face Spaces | 3 saat | En çok beğenilen 30 ve platformda trend 20 Space, tekrarlar elenerek. |
 | DEV Community | 3 saat | Seçili AI yazılarındaki açık GitHub bağlantıları ve yazı reaksiyonları; yazı tepkisi ürün puanı değildir. |
@@ -81,14 +81,15 @@ Sekiz konu kategorisi [`lib/discovery.ts`](../lib/discovery.ts) içinde isim/aç
 
 ## 6. Gündem ve seçki: iki ayrı değerlendirme kapısı
 
-**Gündem:** [`lib/evaluation.ts`](../lib/evaluation.ts) çalışan site URL’si, anlamlı açıklama, çözülmemiş kimlik çakışması olmaması, son 7 günde kaynak olayı ve son 48 saatte kontrol arar. Ardından kaynaklı sinyali gösterir:
+**Gündem:** [`lib/evaluation.ts`](../lib/evaluation.ts) ayrı bir site URL’si, anlamlı açıklama ve çözülmemiş kimlik çakışması olmamasını arar. URL’nin bulunması canlı demoyu doğrulamaz. Varsayılan grup doğrudan AI geliştirme kanıtı olanlardır (`Verified` veya üretici beyanı `Builder-stated`); geliştirme yöntemi belirsiz AI ürünleri ayrı sekmede kalır. Her iki grupta kaynaklı sinyal türü ayrıca gösterilir:
 
 - Hacker News veya Lobsters: ilgili paylaşımda en az **50 puan veya 20 yorum**. Bu platform içi eşiktir; evrensel kalite puanı değildir.
 - GitHub: en az 24 saat arayla karşılaştırılabilir ölçümde **+25 yıldız** ve yakın tarihli son ölçüm. Toplam yıldız artış hızı değildir.
 - Hugging Face Spaces: kendi platformunun trend işareti; ürünün AI ile geliştirildiğini kanıtlamaz.
 - Kişi yazısı/başka referans: kaynak ve yayın tarihi varsa **bahsedildi**. İsim geçmesi övgü veya tavsiye sayılmaz.
+- GitHub sahibinin açıklamasında AI aracıyla yapıldığını doğrudan söyleyen, Radar’ın son 7 günde ilk kez gördüğü kayıt: **yeni keşif**. Bu bir ilgi/trend veya çıkış tarihi değildir.
 
-Kaynak, zaman ve sayı kartta görünür. Son olay tarihine göre sıralanır; platform sayıları sahte bir “global hype skoru”na toplanmaz. Olumlu/olumsuz yorum tonu sistematik ölçülmüyor. Haber akışına girmek öğrenme seçkisine girmek değildir.
+Kaynak, olay/gözlem zamanı, Radar’ın ilk gördüğü zaman ve son kanıt kontrolü kartta görünür. Önce ölçülmüş ilgi, sonra yeni keşif, ardından bahsedilme gelir; her küme ilgili olay zamanına göre sıralanır. Aynı taramadaki yeni keşiflerin zamanları birbirine yakın olduğundan bu sıralama kalite veya popülerlik derecesi değildir. Platform sayıları sahte bir “global hype skoru”na toplanmaz. Olumlu/olumsuz yorum tonu sistematik ölçülmüyor. Haber akışına girmek öğrenme seçkisine girmek değildir.
 
 **Öğrenme koleksiyonu:** [`lib/selection.ts`](../lib/selection.ts) ancak şu beş kontrolün tümü geçerse `featured` üretir:
 

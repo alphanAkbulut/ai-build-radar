@@ -56,7 +56,7 @@ export async function ingest(options:{force?:boolean;only?:string}={}){
     }
     run.status=run.errors.length||run.invalid?'partial':'completed';
     if(run.status==='completed'){state.lastSuccessAt=new Date().toISOString();state.consecutiveFailures=0;state.lastError=null;}
-    else {state.consecutiveFailures++;state.lastError=run.errors[0]||`${run.invalid} invalid records`;}
+    else {state.consecutiveFailures=run.fetched>0?0:state.consecutiveFailures+1;state.lastError=run.errors[0]||`${run.invalid} invalid records`;}
    }catch(e){run.status='failed';run.errors.push(e instanceof Error?e.message:'Unknown collector error');state.consecutiveFailures++;state.lastError=run.errors[0];if(e instanceof FetchError)retryAfter=e.retryAfterMs;}
    run.finishedAt=new Date().toISOString();
    const backoff=state.consecutiveFailures&&!['context','attention'].includes(source.adapter||'')?Math.min(24*60,source.intervalMinutes*2**Math.min(state.consecutiveFailures,6))*60000:source.intervalMinutes*60000;
