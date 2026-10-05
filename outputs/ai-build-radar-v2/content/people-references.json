@@ -1,8 +1,79 @@
 [
- {"id":"simon-ocr","personId":"simon","project":"Tarayıcıda OCR","url":"https://tools.simonwillison.net/ocr","relationship":"Kullanıyor · kendi projesi","note":"Simon, PDF ve görsellerden metin çıkaran bu aracı düzenli kullandığını söylüyor. Tarayıcı içinde çalışan küçük, somut bir ürün örneği.","source":"https://simonwillison.net/2025/Sep/4/highlighted-tools/","publishedAt":"2025-09-04","learning":"Dosya bırak → ilerlemeyi gör → metni kopyala akışı. PDF.js ve Tesseract.js kullanımını kaynak açıkça belirtiyor."},
- {"id":"simon-image","personId":"simon","project":"Görsel boyutu ve kalite karşılaştırması","url":"https://tools.simonwillison.net/image-resize-quality","relationship":"Kullanıyor · kendi projesi","note":"Blog görsellerinde bu aracı kullandığını belirtiyor. Farklı boyut ve kalite sonuçlarını birlikte görmek, karar vermeyi kolaylaştıran bir UI deseni.","source":"https://simonwillison.net/2025/Sep/4/highlighted-tools/","publishedAt":"2025-09-04","learning":"Yan yana karşılaştırma, dosya boyutu ve indirme. Gerçek geliştirme promptlarına da ulaşılabiliyor.","promptSource":"https://tools.simonwillison.net/colophon#image-resize-quality.html"},
- {"id":"chip-goodai","personId":"chip","project":"Good AI List","url":"https://goodailist.com/","relationship":"Kendi projesi","note":"Chip kişisel sitesinde açık kaynak AI keşfi için geliştirdiği araçlar arasında listeliyor. Bağımsız bir ürün tavsiyesi olarak etiketlenmedi.","source":"https://huyenchip.com/","publishedAt":null,"learning":"Keşif listesini kaynak, kategori ve inceleme bağlamıyla sunma yaklaşımını karşılaştır."},
- {"id":"lilian-agents","personId":"lilian","project":"AutoGPT, GPT-Engineer ve BabyAGI","url":"https://lilianweng.github.io/posts/2023-06-23-agent/","relationship":"İlham verici örnekler olarak anıyor","note":"2023 tarihli ajan yazısında bu üç projeyi örnek gösteriyor. Güncel sürümler için verilmiş bir tavsiye veya kalite garantisi değil.","source":"https://lilianweng.github.io/posts/2023-06-23-agent/","publishedAt":"2023-06-23","learning":"Planlama, bellek ve araç kullanımı ayrımını kendi ajan akışına uygulamak için kavramsal başlangıç."},
- {"id":"karpathy-council","personId":"karpathy","project":"LLM Council","url":"https://github.com/karpathy/llm-council","relationship":"Kendi projesi · AI geliştirme beyanı","note":"Birden çok modelin cevap, değerlendirme ve sentez aşamalarını birleştiren deney. README’de vibe coding beyanı var.","source":"https://github.com/karpathy/llm-council/blob/master/README.md","publishedAt":null,"learning":"Model cevaplarını karşılaştırma ve anonim değerlendirme arayüzü.","lesson":"llm-council"},
- {"id":"karpathy-autoresearch","personId":"karpathy","project":"Autoresearch","url":"https://github.com/karpathy/autoresearch","relationship":"Kendi projesi","note":"Sınırlı deney döngüleri ve ölçüm sonuçları üzerinden ilerleyen araştırma örneği.","source":"https://github.com/karpathy/autoresearch","publishedAt":null,"learning":"Deney geçmişi, kaynak bütçesi ve sonuç karşılaştırması.","lesson":"autoresearch"}
+  {
+    "id": "simon-ocr",
+    "personId": "simon",
+    "project": "Tarayıcıda OCR",
+    "url": "https://tools.simonwillison.net/ocr",
+    "relationship": "Kullanıyor · kendi projesi",
+    "note": "Simon, PDF ve görsellerden metin çıkaran bu aracı düzenli kullandığını söylüyor. Tarayıcı içinde çalışan küçük, somut bir ürün örneği.",
+    "source": "https://simonwillison.net/2025/Sep/4/highlighted-tools/",
+    "publishedAt": "2025-09-04",
+    "learning": "Dosya bırak → ilerlemeyi gör → metni kopyala akışı. PDF.js ve Tesseract.js kullanımını kaynak açıkça belirtiyor."
+  },
+  {
+    "id": "simon-image",
+    "personId": "simon",
+    "project": "Görsel boyutu ve kalite karşılaştırması",
+    "url": "https://tools.simonwillison.net/image-resize-quality",
+    "relationship": "Kullanıyor · kendi projesi",
+    "note": "Blog görsellerinde bu aracı kullandığını belirtiyor. Farklı boyut ve kalite sonuçlarını birlikte görmek, karar vermeyi kolaylaştıran bir UI deseni.",
+    "source": "https://simonwillison.net/2025/Sep/4/highlighted-tools/",
+    "publishedAt": "2025-09-04",
+    "learning": "Yan yana karşılaştırma, dosya boyutu ve indirme. Gerçek geliştirme promptlarına da ulaşılabiliyor.",
+    "promptSource": "https://tools.simonwillison.net/colophon#image-resize-quality.html"
+  },
+  {
+    "id": "chip-goodai",
+    "personId": "chip",
+    "project": "Good AI List",
+    "url": "https://goodailist.com/",
+    "relationship": "Kendi projesi",
+    "note": "Chip kişisel sitesinde açık kaynak AI keşfi için geliştirdiği araçlar arasında listeliyor. Bağımsız bir ürün tavsiyesi olarak etiketlenmedi.",
+    "source": "https://huyenchip.com/",
+    "publishedAt": null,
+    "learning": "Keşif listesini kaynak, kategori ve inceleme bağlamıyla sunma yaklaşımını karşılaştır."
+  },
+  {
+    "id": "lilian-agents",
+    "personId": "lilian",
+    "project": "AutoGPT, GPT-Engineer ve BabyAGI",
+    "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+    "relationship": "İlham verici örnekler olarak anıyor",
+    "note": "2023 tarihli ajan yazısında bu üç projeyi örnek gösteriyor. Güncel sürümler için verilmiş bir tavsiye veya kalite garantisi değil.",
+    "source": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+    "publishedAt": "2023-06-23",
+    "learning": "Planlama, bellek ve araç kullanımı ayrımını kendi ajan akışına uygulamak için kavramsal başlangıç."
+  },
+  {
+    "id": "karpathy-council",
+    "personId": "karpathy",
+    "project": "LLM Council",
+    "url": "https://github.com/karpathy/llm-council",
+    "relationship": "Kendi projesini tanıtıyor · AI geliştirme beyanı",
+    "note": "Karpathy, LLM Council’i bir hafta sonu vibe coding deneyi olarak tanıtıyor. Aynı soruya farklı modellerin verdiği cevapları, anonim karşılaştırmalarını ve ortak sentezi bir arada görmek istiyor.",
+    "source": "https://x.com/karpathy/status/1992381094667411768",
+    "publishedAt": "2025-11-23",
+    "learning": "Model cevaplarını karşılaştırma ve anonim değerlendirme arayüzü.",
+    "lesson": "llm-council",
+    "mention": {
+      "where": "X’te kendi projesini paylaşarak",
+      "why": "Kitap bölümlerini modellerle birlikte okurken farklı cevapları yan yana incelemek ve modellerin birbirinin yanıtlarını nasıl değerlendirdiğini görmek için geliştirdi. Başkalarının da deneyebilmesi için kodu paylaştı.",
+      "takeaway": "Modellerin başka bir modelin cevabını kendi cevaplarından üstün seçebilmesini ilginç buluyor. Ancak bu sıralamaların kendi değerlendirmesiyle tamamen örtüştüğüne ikna olmadığını da söylüyor; bir kalite garantisi vermiyor.",
+      "dateNote": "X sayfasında görünen paylaşım tarihi: 23 Kasım 2025.",
+      "checkedAt": "2026-10-05",
+      "supportingSource": "https://github.com/karpathy/llm-council/blob/master/README.md"
+    }
+  },
+  {
+    "id": "karpathy-autoresearch",
+    "personId": "karpathy",
+    "project": "Autoresearch",
+    "url": "https://github.com/karpathy/autoresearch",
+    "relationship": "Kendi projesi",
+    "note": "Sınırlı deney döngüleri ve ölçüm sonuçları üzerinden ilerleyen araştırma örneği.",
+    "source": "https://github.com/karpathy/autoresearch",
+    "publishedAt": null,
+    "learning": "Deney geçmişi, kaynak bütçesi ve sonuç karşılaştırması.",
+    "lesson": "autoresearch"
+  }
 ]
