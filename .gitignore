@@ -19,3 +19,6 @@ work/
 outputs/backups/
 .DS_Store
 **/.DS_Store
+
+# Local usage events; never upload visitor activity
+**/learning-data/analytics/
