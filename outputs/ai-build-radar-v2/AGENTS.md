@@ -11,3 +11,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Discovery coverage
 
 Keep at least 10 enabled independent discovery sources; preserve existing source coverage. The public-launch acceptance target is at least 25 working independent discovery sources. Multiple queries/adapters of one publication or platform do not count as multiple sources. Enrichment adapters do not count. A failed source must remain visible with its failure state, never silently removed to make coverage look healthy. Add a replacement if a source becomes permanently unavailable; do not lower the minimum. A configured source is not proof of a successful scan: verify run records. Independent author publications count separately, even when they link to projects hosted on the same platform.
+
+## Languages
+
+Turkish is the initial interface language, not a permanent product constraint. Keep generated summaries keyed by article, language, source content version and prompt version. Never show content in one language as a translation into another. Provider integration remains disabled until explicitly configured; no paid API calls without authorization.

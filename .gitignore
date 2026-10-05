@@ -22,3 +22,6 @@ outputs/backups/
 
 # Local usage events; never upload visitor activity
 **/learning-data/analytics/
+
+# Generated shared summaries and request budget
+**/learning-data/summaries/
