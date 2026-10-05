@@ -1,0 +1,225 @@
+{
+  "checkedAt": "2026-10-05",
+  "purpose": "Separate research watchlist. New candidates are not enabled collectors.",
+  "repositories": [
+    {
+      "repo": "JefferyLee/awesome-vibe-coded-apps",
+      "url": "https://github.com/JefferyLee/awesome-vibe-coded-apps",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-10-04T12:30:15Z",
+      "lastCommit": "2026-10-04T12:30:12Z",
+      "commitUrl": "https://github.com/JefferyLee/awesome-vibe-coded-apps/commit/692886817553e315b1d8884f9e363ec24bdd7b4e",
+      "message": "regenerate: 14,159 apps (2026-10-04)",
+      "readmeCommit": "2026-10-04T12:30:12Z",
+      "description": "A curated list of vibe-coded web apps — live, testable, machine-verified every ~3 days. Generated from onesvibe.app",
+      "region": "Global",
+      "kind": "Ürün kataloğu",
+      "reviewStatus": "Mevcut kaynak",
+      "note": "Günlük üretim; canlılık kontrolü AI yapım kanıtı değildir.",
+      "enabledForIngestion": true
+    },
+    {
+      "repo": "levz0r/awesome-vibecoded-apps",
+      "url": "https://github.com/levz0r/awesome-vibecoded-apps",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-10-02T21:48:04Z",
+      "lastCommit": "2026-10-02T21:48:02Z",
+      "commitUrl": "https://github.com/levz0r/awesome-vibecoded-apps/commit/f8bc1298479d30e94590dbad4a210c0bb786cfa3",
+      "message": "Add GoatCounter analytics to the site (#41)",
+      "readmeCommit": "2026-09-27T20:13:37Z",
+      "description": "Real apps built with vibe coding: curated examples made with Claude Code, Cursor, Lovable and more.",
+      "region": "Global",
+      "kind": "Ürün kataloğu",
+      "reviewStatus": "Öncelikli aday",
+      "note": "27 Eylül README değişikliği; 2 Ekim son commit analitik değişikliği. Liste sahibinin kendi ürünleri de var.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "itgoyo/Awesome-VibeCoding",
+      "url": "https://github.com/itgoyo/Awesome-VibeCoding",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-09-10T01:54:34Z",
+      "lastCommit": "2026-09-10T01:54:34Z",
+      "commitUrl": "https://github.com/itgoyo/Awesome-VibeCoding/commit/0dfdcbfbfede5b507eadcbbadf37b4ac3ddc0b4e",
+      "message": "Update README.md",
+      "readmeCommit": "2026-09-10T01:54:34Z",
+      "description": "🪄 精选 Vibe Coding 开源项目合集：283 个项目，12 个分类，含 AI 硬件 / 边缘 AI / 机器人。Star ≥ 100，按分类与 Star 数排序。",
+      "region": "Çince",
+      "kind": "Karma araç/proje listesi",
+      "reviewStatus": "Aday",
+      "note": "10 Eylül README değişikliği; araçları bitmiş AI-built ürünlerden ayırmak gerekir.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "filipecalegario/awesome-vibe-coding",
+      "url": "https://github.com/filipecalegario/awesome-vibe-coding",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-04-16T01:34:11Z",
+      "lastCommit": "2026-04-16T01:34:03Z",
+      "commitUrl": "https://github.com/filipecalegario/awesome-vibe-coding/commit/59d50281e40651d574ea0ead592a08019d74730d",
+      "message": "Add getdesign.md link to various README files and settings",
+      "readmeCommit": "2026-04-16T01:34:03Z",
+      "description": "A curated list of vibe coding references, collaborating with AI to write code.",
+      "region": "Çok dilli: Japonca, Korece, Çince dahil",
+      "kind": "Kaynak ve yöntem listesi",
+      "reviewStatus": "Düşük öncelik",
+      "note": "16 Nisan son değişiklik; yakın zamanda etkin güncelleme doğrulanmadı. Çeviriler bağımsız kaynak sayılmaz.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "taehojo/vibecoding",
+      "url": "https://github.com/taehojo/vibecoding",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-09-28T15:07:29Z",
+      "lastCommit": "2026-09-28T15:07:27Z",
+      "commitUrl": "https://github.com/taehojo/vibecoding/commit/b70ca6c869da4e298cf30cc3dcca99d7723c4c09",
+      "message": "docs: give the preview table equal columns aligned to the top",
+      "readmeCommit": "2026-09-28T15:07:27Z",
+      "description": "혼자 공부하는 바이브코딩 with 클로드코드 공식 GitHub - 실습 코드부터 최신 업데이트까지",
+      "region": "Korece",
+      "kind": "Eğitim ve örnek uygulamalar",
+      "reviewStatus": "Öğrenme adayı",
+      "note": "28 Eylül son değişiklik README düzeni; yeni ürün eklendiği anlamına gelmez.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "liyupi/ai-guide",
+      "url": "https://github.com/liyupi/ai-guide",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-09-28T03:09:27Z",
+      "lastCommit": "2026-09-28T03:09:23Z",
+      "commitUrl": "https://github.com/liyupi/ai-guide/commit/f5a8629df517a77c27a7db1bd95a054f4116ae76",
+      "message": "docs: 新增 7 篇文章，更新 Opus 5.5 / GPT-6 Sol / Grok 4.7 等最新模型信息",
+      "readmeCommit": "2026-09-02T08:32:48Z",
+      "description": "程序员鱼皮的 AI 资源大全 + Vibe Coding 零基础教程，分享 OpenClaw 保姆级教程、大模型玩法（DeepSeek / GPT / Gemini / Claude / GLM）、最新 AI 资讯、Prompt 提示词大全、AI 知识百科（Agent Skills / RAG / MCP / A2A）、AI 编程教程（Harness Engineering）、AI 工具用法（Cursor / Claude Code / TRAE / Codex / Copilot）、AI 开发框架教程（Spring AI / LangChain）、AI 产品变现指南，帮你快速掌握 AI 技术，走在时代前沿。本项目为开源文档 aiguide，已升级为鱼皮 AI 导航网站",
+      "region": "Çince",
+      "kind": "Rehber ve uygulamalı eğitim",
+      "reviewStatus": "Öğrenme adayı",
+      "note": "28 Eylül commit mesajı yedi yeni yazı eklenmesini belirtiyor. İçerik ve kod lisansları ayrı; ticari yeniden yayın izni varsayılmamalı.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "0xWelt/Awesome-Vibe-Coding",
+      "url": "https://github.com/0xWelt/Awesome-Vibe-Coding",
+      "fork": false,
+      "archived": false,
+      "pushedAt": "2026-10-04T20:46:29Z",
+      "lastCommit": "2026-10-04T20:46:27Z",
+      "commitUrl": "https://github.com/0xWelt/Awesome-Vibe-Coding/commit/260264a608d99de5aff559a35e02a86c45d66b79",
+      "message": "chore(deps): update yaal digest to a38882b (#297)",
+      "readmeCommit": "2026-08-16T11:39:04Z",
+      "description": "A Curated List of Vibe Coding Open-Source Projects, Tools, and Learning Resources",
+      "region": "Global",
+      "kind": "Karma kaynak listesi",
+      "reviewStatus": "Güncellik incelemesi",
+      "note": "4 Ekim commit bağımlılık güncellemesi; README 16 Ağustos. Güncel ürün listesi kabul edilmedi.",
+      "enabledForIngestion": false
+    },
+    {
+      "repo": "DevEloLin/chinese-indie-vibe-coding",
+      "url": "https://github.com/DevEloLin/chinese-indie-vibe-coding",
+      "fork": false,
+      "archived": false,
+      "lastCommit": "2026-07-15T10:19:48Z",
+      "commitUrl": "https://github.com/DevEloLin/chinese-indie-vibe-coding/commit/9275993320fbff3fca40ccf9cd85a37911ad70d2",
+      "message": "docs: 补齐 PR 投稿教程(网页零 Git 三步 + 本地 Git 两条路),README 首页露出可展开图解",
+      "readmeCommit": "2026-07-15T10:19:48Z",
+      "region": "Çince",
+      "kind": "Ürün gönderimleri ve ayrı klasik proje seçkisi",
+      "reviewStatus": "İzleme adayı",
+      "note": "15 Temmuz son commit; aktif güncelleniyor denemez. Klasik Top 99 bölümü AI-built kanıtı değildir.",
+      "enabledForIngestion": false
+    }
+  ],
+  "regionalSystems": [
+    {
+      "url": "https://zenn.dev/",
+      "region": "Japonca",
+      "role": "Geliştirici anlatımları; repo kataloğu değil",
+      "status": "Aday; sürekli tarama bağlı değil"
+    },
+    {
+      "url": "https://qiita.com/",
+      "region": "Japonca",
+      "role": "Geliştirici yazıları ve uygulamalar",
+      "status": "Aday; sürekli tarama bağlı değil"
+    },
+    {
+      "url": "https://disquiet.io/products",
+      "region": "Korece",
+      "role": "Ürün topluluğu",
+      "status": "Aday; sürekli tarama bağlı değil"
+    }
+  ],
+  "dedupeAudit": {
+    "checkedAt": "2026-10-05",
+    "scope": "README GitHub repository links only; includes tools and resources, not just built apps. Website aliases and redirects not resolved. No app records imported.",
+    "readmeFetchSucceeded": 8,
+    "rawReferences": 443,
+    "uniqueRepositoryLinks": 429,
+    "overlappingLinks": {
+      "anthropics/claude-code": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "automata/aicodeguide": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "charmbracelet/crush": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "cloudflare/vibesdk": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "continuedev/continue": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "google-gemini/gemini-cli": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "hkuds/deepcode": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "khazp/vibe-coding-prompt-template": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "openai/codex": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "qwenlm/qwen-code": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "snwfdhmp/awesome-ralph": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "superset-sh/superset": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "tabbyml/tabby": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ],
+      "upstash/context7": [
+        "itgoyo/Awesome-VibeCoding",
+        "filipecalegario/awesome-vibe-coding"
+      ]
+    }
+  }
+}

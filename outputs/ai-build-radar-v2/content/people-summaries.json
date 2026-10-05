@@ -1,0 +1,12 @@
+{
+  "https://karpathy.bearblog.dev/sequoia-ascent-2026/": {
+    "summary": "Karpathy, yazılım geliştirmede odağın kod yazmaktan ajanlara görev verme ve sonuçları denetlemeye kaydığını anlatıyor. MenuGen örneği üzerinden bazı uygulamaların doğrudan modelin yaptığı bir dönüşüme indirgenebileceğini; güvenilir otomasyon içinse test, ölçüm ve insan muhakemesinin önemini vurguluyor.",
+    "takeaway": "Yeni bir özellik tasarlarken modelin işi doğrudan yapıp yapamayacağını dene. Ajanın başarısını ölçebileceğin küçük bir test ve kontrol döngüsü kur.",
+    "note": "Kaynak: yayının RSS akışındaki konuşma özeti ve döküm. Karpathy bu metni AI ile hazırlatıp kontrol ettiğini belirtiyor. Radar özeti: 5 Ekim 2026."
+  },
+  "https://karpathy.bearblog.dev/year-in-review-2025/": {
+    "summary": "Karpathy, 2025’te dil modellerini değiştiren gelişmeleri değerlendiriyor: doğrulanabilir ödüllerle öğrenme, düzensiz model yetenekleri, kodlama ajanları ve vibe coding. AI arayüzlerinin sohbetin ötesinde görsel ve etkileşimli biçimlere evrilebileceğini savunuyor.",
+    "takeaway": "Bir AI ürününü yalnızca sohbet kutusu olarak düşünme; sonucu görsel veya etkileşimli bir arayüzle sunmayı dene.",
+    "note": "Kaynak: yayının RSS akışındaki yazı metni. 2025 değerlendirmesidir; güncel trend ölçümü değildir. Radar özeti: 5 Ekim 2026."
+  }
+}

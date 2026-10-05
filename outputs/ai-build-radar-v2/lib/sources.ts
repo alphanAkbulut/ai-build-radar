@@ -1,6 +1,13 @@
+import people from '../content/people.json';
 import type { Source } from './schema';
+export const discoveryMinimum = 10;
+export const launchDiscoveryTarget = 25;
 export const sources: Source[] = [
- {id:'hn',name:'Hacker News',kind:'Community',intervalMinutes:15,intervalLabel:'15 dk',enabled:true,url:'https://github.com/HackerNews/API',license:'Public API; linked content retains original rights',scope:'Latest 80 Show HN stories; AI-development signals only',adapter:'hn'},
+ {id:'devcommunity',name:'DEV Community',kind:'Discovery',intervalMinutes:180,intervalLabel:'3 saat',enabled:true,url:'https://dev.to/api/articles?tag=ai&top=7&per_page=20',license:'Public API; article rights retained',scope:'20 weekly AI articles; explicit GitHub links and article reactions. Mention is not endorsement.',adapter:'discovery'},
+ {id:'lobsters',name:'Lobsters',kind:'Discovery',intervalMinutes:90,intervalLabel:'90 dk',enabled:true,url:'https://lobste.rs/hottest.json',license:'Public metadata',scope:'Current hottest stories filtered to AI, ML, releases, web, graphics and demos; discussion is not endorsement.',adapter:'discovery'},
+ {id:'huggingface',name:'Hugging Face Spaces',kind:'Discovery',intervalMinutes:180,intervalLabel:'3 saat',enabled:true,url:'https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=30',license:'Public metadata; individual project licenses apply',scope:'30 most-liked + 20 platform-trending Spaces, deduplicated; platform trends do not prove AI development',adapter:'discovery'},
+ ...people.filter(p=>p.feed).map(p=>({id:'feed-'+p.id,name:p.name,kind:'Discovery',intervalMinutes:45,intervalLabel:'45 dk',enabled:true,url:p.feed,license:'Public feed excerpts and links; original rights retained',scope:'Latest 20 feed entries; explicit GitHub repository and Hugging Face Space links only. A mention is not endorsement.',adapter:'discovery'})),
+ {id:'hn',name:'Hacker News',kind:'Community',intervalMinutes:15,intervalLabel:'15 dk',enabled:true,url:'https://github.com/HackerNews/API',license:'Public API; linked content retains original rights',scope:'Hacker News proje tanıtımları: son 80 paylaşım; yalnızca AI geliştirme anahtar kelimeleriyle eşleşenler',adapter:'hn'},
  {id:'github',name:'GitHub',kind:'Repository',intervalMinutes:45,intervalLabel:'45 dk',enabled:true,url:'https://docs.github.com/en/rest/search/search',license:'Public metadata; repository licenses vary',scope:'2 watched searches × 20 recently updated repositories; not exhaustive',adapter:'github'},
  {id:'builders',name:'Watched builders / experts',kind:'People',intervalMinutes:45,intervalLabel:'45 dk',enabled:false,url:'https://example.invalid',license:'Configure per feed',scope:'No watchlist configured',adapter:null},
  {id:'x',name:'X',kind:'Social',intervalMinutes:75,intervalLabel:'60–90 dk',enabled:false,url:'https://docs.x.com',license:'Provider API terms',scope:'API access required; midpoint 75 minutes configured',adapter:null},
@@ -13,5 +20,8 @@ export const sources: Source[] = [
  {id:'directories',name:'Low-change directories',kind:'Directory',intervalMinutes:1080,intervalLabel:'18 saat',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Directory selection pending',adapter:null},
  {id:'docs',name:'Static docs',kind:'Documentation',intervalMinutes:1440,intervalLabel:'Günlük',enabled:false,url:'https://example.invalid',license:'Configure per source',scope:'Documentation URLs pending',adapter:null},
  {id:'project-context',name:'Proje açıklamaları',kind:'Enrichment',intervalMinutes:15,intervalLabel:'Yeni kayıt kuyruğu: 15 dk · belge: günlük',enabled:true,url:'https://docs.github.com/en/rest/repos/contents#get-a-repository-readme',license:'Source content retains original rights',scope:'Up to 12 due projects per run; repository README or public project page. No automatic course publication.',adapter:'context'},
- {id:'attention',name:'İlgi ve tartışma kanıtları',kind:'Enrichment',intervalMinutes:15,intervalLabel:'Kuyruk: 15 dk · proje: günlük',enabled:true,url:'https://hn.algolia.com/api',license:'Public HN search metadata',scope:'6 projects per run; up to 2 exact-URL queries × 50 stories. Discussion counts are not endorsements.',adapter:'attention'}
+ {id:'attention',name:'İlgi ve tartışma kanıtları',kind:'Enrichment',intervalMinutes:15,intervalLabel:'Kuyruk: 15 dk · proje: günlük',enabled:true,url:'https://hn.algolia.com/api',license:'Public Hacker News search metadata',scope:'6 projects per run; up to 2 exact-URL queries × 50 stories. Discussion counts are not endorsements.',adapter:'attention'}
 ];
+
+export const discoverySources = sources.filter(s=>s.enabled && ["hn","github","onesvibe","discovery"].includes(s.adapter||""));
+if(discoverySources.length < discoveryMinimum) throw new Error("Discovery source coverage is below the agreed minimum");

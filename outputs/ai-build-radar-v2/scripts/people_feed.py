@@ -1,7 +1,7 @@
 """Public RSS/Atom snapshots. No article bodies, credentials or social likes collected."""
 import concurrent.futures, datetime, email.utils, fcntl, hashlib, html, json, os, pathlib, re, urllib.parse, urllib.request, xml.etree.ElementTree as ET
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-REGISTRY=json.loads((ROOT/'content/people.json').read_text())
+REGISTRY=[p for p in json.loads((ROOT/'content/people.json').read_text()) if p.get('feed')]
 ALLOWED={urllib.parse.urlparse(p['feed']).hostname for p in REGISTRY}|{'feeds.simonwillison.net'}
 LIMIT=5_000_000
 
@@ -40,12 +40,12 @@ def parse_feed(raw,person):
    published=dt.astimezone(datetime.timezone.utc).isoformat()
   except (ValueError,TypeError,OverflowError):pass
   # Topic relevance is a broad lexical filter, never an endorsement classifier.
-  body=plain(txt('description') or txt('summary') or txt('content'))
+  body=plain(txt('content') or txt('encoded') or txt('description') or txt('summary'))
   if person['id']=='simon' and not re.search(r'\b(ai|llm|model|agent|claude|gpt|coding|tool|code|webgpu|software|datasette)\b',title+' '+body,re.I):continue
   author_node=fields.get('author')
   author_name=next((c.text for c in author_node if name(c)=='name'),None) if author_node is not None else None
   author=plain(txt('creator') or author_name or txt('author'))[:160]
-  seen.add(url);entries.append({'id':hashlib.sha256(url.encode()).hexdigest()[:20],'personId':person['id'],'title':title,'url':url,'publishedAt':published,'author':author or None,'kind':'Yazı / paylaşım','sourceUrl':person['feed']})
+  seen.add(url);entries.append({'id':hashlib.sha256(url.encode()).hexdigest()[:20],'personId':person['id'],'title':title,'url':url,'publishedAt':published,'author':author or None,'kind':'Yazı / paylaşım','sourceUrl':person['feed'],'excerpt':' '.join(body.split()[:25])})
  entries.sort(key=lambda e:e['publishedAt'] or '',reverse=True)
  return entries[:8]
 
@@ -76,10 +76,10 @@ def main():
   previous=json.loads(target.read_text()) if target.exists() else {}
   now=datetime.datetime.now(datetime.timezone.utc)
   last=previous.get('checkedAt')
-  if last and (now-datetime.datetime.fromisoformat(last)).total_seconds()<45*60:return
+  if previous.get('formatVersion')==2 and previous.get('registryKey')==hashlib.sha256(json.dumps(REGISTRY,sort_keys=True).encode()).hexdigest() and last and (now-datetime.datetime.fromisoformat(last)).total_seconds()<45*60:return
   with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:results=list(pool.map(lambda p:collect(p,previous,now.isoformat()),REGISTRY))
   sources=[s for s,_ in results];entries=[e for _,es in results for e in es]
-  snapshot={'checkedAt':now.isoformat(),'sources':sources,'entries':sorted(entries,key=lambda e:e['publishedAt'] or '',reverse=True)}
+  snapshot={'registryKey':hashlib.sha256(json.dumps(REGISTRY,sort_keys=True).encode()).hexdigest(),'formatVersion':2,'checkedAt':now.isoformat(),'sources':sources,'entries':sorted(entries,key=lambda e:e['publishedAt'] or '',reverse=True)}
   temporary=folder/'people-feed.tmp';temporary.write_text(json.dumps(snapshot,ensure_ascii=False,indent=2));os.replace(temporary,target)
   print(json.dumps({'sources':sources,'entries':len(entries)}))
 if __name__=='__main__':main()

@@ -1,8 +1,209 @@
 [
- {"id":"simon","name":"Simon Willison","focus":"AI ile küçük araçlar, kodlama deneyleri ve uygulama kanıtları","website":"https://simonwillison.net/","feed":"https://simonwillison.net/atom/everything/","sourceLabel":"Simon’ın kişisel blogu","topics":["Uygulama geliştirme","Araçlar"]},
- {"id":"ethan","name":"Ethan Mollick","focus":"AI kullanımı, iş akışları ve insanların modellerle nasıl çalıştığı","website":"https://www.oneusefulthing.org/","feed":"https://www.oneusefulthing.org/feed","sourceLabel":"One Useful Thing","topics":["Kullanım deneyimi","Fikirler"]},
- {"id":"chip","name":"Chip Huyen","focus":"AI sistem tasarımı, değerlendirme ve açık kaynak keşfi","website":"https://huyenchip.com/","feed":"https://huyenchip.com/feed.xml","sourceLabel":"Chip Huyen’ın blogu","topics":["AI mühendisliği","Değerlendirme"]},
- {"id":"lilian","name":"Lilian Weng","focus":"Ajanlar, model davranışları ve araştırma açıklamaları","website":"https://lilianweng.github.io/","feed":"https://lilianweng.github.io/index.xml","sourceLabel":"Lil’Log","topics":["Araştırma","Ajanlar"]},
- {"id":"swyx","name":"swyx / Latent.Space","focus":"AI mühendisliği, ürün geliştiren ekipler ve teknik söyleşiler","website":"https://www.latent.space/","feed":"https://www.latent.space/feed","sourceLabel":"Latent.Space · ortak yayın, tüm yazılar swyx’e ait değil","topics":["AI mühendisliği","Söyleşiler"]},
- {"id":"karpathy","name":"Andrej Karpathy","focus":"Model geliştirme, öğrenme ve AI ile üretim","website":"https://karpathy.bearblog.dev/","feed":"https://karpathy.bearblog.dev/feed/","sourceLabel":"Karpathy’nin blogu · X akışını kapsamaz","topics":["Araştırma","Uygulama geliştirme"]}
+  {
+    "id": "simon",
+    "name": "Simon Willison",
+    "focus": "AI ile küçük araçlar, kodlama deneyleri ve uygulama kanıtları",
+    "website": "https://simonwillison.net/",
+    "feed": "https://simonwillison.net/atom/everything/",
+    "sourceLabel": "Simon’ın kişisel blogu",
+    "topics": [
+      "Uygulama geliştirme",
+      "Araçlar"
+    ]
+  },
+  {
+    "id": "ethan",
+    "name": "Ethan Mollick",
+    "focus": "AI kullanımı, iş akışları ve insanların modellerle nasıl çalıştığı",
+    "website": "https://www.oneusefulthing.org/",
+    "feed": "https://www.oneusefulthing.org/feed",
+    "sourceLabel": "One Useful Thing",
+    "topics": [
+      "Kullanım deneyimi",
+      "Fikirler"
+    ]
+  },
+  {
+    "id": "chip",
+    "name": "Chip Huyen",
+    "focus": "AI sistem tasarımı, değerlendirme ve açık kaynak keşfi",
+    "website": "https://huyenchip.com/",
+    "feed": "https://huyenchip.com/feed.xml",
+    "sourceLabel": "Chip Huyen’ın blogu",
+    "topics": [
+      "AI mühendisliği",
+      "Değerlendirme"
+    ]
+  },
+  {
+    "id": "lilian",
+    "name": "Lilian Weng",
+    "focus": "Ajanlar, model davranışları ve araştırma açıklamaları",
+    "website": "https://lilianweng.github.io/",
+    "feed": "https://lilianweng.github.io/index.xml",
+    "sourceLabel": "Lil’Log",
+    "topics": [
+      "Araştırma",
+      "Ajanlar"
+    ]
+  },
+  {
+    "id": "swyx",
+    "name": "swyx / Latent.Space",
+    "focus": "AI mühendisliği, ürün geliştiren ekipler ve teknik söyleşiler",
+    "website": "https://www.latent.space/",
+    "feed": "https://www.latent.space/feed",
+    "sourceLabel": "Latent.Space · ortak yayın, tüm yazılar swyx’e ait değil",
+    "topics": [
+      "AI mühendisliği",
+      "Söyleşiler"
+    ]
+  },
+  {
+    "id": "karpathy",
+    "name": "Andrej Karpathy",
+    "focus": "Model geliştirme, öğrenme ve AI ile üretim",
+    "website": "https://karpathy.bearblog.dev/",
+    "feed": "https://karpathy.bearblog.dev/feed/",
+    "sourceLabel": "Karpathy’nin blogu · X akışını kapsamaz",
+    "topics": [
+      "Araştırma",
+      "Uygulama geliştirme"
+    ]
+  },
+  {
+    "id": "takuya",
+    "name": "Takuya Matsuyama",
+    "region": "Japonya",
+    "focus": "AI ile ürün geliştirme, Inkdrop ve etkileşimli arayüz tasarımı",
+    "website": "https://www.devas.life/",
+    "feed": "https://www.devas.life/rss/",
+    "sourceLabel": "Dev as Life · geliştiricinin kendi yazıları",
+    "topics": [
+      "Uygulama geliştirme",
+      "UI / UX"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://www.devas.life/"
+  },
+  {
+    "id": "matsuo",
+    "name": "Yutaka Matsuo",
+    "region": "Japonya",
+    "focus": "Tokyo Üniversitesi: derin öğrenme araştırmasını girişimlere ve uygulamalara taşıma",
+    "website": "https://www.ymatsuo.com/en/",
+    "feed": "",
+    "sourceLabel": "Kişisel akademik sayfa · otomatik akış bağlı değil",
+    "topics": [
+      "Araştırma",
+      "Girişimler"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://www.ymatsuo.com/en/"
+  },
+  {
+    "id": "jietang",
+    "name": "Jie Tang",
+    "region": "Çin",
+    "focus": "Tsinghua: büyük dil modelleri, ChatGLM ve bilgi grafikleri üzerine araştırmalar",
+    "website": "https://keg.cs.tsinghua.edu.cn/persons/jietang/",
+    "feed": "",
+    "sourceLabel": "Üniversitedeki kişisel yayın sayfası · otomatik akış bağlı değil",
+    "topics": [
+      "Dil modelleri",
+      "Bilgi grafikleri"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://keg.cs.tsinghua.edu.cn/persons/jietang/"
+  },
+  {
+    "id": "junyang",
+    "name": "Junyang Lin",
+    "region": "Çin / Qwen araştırmaları",
+    "focus": "Qwen çalışmalarına katkı; kodlama ajanları, çok modlu modeller ve araç kullanımı",
+    "website": "https://justinlin610.github.io/",
+    "feed": "",
+    "sourceLabel": "Kişisel araştırma ve yazılar · otomatik akış bağlı değil",
+    "topics": [
+      "Kodlama ajanları",
+      "Çok modlu AI"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://justinlin610.github.io/"
+  },
+  {
+    "id": "sarana",
+    "name": "Sarana Nutanong",
+    "region": "Tayland",
+    "focus": "VISTEC: ölçeklenebilir makine öğrenmesi, benzerlik araması ve veri sistemleri",
+    "website": "https://vistec.ac.th/faculty-adjunct-professors-ist-sarana-nutanong",
+    "feed": "",
+    "sourceLabel": "VISTEC akademik profil ve araştırmalar · otomatik akış bağlı değil",
+    "topics": [
+      "Makine öğrenmesi",
+      "Veri sistemleri"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://vistec.ac.th/faculty-adjunct-professors-ist-sarana-nutanong"
+  },
+  {
+    "id": "supasorn",
+    "name": "Supasorn Suwajanakorn",
+    "region": "Tayland",
+    "focus": "VISTEC araştırmacısı: bilgisayarlı görü ve görsel sentez çalışmalarından uygulama fikirleri",
+    "website": "https://www.supasorn.com/",
+    "feed": "",
+    "sourceLabel": "Kişisel araştırma sayfası · otomatik akış bağlı değil",
+    "topics": [
+      "Bilgisayarlı görü",
+      "Görsel üretim"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://www.supasorn.com/"
+  },
+  {
+    "id": "laurence",
+    "name": "Laurence Liew",
+    "region": "Singapur",
+    "focus": "AI Singapore: 100 Experiments ve AI Apprenticeship ile gerçek dünyada AI uygulamaları",
+    "website": "https://aisingapore.org/home/the-team/",
+    "feed": "",
+    "sourceLabel": "AI Singapore ekip profili · kurumun tüm yazıları bu kişiye ait sayılmaz",
+    "topics": [
+      "AI uygulamaları",
+      "Eğitim"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://aisingapore.org/home/the-team/"
+  },
+  {
+    "id": "eugene",
+    "name": "Eugene Yan",
+    "region": "Güneydoğu Asya deneyimi / ABD",
+    "focus": "Lazada ve Güneydoğu Asya sağlık sistemlerinden deneyimler; LLM değerlendirme, öneri ve arama sistemleri",
+    "website": "https://eugeneyan.com/",
+    "feed": "https://eugeneyan.com/rss/",
+    "sourceLabel": "Eugene Yan’ın kişisel blogu",
+    "topics": [
+      "AI mühendisliği",
+      "Değerlendirme"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://eugeneyan.com/"
+  },
+  {
+    "id": "sungjin",
+    "name": "Sungjin Ahn",
+    "region": "Güney Kore",
+    "focus": "KAIST: dünya modelleri, fiziksel dünyanın yapısını öğrenen sistemler ve planlama",
+    "website": "https://mlml.kaist.ac.kr/sungjinahn",
+    "feed": "",
+    "sourceLabel": "KAIST araştırmacı profili · otomatik akış bağlı değil",
+    "topics": [
+      "Dünya modelleri",
+      "Araştırma"
+    ],
+    "verifiedAt": "2026-10-05",
+    "profileSource": "https://mlml.kaist.ac.kr/sungjinahn"
+  }
 ]

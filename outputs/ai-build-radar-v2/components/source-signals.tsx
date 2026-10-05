@@ -1,0 +1,3 @@
+import {sourceSignals} from '@/lib/source-signals';
+import type {Store} from '@/lib/schema';
+export function SourceSignals({store,buildId}:{store:Store;buildId:string}){const signals=sourceSignals(store,buildId);if(!signals.length)return null;return <section className="lesson-panel"><h2>Başka nerelerde karşımıza çıktı?</h2>{signals.slice(0,6).map((s,i)=><p key={i}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.source} · {s.label} ↗</a><small> · {new Date(s.date).toLocaleDateString('tr-TR')} · Kontrol: {new Date(s.checkedAt).toLocaleDateString('tr-TR')}</small></p>)}<small>Yayında bağlantı verilmesi tavsiye değildir. Platform ölçümleri birbirine eşit puanlar gibi toplanmaz.</small></section>;}

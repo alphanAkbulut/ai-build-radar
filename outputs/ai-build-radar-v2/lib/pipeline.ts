@@ -1,3 +1,4 @@
+import {discover} from './discovery-collectors';
 import {collectAttention} from './attention-collector';
 import {enrichContexts} from './context-enrichment';
 import {randomUUID} from 'node:crypto';
@@ -50,7 +51,7 @@ export async function ingest(options:{force?:boolean;only?:string}={}){
    let retryAfter=0;
    try{
     if(source.adapter==='attention'){await collectAttention(store,run);}else if(source.adapter==='context'){await enrichContexts(store,run,new Date().toISOString());}else{
-    const batch=await collectors[source.adapter as 'hn'|'github'|'onesvibe']();run.fetched=batch.fetched;run.filtered=batch.filtered;run.invalid=batch.invalid;run.errors=batch.errors;
+    const batch=source.adapter==='discovery'?await discover(source.id):await collectors[source.adapter as 'hn'|'github'|'onesvibe']();run.fetched=batch.fetched;run.filtered=batch.filtered;run.invalid=batch.invalid;run.errors=batch.errors;
     for(const candidate of batch.candidates)ingestCandidate(store,candidate,source.id,run,new Date().toISOString());
     }
     run.status=run.errors.length||run.invalid?'partial':'completed';

@@ -22,7 +22,8 @@ test('single or same-day star observations cannot prove growth',()=>{
  assert.equal(starChange([{at:'2026-10-04T09:00:00Z',stars:24000},{at:'2026-10-05T10:00:00Z',stars:25000}])?.change,1000);
 });
 test('selection retains concrete lessons without calling every imported project featured',()=>{
- assert.equal(lessons.filter(l=>selectionFor(l).featured).length,8);
+ assert.equal(lessons.filter(l=>selectionFor(l).featured).length,7);
  assert.match(selectionFor(lessons.find(l=>l.slug==='metaballs')!).reason,/trend olduğu için değil/);
+ assert.equal(selectionFor(lessons.find(l=>l.slug==='motion-pad')!).featured,false);
  for(const l of lessons.filter(l=>selectionFor(l).featured)){assert.ok(l.exercise.length&&l.checks.length&&l.tools.length&&l.purpose.source);}
 });
