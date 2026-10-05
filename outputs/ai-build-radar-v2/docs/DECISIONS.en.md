@@ -1,0 +1,32 @@
+# AI Build Radar · decision log
+
+**Status:** 5 October 2026. [Türkçe](DECISIONS.md) · [Product memory](PRODUCT-STRATEGY.en.md) · [Roadmap](ROADMAP.en.md). These are today's choices and **reasons**, not immutable rules. Mark a decision as a target where code does not implement it. When evidence changes a decision, add a dated entry rather than erasing its earlier rationale.
+
+| ID | Decision and reason | Current state / open point |
+| --- | --- | --- |
+| D01 | Start private; fix claim accuracy and source-rights questions before public launch. | Local password and private GitHub exist; no hosted private beta. |
+| D02 | **Feed** and **learning collection** have different quality gates. Visitors can see many discoveries but learn deeply from fewer products. | Implemented; page-role clarity is R04. |
+| D03 | The card's primary action is **Try**, then **Learn**. Code and evidence are secondary. | Partly implemented; real demo and comprehension R03–R05. |
+| D04 | Uses AI, built with AI, drawing attention, and newly released are four separate claims. Preserve `Unknown`. | Evidence model exists; labeled accuracy study R01. |
+| D05 | Each claim needs source/date/quote. A person's mention is not praise. | Sources exist; discussion context and person narrative R08. |
+| D06 | No large showcase card/lesson without real visual and interaction evidence. A static image is not motion. | Editorial previews exist; automated checks R03. |
+| D07 | Roughly 30 thorough cases beat many shallow cards. “Featured” is a quality claim. | Target; first five R05, production capacity R11. |
+| D08 | Separate the maker's evidenced method from Radar's **recommended** reproduction method. | Partly in lessons; real adaptation test R10. |
+| D09 | The site cannot automatically know another AI chat or user's repository. A handoff prompt first inspects the current project and checks fit. | Boundary exists; quality test R10. |
+| D10 | At least ten enabled independent discovery sources; public target 25 **working** independent sources. Two GitHub pages do not equal two platforms. | Local registry has 14 enabled discovery sources; actual success is on `/sources`. R06–R07. |
+| D11 | The local worker runs only while the Mac runs; failed scans stay visible. Last check differs from last success. | Implemented; hosted operation R12. |
+| D12 | Turkish is the first UI language, not a permanent content restriction. Missing summaries never masquerade as translations. | Language-keyed records ready, paid provider off; R09/R13. |
+| D13 | Accounts, comments, follow, maker showcases, and monetization are not today's MVP gate. Prove visitor value first. | Product ideas; demand/moderation review before R17. |
+| D14 | Geographic claims need maker/deployment location evidence. A capital may only be an explicitly labeled map-position proxy. | No map; R18 research. |
+| D15 | Version product/architecture memory in repo docs; track work in GitHub Issues. An optional board is a view of the same issues. | These docs and `Rxx` issues are being created; Notion now creates a duplicate copy. |
+| D16 | Research Gate, model announcements, and theoretical papers are not working-app cards. | No separate page yet; R16. |
+
+## Open decisions
+
+1. **Primary niche:** AI-*developed* products are the default audience; interesting products that *use* AI remain a clearly separate feed. Measure the information architecture with real samples and visitors (R01/R04).
+2. **Automation level:** collection and initial screening are automatic; interaction and educational judgment are editorial today. Decide what can be automated reliably after R03/R05 tests. No AI provider or budget has been selected.
+3. **Public release:** no date before 25 healthy sources, trustworthy featured cases, and rights/privacy/cost checks (R07/R15). Public account and paid-tier scope comes later.
+
+## How to change a decision
+
+Record problem/evidence, previous rule, new rule, affected UI/data, and verification. Update the relevant Turkish/English architecture and roadmap together. Closing an issue alone does not change a product decision.

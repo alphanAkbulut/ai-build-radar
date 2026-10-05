@@ -8,6 +8,7 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 
 ## Documentation
 
+- [Product memory](docs/PRODUCT-STRATEGY.en.md) ([Türkçe](docs/PRODUCT-STRATEGY.md)) records who this serves, why, the visitor journey, crucial distinctions, and success criteria. The [phased roadmap](docs/ROADMAP.en.md) ([Türkçe](docs/ROADMAP.md)) defines work order and acceptance; the [decision log](docs/DECISIONS.en.md) ([Türkçe](docs/DECISIONS.md)) records rationale. Live tasks are tracked in private GitHub Issues.
 - [Architecture memory](docs/ARCHITECTURE.en.md) ([Türkçe](docs/ARCHITECTURE.md)) is the primary explanation of data flow, evidence, decisions, every page, listing rules, operational behavior, ownership, and known limits.
 - Topic documents (each in English/Turkish): [data and evidence](docs/MODEL.en.md), [project context](docs/PROJECT-CONTEXT.en.md), [evaluation](docs/EVALUATION.en.md), [selection](docs/SELECTION.en.md), [people and ideas](docs/PEOPLE.en.md), [summaries](docs/SUMMARIES.en.md), [analytics](docs/ANALYTICS.en.md), and [mobile](docs/MOBILE.en.md). Each page links its counterpart.
 - The [learning-collection pilot](docs/LEARNING-COLLECTION.en.md) and [Phase 1 validation](docs/VALIDATION.en.md) are dated history, not current runtime reports.
