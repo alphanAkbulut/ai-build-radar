@@ -18,6 +18,7 @@ export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[]
    <p className="eyebrow">KAYNAKLI KEŞİF</p>
    <h2>Bu haftanın gündemi</h2>
    <p>Burada yalnızca açılıp temel etkileşimi denenmiş, gerçek önizlemesi kaydedilmiş ürünler görünür. <strong>İlgi gördü</strong> ölçülen etkileşimi, <strong>Yeni keşif</strong> Radar’ın ilk gördüğü üretici beyanını, <strong>Bahsedildi</strong> ise kaynak bağlantısını anlatır. Bunlar ürünün çıkış tarihi veya kalite puanı değildir.</p>
+   <p>Bu akış yalnızca güncel sinyali olanları gösterir. İncelenmiş derslerin tamamı <Link href="/?view=learn">Bundan öğren</Link> sekmesindedir.</p>
   </div>
   <div className="feed-groups" role="group" aria-label="AI ile geliştirilme kanıtı"><button type="button" className={group==='ai'?'selected':''} aria-pressed={group==='ai'} onClick={()=>{setGroup('ai');setLimit(8);}}>AI ile geliştirilenler <span>{proven.length}</span></button><button type="button" className={group==='uncertain'?'selected':''} aria-pressed={group==='uncertain'} onClick={()=>{setGroup('uncertain');setLimit(8);}}>Geliştirme yöntemi belirsiz <span>{uncertain.length}</span></button></div>
   <p className="feed-group-note">{group==='ai'?'AI geliştirme kanıtı veya üretici beyanı bulunan, demosu incelenmiş projeler. Beyan bağımsız doğrulama değildir.':'Demosu incelenmiş AI ürünleri. Bir AI ürünü olmak, AI ile geliştirilmiş olmak anlamına gelmez; bu projeler ayrı tutulur.'}</p>

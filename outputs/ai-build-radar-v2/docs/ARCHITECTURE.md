@@ -115,15 +115,15 @@ Bu kapı **içeriğin varlığını ve tazeliğini** sınar; “wow etkisi”ni 
 
 ## 7. Ekran sözleşmeleri: ziyaretçi ne görür, veri nasıl seçilir?
 
-Ziyaretçi yolculuğu **gündemde fark et → çalışan ürünü dene → kaynaklı proje dosyasını oku → hazırsa dersten öğren** şeklindedir. Gündem ve öğrenme aynı ana sayfanın **iki ayrı sekmesidir; art arda iki liste değildir**. Aynı proje ikisinde bulunabilir: ilk kart *şimdi neden konuşulduğunu*, ikinci kart *neyi nasıl inceleyebileceğini* anlatır. Bunlardan hiçbirinin sayısı toplam aday sayısı veya küresel pazar payı değildir.
+Ziyaretçi yolculuğu **çalışan ürünü gör ve dene → kaynaklı proje dosyasını oku → hazırsa dersten öğren; güncel sinyali ayrıca izle** şeklindedir. Gündem ve öğrenme aynı ana sayfanın **iki ayrı sekmesidir; art arda iki liste değildir**. `/` varsayılan olarak beş kontrolü geçen öğrenme seçkisini açar; `/?view=feed` yalnız güncel kaynaklı sinyali olan ve yayın kapısından geçen ürünleri gösterir. Aynı proje ikisinde bulunabilir: gündem kartı *şimdi neden konuşulduğunu*, ders kartı *neyi nasıl inceleyebileceğini* anlatır. Bunlardan hiçbirinin sayısı toplam aday sayısı veya küresel pazar payı değildir. Geçmeyen ders kayıtları silinmez, ayrı inceleme arşivindedir; bu kayıtlar otomatik olarak hazırlanıyor demek değildir.
 
-### 7.1 `/` veya `/?view=feed` — Bu hafta ilgi görenler
+### 7.1 `/?view=feed` — Bu hafta ilgi görenler
 
 **Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur; `evaluateFeed` kaynaklı olayları, `publishableFeed` ise gerçekten denenmiş demoları seçer. Kart sırası önce ölçülmüş **İlgi gördü**, sonra doğrulanmış yeni **Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
 
 Kartta proje adı, açıklama, sinyalin **türü + platformu + tarihi + varsa sayısı**, kaynağa bağlantı ve siteye doğrudan giden **Dene** eylemi bulunur. Bu geçici kapıda bütün yayınlanan kartların incelenmiş dersi ve gerçek demo görüntüsü vardır; **Bundan öğren** bağlantısı görünür. İlk sekiz karttan sonra sekizer yüklenir. Akışa girmek AI geliştirme aracının bağımsız doğrulandığı anlamına gelmez; ziyaretçi bunu detay dosyasından ayırt eder. Eşleşen güncel olay yoksa boş durum gösterilmeli, eski proje yeniymiş gibi taşınmamalıdır.
 
-### 7.2 `/?view=learn` — Öğrenme koleksiyonu
+### 7.2 `/` veya `/?view=learn` — Öğrenme koleksiyonu
 
 **Amaç:** Gündemdeki her projeyi ders gibi göstermeden, seçki kapısının beş koşulunu geçen örnekleri sergilemek. `lib/lessons.ts` içerik kayıtlarını projelerle eşler; `lib/selection.ts` seçki durumunu hesaplar. Seçili koleksiyon, dikkat sinyali olanlar ve arşiv ayrı raflardır; seçili rafta güncel sinyali olan dersler öne gelir, ardından kayıt sırası kullanılır. Yazarken arama ve konu filtresi yalnız bu görünümdeki kartları daraltır.
 

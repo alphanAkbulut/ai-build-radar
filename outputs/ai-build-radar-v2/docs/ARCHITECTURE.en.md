@@ -117,15 +117,15 @@ This gate checks *presence and recency*, not aesthetic “wow” quality or corr
 
 ## 7. Page contracts: what visitors see and why
 
-The intended journey is **notice a sourced signal → try the actual site → inspect the evidence and context → learn from a reviewed lesson when available**. The news feed and learning collection are two tabs on the same homepage, not two consecutive lists of supposedly equivalent projects. One product can appear in both: one card explains *why now*, the other explains *what to learn*.
+The intended journey is **see and try a working product → inspect the evidence and context → learn from a reviewed lesson; follow timely signals separately**. The feed and learning collection are two tabs on the same homepage, not two consecutive lists of equivalent projects. `/` defaults to lessons passing all five selection checks; `/?view=feed` shows only products with a recent sourced signal that also pass the publication gate. One product can appear in both: the feed card explains *why now*, the lesson card explains *what to learn*. Lessons failing a check remain in a separate review archive; this does not imply they are being actively prepared.
 
-### 7.1 `/` or `/?view=feed` — This week's attention
+### 7.1 `/?view=feed` — This week's attention
 
 **Purpose:** A legible, news-like stream of recently noticed working sites and dated mentions. The page reads `dashboardStore`; `evaluateFeed` produces sourced events and `publishableFeed` selects actually tested demos. Measured **attention** cards come before newly **mentioned** cards; each class uses source-event recency. No universal cross-platform score is claimed.
 
 Each card explains the product, signal **type + platform + date + count where available**, source link, and **Try** link to the actual site. Under this interim gate every published card has a reviewed lesson and matching real demo capture, so **Learn from this** appears. Cards load eight at a time, with another eight on request. A feed card still does not independently verify the claimed AI-building method. No current matching signal should result in an honest empty state rather than promoting old items as fresh.
 
-### 7.2 `/?view=learn` — Learning collection
+### 7.2 `/` or `/?view=learn` — Learning collection
 
 **Purpose:** Show only lessons passing the five selection checks, without implying that every discovery is a course. `lib/lessons.ts` joins content to builds; `lib/selection.ts` computes eligibility. The selected, attention, and archive shelves have distinct roles. Current signal-bearing selected lessons lead; otherwise editorial order applies. Search-as-you-type and topic filtering narrow the visible learning cards.
 
