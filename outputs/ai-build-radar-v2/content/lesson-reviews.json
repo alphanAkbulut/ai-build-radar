@@ -1,0 +1,50 @@
+{
+  "excalidraw": {
+    "level": "interaction",
+    "url": "https://excalidraw.com/",
+    "finding": "Dikdörtgen çizildi; Geri Al etkinleşti. Geri Al tıklanınca geri alma kapandı ve Yeniden yap etkinleşti.",
+    "limitation": "Temel masaüstü çizim/geri alma kontrolü. Çok kullanıcılı kullanım ve mobil davranış test edilmedi.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  },
+  "web-llm": {
+    "level": "interaction",
+    "url": "https://chat.webllm.ai/",
+    "finding": "Llama-3.2-1B modeliyle kısa bir mesaj gönderildi; model Hello yanıtını üretti ve üretim hızı arayüzde gösterildi.",
+    "limitation": "Bu tarayıcıda tek kısa yanıt denendi. Diğer cihazların uyumluluğu ve uzun konuşmalar test edilmedi.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  },
+  "tldraw": {
+    "level": "interface",
+    "url": "https://tldraw.dev/examples/basic",
+    "finding": "Try example açıldı; gömülü editör ve şekil araçları yüklendi. Dikdörtgen aracı seçildi. Aynı sayfadaki React bileşeni ve CSS örneği okundu.",
+    "limitation": "Araç seçimi gözlendi; çizimin oluşması ve geri alma sonucu doğrulanmadı. Uyarlama rehberi çalıştırılmadı.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  },
+  "gradio": {
+    "level": "interface",
+    "url": "https://gradio.app/",
+    "finding": "Resmî sayfadaki bileşen örnekleri ve Python Interface örneği okundu; radyo seçeneğinin seçili durumu değiştirildi.",
+    "limitation": "Bu kontrol tanıtım sayfasının arayüzüne aittir. Python sunucusu veya bir model çıkarımı çalıştırılmadı.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  },
+  "llm-council": {
+    "level": "source",
+    "url": "https://github.com/karpathy/llm-council",
+    "finding": "README üzerinden bağımsız model yanıtları, anonim değerlendirme ve başkan modelin sentezi incelendi.",
+    "limitation": "Uçtan uca çalıştırma OpenRouter anahtarı ve kredi gerektiriyor. Bu incelemede ücretli API bağlanmadı.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  },
+  "autoresearch": {
+    "level": "source",
+    "url": "https://github.com/karpathy/autoresearch",
+    "finding": "README üzerinden prepare.py, train.py ve program.md rolleri; beş dakikalık deney bütçesi ve val_bpb ölçütü incelendi.",
+    "limitation": "Orijinal eğitim akışı NVIDIA GPU gerektiriyor. Bu bilgisayarda GPU eğitimi çalıştırılmadı.",
+    "reviewer": "Radar / Codex",
+    "checkedAt": "2026-10-05T13:53:24Z"
+  }
+}
