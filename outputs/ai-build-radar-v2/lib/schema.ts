@@ -9,8 +9,10 @@ export const EvidenceSchema = z.object({
  strength:z.number().min(0).max(1), supersedes:z.string().nullable()
 });
 export type Evidence = z.infer<typeof EvidenceSchema>;
+export const ContextSchema=z.object({state:z.enum(['complete','partial','missing','failed','blocked']),what:z.string().nullable(),purpose:z.string().nullable(),sourceUrl:z.url().nullable(),checkedAt:z.iso.datetime(),lastSuccessAt:z.iso.datetime().nullable(),nextCheckAt:z.iso.datetime(),reason:z.string(),contentHash:z.string().nullable(),evidenceIds:z.array(z.string())});
+export type Context=z.infer<typeof ContextSchema>;
 export const BuildSchema = z.object({
- id:z.string(), name:z.string(), canonicalUrl:z.url(), aliases:z.array(z.url()),
+ context:ContextSchema.optional(), id:z.string(), name:z.string(), canonicalUrl:z.url(), aliases:z.array(z.url()),
  description:z.string(), creator:z.string().nullable(), category:z.string(),
  firstSeenAt:z.iso.datetime(), lastSeenAt:z.iso.datetime(), updatedAt:z.iso.datetime(),
  firstPublicRelease:z.string().nullable(), sourceIds:z.array(z.string()),
