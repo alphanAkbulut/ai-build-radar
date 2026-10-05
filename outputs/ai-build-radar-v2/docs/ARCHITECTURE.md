@@ -173,6 +173,10 @@ Yerel modda zamanı gelen kaynaklar elle başlatılabilir. Kayıtlı kaynak çal
 
 [`lib/briefing.ts`](../lib/briefing.ts) mevcut Build/Evidence/Run verisinden son 48 saatlik veya 7 günlük okunabilir bir kesit çıkarır. Ölçülen ilgi, yalnız yeni keşif ve yalnız bahsedilme ayrı kalır; geliştirici beyanı viralite puanı olmaz. Ana öne çıkanlar için **aynı üründe en az iki bağımsız ilgi platformu** gerekir; tek platformdaki ölçümler ayrı, küçük bir listede görünür. Beş-sekiz başlık zorla doldurulmaz. “Diğer” dışındaki bir kategori hareketi için en az üç ayrı ürünün her birinde iki bağımsız ilgi kaynağı gerekir. Kaynak tablosu dönemde gerçekten yapılan denemeleri ve son koşunun durumunu gösterir; ayarlarda kayıtlı fakat çalışmamış kaynak başarı sayılmaz. Bu ekran yeni kaynak taramaz veya özgün AI özeti üretmez. [Kaynak genişletme denetimi](SOURCE-EXPANSION.md) prompttaki adayları ve eksik entegrasyonları kaydeder.
 
+Hugging Face trend kanıtı yalnız gerçek ilk 20 trend listesinden gelir; toplam beğeni sorgusunda görünen `trendingScore` tek başına yeterli değildir. Liste sırası kaynak verisi olarak saklanır; en az 24 saat arayla iki ölçüm varsa sıra değişimi gösterilir. Tek platformlu kayıtların kaynak dağılımı `/briefing` içinde görünür. [TrendRadar karşılaştırması](TRENDRADAR-BENCHMARK.md) bu tercihlerin gerekçesini açıklar.
+
+Lobsters'ta genel teknoloji etiketleri AI gündemi sayılmaz; yalnız `ai` veya `ml` etiketli tartışmalar aday olur. Önceden alınmış ilgisiz kanıt saklanır fakat akış projeksiyonundan çıkarılır.
+
 ## 8. Dosyaların sahipliği ve sürümleme
 
 | Yer | Yetkili içerik | Nasıl değişir? |

@@ -14,6 +14,14 @@ test('a fresh editorial mention is news, never proof of momentum',()=>{
  assert.equal(result?.signals[0].kind,'mention');
  assert.equal(evaluateFeedBuild(store([{...evidence('editorial_reference','feed-simon','https://example.com/old-article'),publishedAt:null}]),build,now),null);
 });
+test('old off-topic Lobsters records no longer appear as AI news',()=>{
+ const row={...evidence('community_discussion','lobsters','https://lobste.rs/s/example'),rawId:'raw-lobsters'};
+ const state=store([row]);
+ state.raw.push({id:'raw-lobsters',sourceId:'lobsters',sourceRecordId:'example',url:'https://lobste.rs/s/example',fetchedAt:row.observedAt,hash:'h',payload:{tags:['haskell','show','web']}});
+ assert.equal(evaluateFeedBuild(state,build,now),null);
+ state.raw[0].payload={tags:['ai','show']};
+ assert.equal(evaluateFeedBuild(state,build,now)?.status,'momentum');
+});
 test('platform trend is a platform-specific interest signal; likes alone are not',()=>{
  assert.equal(evaluateFeedBuild(store([evidence('space_likes','huggingface','200')]),build,now),null);
  const result=evaluateFeedBuild(store([evidence('platform_trending','huggingface','25')]),build,now);
@@ -25,6 +33,13 @@ test('a repeated platform snapshot cannot renew an old trend as fresh news',()=>
  const old={...evidence('platform_trending','huggingface','3','2026-09-20T12:00:00Z'),id:'old'};
  const fresh={...evidence('platform_trending','huggingface','25'),id:'fresh'};
  assert.equal(evaluateFeedBuild(store([old,fresh]),build,now),null);
+});
+test('a Spaces rank change is shown only with a 24-hour comparison',()=>{
+ const old={...evidence('platform_rank','huggingface','9','2026-10-04T11:00:00Z'),id:'rank-old',sourceRecordId:'space'};
+ const current={...evidence('platform_rank','huggingface','4'),id:'rank-current',sourceRecordId:'space'};
+ const trend={...evidence('platform_trending','huggingface','25'),sourceRecordId:'space'};
+ const result=evaluateFeedBuild(store([old,current,trend]),build,now);
+ assert.match(result!.signals[0].label,/#4 · 5 sıra yükseldi/);
 });
 test('unavailable destinations and unsupported source summaries cannot enter the feed',()=>{
  const rows=[evidence('platform_trending','huggingface','25')];

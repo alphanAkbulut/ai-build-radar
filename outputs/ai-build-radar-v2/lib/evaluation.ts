@@ -4,8 +4,9 @@ import {categoryFor,destinations} from './discovery';
 import {sources} from './sources';
 import {toolClaims} from './collectors';
 import {latestEvidence} from './projections';
+import {aiDiscussionTags} from './relevance';
 
-export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string};
+export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string;rank?:number};
 export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;observedAt:string}|null;tools:string[]};
 const WEEK=7*86400000, DAY=86400000;
 function recent(at:string,now:number,limit:number){const age=now-Date.parse(at);return Number.isFinite(age)&&age>=0&&age<=limit;}
@@ -42,8 +43,18 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
   const eventAt=firstTrendAt||e.publishedAt||e.observedAt;
   if(!recent(eventAt,now,WEEK))continue;
   if(e.field==='platform_trending'&&e.sourceId==='huggingface'&&Number(e.value)>0){
-   signals.push({kind:'momentum',source:'Hugging Face',label:'Spaces trend listesinde; platform içi sinyal',url:e.sourceUrl,eventAt,checkedAt:e.observedAt});
+   const rankEvidence=evidence.find(row=>row.sourceId===e.sourceId&&row.sourceRecordId===e.sourceRecordId&&row.field==='platform_rank');
+   const rank=Number(rankEvidence?.value);
+   const validRank=!!rankEvidence&&Number.isInteger(rank)&&rank>=1&&rank<=20;
+   const older=rankEvidence&&validRank?store.evidence.filter(row=>row.buildId===build.id&&row.sourceId===e.sourceId&&row.sourceRecordId===e.sourceRecordId&&row.field==='platform_rank'&&Date.parse(rankEvidence.observedAt)-Date.parse(row.observedAt)>=DAY&&Date.parse(rankEvidence.observedAt)-Date.parse(row.observedAt)<=8*DAY).sort((a,b)=>a.observedAt.localeCompare(b.observedAt)).at(-1):undefined;
+   const priorRank=Number(older?.value),movement=older&&Number.isInteger(priorRank)&&priorRank>=1&&priorRank<=20?priorRank-rank:null;
+   const rankLabel=validRank?`#${rank}${movement===null?'':movement>0?` · ${movement} sıra yükseldi`:movement<0?` · ${-movement} sıra geriledi`:' · sıra değişmedi'} · `:'';
+   signals.push({kind:'momentum',source:'Hugging Face',label:`Spaces trend listesinde ${rankLabel}platform içi sinyal`,url:e.sourceUrl,eventAt,checkedAt:e.observedAt,rank:validRank?rank:undefined});
   }else if(e.field==='community_discussion'){
+   if(e.sourceId==='lobsters'){
+    const raw=store.raw.find(row=>row.id===e.rawId)?.payload;
+    if(raw&&typeof raw==='object'&&!aiDiscussionTags((raw as {tags?:unknown}).tags))continue;
+   }
    const match=e.quote.match(/(\d+) puan\s*·\s*(\d+) yorum/);
    const points=Number(match?.[1]||0),comments=Number(match?.[2]||0);
    signals.push({kind:points>=50||comments>=20?'momentum':'mention',source:sourceName(e.sourceId),label:e.quote,url:e.sourceUrl,eventAt,checkedAt:e.observedAt});

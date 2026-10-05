@@ -11,6 +11,7 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 - [Architecture memory](docs/ARCHITECTURE.en.md) ([Türkçe](docs/ARCHITECTURE.md)) is the primary explanation of data flow, evidence, decisions, every page, listing rules, operational behavior, ownership, and known limits.
 - Topic documents: [data and evidence](docs/MODEL.md), [source coverage](docs/PROJECT-CONTEXT.md), [evaluation](docs/EVALUATION.md), [selection](docs/SELECTION.md), [people and ideas](docs/PEOPLE.md), [summaries](docs/SUMMARIES.md), [analytics](docs/ANALYTICS.md), and [mobile](docs/MOBILE.md). These topic documents are currently in Turkish; dated pilots and checks are not live status reports.
 - [Source audit for the daily AI product prompt](docs/SOURCE-EXPANSION.en.md) ([Türkçe](docs/SOURCE-EXPANSION.md)) records verified candidate sources, access/licensing constraints, and integration order. `/briefing` offers a short read derived from existing data.
+- [TrendRadar comparison](docs/TRENDRADAR-BENCHMARK.en.md) ([Türkçe](docs/TRENDRADAR-BENCHMARK.md)) records runtime evidence, aggregator dependencies, and the ranking/source-visibility ideas adapted for Radar.
 - [AGENTS.md](AGENTS.md) defines agent working rules, not the product architecture.
 
 ## Current boundaries

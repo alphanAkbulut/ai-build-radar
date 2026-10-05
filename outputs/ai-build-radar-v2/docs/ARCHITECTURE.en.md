@@ -175,6 +175,10 @@ Local mode can manually trigger currently due sources. Registered does not mean 
 
 [`lib/briefing.ts`](../lib/briefing.ts) derives a readable 48-hour or seven-day slice from existing Build/Evidence/Run data. Measured attention, new discovery, and mere mentions stay distinct; a builder statement is not a virality score. A headline highlight requires **two independent attention platforms for the same product**; single-platform observations appear in a smaller separate list. The view never pads the highlights to five or eight entries. A category movement excludes “Other” and requires at least three distinct products, each with two independent attention sources. The source table reports actual attempts and each source's latest run status; configured but unrun sources are not counted as successes. This page neither scans new sources nor generates an original AI summary. The [source-expansion audit](SOURCE-EXPANSION.en.md) records the prompt's candidates and missing integrations.
 
+Hugging Face trend evidence comes only from the actual top-20 trend response; a `trendingScore` present in the most-liked response is insufficient. The list rank is stored as source evidence, and movement is displayed only when observations are at least 24 hours apart. `/briefing` shows the source distribution of single-platform records. The [TrendRadar comparison](TRENDRADAR-BENCHMARK.en.md) explains this choice.
+
+General technology tags on Lobsters do not establish AI relevance: only discussions tagged `ai` or `ml` enter the candidate stream. Existing off-topic evidence stays in history but is excluded from feed projections.
+
 ## 8. File ownership, versioning, and data privacy
 
 | Location | Authoritative content | Update path |

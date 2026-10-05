@@ -34,5 +34,6 @@ test('one platform trend stays out of the cross-platform headline',()=>{
  assert.equal(brief.measured.length,1);
  assert.equal(brief.singlePlatform.length,1);
  assert.equal(brief.crossPlatform.length,0);
+ assert.deepEqual(brief.sourceConcentration,[{source:'Hugging Face',projects:1}]);
  assert.equal(brief.themes.length,0);
 });

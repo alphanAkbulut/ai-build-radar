@@ -15,7 +15,12 @@ export function dailyBriefing(store:Store,now=Date.now(),hours=48){
  });
  const independentAttentionSources=(item:BriefingItem)=>new Set(item.signals.filter(s=>s.kind==='momentum').map(s=>s.source)).size;
  const crossPlatform=measured.filter(item=>independentAttentionSources(item)>=2);
- const singlePlatform=measured.filter(item=>independentAttentionSources(item)===1);
+ const singlePlatform=measured.filter(item=>independentAttentionSources(item)===1).sort((a,b)=>{
+  const aSignal=a.signals.find(s=>s.kind==='momentum'),bSignal=b.signals.find(s=>s.kind==='momentum');
+  if(aSignal?.source===bSignal?.source&&aSignal?.rank&&bSignal?.rank)return aSignal.rank-bSignal.rank;
+  return Date.parse(b.card.lastEventAt)-Date.parse(a.card.lastEventAt);
+ });
+ const sourceConcentration=[...new Set(singlePlatform.flatMap(item=>item.signals.filter(s=>s.kind==='momentum').map(s=>s.source)))].map(source=>({source,projects:singlePlatform.filter(item=>item.signals.some(s=>s.kind==='momentum'&&s.source===source)).length})).sort((a,b)=>b.projects-a.projects);
  const discovered=items.filter(item=>item.signals.some(s=>s.kind==='discovery')&&!item.signals.some(s=>s.kind==='momentum')).sort((a,b)=>Date.parse(b.card.firstSeenAt)-Date.parse(a.card.firstSeenAt));
  const mentioned=items.filter(item=>item.signals.some(s=>s.kind==='mention')&&!item.signals.some(s=>s.kind==='momentum'||s.kind==='discovery')).sort((a,b)=>Date.parse(b.card.lastEventAt)-Date.parse(a.card.lastEventAt));
  const themes=[...new Set(crossPlatform.map(item=>item.card.category))].flatMap(category=>{
@@ -29,5 +34,5 @@ export function dailyBriefing(store:Store,now=Date.now(),hours=48){
   const lastRun=runs.reduce<Run|undefined>((latest,run)=>!latest||run.startedAt>latest.startedAt?run:latest,undefined);
   return {id:source.id,name:source.name,attempts:runs.length,lastRun:lastRun?{at:lastRun.startedAt,status:lastRun.status,fetched:lastRun.fetched,accepted:lastRun.accepted}:null};
  });
- return {hours,generatedAt:new Date(now).toISOString(),measured,crossPlatform,singlePlatform,discovered,mentioned,themes,coverage,completedSources:coverage.filter(s=>s.lastRun?.status==='completed').length,attemptedSources:coverage.filter(s=>s.attempts>0).length};
+ return {hours,generatedAt:new Date(now).toISOString(),measured,crossPlatform,singlePlatform,sourceConcentration,discovered,mentioned,themes,coverage,completedSources:coverage.filter(s=>s.lastRun?.status==='completed').length,attemptedSources:coverage.filter(s=>s.attempts>0).length};
 }
