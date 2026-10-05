@@ -81,6 +81,7 @@ test('a recent builder statement is a discovery, never fabricated momentum',()=>
  assert.equal(result?.status,'discovered');
  assert.equal(result?.lastEventAt,build.firstSeenAt);
  assert.equal(result?.aiStatus,'Builder-stated');
+ assert.equal(result?.aiEvidence?.tool,'Claude Code');
  assert.equal(feedByDevelopmentEvidence(evaluateFeed(store([claim]),now),'ai').length,1);
  assert.equal(feedByDevelopmentEvidence(evaluateFeed(store([claim]),now),'uncertain').length,0);
  assert.equal(evaluateFeedBuild(store([claim]),{...build,firstSeenAt:'2026-09-01T12:00:00Z'},now),null);

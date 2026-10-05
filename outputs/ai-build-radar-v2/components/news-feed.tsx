@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {feedByDevelopmentEvidence,type FeedCard} from '@/lib/evaluation';
 import {lessons} from '@/lib/lessons';
 import {selectionFor} from '@/lib/selection';
+import {developmentScope} from '@/lib/development-scope';
 
 export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[];mentioned:FeedCard[]}}){
  const proven=feedByDevelopmentEvidence(feed,'ai');
@@ -32,8 +33,9 @@ export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[]
     <h3><Link href={'/builds/'+card.id}>{card.name}</Link></h3>
     <p><strong>Ne yapıyor?</strong> {card.description}</p>
     <div className="discovery-reason"><strong>{card.status==='momentum'?'Neden gündemde?':card.status==='discovered'?'Neden eklendi?':'Nerede bahsedildi?'}</strong>{relevantSignals.map((signal,i)=><p key={i}><a href={signal.url} target="_blank" rel="noopener noreferrer">{signal.source} · {signal.label} ↗</a><small> · Olay/gözlem: {date(signal.eventAt)}</small></p>)}<small>Radar ilk gördü: {date(card.firstSeenAt)} · Kanıt son kontrol: {date(relevantSignals[0]?.checkedAt||card.lastEventAt)}</small></div>
-    {card.aiEvidence&&<details className="feed-proof"><summary>AI geliştirme kanıtı</summary><p>Üretici beyanı: “{card.aiEvidence.quote.slice(0,260)}”</p><a href={card.aiEvidence.sourceUrl} target="_blank" rel="noopener noreferrer">Kaynağı aç ↗</a></details>}
+    {card.aiEvidence&&<details className="feed-proof"><summary>{card.aiStatus==='Builder-stated'?'AI geliştirme beyanı':'AI geliştirme kanıtı'}</summary><p>Üretici beyanı: “{card.aiEvidence.quote.slice(0,260)}”</p><a href={card.aiEvidence.sourceUrl} target="_blank" rel="noopener noreferrer">Kaynağı aç ↗</a></details>}
     {card.tools.length>0&&<p className="feed-tools"><strong>Beyan edilen AI araçları:</strong> {card.tools.join(', ')}</p>}
+    {card.aiEvidence&&<p className="feed-tools"><strong>AI katkısının kapsamı:</strong> {developmentScope(card.aiEvidence.quote,card.aiEvidence.tool).summary}</p>}
     <nav><a data-radar-action="try" href={card.siteUrl} target="_blank" rel="noopener noreferrer">Siteyi aç ↗</a><Link data-radar-action={reviewed?'learn':undefined} href={reviewed?'/learn/'+reviewed.slug:'/builds/'+card.id}>{reviewed?'Bundan öğren →':'Açıklama ve kanıtlar →'}</Link></nav>
    </article>;
   })}</div>}

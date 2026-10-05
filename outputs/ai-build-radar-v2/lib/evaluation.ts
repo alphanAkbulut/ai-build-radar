@@ -7,7 +7,7 @@ import {latestEvidence} from './projections';
 import {publishableEvidence} from './relevance';
 
 export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string;rank?:number};
-export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;observedAt:string}|null;tools:string[]};
+export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;tool:string;observedAt:string}|null;tools:string[]};
 const WEEK=7*86400000, DAY=86400000;
 function recent(at:string,now:number,limit:number){const age=now-Date.parse(at);return Number.isFinite(age)&&age>=0&&age<=limit;}
 function sourceName(id:string){return sources.find(s=>s.id===id)?.name||id;}
@@ -69,7 +69,7 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
  signals.sort((a,b)=>Date.parse(b.eventAt)-Date.parse(a.eventAt));
  const status=signals.some(s=>s.kind==='momentum')?'momentum':signals.some(s=>s.kind==='mention')?'mentioned':'discovered';
  const kind=status==='momentum'?'momentum':status==='mentioned'?'mention':'discovery';
- return {id:build.id,name:build.name,description,category:categoryFor(build).label,siteUrl,signals,status,lastEventAt:signals.find(s=>s.kind===kind)!.eventAt,firstSeenAt:build.firstSeenAt,aiStatus:directClaim?.status||aiClaims[0]?.status||'Unknown',aiEvidence:directClaim?{sourceUrl:directClaim.sourceUrl,quote:directClaim.quote,observedAt:directClaim.observedAt}:null,tools:[...new Set(aiClaims.map(e=>e.value))]};
+ return {id:build.id,name:build.name,description,category:categoryFor(build).label,siteUrl,signals,status,lastEventAt:signals.find(s=>s.kind===kind)!.eventAt,firstSeenAt:build.firstSeenAt,aiStatus:directClaim?.status||aiClaims[0]?.status||'Unknown',aiEvidence:directClaim?{sourceUrl:directClaim.sourceUrl,quote:directClaim.quote,tool:directClaim.value,observedAt:directClaim.observedAt}:null,tools:[...new Set(aiClaims.map(e=>e.value))]};
 }
 export function evaluateFeed(store:Store,now=Date.now()){
  const cards=store.builds.flatMap(b=>{const result=evaluateFeedBuild(store,b,now);return result?[result]:[]});
