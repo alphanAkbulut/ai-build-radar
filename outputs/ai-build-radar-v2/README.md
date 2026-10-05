@@ -1,12 +1,14 @@
 # AI Build Radar
 
+**Dil:** Türkçe · [English](README.en.md)
+
 **Durum:** private, yerel MVP. Radar, AI alanındaki çalışan ürünleri keşfeder; haklarında gerçekten ne bilindiğini gösterir; seçilmiş örneklerden uygulanabilir dersler çıkarır. Bir ürünün AI kullanması, AI ile geliştirilmiş olması ve popüler olması ayrı iddialardır. Her biri ayrı kanıt ister.
 
 Ürünün iki katmanı vardır: güncel ve kaynaklı **keşif/haber akışı** ile demosu incelenmiş az sayıdaki örnekten oluşan **öğrenme koleksiyonu**. Kaynakta bulunmak veya yüksek yıldız almak tek başına koleksiyona giriş sağlamaz.
 
 ## Belgeler
 
-- [Mimari hafıza](docs/ARCHITECTURE.md): veri akışı, karar kuralları, listeleme, ekranlar, dosya sahipliği, mevcut sınırlar. Ürün mantığı için ana başvuru.
+- [Mimari hafıza](docs/ARCHITECTURE.md) ([English](docs/ARCHITECTURE.en.md)): veri akışı, karar kuralları, her ekranın ve alanın görevi, listeleme, dosya sahipliği, mevcut sınırlar. Ürün mantığı için ana başvuru.
 - Konu belgeleri: [veri ve kanıt](docs/MODEL.md), [kaynak kapsamı](docs/PROJECT-CONTEXT.md), [değerlendirme](docs/EVALUATION.md), [seçki](docs/SELECTION.md), [insanlar ve fikirler](docs/PEOPLE.md), [özetler](docs/SUMMARIES.md), [analitik](docs/ANALYTICS.md), [mobil](docs/MOBILE.md). Tarihli pilot/doğrulama belgeleri güncel durum raporu sayılmaz.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
 

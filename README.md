@@ -9,7 +9,7 @@ Evidence-based project discovery and a learning collection for people building w
 
 These are snapshots versioned at the time this repository was created, not reconstructed historical commit dates. Future changes should be committed in focused increments; milestone tags should remain immutable.
 
-For the current product logic, data flow, selection rules and known limits, see the [v2 architecture memory](outputs/ai-build-radar-v2/docs/ARCHITECTURE.md). The [v2 application README](outputs/ai-build-radar-v2/README.md) is the local run guide.
+For the current product logic, data flow, page contracts, selection rules and known limits, see the v2 architecture memory in [English](outputs/ai-build-radar-v2/docs/ARCHITECTURE.en.md) or [Turkish](outputs/ai-build-radar-v2/docs/ARCHITECTURE.md). The v2 application README is available in [English](outputs/ai-build-radar-v2/README.en.md) and [Turkish](outputs/ai-build-radar-v2/README.md).
 
 ## Restore
 

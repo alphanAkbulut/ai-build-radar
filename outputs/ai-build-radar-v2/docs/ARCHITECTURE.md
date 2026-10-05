@@ -1,5 +1,7 @@
 # AI Build Radar · mimari hafıza
 
+**Dil:** Türkçe · [English](ARCHITECTURE.en.md) · [Uygulama kılavuzu](../README.md)
+
 **Belge durumu:** 5 Ekim 2026 tarihli kodun açıklaması ve açık hedefler. Bu belge kalıcı ürün mantığını kaydeder; anlık sayı, son başarılı tarama ve worker sağlığı için uygulamadaki `/sources` ekranı esas alınır. Kod ile belge çelişirse ikisini birlikte düzeltin.
 
 ## 1. Ürün kararı ve sınırları
@@ -98,21 +100,69 @@ Kaynak, zaman ve sayı kartta görünür. Son olay tarihine göre sıralanır; p
 
 Bu kapı **içeriğin varlığını ve tazeliğini** sınar; “wow etkisi”ni veya dersin doğruluğunu otomatik puanlayan AI değildir. Girdiler `content/` ve `previews/` içindedir. Aday sayısı arttığı için ders kartları otomatik çoğalmaz. İnceleme bayatlayınca seçki durumu değişebilir. “Projeme uyarla” ayrı bir kapıdır: [`lib/adaptation.ts`](../lib/adaptation.ts) geçerli tarif/ortam üzerinde kaydedilmiş başarılı uygulama kontrolleri olmadan düğmeyi açmaz. Orijinal demoyu görmek aynı yöntemi yeniden üretebileceğimizi kanıtlamaz. Hazır prompt kullanıcının kendi AI hesabındaki mevcut projeyi otomatik tanımaz; gözlenen özgün davranış ile Radar’ın önerdiği yeniden yapım yolu ayrı yazılır.
 
-## 7. Ekranlar ve listeleme mantığı
+## 7. Ekran sözleşmeleri: ziyaretçi ne görür, veri nasıl seçilir?
 
-| Rota | Görev | Sıralama / sınır |
-| --- | --- | --- |
-| `/?view=feed` veya `/` | Haftalık gündem | Tek kart akışı: ölçülmüş ilgi önce, yalnızca yeni bahsedilenler sonra; kartta sinyal türü, kaynak ve hazır ders bağlantısı görünür. İlk sekme budur. |
-| `/?view=learn` | Öğrenme koleksiyonu | Ayrı sekmede yalnızca seçki kapısını geçen dersler; güncel sinyali olanlar önce, sonra editoryal sıra. Yazarken arama bu koleksiyonu filtreler. |
-| `/candidates` | İnceleme alanı / aday havuzu | Seçkiye alınmamış projeler. Varsayılan AI kanıt grubu ve siteli kayıtlar; görüntüsü olanlar önce, sonra Radar’ın ilk gördüğü zaman. Sayfalı liste. |
-| `/builds` | Tam build arşivi | Kanıt, site ve konu filtreleri. Aday sayısı veya ilk görülme trend kanıtı değildir. |
-| `/builds/[id]` | Proje dosyası | Site/kod, amaç adayı, ilgi, güncel kanıt ve geçmişi kaynaklarıyla. |
-| `/learn/[slug]` | Uygulamalı ders | Demo, neden seçildiği, öğrenme adımları/kabul kontrolleri; uyarlama kapısı ayrı. |
-| `/people` | İnsanlar ve fikirler | Public feed, kaynaklı kısa bağlam ve editoryal referans; bahsetme/onaylama ayrımı. |
-| `/sources` | Sistem şeffaflığı | Kayıtlı/etkin kaynak, son deneme/başarı, sonraki tarama, koşu sayıları, çakışma kuyruğu. |
-| `/analytics` | Private kullanım sinyali | “Dene”/“Öğren” gibi yerel olay sayıları; benzersiz ziyaretçi veya gerçek dönüşüm değildir. |
+Ziyaretçi yolculuğu **gündemde fark et → çalışan ürünü dene → kaynaklı proje dosyasını oku → hazırsa dersten öğren** şeklindedir. Gündem ve öğrenme aynı ana sayfanın **iki ayrı sekmesidir; art arda iki liste değildir**. Aynı proje ikisinde bulunabilir: ilk kart *şimdi neden konuşulduğunu*, ikinci kart *neyi nasıl inceleyebileceğini* anlatır. Bunlardan hiçbirinin sayısı toplam aday sayısı veya küresel pazar payı değildir.
 
-Gündem ve öğrenme aynı ana sayfanın **iki ayrı sekmesidir; art arda iki liste değildir**. Bir proje iki sekmede de görünebilir: gündem kartı kaynaklı güncel ilgiyi, öğrenme kartı incelenmiş demoyu ve uygulama adımlarını anlatır. Gündemdeki toplam, seçkideki ders sayısı değildir. Büyük aday listesi kalite seçkisi gibi etiketlenmemelidir. Açık sayfada yeni veriyi görmek için yenileme gerekebilir.
+### 7.1 `/` veya `/?view=feed` — Bu hafta ilgi görenler
+
+**Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur ve `evaluateFeed` ile bölüm 6'daki kurallardan geçirilir. Kart sırası önce ölçülmüş **İlgi gördü**, sonra doğrulanmış yeni **Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
+
+Kartta proje adı, açıklama, sinyalin **türü + platformu + tarihi + varsa sayısı**, kaynağa bağlantı ve siteye doğrudan giden **Dene** eylemi bulunur. İncelenmiş ders varsa ayrıca **Bundan öğren** bağlantısı ve ders işareti görünür. Görsel yalnız bu projeye bağlı incelenmiş ders/görüntü varsa eklenir; görsel yokluğu gündem sinyalini geçersiz kılmaz. İlk sekiz karttan sonra sekizer yüklenir. Akışa girmek demoyu Radar'ın denediği veya AI geliştirme aracını doğruladığı anlamına gelmez; ziyaretçi bunu detay dosyasından ayırt eder. Eşleşen güncel olay yoksa boş durum gösterilmeli, eski proje yeniymiş gibi taşınmamalıdır.
+
+### 7.2 `/?view=learn` — Öğrenme koleksiyonu
+
+**Amaç:** Gündemdeki her projeyi ders gibi göstermeden, seçki kapısının beş koşulunu geçen örnekleri sergilemek. `lib/lessons.ts` içerik kayıtlarını projelerle eşler; `lib/selection.ts` seçki durumunu hesaplar. Seçili koleksiyon, dikkat sinyali olanlar ve arşiv ayrı raflardır; seçili rafta güncel sinyali olan dersler öne gelir, ardından kayıt sırası kullanılır. Yazarken arama ve konu filtresi yalnız bu görünümdeki kartları daraltır.
+
+Kartın görseli, kaynaklı amacı, **neden açmaya değer** olduğu, aktarılabilir öğrenme fırsatı, AI yönteminin kanıt statüsü ve **Dene / Bundan öğren** eylemleri vardır. “AI ile yapıldı” etiketi ders içeriğinde henüz tam arşiv projeksiyonuyla ortak değildir; farklı sonuç çıkarsa detaydaki alan kanıtı esas alınır. Yakın tarihli demo incelemesi düşerse ders seçkiden çıkabilir; “hazır değil” proje kötü demek değildir. Bu raf güncel keşiflerin ikinci tekrar listesi değildir.
+
+### 7.3 `/candidates` — İnceleme alanı
+
+**Amaç:** Keşfedilmiş ama seçki kapısından geçmemiş kayıtları inceleme kuyruğu olarak görünür kılmak; bunlara “öğrenme dersi hazır” dememek. Seçkideki `featured` kayıtlar ayıklanır. Varsayılan görünüm, AI geliştirme kanıt grubu ve site bağlantısı olanları seçer; arama, kaynak, kanıt, site/kod ve sekiz sezgisel kategori filtresi vardır. Görseli doğrulanmış kayıtlar önce, ardından Radar'ın ilk gördüğü en yeni kayıtlar gelir. Bugün yalnız ilk 24 sonuç gösterilir; bu ekranın tam sayfalaması yoktur. Tüm adayları görmek için `/builds` gerekir.
+
+Görsel kart yalnız manifestte gerçek site URL'siyle eşleşen görüntü varsa çıkar. Diğerleri kompakt sırada durur; “görsel keşfe hazırlanacak” editoryal incelemenin tamamlandığını ima etmez. Detay, site ve kod bağlantıları ayrıdır. Eksik beş seçki kontrolü varsa açıkça listelenir. Aday havuzu bir kalite veya trend sıralaması değildir; araştırma ve triage alanıdır.
+
+### 7.4 `/builds` — Tam build arşivi
+
+**Amaç:** Tekilleştirilmiş tüm Build Entity kayıtlarını kaybetmeden aratılabilir tutmak. AI kanıtı, site/kod, kaynak ve kategori filtreleri aday görünümüyle ortaktır. Kanıta dayalı “AI ile yapılmış” ve **belirsiz** grupları ayrılır; `Derived`/`Unknown` dışlanmaz. Doğrulanmış görüntüsü olanlar, ardından ilk görülme tarihi kullanılarak sıralanır; 18'li sayfalama URL filtrelerini taşır.
+
+Buradaki proje sayısı, ziyaretçiye önerilen ders sayısı değildir. İlk görülme tarihi çıkış tarihi veya büyüme ölçüsü değildir. Site bağlantısı olmayan proje arşivde kalabilir; demo olarak sunulmaz. Boş filtre sonucu, veri yokluğu ile tarama hatasını aynı şey saymamalıdır; kaynak sağlığı `/sources` üzerinden kontrol edilir.
+
+### 7.5 `/builds/[id]` — Proje dosyası
+
+**Amaç:** Kartın kısa iddiasını denetlenebilir kayda açmak. Site ve kaynak kod ayrı birincil bağlantılardır. Bağlam bölümünde kaynak metinden çıkarılmış **ne yapıyor / olası amaç** ve çıkarımın `complete`, `partial`, `missing`, `failed` veya `blocked` durumu görünür. İlgi bölümü Hacker News, GitHub veya diğer kaynaklara dayanan sinyali ve son kontrolü açıklar. Bir kimlik çatışması varsa inceleme uyarısı, güvenle birleştirilmiş kayıt gibi sunulmasını engeller.
+
+Kanıt izinde her alanın kaynağı, kısa alıntı/konum, gözlem ve varsa yayın tarihi, sınıfı ve geçmiş sürümleri bulunur. “Model bilinmiyor” boşluğu bilinçlidir. Kategori orijinal kaynak sınıfından farklıysa türetilmiş etiket olarak okunur. Detay sayfası geliştiricinin niyetine dair kaynaklı aday sunabilir; README yorumunu yaratıcıyla yapılmış röportaj gibi göstermez.
+
+### 7.6 `/learn/[slug]` — Uygulamalı ders
+
+**Amaç:** “Ne gördüm, neden değerli, kendi ürünümde ne deneyebilirim?” sorularını aynı yerde yanıtlamak. Kaynaklı amaç, seçilme gerekçesi, dikkat hikâyesi, gerçek demo görüntüsü ve mümkünse kontrollü canlı iframe bulunur. İnceleme kaydı kimin ne zaman hangi etkileşimi denediğini, bulgusunu ve sınırını belirtir. Ders adımları ve kabul kontrolleri Radar'ın **önerdiği yeniden uygulama** yoludur; geliştiricinin gerçek iç kodu olduğu iddia edilmez.
+
+Canlı site iframe'e izin vermezse harici sekme açılır; statik görüntü hareketli demo diye adlandırılmaz. **Projeme uyarla** ancak ayrı yeniden üretim kontrolleri geçerse açılır. Etkin olduğunda kullanıcı kendi projesinin kısa bağlamını yazar, üretilen talimatı görüp kopyalar ve kendi AI geliştirme aracında kullanır. Sistem kullanıcının Claude/ChatGPT oturumuyla konuşmaz, mevcut projesini okumaz, kodunu değiştirmez; yazılan bağlam kalıcı içerik olarak saklanmaz. Başarısız veya eksik testte düğme pasif kalır ve nedenini gösterir.
+
+### 7.7 `/people` — İnsanlar ve fikirler
+
+**Amaç:** İzlenen yazarların kendi yayınlarından son içerikleri ve Radar'ın inceleyip projeyle bağladığı referansları tek yerde sunmak. Kişi dizini `content/people.json`, açık feed önbelleği `learning-data/people-feed.json`, kaynaklı referanslar içerik kayıtlarıdır. Kişi ve metin filtresi, **Akış** ile **Bahsettikleri projeler** görünümleri ayrıdır. Kişi başına akışta en çok sekiz yayın, kendi yayın tarihiyle gösterilir; buradaki ilişki bir ürünü tavsiye ettiği anlamına gelmez.
+
+Sayfa açılınca eksik veya 45 dakikadan eski feed önbelleği yenilenebilir. Bu, sayfa kapalıyken çalışan sürekli kişi izleme robotu değildir. Feed'in son başarılı okuması ve tekil kaynak hataları gösterilir. Hazır editoryal özet kaynakla beraber verilir; özet olmayan diller menüde pasif görünür. Harici AI sağlayıcısı bağlı olmadığından istek üzerine yeni çeviri üretilmez. X/LinkedIn beğenileri toplanmıyor; profilin bölgesel bağı fiziksel bulunduğu yer veya bir projenin deploy ülkesi değildir.
+
+### 7.8 `/sources` — Kaynaklar ve işletim durumu
+
+**Amaç:** “Robotlar gerçekten çalışıyor mu?” sorusuna tahmin yerine koşu kaydıyla cevap vermek. Registry'deki satırlar, etkin/kapalı durum, plan aralığı, son deneme, **son başarı**, sonraki zaman, hata, worker heartbeat ve son koşular görünür. Koşu sayılarında alınan, filtrelenen, yeni, eşleşen, değişmeyen ve kanıt miktarı ayrılır; çözümleme inceleme kuyruğu ayrıca gösterilir. Son 15 koşu geçmişin tamamı değildir. Eşleşme oranı kalite/precision ölçüsü değildir.
+
+Yerel modda zamanı gelen kaynaklar elle başlatılabilir. Kayıtlı kaynak çalışmış kaynak sayılmaz; `partial` başarı, `failed` yokluk ve bilgisayar uyurken geçmiş zamanlar ayrı okunur. Üstteki küçük güncelleme göstergesi yaklaşık her dakika durum sorgular, son koşu ile son başarılı koşuyu ayırır; açık sayfadaki içerik için yenileme gerekebilir. Kaynak ekranı veri sağlığı içindir, ziyaretçiye öneri listesi değildir.
+
+### 7.9 `/analytics` — Private kullanım analitiği
+
+**Amaç:** Hazır derslerde “Dene” ve “Bundan öğren” kullanımına ilişkin düşük kapsamlı yerel olay sayıları görmek. Son 7 ve 30 gün hesapları benzersiz kişi, dış sitenin gerçekten açılması veya öğrenme başarısı değildir. Do Not Track ve Global Privacy Control tercihleri gözetilir; olay yükünde kullanıcı girdisi veya IP tutulmaz. Ölçüm, bilinen ders `slug`'u taşıyan butonlarla sınırlıdır; yeni gündem kartlarındaki bazı tıklamalar bu işaret bulunmadığında sayılmayabilir. Bu yüzden sayılar toplam site davranışı gibi raporlanmamalıdır.
+
+### 7.10 Giriş, kabuk ve özel medya
+
+`/login` yerel şifreyle kısa ömürlü HMAC oturumu açar; private sayfalar `requireAuth` ile korunur. Ortak yerleşim masaüstü/telefon gezinmesini, tema seçimini ve kompakt son güncelleme göstergesini taşır. `/preview/[id]` yalnız oturumlu, manifestteki izinli görüntüleri verir; harici demo bağlantısı üçüncü taraf alana geçer. `public/spotlights/` dosyalarının ayrıca oturum kapısı yoktur; hosted/public sürüm öncesi ele alınmalıdır. Giriş hatası, geçersiz proje kimliği, eksik medya ve kaynak hatası başarı ekranı gibi sunulmaz.
+
+### 7.11 Sayfaları besleyen yerel API sınırları
+
+`GET /api/update-summary` yalnız oturumlu son koşu özetini döndürür ve private/no-store olarak işaretlenir; sayaçları `/sources` koşularından türetilir. `POST /api/analytics` oturum, aynı origin, boyut ve şema kontrolünden sonra yalnız izinli olayı yerel saklar. `POST /api/people-summary` aynı korumalarla mevcut feed kaydı/dilini doğrular; sağlayıcı bağlı değilse `NOT_CONFIGURED` hatası verir, özet uydurmaz. Bunlar public entegrasyon sözleşmesi değildir. Kullanıcı metni ve gizli anahtarlar yanıtlara veya kaynak kontrolüne taşınmamalıdır.
 
 ## 8. Dosyaların sahipliği ve sürümleme
 
@@ -134,7 +184,7 @@ Depo sürümlemesi kodu ve editoryal kararları korur. `.env.local`, parola, otu
 
 Next.js ekranları yerel parola/HMAC oturumuyla private çalışır; oturum yaklaşık sekiz saattir, gerekli sırlar yoksa giriş kapanır. Yerel `3101` yalnız loopback’tir; ayrı LAN başlatıcısı `3102` portunu aynı Wi-Fi için açar. İnternet yayını değildir, Mac ve worker açık kalmalıdır. Supabase migration/RLS ve sync yolu hazırlanmıştır ama gerçek Supabase Auth, hosted yenileme ve public dağıtım doğrulanmamıştır. Harici proje bağlantısında ziyaretçi üçüncü taraf siteye gider.
 
-Ücretli AI özet API’si bağlı değildir. Çok dilli altyapı hazırlığı her dilde hazır içerik olduğu anlamına gelmez; özet olmayan dil pasif görünür. Analitik DNT/GPC tercihine saygı duyar ve yerel buton olayları ürün başarısını tek başına ölçmez.
+Ücretli AI özet API’si bağlı değildir. Çok dilli altyapı hazırlığı her dilde hazır içerik olduğu anlamına gelmez; özet olmayan dil pasif görünür. Mevcut özet önbelleği makale kimliği/dil, kaynak URL'si, şema sürümü ve 24 saatlik yaş kontrolü kullanır; kaynak metni hash'i yalnızca yeniden üretim akışında karşılaştırılır. Proje çalışma kuralının istediği **kaynak içerik sürümü + prompt sürümü** anahtarı henüz tam uygulanmadı; sağlayıcı bağlanmadan önce giderilmelidir. Analitik DNT/GPC tercihine saygı duyar ve yerel buton olayları ürün başarısını tek başına ölçmez.
 
 **Bugün karşılanmayan hedefler:** dünya çapında kapsama, 25 doğrulanmış bağımsız keşif kaynağı, her adayın insan gibi demo incelemesi, otomatik video/etkileşim önizlemesi, yorum duygu analizi, güvenilir geniş ölçekli yıldız hızı, AI ile geliştirilme iddiasının geniş ölçekte bağımsız doğrulaması, otomatik yüksek kaliteli ders üretimi, kullanıcı projesiyle doğrudan AI entegrasyonu, hosted sürekli worker ve public yayın. Bunlar mevcutmuş gibi anlatılmamalıdır.
 
@@ -149,3 +199,19 @@ Next.js ekranları yerel parola/HMAC oturumuyla private çalışır; oturum yakl
 7. **Doğrulama:** ilgili test, build, ekran akışı ve son kaynak koşusu kontrol edilir; doğrulanmayan kısım yazılır.
 
 Yeni kaynak, kanıt sınıfı, sıralama kuralı, seçki kapısı veya veri deposu eklendiğinde bu belgeyi güncelleyin. Amaç yalnızca *neyin nerede olduğunu* değil, **neden o sınırın konduğunu** sonraki ekip üyesinin de anlamasıdır.
+
+## 11. Veri ve metrik sözlüğü
+
+| Alan | Gerçek anlamı | Neden ayrı tutulur? |
+| --- | --- | --- |
+| `fetched` | Collector'ın o koşuda okuduğu kaynak kayıt sayısı. | Platformun tamamı veya benzersiz proje sayısı değildir. |
+| `filtered` / `invalid` | Kapsam kuralıyla elenen / işlenemeyen kayıtlar. | Yanlış pozitif ile bozuk veriyi ayırır. |
+| `accepted` / `created` | İşleme kabul edilen / yeni Build Entity açan adaylar. | Kabul edilen mevcut projeye eşleşebilir; iki sayı eşit olmak zorunda değil. |
+| `matched` / `unchanged` | Mevcut entity'ye bağlanan / aynı içerik ve çıkarıcıyla değişmeden kalan kayıtlar. | Tekilleştirme ile yeni kanıt üretmeyi birbirine karıştırmaz. |
+| `evidenceAdded` / `conflicts` | Eklenen alan bazlı kanıt / otomatik merge edilmeyen kimlik çakışması. | Bir projeye birden çok kanıt eklenebilir; kanıt sayısı proje sayısı değildir. |
+| `lastAttemptAt` / `lastSuccessAt` | Kaynağın son denenmesi / son **tamamlanmış** koşusu. | Son hatanın eski başarıyı güncel göstermesini önler. |
+| `firstSeenAt` / `firstPublicRelease` | Radar'ın ilk görmesi / ayrı kanıtlı ilk yayın tarihi. | Keşif tarihi lansman tarihi diye satılmaz. |
+| `status=partial` / `failed` | Eksik veya geçersiz verili koşu / başarısız koşu. | Worker çalışıyor görünse bile kapsama sağlığı ayrıca ölçülür. |
+| `featured` / uyarlama kapısı | Beş ders kontrolü / ayrıca yeniden üretim testleri. | Bir projeyi öğrenmeye değer bulmak, promptun kullanıcı projesinde çalışacağını garanti etmez. |
+
+**Analist için okuma sırası:** önce kaynak kapsamı ve son başarılı koşular; sonra seçilen tarihteki ham kayıt ve kanıt; ardından aday/gündem/öğrenme kapıları; en son kart ve tıklama sayıları. Böylece “107 proje bulundu” ifadesi “107 demo incelendi” veya “107 trend ürün var” sonucuna dönüşmez. İşletim verisi ile editoryal karar aynı paydada karşılaştırılmaz.
