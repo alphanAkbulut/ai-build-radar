@@ -102,7 +102,8 @@ Bu kapı **içeriğin varlığını ve tazeliğini** sınar; “wow etkisi”ni 
 
 | Rota | Görev | Sıralama / sınır |
 | --- | --- | --- |
-| `/` | Öğrenme koleksiyonu + güncel haber akışı | Seçilmiş derslerde güncel sinyali olanlar önce, sonra editoryal sıra. Haber olay tarihine göre. Yazarken arama koleksiyonu filtreler. |
+| `/?view=feed` veya `/` | Haftalık gündem | Tek kart akışı: ölçülmüş ilgi önce, yalnızca yeni bahsedilenler sonra; kartta sinyal türü, kaynak ve hazır ders bağlantısı görünür. İlk sekme budur. |
+| `/?view=learn` | Öğrenme koleksiyonu | Ayrı sekmede yalnızca seçki kapısını geçen dersler; güncel sinyali olanlar önce, sonra editoryal sıra. Yazarken arama bu koleksiyonu filtreler. |
 | `/candidates` | İnceleme alanı / aday havuzu | Seçkiye alınmamış projeler. Varsayılan AI kanıt grubu ve siteli kayıtlar; görüntüsü olanlar önce, sonra Radar’ın ilk gördüğü zaman. Sayfalı liste. |
 | `/builds` | Tam build arşivi | Kanıt, site ve konu filtreleri. Aday sayısı veya ilk görülme trend kanıtı değildir. |
 | `/builds/[id]` | Proje dosyası | Site/kod, amaç adayı, ilgi, güncel kanıt ve geçmişi kaynaklarıyla. |
@@ -111,7 +112,7 @@ Bu kapı **içeriğin varlığını ve tazeliğini** sınar; “wow etkisi”ni 
 | `/sources` | Sistem şeffaflığı | Kayıtlı/etkin kaynak, son deneme/başarı, sonraki tarama, koşu sayıları, çakışma kuyruğu. |
 | `/analytics` | Private kullanım sinyali | “Dene”/“Öğren” gibi yerel olay sayıları; benzersiz ziyaretçi veya gerçek dönüşüm değildir. |
 
-“Son 7 günde dikkat çekenler” sayısı haber akışının kriterlerini geçen kayıtları ifade eder; koleksiyondaki ders sayısı değildir. Büyük aday listesi kalite seçkisi gibi etiketlenmemelidir. Açık sayfada yeni veriyi görmek için yenileme gerekebilir.
+Gündem ve öğrenme aynı ana sayfanın **iki ayrı sekmesidir; art arda iki liste değildir**. Bir proje iki sekmede de görünebilir: gündem kartı kaynaklı güncel ilgiyi, öğrenme kartı incelenmiş demoyu ve uygulama adımlarını anlatır. Gündemdeki toplam, seçkideki ders sayısı değildir. Büyük aday listesi kalite seçkisi gibi etiketlenmemelidir. Açık sayfada yeni veriyi görmek için yenileme gerekebilir.
 
 ## 8. Dosyaların sahipliği ve sürümleme
 
