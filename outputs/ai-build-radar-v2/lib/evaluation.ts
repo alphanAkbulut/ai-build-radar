@@ -1,23 +1,15 @@
-import type {Store,Build,Evidence} from './schema';
+import type {Store,Build} from './schema';
 import {attentionKind,starChange} from './attention';
 import {categoryFor,destinations} from './discovery';
 import {sources} from './sources';
 import {toolClaims} from './collectors';
+import {latestEvidence} from './projections';
 
 export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string};
 export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;observedAt:string}|null;tools:string[]};
 const WEEK=7*86400000, DAY=86400000;
 function recent(at:string,now:number,limit:number){const age=now-Date.parse(at);return Number.isFinite(age)&&age>=0&&age<=limit;}
 function sourceName(id:string){return sources.find(s=>s.id===id)?.name||id;}
-function latestEvidence(store:Store,buildId:string){
- const found=new Map<string,Evidence>();
- for(const e of store.evidence){
-  if(e.buildId!==buildId)continue;
-  const key=[e.sourceId,e.sourceRecordId,e.field].join('|');
-  if(!found.has(key)||e.observedAt>found.get(key)!.observedAt)found.set(key,e);
- }
- return [...found.values()];
-}
 function meaningfulDescription(build:Build){
  const raw=(build.context?.what||build.description||'').trim().replace(/&#?39;|&39;/g,"'").replace(/&amp;/g,'&');
  const withoutMethod=raw.replace(/(?:[.!?]\s*)?(?:built|made|created|developed|coded)\s+(?:entirely\s+)?(?:with|using|by)\s+(?:the\s+)?(?:Claude Code|Cursor|Codex|Lovable|Replit Agent|Bolt(?:\.new)?|GitHub Copilot).*$/i,'').trim();
@@ -35,7 +27,7 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
   if(!recent(d.publishedAt,now,WEEK)||(d.points<50&&d.comments<20))continue;
   signals.push({kind:'momentum',source:'Hacker News',label:`${d.points} puan · ${d.comments} yorum`,url:d.url,eventAt:d.publishedAt,checkedAt:attention!.checkedAt});
  }
- const evidence=latestEvidence(store,build.id);
+ const evidence=latestEvidence(store.evidence.filter(e=>e.buildId===build.id));
  const growth=starChange(store.evidence.filter(e=>e.buildId===build.id&&e.field==='github_stars').map(e=>({at:e.observedAt,stars:Number(e.value)})));
  if(growth&&growth.change>=25&&recent(growth.to,now,2*DAY)){
   const repo=evidence.find(e=>e.field==='github_stars');

@@ -10,6 +10,21 @@ const toolPattern=/(?:^|[.!?;,—]\s*)(?:vibe-)?(?:built|created|developed|coded
 export function toolClaims(text:string,locator:string):Claim[]{
  const match=text.match(toolPattern); return match?[claim('ai_tools',match[1],'Builder-stated',text,locator,'Explicit development-tool statement in repository owner metadata; not independently reproduced.',.85)]:[];
 }
+// A README is first-party only when it belongs to the linked repository. Keep this
+// intentionally narrow: examples, quoted material and code must not become claims.
+export function readmeToolClaims(markdown:string):Claim[]{
+ const safe=markdown.replace(/<!--[\s\S]*?-->/g,'').replace(/```[\s\S]*?```/g,'');
+ const tool='(Claude Code|Cursor|Codex|Lovable|Replit Agent|Bolt(?:\\.new)?|GitHub Copilot)';
+ const passive=new RegExp(`^(?:(?:this|our|the)\\s+(?:app|project|website|site|tool|product|game|repo(?:sitory)?)\\s+(?:is|was)\\s+)?(?:built|created|developed|coded|made)\\s+(?:entirely\\s+)?(?:with|using|by)\\s+(?:the\\s+)?${tool}\\b`,'i');
+ const active=new RegExp(`^(?:I|we)\\s+(?:built|created|developed|coded|made)\\s+(?:this|our|the)\\s+(?:app|project|website|site|tool|product|game|repo(?:sitory)?)\\s+(?:with|using)\\s+(?:the\\s+)?${tool}\\b`,'i');
+ for(const [index,line] of safe.slice(0,4000).split('\n').entries()){
+  if(/^\s*(?:>|\||\d+\.|[-*]\s|<|\[|!\[)/.test(line))continue;
+  const sentence=line.replace(/^\s*#{1,6}\s*/,'').replace(/\[[^\]]+\]\([^)]*\)/g,'').trim();
+  const match=sentence.match(passive)||sentence.match(active);
+  if(match)return [claim('ai_tools',match[1],'Builder-stated',sentence.slice(0,300),`README line ${index+1}`,'Explicit first-party repository README statement about its own development tool; not independently verified.',.8)];
+ }
+ return [];
+}
 const ghSchema=z.object({id:z.number(),name:z.string(),html_url:z.url(),description:z.string().nullable(),homepage:z.string().nullable().optional(),owner:z.object({login:z.string()}),language:z.string().nullable(),stargazers_count:z.number(),created_at:z.string(),topics:z.array(z.string()).optional()});
 export function githubCandidate(row:unknown):Candidate|null{
  const validated=ghSchema.safeParse(row);if(!validated.success)return null;const r=validated.data;

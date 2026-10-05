@@ -4,6 +4,8 @@ import {extractContext,enrichContexts,contextDue} from '../lib/context-enrichmen
 import {publicAddress,pageUrl} from '../lib/public-page';
 import {emptyStore} from '../lib/store';
 import {latestEvidence} from '../lib/projections';
+import {readmeToolClaims} from '../lib/collectors';
+import {evaluateFeedBuild} from '../lib/evaluation';
 import type {Run,Build} from '../lib/schema';
 const now='2026-10-05T10:00:00.000Z';
 const build:Build={id:'b',name:'Paint',canonicalUrl:'https://github.com/a/b',aliases:['https://github.com/a/b'],description:'',creator:null,category:'other',firstSeenAt:now,lastSeenAt:now,updatedAt:now,firstPublicRelease:null,sourceIds:['github'],reviewRequired:false,reviewReasons:[]};
@@ -32,4 +34,28 @@ test('intro wins over installation instructions; explicit why section is retaine
 test('linked image badges cannot become the project description',()=>{
  const r=extractContext('[![Docs](https://img.example/badge)](https://example.com/docs)\n\n# Example\n\nA desktop app for tracking sessions and showing live progress.');
  assert.equal(r.what,'A desktop app for tracking sessions and showing live progress.');
+});
+test('README checker accepts an explicit first-party development claim, not examples or code',()=>{
+ assert.equal(readmeToolClaims('# Demo\n\nThis project was built with Claude Code.')[0]?.value,'Claude Code');
+ assert.equal(readmeToolClaims('# Demo\n\nWe built this app using Cursor.')[0]?.value,'Cursor');
+ for(const text of [
+  '# Catalog\n\nExamples of apps built with Claude Code.',
+  '# Demo\n\nNot built with Claude Code.',
+  '# Demo\n\n> Built with Claude Code',
+  '# Demo\n\n```md\nBuilt with Claude Code\n```',
+  '# Demo\n\n- Built with Claude Code',
+  '# Demo\n\nThis app uses Claude Code to generate answers.'
+ ])assert.equal(readmeToolClaims(text).length,0,text);
+});
+test('README evidence is retracted when a later source version removes the claim',async()=>{
+ const s=emptyStore();s.builds.push({...build,canonicalUrl:'https://example.com/demo',aliases:[build.canonicalUrl]});
+ let text='# Paint\n\nPaint is a drawing tool for teams to make sketches together.\n\nBuilt with Claude Code.';
+ const load=async()=>({text,url:'https://github.com/a/b/blob/main/README.md',html:false});
+ await enrichContexts(s,run(),now,load);
+ assert.equal(latestEvidence(s.evidence).find(e=>e.field==='ai_tools')?.status,'Builder-stated');
+ assert.equal(evaluateFeedBuild(s,s.builds[0],Date.parse(now))?.aiStatus,'Builder-stated');
+ text='# Paint\n\nPaint is a drawing tool for teams to make sketches together.';
+ await enrichContexts(s,run(),'2026-10-06T10:00:00.000Z',load);
+ assert.equal(latestEvidence(s.evidence).some(e=>e.field==='ai_tools'),false);
+ assert.equal(evaluateFeedBuild(s,s.builds[0],Date.parse('2026-10-06T10:00:00.000Z')),null);
 });

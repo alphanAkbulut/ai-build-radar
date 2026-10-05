@@ -3,6 +3,7 @@ import {getJson} from './http';
 import {publicPage} from './public-page';
 import {hash,stableId,repoAlias} from './identity';
 import {EvidenceSchema,type Build,type Store,type Run} from './schema';
+import {readmeToolClaims} from './collectors';
 const DAY=86400000;
 const clean=(s:string)=>s.replace(/<[^>]*>/g,' ').replace(/!\[[^\]]*\]\([^)]*\)/g,'').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/[*_`#]/g,'').replace(/&(?:nbsp|amp|quot|lt|gt);/g,' ').replace(/\s+/g,' ').trim();
 export function extractContext(text:string,html=false){
@@ -28,13 +29,18 @@ export async function enrichContexts(store:Store,run:Run,now:string,load=loadCon
  const queue=store.builds.filter(b=>contextDue(b,Date.parse(now))).sort((a,b)=>Number(!!a.context)-Number(!!b.context)||b.firstSeenAt.localeCompare(a.firstSeenAt)).slice(0,limit);
  for(const b of queue){run.fetched++;const previous=b.context;try{
   const doc=await load(b);const extracted=extractContext(doc.text,doc.html);const state=extracted.what?(extracted.purpose?'complete':'partial'):'missing';
-  const contentHash=hash({text:doc.text,version:'context-v3'}),rawId=stableId('raw-context',[b.id,contentHash]);
-  if(!store.raw.some(r=>r.id===rawId))store.raw.push({id:rawId,sourceId:'project-context',sourceRecordId:b.id,url:doc.url,fetchedAt:doc.fetchedAt||now,hash:contentHash,payload:{text:doc.text,html:doc.html,version:'context-v3'}});
+  const contentHash=hash({text:doc.text,version:'context-v4'}),rawId=stableId('raw-context',[b.id,contentHash]);
+  if(!store.raw.some(r=>r.id===rawId))store.raw.push({id:rawId,sourceId:'project-context',sourceRecordId:b.id,url:doc.url,fetchedAt:doc.fetchedAt||now,hash:contentHash,payload:{text:doc.text,html:doc.html,version:'context-v4'}});
   const unchanged=previous?.contentHash===contentHash&&previous.sourceUrl===doc.url;
   let evidenceIds=previous?.evidenceIds||[];
   if(!unchanged){evidenceIds=[];for(const [field,value] of [['project_what',extracted.what],['project_purpose',extracted.purpose],['project_context_status',state]]){
    if(!value)continue;const prior=store.evidence.filter(e=>e.buildId===b.id&&e.sourceId==='project-context'&&e.field===field).at(-1);const id=stableId('ev-context',[b.id,field,contentHash,now]);
-   store.evidence.push(EvidenceSchema.parse({id,buildId:b.id,sourceId:'project-context',sourceRecordId:b.id,field,value,status:field==='project_context_status'||doc.html?'Derived':'Builder-stated',sourceUrl:doc.url,quote:field==='project_context_status'?'':value,locator:doc.html?'page description / paragraph':'README paragraph',observedAt:now,publishedAt:null,contentHash,rawId,extractorVersion:'context-v3',rationale:'Automatic source-language excerpt. No independent product test, translation, or inferred developer intent. Publication needs editorial review.',strength:.65,supersedes:prior?.id||null}));evidenceIds.push(id);run.evidenceAdded++;}
+   store.evidence.push(EvidenceSchema.parse({id,buildId:b.id,sourceId:'project-context',sourceRecordId:b.id,field,value,status:field==='project_context_status'||doc.html?'Derived':'Builder-stated',sourceUrl:doc.url,quote:field==='project_context_status'?'':value,locator:doc.html?'page description / paragraph':'README paragraph',observedAt:now,publishedAt:null,contentHash,rawId,extractorVersion:'context-v4',rationale:'Automatic source-language excerpt. No independent product test, translation, or inferred developer intent. Publication needs editorial review.',strength:.65,supersedes:prior?.id||null}));evidenceIds.push(id);run.evidenceAdded++;}
+   for(const c of doc.html?[]:readmeToolClaims(doc.text)){
+    const prior=store.evidence.filter(e=>e.buildId===b.id&&e.sourceId==='project-context'&&e.field===c.field).at(-1);
+    const id=stableId('ev-context',[b.id,c.field,contentHash,now]);
+    store.evidence.push(EvidenceSchema.parse({id,buildId:b.id,sourceId:'project-context',sourceRecordId:b.id,...c,sourceUrl:doc.url,observedAt:now,publishedAt:null,contentHash,rawId,extractorVersion:'context-v4',supersedes:prior?.id||null}));evidenceIds.push(id);run.evidenceAdded++;
+   }
   }else run.unchanged++;
   b.context={state,...extracted,sourceUrl:doc.url,checkedAt:now,lastSuccessAt:doc.fetchedAt||now,nextCheckAt:new Date(Date.parse(now)+DAY).toISOString(),reason:state==='complete'?'Kaynak açıklaması ve amaç adayı bulundu; editoryal kontrol bekliyor.':state==='partial'?'Açıklama bulundu; açık amaç ifadesi bulunamadı.':'Kullanılabilir açıklama bulunamadı.',contentHash,evidenceIds};
   b.updatedAt=now;run.accepted++;run.matched++;
