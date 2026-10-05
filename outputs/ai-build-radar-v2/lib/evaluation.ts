@@ -4,7 +4,7 @@ import {categoryFor,destinations} from './discovery';
 import {sources} from './sources';
 import {toolClaims} from './collectors';
 import {latestEvidence} from './projections';
-import {aiDiscussionTags} from './relevance';
+import {publishableEvidence} from './relevance';
 
 export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string;rank?:number};
 export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;observedAt:string}|null;tools:string[]};
@@ -28,7 +28,7 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
   if(!recent(d.publishedAt,now,WEEK)||(d.points<50&&d.comments<20))continue;
   signals.push({kind:'momentum',source:'Hacker News',label:`${d.points} puan · ${d.comments} yorum`,url:d.url,eventAt:d.publishedAt,checkedAt:attention!.checkedAt});
  }
- const evidence=latestEvidence(store.evidence.filter(e=>e.buildId===build.id));
+ const evidence=latestEvidence(store.evidence.filter(e=>e.buildId===build.id)).filter(e=>publishableEvidence(store,e));
  const growth=starChange(store.evidence.filter(e=>e.buildId===build.id&&e.field==='github_stars').map(e=>({at:e.observedAt,stars:Number(e.value)})));
  if(growth&&growth.change>=25&&recent(growth.to,now,2*DAY)){
   const repo=evidence.find(e=>e.field==='github_stars');
@@ -55,10 +55,6 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
   }else if(e.field==='github_trending_developer'&&e.sourceId==='github-trending'){
    signals.push({kind:'mention',source:'GitHub Trending developers',label:e.quote,url:e.sourceUrl,eventAt:e.observedAt,checkedAt:e.observedAt});
   }else if(e.field==='community_discussion'){
-   if(e.sourceId==='lobsters'){
-    const raw=store.raw.find(row=>row.id===e.rawId)?.payload;
-    if(raw&&typeof raw==='object'&&!aiDiscussionTags((raw as {tags?:unknown}).tags))continue;
-   }
    const match=e.quote.match(/(\d+) puan\s*·\s*(\d+) yorum/);
    const points=Number(match?.[1]||0),comments=Number(match?.[2]||0);
    signals.push({kind:points>=50||comments>=20?'momentum':'mention',source:sourceName(e.sourceId),label:e.quote,url:e.sourceUrl,eventAt,checkedAt:e.observedAt});

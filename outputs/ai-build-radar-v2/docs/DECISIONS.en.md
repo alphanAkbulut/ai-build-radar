@@ -21,6 +21,7 @@
 | D15 | Version product/architecture memory in repo docs; track work in GitHub Issues. The board is a view of the same issues. | Eighteen issues and the [private board](https://github.com/users/alphanAkbulut/projects/2) exist; Notion now creates a duplicate copy. |
 | D16 | Research Gate, model announcements, and theoretical papers are not working-app cards. | No separate page yet; R16. |
 | D17 | Do not infer a universal “AI signature” from code style. Keep owner statements, specific agent-authored commit records, and AI product features as separate claims; never generalize one commit to a whole product. | [Evidence limits and primary sources](AI-DEVELOPMENT-EVIDENCE.en.md) are recorded. No code-authorship detector or provider telemetry runs today; R01 will measure errors. |
+| D18 | If a source-specific publication claim lacks supporting evidence, **do not display it**; keep its raw history. Discovery can stay broad, while visitor-facing news uses stricter rules shared across surfaces. | Lobsters discussions now need matching raw source/record IDs, content hash, and an `ai`/`ml` tag in feed, detail sources, and current evidence. R01 will measure false positives across other sources. |
 
 ## Open decisions
 

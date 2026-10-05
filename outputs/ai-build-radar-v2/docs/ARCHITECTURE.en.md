@@ -183,6 +183,8 @@ Hugging Face trend evidence comes only from the actual top-20 trend response; a 
 
 General technology tags on Lobsters do not establish AI relevance: only discussions tagged `ai` or `ml` enter the candidate stream. Existing off-topic evidence stays in history but is excluded from feed projections.
 
+The current publication projection requires the raw record, matching source/record IDs and content hash, and an `ai`/`ml` tag for a Lobsters discussion; missing raw data never passes. The rule in [`lib/relevance.ts`](../lib/relevance.ts) is shared by the feed, build-detail source list, and current evidence view. Old observations remain in `history`; correction does not silently erase provenance. This is a source-specific guard, not a claim of human-level review across all candidates.
+
 ## 8. File ownership, versioning, and data privacy
 
 | Location | Authoritative content | Update path |

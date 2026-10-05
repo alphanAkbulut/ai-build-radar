@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {evaluateFeedBuild,evaluateFeed,feedByDevelopmentEvidence} from '../lib/evaluation';
+import {sourceSignals} from '../lib/source-signals';
+import {buildView} from '../lib/projections';
 import type {Build,Evidence,Store} from '../lib/schema';
 
 const now=Date.parse('2026-10-05T15:00:00Z');
@@ -15,12 +17,39 @@ test('a fresh editorial mention is news, never proof of momentum',()=>{
  assert.equal(evaluateFeedBuild(store([{...evidence('editorial_reference','feed-simon','https://example.com/old-article'),publishedAt:null}]),build,now),null);
 });
 test('old off-topic Lobsters records no longer appear as AI news',()=>{
- const row={...evidence('community_discussion','lobsters','https://lobste.rs/s/example'),rawId:'raw-lobsters'};
+ const row={...evidence('community_discussion','lobsters','https://lobste.rs/s/example'),sourceRecordId:'example',rawId:'raw-lobsters'};
  const state=store([row]);
- state.raw.push({id:'raw-lobsters',sourceId:'lobsters',sourceRecordId:'example',url:'https://lobste.rs/s/example',fetchedAt:row.observedAt,hash:'h',payload:{tags:['haskell','show','web']}});
+ state.raw.push({id:'raw-lobsters',sourceId:'lobsters',sourceRecordId:'example',url:'https://lobste.rs/s/example',fetchedAt:row.observedAt,hash:row.contentHash,payload:{tags:['haskell','show','web']}});
  assert.equal(evaluateFeedBuild(state,build,now),null);
+ assert.equal(sourceSignals(state,build.id).length,0);
+ assert.equal(buildView(state,build.id).evidence.some(e=>e.id===row.id),false);
+ assert.equal(buildView(state,build.id).history.some(e=>e.id===row.id),true);
  state.raw[0].payload={tags:['ai','show']};
  assert.equal(evaluateFeedBuild(state,build,now)?.status,'momentum');
+ assert.equal(sourceSignals(state,build.id).length,1);
+});
+test('a discussion without its matching raw record cannot be published',()=>{
+ const row={...evidence('community_discussion','lobsters','https://lobste.rs/s/example'),rawId:'missing'};
+ const state=store([row]);
+ assert.equal(evaluateFeedBuild(state,build,now),null);
+ assert.equal(sourceSignals(state,build.id).length,0);
+ state.raw.push({id:'missing',sourceId:'lobsters',sourceRecordId:'different-story',url:'https://lobste.rs/s/example',fetchedAt:row.observedAt,hash:row.contentHash,payload:{tags:['ai']}});
+ assert.equal(evaluateFeedBuild(state,build,now),null);
+ state.raw[0].sourceRecordId=row.sourceRecordId;
+ state.raw[0].sourceId='devcommunity';
+ assert.equal(sourceSignals(state,build.id).length,0);
+ state.raw[0].sourceId='lobsters';
+ state.raw[0].hash='different-content';
+ assert.equal(evaluateFeedBuild(state,build,now),null);
+});
+test('newer off-topic observation cannot revive an older qualifying Lobsters signal',()=>{
+ const old={...evidence('community_discussion','lobsters','https://lobste.rs/s/example','2026-10-04T12:00:00Z'),id:'old',rawId:'old-raw'};
+ const current={...old,id:'current',rawId:'new-raw',observedAt:'2026-10-05T12:00:00Z'};
+ const state=store([old,current]);
+ state.raw.push({id:'old-raw',sourceId:'lobsters',sourceRecordId:old.sourceRecordId,url:old.sourceUrl,fetchedAt:old.observedAt,hash:old.contentHash,payload:{tags:['ai']}});
+ state.raw.push({id:'new-raw',sourceId:'lobsters',sourceRecordId:old.sourceRecordId,url:old.sourceUrl,fetchedAt:current.observedAt,hash:current.contentHash,payload:{tags:['haskell','web']}});
+ assert.equal(evaluateFeedBuild(state,build,now),null);
+ assert.equal(sourceSignals(state,build.id).length,0);
 });
 test('platform trend is a platform-specific interest signal; likes alone are not',()=>{
  assert.equal(evaluateFeedBuild(store([evidence('space_likes','huggingface','200')]),build,now),null);

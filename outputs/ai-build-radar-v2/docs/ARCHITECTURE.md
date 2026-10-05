@@ -181,6 +181,8 @@ Hugging Face trend kanıtı yalnız gerçek ilk 20 trend listesinden gelir; topl
 
 Lobsters'ta genel teknoloji etiketleri AI gündemi sayılmaz; yalnız `ai` veya `ml` etiketli tartışmalar aday olur. Önceden alınmış ilgisiz kanıt saklanır fakat akış projeksiyonundan çıkarılır.
 
+Güncel yayın projeksiyonu Lobsters tartışması için ham kayıt, eşleşen kaynak/kayıt kimliği ve içerik hash'i ile `ai`/`ml` etiketi ister; eksik ham kayıt geçiş sağlamaz. [`lib/relevance.ts`](../lib/relevance.ts) kuralı gündem, detayın kaynak listesi ve güncel kanıt görünümünde ortaktır. Eski kayıt `history` içinde kalır; düzeltme geçmişi sessizce silmez. Bu kaynak özelinde bir korumadır, bütün adayları insan gibi değerlendirme iddiası değildir.
+
 ## 8. Dosyaların sahipliği ve sürümleme
 
 | Yer | Yetkili içerik | Nasıl değişir? |

@@ -21,6 +21,7 @@
 | D15 | Mimari/ürün hafızası sürümlü repo belgelerinde, işleri GitHub Issues'da tut. Board aynı issue'ların görünümü. | 18 issue ve [private pano](https://github.com/users/alphanAkbulut/projects/2) açıldı; Notion şu an ikinci kopya üretir. |
 | D16 | Research Gate, model duyurusu ve teorik makale çalışan uygulama kartı gibi sunulmaz. | Ayrı ekran yok; R16. |
 | D17 | Kod biçiminden evrensel bir “AI imzası” çıkarma. Üretici beyanını, belirli agent commit kaydını ve AI özellikli ürünü ayrı iddialar olarak tut; tek commit'i tüm ürüne genelleme. | [Kanıt sınırları ve birincil kaynaklar](AI-DEVELOPMENT-EVIDENCE.md) yazıldı. Bugün otomatik kod yazarlığı tespiti veya sağlayıcı telemetrisi yok; R01 ile hatalar ölçülecek. |
+| D18 | Kaynağa özel yayın iddiasında kanıt eksikse **gösterme**; ham geçmişi silme. Toplama geniş kalabilir, ziyaretçiye açık gündem daha sıkı ve aynı kuralı kullanan yüzeylerden üretilir. | Lobsters tartışması için ham kaynak/kayıt/hash eşleşmesi ve `ai`/`ml` etiketi gündem, detay kaynağı ve güncel kanıtta ortak kapı oldu. Diğer kaynaklarda yanlış pozitif ölçümü R01. |
 
 ## Açık kararlar
 
