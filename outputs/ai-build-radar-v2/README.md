@@ -17,6 +17,7 @@
 - [Küresel AI kaynak kataloğu](docs/GLOBAL-SOURCE-CATALOG.md) ([English](docs/GLOBAL-SOURCE-CATALOG.en.md)): kullanıcının önerdiği haber, bülten, araştırma ve topluluk kaynakları; etkin/bekleyen ayrımı ve haber–ürün sınırı.
 - [TrendRadar karşılaştırması](docs/TRENDRADAR-BENCHMARK.md) ([English](docs/TRENDRADAR-BENCHMARK.en.md)): gerçek çalışma durumu, kaynak bağımlılığı ve Radar'a uyarlanan sıra/kaynak görünürlüğü.
 - [GitHub Trending kaynak denetimi](docs/GITHUB-TRENDING.md) ([English](docs/GITHUB-TRENDING.en.md)): repo/geliştirici sinyalleri, ilk gerçek koşu ve private PoC sınırları.
+- [Risk kaydı](docs/RISK-REGISTER.md) ([English](docs/RISK-REGISTER.en.md)): dış kaynaklar ve yayın için açık belirsizlikler, mevcut önlemler ve karar kapıları.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
 
 **Doküman güncelleme kuralı:** Her ürün/kod değişikliğinde etkilenen ekran ve iş kuralını [mimari hafızada](docs/ARCHITECTURE.md) ve ilgili Türkçe/İngilizce konu belgelerinde birlikte düzeltin. “Şu an” sayıları koddan doğrulayın; işleyen kaynak ve yeni kayıt sayıları için `/sources` koşu kaydına bakın. Eski ölçümü tarihli pilot belgesinde koruyun, bugünkü durum diye sunmayın. Kodun kendisi sözleşmenin uygulamasıdır; GitHub’a push canlı ingestion verisini veya yerel parolayı yedeklemez.

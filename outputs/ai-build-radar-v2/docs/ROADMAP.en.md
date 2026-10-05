@@ -44,7 +44,7 @@ The first release value is **trustworthy discovery plus five genuinely instructi
 | **[R12](https://github.com/alphanAkbulut/ai-build-radar/issues/12) · Hosted private operation** | Supabase/alternative data backup, secrets, invited auth, durable worker/scheduler, alerting, and restore test. Do not blindly move today's local password or live data. |
 | **[R13](https://github.com/alphanAkbulut/ai-build-radar/issues/13) · Language and accessibility** | Separate interface and content languages; accurately show missing translations; test responsive, keyboard, and screen-reader flows. |
 | **[R14](https://github.com/alphanAkbulut/ai-build-radar/issues/14) · Usage and quality analytics** | Try → Learn → Adapt funnel, search, saving intent, exits; minimize data, define deletion/privacy. GitHub repo traffic is not website click analytics. |
-| **[R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) · Pre-launch review** | Examine source/licensing terms, image rights, security, cost caps, claim retraction, and beta feedback. Public release is a separate decision. |
+| **[R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) · Pre-launch review** | Examine source/licensing terms, image rights, security, cost caps, claim retraction, and beta feedback. Do not launch publicly until [open risks](RISK-REGISTER.en.md), particularly GitHub Trending HTML, have evidence-backed decisions; public release remains a separate decision. |
 
 ## Phase 4 · only with validated demand
 

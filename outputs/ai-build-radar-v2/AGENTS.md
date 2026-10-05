@@ -19,3 +19,7 @@ Turkish is the initial interface language, not a permanent product constraint. K
 ## Product memory and execution
 
 Read `docs/PRODUCT-STRATEGY.md` and `docs/ROADMAP.md` before changing product behavior or choosing the next feature; English counterparts are adjacent. `docs/DECISIONS.md` records the reasons behind current choices, while `docs/ARCHITECTURE.md` describes implemented behavior. These versioned files are the durable product memory. The private GitHub project `https://github.com/users/alphanAkbulut/projects/2` and repository issues `R01`–`R18` track work; neither replaces those documents. For a task, verify the current code/data, update the affected Turkish and English docs, and close the issue only with acceptance evidence. Live ingestion status comes from `/sources`, not a dated document or chat claim. Do not claim an idea is implemented merely because it appears on the roadmap.
+
+## Risk memory
+
+Before adding an external source/provider, changing data use, or expanding access, read `docs/RISK-REGISTER.md` (English counterpart adjacent). Record material new or changed rights, reliability, cost, privacy, and false-claim risks with evidence, uncertainty, current safeguard, trigger, check, decision gate, and a linked issue in both languages. Keep an open risk open until the check and dated decision are evidenced. A local working source does not establish public permission. Maintain the relevant GitHub task as the execution record; do not treat a risk entry as proof that mitigation is implemented.

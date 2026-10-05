@@ -44,7 +44,7 @@
 | **[R12](https://github.com/alphanAkbulut/ai-build-radar/issues/12) · Hosted private işletim** | Supabase/alternatif veri yedekleme, secret yönetimi, davetli auth, sürekli scheduler/worker, hata alarmı ve geri dönüş testi. Bugünkü yerel şifre veya canlı veri körlemesine taşınmaz. |
 | **[R13](https://github.com/alphanAkbulut/ai-build-radar/issues/13) · Dil ve erişilebilirlik** | Arayüz metinleri ve içerik dilleri ayrılır; eksik çeviri gerçek durumuyla gösterilir; responsive ve klavye/ekran okuyucu akışları test edilir. |
 | **[R14](https://github.com/alphanAkbulut/ai-build-radar/issues/14) · Kullanım ve kalite analitiği** | Dene → Öğren → Uyarla hunisi, arama, kaydetme niyeti ve terk noktası; düşük veri toplama, silme ve gizlilik sınırları. GitHub repo trafiği site tıklaması yerine geçmez. |
-| **[R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) · Yayın öncesi denetim** | Kaynak/lisans koşulları, görüntü kullanım hakkı, güvenlik, maliyet tavanı, yanlış iddia geri çekme ve beta geri bildirim akışı incelenir. Public yayın ayrı karardır. |
+| **[R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) · Yayın öncesi denetim** | Kaynak/lisans koşulları, görüntü kullanım hakkı, güvenlik, maliyet tavanı, yanlış iddia geri çekme ve beta geri bildirim akışı incelenir. [Açık riskler](RISK-REGISTER.md) (özellikle GitHub Trending HTML) kanıtlı karara bağlanmadan public yayın yapılmaz; public yayın ayrı karardır. |
 
 ## Faz 4 · yalnızca doğrulanan talep üzerine
 
