@@ -48,7 +48,7 @@
 
 ## Faz 4 · yalnızca doğrulanan talep üzerine
 
-**[R16](https://github.com/alphanAkbulut/ai-build-radar/issues/16):** Ayrı `/news` başlık akışı var; Research Gate, resmî model/özellik haberlerinin derin bağlamı ve RSS'te bulunmayan makale içi ilişkilerin güvenilir çıkarımı hâlâ açık. Bunlar çalışan build akışından ayrı kalır. **[R17](https://github.com/alphanAkbulut/ai-build-radar/issues/17):** kullanıcı hesabı, bookmark/follow/comment, üretici vitrini ve monetizasyon hipotezleri; moderasyon/kimlik yükü ölçülür. **[R18](https://github.com/alphanAkbulut/ai-build-radar/issues/18):** başka ajanların kullanabileceği tarihli, kaynaklı RSS/API ve belki coğrafi keşif; kaynak hakları ve lokasyon kanıtı ön koşuldur. Ülke biliniyorsa haritada başkent yalnız *görsel konum vekili* olarak, açık etiketle kullanılabilir; gerçek yapım/deploy şehri diye sunulmaz.
+**[R16](https://github.com/alphanAkbulut/ai-build-radar/issues/16):** Ayrı `/news` kaynak açıklamalı başlık akışı var; Research Gate, resmî model/özellik haberlerinin derin bağlamı ve RSS'te bulunmayan makale içi ilişkilerin güvenilir çıkarımı hâlâ açık. Bunlar çalışan build akışından ayrı kalır. **[R17](https://github.com/alphanAkbulut/ai-build-radar/issues/17):** kullanıcı hesabı, bookmark/follow/comment, üretici vitrini ve monetizasyon hipotezleri; moderasyon/kimlik yükü ölçülür. **[R18](https://github.com/alphanAkbulut/ai-build-radar/issues/18):** başka ajanların kullanabileceği tarihli, kaynaklı RSS/API ve belki coğrafi keşif; kaynak hakları ve lokasyon kanıtı ön koşuldur. Ülke biliniyorsa haritada başkent yalnız *görsel konum vekili* olarak, açık etiketle kullanılabilir; gerçek yapım/deploy şehri diye sunulmaz.
 
 ## İş yönetimi ve güncelleme kuralı
 

@@ -39,9 +39,17 @@ def parse(raw):
    if date.tzinfo is None: continue
    published=date.isoformat()
   except (ValueError,TypeError,AttributeError): continue
-  content=' '.join(''.join(c.itertext()) for c in e if local(c) in ('content','encoded','description','summary'))
+  content=next((''.join(c.itertext()) for key in ('description','summary','content','encoded') for c in e if local(c)==key and ''.join(c.itertext()).strip()),'')
   plain=PlainText(); plain.feed(content)
-  excerpt=re.sub(r'\s+',' ',unescape(' '.join(plain.parts))).strip()[:240]
+  excerpt=re.sub(r'\s+',' ',unescape(' '.join(plain.parts))).strip()
+  if len(excerpt)>1000: excerpt=excerpt[:1000].rsplit(' ',1)[0]
+  author=''
+  for c in e:
+   if local(c)=='creator' and (c.text or '').strip(): author=(c.text or '').strip(); break
+   if local(c)=='author':
+    name=next((n.text for n in c if local(n)=='name' and n.text),None)
+    author=(name or c.text or '').strip()
+    if author: break
   links=Links(); links.feed(content); references=[]; seen=set()
   for href,label in links.links:
    target=urljoin(link,unescape(href)); u=urlparse(target)
@@ -52,7 +60,7 @@ def parse(raw):
    if target in seen: continue
    seen.add(target); references.append({'url':target,'label':unescape(label).strip()[:160]})
    if len(references)>=12: break
-  if title: articles.append({'title':title,'url':link,'publishedAt':published,'excerpt':excerpt,'references':references})
+  if title: articles.append({'title':title,'url':link,'publishedAt':published,'excerpt':excerpt,'author':author[:160],'references':references})
  return {'fetched':len(entries),'articles':articles}
 
 if __name__=='__main__': print(json.dumps(parse(sys.stdin.read())))
