@@ -18,7 +18,7 @@
 | D12 | İlk arayüz dili Türkçe, içerik sistemi gelecekte çok dilli. Olmayan özet çevrilmiş gibi görünmez. | Dil bazlı kayıt hazır, ücretli üretici kapalı; R09/R13. |
 | D13 | Üyelik, yorum, follow, geliştirici vitrini ve monetizasyon bugünkü MVP kapısı değildir. Önce ziyaretçi değerini kanıtla. | Ürün fikri; R17 öncesi talep ve moderasyon incelemesi. |
 | D14 | Coğrafya iddiası yapımcı/deploy şehir kanıtı gerektirir. Başkent yalnız harita için açık etiketli konum vekili olabilir. | Harita yok; R18 araştırması. |
-| D15 | Mimari/ürün hafızası sürümlü repo belgelerinde, işleri GitHub Issues'da tut. Board istenirse aynı issue'ların görünümü. | Bu belgeler ve `Rxx` issue'ları oluşturuluyor; Notion şu an ikinci kopya üretir. |
+| D15 | Mimari/ürün hafızası sürümlü repo belgelerinde, işleri GitHub Issues'da tut. Board aynı issue'ların görünümü. | 18 issue ve [private pano](https://github.com/users/alphanAkbulut/projects/2) açıldı; Notion şu an ikinci kopya üretir. |
 | D16 | Research Gate, model duyurusu ve teorik makale çalışan uygulama kartı gibi sunulmaz. | Ayrı ekran yok; R16. |
 
 ## Açık kararlar

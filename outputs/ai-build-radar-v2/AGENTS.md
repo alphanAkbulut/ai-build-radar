@@ -15,3 +15,7 @@ Keep at least 10 enabled independent discovery sources; preserve existing source
 ## Languages
 
 Turkish is the initial interface language, not a permanent product constraint. Keep generated summaries keyed by article, language, source content version and prompt version. Never show content in one language as a translation into another. Provider integration remains disabled until explicitly configured; no paid API calls without authorization.
+
+## Product memory and execution
+
+Read `docs/PRODUCT-STRATEGY.md` and `docs/ROADMAP.md` before changing product behavior or choosing the next feature; English counterparts are adjacent. `docs/DECISIONS.md` records the reasons behind current choices, while `docs/ARCHITECTURE.md` describes implemented behavior. These versioned files are the durable product memory. The private GitHub project `https://github.com/users/alphanAkbulut/projects/2` and repository issues `R01`–`R18` track work; neither replaces those documents. For a task, verify the current code/data, update the affected Turkish and English docs, and close the issue only with acceptance evidence. Live ingestion status comes from `/sources`, not a dated document or chat claim. Do not claim an idea is implemented merely because it appears on the roadmap.

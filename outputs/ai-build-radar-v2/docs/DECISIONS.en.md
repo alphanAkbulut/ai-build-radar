@@ -18,7 +18,7 @@
 | D12 | Turkish is the first UI language, not a permanent content restriction. Missing summaries never masquerade as translations. | Language-keyed records ready, paid provider off; R09/R13. |
 | D13 | Accounts, comments, follow, maker showcases, and monetization are not today's MVP gate. Prove visitor value first. | Product ideas; demand/moderation review before R17. |
 | D14 | Geographic claims need maker/deployment location evidence. A capital may only be an explicitly labeled map-position proxy. | No map; R18 research. |
-| D15 | Version product/architecture memory in repo docs; track work in GitHub Issues. An optional board is a view of the same issues. | These docs and `Rxx` issues are being created; Notion now creates a duplicate copy. |
+| D15 | Version product/architecture memory in repo docs; track work in GitHub Issues. The board is a view of the same issues. | Eighteen issues and the [private board](https://github.com/users/alphanAkbulut/projects/2) exist; Notion now creates a duplicate copy. |
 | D16 | Research Gate, model announcements, and theoretical papers are not working-app cards. | No separate page yet; R16. |
 
 ## Open decisions
