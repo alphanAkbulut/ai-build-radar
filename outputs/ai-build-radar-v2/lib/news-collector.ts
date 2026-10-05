@@ -4,9 +4,9 @@ import {z} from 'zod';
 import feeds from '../content/news-feeds.json';
 import {getText} from './http';
 import {canonicalize,stableId} from './identity';
-import type {Run,Store} from './schema';
+import type {NewsEvent,NewsReference,Run,Store} from './schema';
 
-const parsedFeed=z.object({fetched:z.number(),articles:z.array(z.object({title:z.string(),url:z.url(),publishedAt:z.string()}))});
+const parsedFeed=z.object({fetched:z.number(),articles:z.array(z.object({title:z.string(),url:z.url(),publishedAt:z.string(),excerpt:z.string().optional(),references:z.array(z.object({url:z.url(),label:z.string()})).optional()}))});
 const AI_TITLE=/\b(?:AI|LLM|GPT|Claude|Gemini|DeepSeek|ChatGPT|OpenAI|Anthropic|agent|machine learning|neural|model|robot|chip)\b|人工智能|大模型|智能体|机器人|芯片|模型/i;
 
 export function parseNewsFeed(xml:string):Promise<z.infer<typeof parsedFeed>>{
@@ -27,10 +27,32 @@ export function ingestNewsArticles(store:Store,run:Run,articles:z.infer<typeof p
   if(!url||!Number.isFinite(published)){run.invalid++;continue;}
   if(published>nowMs||nowMs-published>7*86400000||(topicGate&&!AI_TITLE.test(article.title))){run.filtered++;continue;}
   run.accepted++;
+  const references=normalizeNewsReferences(article.references||[],url);
   const id=stableId('news',url),previous=events.find(event=>event.id===id);
-  if(previous){previous.lastSeenAt=now;previous.title=article.title;run.matched++;run.unchanged++;continue;}
-  events.push({id,sourceId,title:article.title,url,publishedAt:new Date(published).toISOString(),firstSeenAt:now,lastSeenAt:now});run.created++;
+  const excerpt=(article.excerpt||'').trim().slice(0,240);
+  if(previous){
+   const unchanged=previous.title===article.title&&(previous.excerpt||'')===excerpt&&JSON.stringify(previous.references||[])===JSON.stringify(references);
+   previous.lastSeenAt=now;previous.title=article.title;previous.excerpt=excerpt;previous.references=references;
+   run.matched++;if(unchanged)run.unchanged++;continue;
+  }
+  events.push({id,sourceId,title:article.title,url,publishedAt:new Date(published).toISOString(),firstSeenAt:now,lastSeenAt:now,excerpt,references});run.created++;
  }
+}
+
+function normalizeNewsReferences(references:NewsReference[],articleUrl:string):NewsReference[]{
+ const seen=new Set<string>(),out:NewsReference[]=[];
+ for(const reference of references){
+  const url=canonicalize(reference.url);
+  if(!url||url===articleUrl||seen.has(url))continue;
+  seen.add(url);out.push({url,label:reference.label.trim().slice(0,160)});
+  if(out.length===12)break;
+ }
+ return out;
+}
+
+export function linkedNewsBuilds(event:NewsEvent,store:Store){
+ const urls=new Set((event.references||[]).map(reference=>canonicalize(reference.url)).filter(Boolean));
+ return store.builds.filter(build=>[build.canonicalUrl,...build.aliases].some(alias=>urls.has(canonicalize(alias))));
 }
 
 export async function collectNews(store:Store,run:Run,sourceId:string,now=new Date().toISOString()){

@@ -32,3 +32,10 @@ Yeni dış kaynak, provider, veri akışı veya yayın biçimi önemli bir hak, 
 - **Etki:** Kanıtın üstünde iddia üretmek Radar'ın güvenini zedeler.
 - **Bugünkü önlem:** Ayrı `github_trending_daily` / `github_trending_developer` kanıtları, kanonik URL eşleme ve kart için ek site/açıklama koşulu. Geliştirme aracı iddiası ayrıca kaynak gerektirir.
 - **Tetikleyici / kontrol:** Kart metni, sıralama veya otomatik özet bu sinyali “AI ile yapılmış” ya da “dünyada trend” diye yazarsa ilgili iddia yayına girmeden engellenir; [değerlendirme kuralları](EVALUATION.md) ve regresyon kontrolü güncellenir.
+
+## NEWS-01 · RSS açıklaması, bağlantı kapsamı ve yeniden kullanım — açık
+
+- **Gözlem (6 Ekim):** `/news` yayıncı RSS başlığı, tarihi, en çok 240 karakterlik yayıncı açıklaması ve akışın verdiği açık dış bağlantıları saklıyor. Yeniden taranan Hugging Face Blog, TechCrunch AI ve The Rundown akışları toplam 34 güncel haber verdi; bu üç akışın RSS içeriğinde dış bağlantı yoktu. Bu örneklem, tam yazıda proje bağlantısı olmadığı anlamına gelmez.
+- **Belirsizlik / etki:** RSS özetinin yeniden gösterim hakkı yayıncıya göre değişebilir; ayrıca bağlantı yokluğunu “yazıda proje yok” diye yorumlamak yanlış negatif üretir. Makalenin tamamını otomatik okumak hak, hız ve HTML kırılganlığı sorularını büyütür.
+- **Bugünkü önlem:** Kısa açıklama kaynak adıyla verilir, tam metin saklanmaz, bağlantılar yalnız açık RSS URL'sinden alınır ve ürün onayına dönüşmez. RSS'te bulunmayan bahsetmeler için kullanıcıya sınırlılık söylenir. Mevcut kaynakları okumak dışında yeni bir tam-makale taraması çalışmaz.
+- **Tetikleyici / kontrol / karar:** Public/hosted sunum veya tam makale taraması öncesi [R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) ile yayıncı bazında gösterim ve erişim koşulları incelenir; [R16](https://github.com/alphanAkbulut/ai-build-radar/issues/16) ile gerçek yazılardan yanlış pozitif/negatif örneklemi çıkarılır. Her kaynak için **kısa açıklamayla devam et / yalnız başlık göster / erişimi kapat** kararı tarihli kaydedilir.

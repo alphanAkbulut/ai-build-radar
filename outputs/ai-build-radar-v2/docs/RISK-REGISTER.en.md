@@ -32,3 +32,10 @@ When a new external source, provider, data flow, or release mode creates materia
 - **Impact:** Claims stronger than the evidence damage Radar's credibility.
 - **Current safeguard:** Separate `github_trending_daily` / `github_trending_developer` evidence, canonical URL resolution, and additional site/description requirements for cards. An AI-development-tool claim needs separate sourcing.
 - **Trigger / check:** If card text, ranking, or an automated summary turns these signals into “AI-built” or “globally trending,” block that claim before publication and update the [evaluation rules](EVALUATION.en.md) and regression checks.
+
+## NEWS-01 · RSS excerpts, link coverage, and reuse — open
+
+- **Observation (6 October):** `/news` stores publisher RSS headline/date, up to 240 characters of publisher excerpt, and explicit outbound links in the feed. Fresh scans of Hugging Face Blog, TechCrunch AI, and The Rundown produced 34 current articles and zero outbound RSS links. This sample does not mean the full articles lack project references.
+- **Uncertainty / impact:** Rights to redisplay RSS excerpts may vary by publisher. Treating missing feed links as “no project in the article” creates false negatives. Full-article automated extraction would add rights, request-volume, and HTML-fragility concerns.
+- **Current safeguard:** Short excerpts are attributed, full text is not stored, only explicit RSS URLs are linked, and a link never approves a product. The UI states that mentions absent from RSS may be missed. No full-article crawler was added.
+- **Trigger / check / decision:** Before public/hosted display or full-article crawling, [R15](https://github.com/alphanAkbulut/ai-build-radar/issues/15) reviews each publisher's display/access terms, while [R16](https://github.com/alphanAkbulut/ai-build-radar/issues/16) measures false positives/negatives on real articles. Record a dated source-level decision: **keep short excerpts / show titles only / disable access**.

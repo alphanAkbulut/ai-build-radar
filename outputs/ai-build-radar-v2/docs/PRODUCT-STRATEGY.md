@@ -6,7 +6,7 @@
 
 Ürünün çıkış sorusu: **AI alanında ne gerçekten yapılabiliyor, hangi uygulama ilgi görüyor ve gördüğüm iyi fikri kendi ürünümde nasıl kullanabilirim?** Hedef ziyaretçi meraklı bir ürün yöneticisi, geliştirici veya AI ile ürün yapan kişidir. Bir haber başlığından veya yüzlerce araçlık dizinden fazlasını ister: çalışan şeyi görür, onu kimin/neden yaptığına bakar, ilginin kanıtını okur, kullanılan araçları gerçek kanıta göre öğrenir ve mümkünse belirli bir özelliği kendi bağlamına uyarlar.
 
-Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bir proje gündemde olabilir ama derse dönüşmeyebilir. Haber/makale başlıkları artık `/briefing` içinde ayrı ve kaynaklı görünür; teorik makale veya model duyurusu çalışan demo kartına dönüşmez. Derin **Research Gate** hâlâ sonraki fazdır.
+Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bir proje gündemde olabilir ama derse dönüşmeyebilir. Haber/makale başlıkları ayrı `/news` sayfasında ve `/briefing` özetinde kaynaklı görünür; teorik makale veya model duyurusu çalışan demo kartına dönüşmez. Derin **Research Gate** hâlâ sonraki fazdır.
 
 ## Ziyaretçinin temel yolu
 
