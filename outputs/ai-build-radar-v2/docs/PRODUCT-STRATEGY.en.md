@@ -6,7 +6,7 @@
 
 The founding question is: **What can people actually build with AI, which applications are drawing attention, and how can I use a good idea in my own product?** The intended visitor is a curious product manager, developer, or AI-assisted builder. They need more than headlines or a huge tool directory: see a working product, understand its maker and purpose, inspect evidence of attention, distinguish verified tools from guesses, and where feasible adapt a specific feature.
 
-Radar has two layers. The **news/discovery feed** is current, source-backed discovery and attention. The **learning collection** is a small application school of tested, teachable examples. Roughly 30 strong case studies are preferable to 150 shallow cards; that number never relaxes the quality gate. A product may appear in the feed without qualifying as a lesson. Theory, papers, and model announcements belong in a future separate **Research Gate**, not a working-demo showcase.
+Radar has two layers. The **news/discovery feed** is current, source-backed discovery and attention. The **learning collection** is a small application school of tested, teachable examples. Roughly 30 strong case studies are preferable to 150 shallow cards; that number never relaxes the quality gate. A product may appear in the feed without qualifying as a lesson. Publisher headlines now appear separately and with original links on `/briefing`; papers and model announcements do not become working-demo cards. A deeper **Research Gate** remains future work.
 
 ## Core visitor journey
 
@@ -35,7 +35,7 @@ Publication must be source-backed and challengeable: why this product, what was 
 
 ## Scope and later ideas
 
-- **Now:** private local Next.js app, evidence store, automatic candidate collection, feed, and a small editorial lesson set. The worker runs only while the computer is running. There is no connected hosted Supabase project, paid AI evaluation provider, or public deployment.
+- **Now:** private local Next.js app, evidence store, automatic candidate collection, a separate dated publisher-headline lane, feed, and a small editorial lesson set. The worker runs only while the computer is running. There is no connected hosted Supabase project, paid AI evaluation provider, or public deployment.
 - **Next value:** stronger coverage and source health, sampled false-positive review, real demo/interaction evidence, five complete high-quality cases, and clear what/why/where/learn cards.
 - **Further research:** YouTube reviews, social discussion context, multilingual sources including Asia, short sourced summaries of people's publications, and model/feature news. X, Reddit, Product Hunt, and YouTube are not running continuous collectors today.
 - **Later:** tested adaptation, public accounts, follow/bookmark/comments, maker showcases, multilingual generation, open API/RSS, subscriptions, and geographic exploration. These are not current promises or reasons to expand the architecture prematurely. A hosting location or a country's capital must never be labeled as the maker's real city without evidence.

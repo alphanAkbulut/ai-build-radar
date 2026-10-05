@@ -1,5 +1,5 @@
 import {evaluateFeed,type FeedCard,type FeedSignal} from './evaluation';
-import {discoverySources} from './sources';
+import {discoverySources,sources} from './sources';
 import type {Run,Store} from './schema';
 
 const HOUR=3600000;
@@ -34,5 +34,11 @@ export function dailyBriefing(store:Store,now=Date.now(),hours=48){
   const lastRun=runs.reduce<Run|undefined>((latest,run)=>!latest||run.startedAt>latest.startedAt?run:latest,undefined);
   return {id:source.id,name:source.name,attempts:runs.length,lastRun:lastRun?{at:lastRun.startedAt,status:lastRun.status,fetched:lastRun.fetched,accepted:lastRun.accepted}:null};
  });
- return {hours,generatedAt:new Date(now).toISOString(),measured,crossPlatform,singlePlatform,sourceConcentration,discovered,mentioned,themes,coverage,completedSources:coverage.filter(s=>s.lastRun?.status==='completed').length,attemptedSources:coverage.filter(s=>s.attempts>0).length};
+ const news=(store.newsEvents||[]).filter(event=>within(event.publishedAt,after,now)).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt));
+ const newsCoverage=sources.filter(source=>source.enabled&&source.adapter==='news').map(source=>{
+  const runs=store.runs.filter(run=>run.sourceId===source.id&&within(run.startedAt,after,now));
+  const lastRun=runs.reduce<Run|undefined>((latest,run)=>!latest||run.startedAt>latest.startedAt?run:latest,undefined);
+  return {id:source.id,name:source.name,attempts:runs.length,lastRun:lastRun?{at:lastRun.startedAt,status:lastRun.status,fetched:lastRun.fetched,accepted:lastRun.accepted}:null};
+ });
+ return {hours,generatedAt:new Date(now).toISOString(),measured,crossPlatform,singlePlatform,sourceConcentration,discovered,mentioned,themes,coverage,news,newsCoverage,completedSources:coverage.filter(s=>s.lastRun?.status==='completed').length,attemptedSources:coverage.filter(s=>s.attempts>0).length};
 }

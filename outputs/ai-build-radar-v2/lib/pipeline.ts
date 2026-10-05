@@ -9,6 +9,7 @@ import {sources} from './sources';
 import * as collectors from './collectors';
 import {FetchError} from './http';
 import {githubTrending} from './github-trending';
+import {collectNews} from './news-collector';
 export const EXTRACTOR_VERSION='deterministic-v2';
 export function ingestCandidate(store:Store,c:Candidate,sourceId:string,run:Run,now:string){
  const url=canonicalize(c.url);if(!url){run.invalid++;return;}
@@ -51,7 +52,7 @@ export async function ingest(options:{force?:boolean;only?:string}={}){
    store.sourceStates[source.id]=state;state.lastAttemptAt=now;state.lastRunId=run.id;store.runs.push(run);await writeStore(store);
    let retryAfter=0;
    try{
-    if(source.adapter==='attention'){await collectAttention(store,run);}else if(source.adapter==='context'){await enrichContexts(store,run,new Date().toISOString());}else{
+    if(source.adapter==='attention'){await collectAttention(store,run);}else if(source.adapter==='context'){await enrichContexts(store,run,new Date().toISOString());}else if(source.adapter==='news'){await collectNews(store,run,source.id,new Date().toISOString());}else{
     const batch=source.adapter==='discovery'?await discover(source.id):source.adapter==='github-trending'?await githubTrending():await collectors[source.adapter as 'hn'|'github'|'onesvibe']();run.fetched=batch.fetched;run.filtered=batch.filtered;run.invalid=batch.invalid;run.errors=batch.errors;
     for(const candidate of batch.candidates)ingestCandidate(store,candidate,source.id,run,new Date().toISOString());
     }

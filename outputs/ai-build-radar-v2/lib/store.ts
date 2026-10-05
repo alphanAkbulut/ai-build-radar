@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile, rename, rm } from 'node:fs/promises';
 import path from 'node:path';
 import type { Store } from './schema';
 export const dataDir = () => process.env.RADAR_DATA_DIR || path.join(process.cwd(),'data');
-export const emptyStore = ():Store => ({version:1,builds:[],evidence:[],raw:[],runs:[],reviews:[],sourceStates:{},dailySnapshots:[]});
+export const emptyStore = ():Store => ({version:1,builds:[],evidence:[],newsEvents:[],raw:[],runs:[],reviews:[],sourceStates:{},dailySnapshots:[]});
 export async function readStore():Promise<Store> {
  try { const data=JSON.parse(await readFile(path.join(dataDir(),'radar.json'),'utf8')); if(data.version!==1) throw new Error('Unsupported store version'); return data; }
  catch(e) { if((e as NodeJS.ErrnoException).code==='ENOENT') return emptyStore(); throw e; }

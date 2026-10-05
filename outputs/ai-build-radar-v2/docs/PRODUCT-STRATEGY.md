@@ -6,7 +6,7 @@
 
 Ürünün çıkış sorusu: **AI alanında ne gerçekten yapılabiliyor, hangi uygulama ilgi görüyor ve gördüğüm iyi fikri kendi ürünümde nasıl kullanabilirim?** Hedef ziyaretçi meraklı bir ürün yöneticisi, geliştirici veya AI ile ürün yapan kişidir. Bir haber başlığından veya yüzlerce araçlık dizinden fazlasını ister: çalışan şeyi görür, onu kimin/neden yaptığına bakar, ilginin kanıtını okur, kullanılan araçları gerçek kanıta göre öğrenir ve mümkünse belirli bir özelliği kendi bağlamına uyarlar.
 
-Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bir proje gündemde olabilir ama derse dönüşmeyebilir. Teorik makale ve model duyurusu, çalışan demo kartı değil, ileride ayrı **Research Gate** içeriğidir.
+Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bir proje gündemde olabilir ama derse dönüşmeyebilir. Haber/makale başlıkları artık `/briefing` içinde ayrı ve kaynaklı görünür; teorik makale veya model duyurusu çalışan demo kartına dönüşmez. Derin **Research Gate** hâlâ sonraki fazdır.
 
 ## Ziyaretçinin temel yolu
 
@@ -35,7 +35,7 @@ Yayın kararı kaynaklı ve itiraz edilebilir olmalı: “Neden burada?”, “N
 
 ## Ürün sınırı ve gelecekteki fikirler
 
-- **Bugün:** private yerel Next.js sürümü, kaynak/kanıt deposu, otomatik aday toplama, gündem ve az sayıda editoryal ders. Worker yalnız çalıştığı bilgisayarda çalışır. Canlı Supabase projesi, ücretli AI değerlendirme sağlayıcısı ve public dağıtım bağlı değildir.
+- **Bugün:** private yerel Next.js sürümü, kaynak/kanıt deposu, otomatik aday toplama, ayrı tarihli haber başlığı akışı, gündem ve az sayıda editoryal ders. Worker yalnız çalıştığı bilgisayarda çalışır. Canlı Supabase projesi, ücretli AI değerlendirme sağlayıcısı ve public dağıtım bağlı değildir.
 - **Bir sonraki değer:** daha iyi kaynak kapsamı ve kaynak sağlığı; örneklem üstünde yanlış pozitif denetimi; canlı demo ve etkileşim kaydı; 5 uçtan uca güçlü vaka; kartlarda “ne/neden/nerede/öğren” açıklığı.
 - **Sonraki araştırma:** YouTube incelemeleri, sosyal tartışma ve yorum bağlamı, Asya dahil çok dilli kaynaklar, kişi yayınlarının kısa kaynaklı özeti, yeni model/özellik haberleri. X, Reddit, Product Hunt ve YouTube bugün çalışan sürekli collector değildir.
 - **Daha sonra:** test edilmiş uyarlama, public hesaplar, follow/bookmark/comment, geliştirici vitrini, çok dilli üretim, açık API/RSS, abonelik katmanları ve coğrafi keşif. Bunlar mevcut ürün vaadi veya bugünkü mimariyi gereksiz büyütme gerekçesi değildir. Ülke/şehir kanıtı yoksa deploy sunucusunun konumu veya ülke başkenti yapımcının gerçek şehri diye etiketlenmez.

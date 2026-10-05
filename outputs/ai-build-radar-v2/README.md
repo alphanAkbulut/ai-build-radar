@@ -14,6 +14,7 @@
 - [AI ile geliştirilme iddiasının sınırları](docs/AI-DEVELOPMENT-EVIDENCE.md) ([English](docs/AI-DEVELOPMENT-EVIDENCE.en.md)): kod stili araştırması, üretici beyanı, agent commit izleri ve ürün düzeyi etiket arasındaki ayrım.
 - [Öğrenme koleksiyonu pilotu](docs/LEARNING-COLLECTION.md) ve [ilk faz doğrulaması](docs/VALIDATION.md) tarihsel kayıtlardır; güncel sayı veya davranış raporu olarak kullanılmaz.
 - [Günlük AI ürün promptu için kaynak denetimi](docs/SOURCE-EXPANSION.md) ([English](docs/SOURCE-EXPANSION.en.md)): doğrulanan kaynak adayları, erişim/lisans sınırları ve entegrasyon sırası. Mevcut veriden üretilen kısa okuma `/briefing` ekranındadır.
+- [Küresel AI kaynak kataloğu](docs/GLOBAL-SOURCE-CATALOG.md) ([English](docs/GLOBAL-SOURCE-CATALOG.en.md)): kullanıcının önerdiği haber, bülten, araştırma ve topluluk kaynakları; etkin/bekleyen ayrımı ve haber–ürün sınırı.
 - [TrendRadar karşılaştırması](docs/TRENDRADAR-BENCHMARK.md) ([English](docs/TRENDRADAR-BENCHMARK.en.md)): gerçek çalışma durumu, kaynak bağımlılığı ve Radar'a uyarlanan sıra/kaynak görünürlüğü.
 - [GitHub Trending kaynak denetimi](docs/GITHUB-TRENDING.md) ([English](docs/GITHUB-TRENDING.en.md)): repo/geliştirici sinyalleri, ilk gerçek koşu ve private PoC sınırları.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
@@ -24,7 +25,7 @@
 
 | Alan | Mevcut durum |
 | --- | --- |
-| Kaynak | Yerel modda 36 kayıtlı satırdan 24 bağımsız keşif kaynağı, ayrıca 3 zenginleştirme işi etkin (GitHub Trending yalnız yerel modda açılır). Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. Public hedefi 25 **çalışan bağımsız keşif kaynağıdır**. |
+| Kaynak | Yerel modda 46 kayıtlı satırdan 24 bağımsız ürün keşif kaynağı, ayrıca 10 haber akışı ve 3 zenginleştirme işi etkin (GitHub Trending yalnız yerel modda açılır). Haber kaynakları 25 **çalışan bağımsız ürün keşfi** hedefi yerine sayılmaz. Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. |
 | Veri | GitHub araması, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, sekiz kişi yayını ve on bağımsız yayın akışındaki açık proje bağlantıları üzerinden adaylar; ayrıca GitHub Trending repo/geliştirici listeleri aynı platformun ayrı sinyali olarak okunur. Bütün internet taranmıyor. |
 | Seçki | Kaynaklı amaç, yakın zamanda denenmiş demo, gerçek önizleme, fark ve öğrenme adımları gerekir. Bu kapı otomatik “wow” değerlendirmesi yapmaz. |
 | Erişim | Yerel parola ve oturumla private. Supabase şeması hazır; bağlı hosted proje/public dağıtım yok. |

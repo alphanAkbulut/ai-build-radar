@@ -1,10 +1,10 @@
 # Daily AI product prompt: source audit and integration order
 
-**Status:** Source audit on 5 October 2026. The publication feeds below are running; the later candidate table is **not** a set of working collectors. `/sources` is authoritative for live run history. [Türkçe](SOURCE-EXPANSION.md).
+**Status:** Initial source audit dated 5 October 2026; “not connected” entries below describe that snapshot. The [global source catalog](GLOBAL-SOURCE-CATALOG.en.md) tracks later news integrations and current categorization; `/sources` is authoritative for live runs. [Türkçe](SOURCE-EXPANSION.md).
 
 ## Product decision from the prompt
 
-Radar primarily discovers working AI products and, where possible, explains how they were built. An **AI-powered product**, an **AI-assisted build**, a **new launch**, and a **product drawing attention** are four different claims. A source contributes evidence only for the claim it actually supports. Research papers and lab announcements belong in a future separate news/research lane; they do not automatically become working-demo cards.
+Radar primarily discovers working AI products and, where possible, explains how they were built. An **AI-powered product**, an **AI-assisted build**, a **new launch**, and a **product drawing attention** are four different claims. A source contributes evidence only for the claim it actually supports. Research papers and lab announcements belong in a separate news/research lane; they do not automatically become working-demo cards. A first sourced headline lane is now on `/briefing`; the deeper Research Gate is still future work.
 
 `/briefing` now separates measured attention, new discoveries with builder statements, and actual scan coverage for the last 48 hours or 7 days. A headline card requires attention measured on two independent platforms for the same product; single-platform observations remain in a smaller separate list. It does not invent five to eight highlights when the evidence is thin. Category movement excludes “Other” and needs at least three products with multi-source attention. Novelty, usefulness, product quality, and “wrapper” status are not scored automatically without product review.
 
@@ -14,7 +14,7 @@ Radar primarily discovers working AI products and, where possible, explains how 
 
 **First live run, 5 October 2026:** all ten completed; 160 articles/records read and 39 project links accepted. Of those, 34 created Build records at the time; this is **not** a claim of 34 working demos or 34 AI-developed products. SemiAnalysis, The Gradient, Sebastian Ruder, and AI Tidbits produced no recent qualifying links in their latest 20 articles. A completed scan and a useful new candidate are different things. Check `/sources` for later runs and failures. Reuse rights require separate review before public launch.
 
-These feeds address the blog/newsletter gap in the user's prompt. Product Hunt, X, Reddit, YouTube, multilingual Asian publications, and first-party lab announcements remain separate integrations; ten feeds do not stand in for them. GitHub Trending's two pages are still one platform signal.
+These feeds addressed the initial blog/newsletter gap. A later change added ten dated RSS headline feeds; they do not increase build-discovery coverage. Product Hunt, X, Reddit, and YouTube remain separate integrations. GitHub Trending's two pages are still one platform signal.
 
 ## Verified but not yet connected source candidates
 

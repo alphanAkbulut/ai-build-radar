@@ -1,10 +1,10 @@
 # Günlük AI ürün promptu: kaynak denetimi ve entegrasyon sırası
 
-**Durum:** 5 Ekim 2026 kaynak denetimi. Aşağıdaki yeni yayın akışları çalışır; daha sonraki aday tablosu **çalışan collector** sayılmaz. Anlık çalışma kaydı `/sources` sayfasındadır. [English](SOURCE-EXPANSION.en.md).
+**Durum:** 5 Ekim 2026 tarihli ilk kaynak denetimi; aşağıdaki “henüz bağlı değil” satırları o anın fotoğrafıdır. Sonradan eklenen haber akışları ve tüm önerilerin güncel ayrımı [küresel kaynak kataloğunda](GLOBAL-SOURCE-CATALOG.md), gerçek koşular `/sources` sayfasındadır. [English](SOURCE-EXPANSION.en.md).
 
 ## Prompttan alınan ürün kararı
 
-Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl geliştirildiklerini öğrenmektir. **AI kullanan ürün**, **AI ile geliştirilmiş ürün**, **yeni lansman** ve **ilgi gören ürün** dört farklı iddiadır. Kaynak bir iddiayı destekliyorsa yalnız o alana kanıt eklenir. Teorik makaleler ve lab duyuruları gelecekte ayrı haber/araştırma akışına girer; çalışan demo kartına otomatik dönüşmez.
+Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl geliştirildiklerini öğrenmektir. **AI kullanan ürün**, **AI ile geliştirilmiş ürün**, **yeni lansman** ve **ilgi gören ürün** dört farklı iddiadır. Kaynak bir iddiayı destekliyorsa yalnız o alana kanıt eklenir. Teorik makaleler ve lab duyuruları ayrı haber/araştırma akışına girer; çalışan demo kartına otomatik dönüşmez. İlk kaynaklı haber başlığı akışı artık `/briefing` içindedir; derin Research Gate henüz yoktur.
 
 `/briefing` artık son 48 saat veya 7 günde mevcut kaynakların ürettiği ilgi, geliştirici beyanıyla yeni keşif ve gerçek tarama kapsamını ayrı gösterir. Ana kart için aynı üründe en az iki bağımsız ilgi platformu arar; tek platform ölçümlerini ayrı, küçük bir listede tutar. Top 5–8'i doldurmak için veri uydurmaz; kategori hareketinde “Diğer” etiketini kullanmaz ve en az üç çok kaynaklı ürün arar. Yenilik, fayda, ürün kalitesi ve “wrapper” değerlendirmesi otomatik hesaplanmıyor; bunlar demo incelemesi olmadan puanlanmamalı.
 
@@ -14,7 +14,7 @@ Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl 
 
 **İlk gerçek koşu, 5 Ekim 2026:** on akışın onu da `completed`; toplam 160 yazı/kayıt okundu ve 39 proje bağlantısı kabul edildi. 34 bağlantı o sırada yeni Build kaydı açtı; bu **34 yeni çalışan demo** veya **34 AI ile geliştirilmiş ürün** iddiası değildir. SemiAnalysis, The Gradient, Sebastian Ruder ve AI Tidbits akışlarında son 20 yazıda sınırı geçen güncel proje bağlantısı bulunmadı; başarılı tarama ile yararlı yeni aday üretimi farklıdır. Sonraki koşular ve hatalar için `/sources` esas alınır. Akışların içerik ve yeniden kullanım koşulları public yayın öncesi ayrıca incelenmelidir.
 
-Bu akışlar kullanıcı promptundaki blog/bülten boşluğunu kapatır. Product Hunt, X, Reddit, YouTube, çok dilli Asya yayınları ve resmî laboratuvar duyuruları hâlâ ayrı entegrasyon işleridir; on akış bunların yerini almış sayılmaz. GitHub Trending'in iki sayfası yine tek platform sinyalidir.
+Bu akışlar ilk kullanıcı promptundaki blog/bülten boşluğunu kapatır. Sonraki çalışmada ayrıca tarihli haber başlıkları için on RSS akışı bağlandı; bunlar ürün keşfi sayısını artırmaz. Product Hunt, X, Reddit ve YouTube hâlâ ayrı entegrasyon işleridir. GitHub Trending'in iki sayfası yine tek platform sinyalidir.
 
 ## Doğrulanmış fakat henüz bağlı olmayan kaynak adayları
 
