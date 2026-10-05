@@ -50,7 +50,7 @@ The primary contracts are `lib/schema.ts` for stored entities/evidence/runs, `li
 | Lobsters | 90 min | Relevant current stories and discussion counts. |
 | Eight author publications | 45 min | Defined feeds for Simon Willison, Ethan Mollick, Chip Huyen, Lilian Weng, swyx, Andrej Karpathy, Takuya Matsuyama, and Eugene Yan; open repository/Space links are candidates. A mention is not an endorsement. |
 
-`project-context` and `attention` are **enrichment jobs** whose queues are checked every 15 minutes; they do not count as independent discovery sources. Context reads a README or safely accessible public page for up to 12 due builds per run. Attention queries exact Hacker News URLs for up to six. Normal per-build recheck is approximately daily, with shorter retry after errors.
+`project-context` and `attention` are **enrichment jobs** whose queues are checked every 15 minutes; they do not count as independent discovery sources. Context reads a README or safely accessible public page for up to 12 due builds per run. Attention queries exact Hacker News URLs for up to six. Newly discovered builds with direct AI-development statements lead that queue, followed by lessons and general candidates. Normal per-build recheck is approximately daily, with shorter retry after errors.
 
 Registered but **disabled** today: general builder/expert watchlist (45 min), X (75 min), Reddit (90 min), Product Hunt (3 h), tool communities (6 h), YouTube (9 h), official ecosystems (3 h), low-change directories (18 h), and static docs (daily). Their intervals are plans, not active scans. The eight enabled author feeds do not imply that the general watchlist is enabled.
 

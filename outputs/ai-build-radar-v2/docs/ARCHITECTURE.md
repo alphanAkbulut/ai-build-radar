@@ -48,7 +48,7 @@ Kaynakların tek kayıt noktası [`lib/sources.ts`](../lib/sources.ts) dosyasıd
 | Lobsters | 90 dk | Gündemdeki ilgili hikâyeler ve tartışma sayıları. |
 | Sekiz kişi yayını | 45 dk | Simon Willison, Ethan Mollick, Chip Huyen, Lilian Weng, swyx, Andrej Karpathy, Takuya Matsuyama ve Eugene Yan’ın tanımlı feed’lerinden açık repo/Space bağlantıları. Bahsetmek onaylamak değildir. |
 
-`project-context` ve `attention` 15 dakikada bir kuyruk kontrol eden **zenginleştirme** işleridir; yeni bağımsız keşif kaynağı sayılmaz. İlk iş her turda en çok 12 vadesi gelen proje için README veya güvenle okunabilen public sayfa inceler. İkincisi en çok 6 proje için Hacker News’te tam URL eşleşmesi arar. Proje bazında normal tekrar aralığı günlük, hatada daha kısadır.
+`project-context` ve `attention` 15 dakikada bir kuyruk kontrol eden **zenginleştirme** işleridir; yeni bağımsız keşif kaynağı sayılmaz. İlk iş her turda en çok 12 vadesi gelen proje için README veya güvenle okunabilen public sayfa inceler. İkincisi en çok 6 proje için Hacker News’te tam URL eşleşmesi arar; son 7 günde keşfedilmiş doğrudan AI geliştirme beyanlı kayıtlar kuyrukta öne gelir, ardından dersler ve genel adaylar izlenir. Proje bazında normal tekrar aralığı günlük, hatada daha kısadır.
 
 Kayıtta olup bugün **kapalı** olanlar: genel builder/expert watchlist (45 dk), X (75 dk), Reddit (90 dk), Product Hunt (3 saat), tool communities (6 saat), YouTube (9 saat), official ecosystems (3 saat), düşük değişimli dizinler (18 saat) ve statik belgeler (günlük). Bunların aralığı plan değeridir, çalışan tarama değildir. Sekiz kişi feed’inin etkin olması genel watchlist’i etkin yapmaz.
 
