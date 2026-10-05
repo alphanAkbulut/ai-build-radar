@@ -24,7 +24,7 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 
 ## Run locally
 
-On macOS, `Start-Radar.command` opens the interface at `http://127.0.0.1:3101`. `Start-Radar-Mobile.command` opens a separate private LAN session for a phone on the same Wi-Fi; the Mac must remain on. `.env.example` lists required settings. Keep the password and session secret in local `.env.local`, outside Git.
+On macOS, `Start-Radar.command` opens the interface at `http://127.0.0.1:3101`. `Start-Radar-Mobile.command` opens a separate private LAN session for a phone on the same Wi-Fi; the Mac must remain on. `.env.example` lists required settings. Keep the password and session secret in local `.env.local`, outside Git. The existing password is in the computer’s `LOCAL-ACCESS.txt` file. A local sign-in is remembered in that browser for 180 days; signing out or clearing browser cookies ends the session.
 
 With Node.js and pnpm:
 

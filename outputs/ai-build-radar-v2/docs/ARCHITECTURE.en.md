@@ -184,7 +184,7 @@ Git versions code and editorial decisions. `.env.local`, passwords, session secr
 
 ## 9. Access, operations, and unresolved targets
 
-Next.js pages use a private local password/HMAC session lasting roughly eight hours; sign-in is unavailable without required secrets. Local port `3101` is loopback only. A separate LAN launcher exposes private same-Wi-Fi access on `3102`; this is not internet publication, and the Mac/worker must stay running. Supabase migrations/RLS and a sync path are prepared, but actual Supabase Auth, hosted refresh, and public deployment have not been verified. Visiting an external project transfers the visitor to its site.
+Next.js pages use a private local password/HMAC session lasting 180 days; sign-in is unavailable without required secrets. Local port `3101` is loopback only. A separate LAN launcher exposes private same-Wi-Fi access on `3102`; this is not internet publication, and the Mac/worker must stay running. Supabase migrations/RLS and a sync path are prepared, but actual Supabase Auth, hosted refresh, and public deployment have not been verified. Visiting an external project transfers the visitor to its site.
 
 No paid AI summarization API is attached. Multilingual scaffolding does not mean every language has content. The current summary cache uses article ID/language, source URL, schema version, and a 24-hour age check; it compares a source-text hash only inside the generation path. The complete **source-content-version + prompt-version** cache key required by the project working agreement is not yet implemented; address this before connecting a provider. Analytics respects DNT/GPC and simple button counts are not proof of product-market fit.
 

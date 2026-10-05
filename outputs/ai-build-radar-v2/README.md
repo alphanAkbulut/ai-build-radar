@@ -24,7 +24,7 @@
 
 ## Yerelde çalıştırma
 
-macOS’ta `Start-Radar.command` arayüzü `http://127.0.0.1:3101` adresinde açar. `Start-Radar-Mobile.command`, aynı Wi-Fi üzerindeki telefon için ayrı private LAN oturumu açar; Mac’in açık kalması gerekir. `.env.example` gerekli ayarları gösterir. Parola ve oturum sırrı `.env.local` içinde yerel kalır; depoya koymayın.
+macOS’ta `Start-Radar.command` arayüzü `http://127.0.0.1:3101` adresinde açar. `Start-Radar-Mobile.command`, aynı Wi-Fi üzerindeki telefon için ayrı private LAN oturumu açar; Mac’in açık kalması gerekir. `.env.example` gerekli ayarları gösterir. Parola ve oturum sırrı `.env.local` içinde yerel kalır; depoya koymayın. Mevcut erişim parolasını bilgisayarındaki `LOCAL-ACCESS.txt` dosyasında bulabilirsin. Yerel giriş bu tarayıcıda 180 gün hatırlanır; çıkış yapmak veya tarayıcı çerezlerini silmek oturumu bitirir.
 
 Node.js ve pnpm ile:
 

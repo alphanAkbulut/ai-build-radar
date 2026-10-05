@@ -182,7 +182,7 @@ Depo sürümlemesi kodu ve editoryal kararları korur. `.env.local`, parola, otu
 
 ## 9. Erişim, işletim ve açık hedefler
 
-Next.js ekranları yerel parola/HMAC oturumuyla private çalışır; oturum yaklaşık sekiz saattir, gerekli sırlar yoksa giriş kapanır. Yerel `3101` yalnız loopback’tir; ayrı LAN başlatıcısı `3102` portunu aynı Wi-Fi için açar. İnternet yayını değildir, Mac ve worker açık kalmalıdır. Supabase migration/RLS ve sync yolu hazırlanmıştır ama gerçek Supabase Auth, hosted yenileme ve public dağıtım doğrulanmamıştır. Harici proje bağlantısında ziyaretçi üçüncü taraf siteye gider.
+Next.js ekranları yerel parola/HMAC oturumuyla private çalışır; oturum 180 gün geçerlidir, gerekli sırlar yoksa giriş kapanır. Yerel `3101` yalnız loopback’tir; ayrı LAN başlatıcısı `3102` portunu aynı Wi-Fi için açar. İnternet yayını değildir, Mac ve worker açık kalmalıdır. Supabase migration/RLS ve sync yolu hazırlanmıştır ama gerçek Supabase Auth, hosted yenileme ve public dağıtım doğrulanmamıştır. Harici proje bağlantısında ziyaretçi üçüncü taraf siteye gider.
 
 Ücretli AI özet API’si bağlı değildir. Çok dilli altyapı hazırlığı her dilde hazır içerik olduğu anlamına gelmez; özet olmayan dil pasif görünür. Mevcut özet önbelleği makale kimliği/dil, kaynak URL'si, şema sürümü ve 24 saatlik yaş kontrolü kullanır; kaynak metni hash'i yalnızca yeniden üretim akışında karşılaştırılır. Proje çalışma kuralının istediği **kaynak içerik sürümü + prompt sürümü** anahtarı henüz tam uygulanmadı; sağlayıcı bağlanmadan önce giderilmelidir. Analitik DNT/GPC tercihine saygı duyar ve yerel buton olayları ürün başarısını tek başına ölçmez.
 
