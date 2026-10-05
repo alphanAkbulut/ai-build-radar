@@ -20,6 +20,7 @@
 | D14 | Coğrafya iddiası yapımcı/deploy şehir kanıtı gerektirir. Başkent yalnız harita için açık etiketli konum vekili olabilir. | Harita yok; R18 araştırması. |
 | D15 | Mimari/ürün hafızası sürümlü repo belgelerinde, işleri GitHub Issues'da tut. Board aynı issue'ların görünümü. | 18 issue ve [private pano](https://github.com/users/alphanAkbulut/projects/2) açıldı; Notion şu an ikinci kopya üretir. |
 | D16 | Research Gate, model duyurusu ve teorik makale çalışan uygulama kartı gibi sunulmaz. | Ayrı ekran yok; R16. |
+| D17 | Kod biçiminden evrensel bir “AI imzası” çıkarma. Üretici beyanını, belirli agent commit kaydını ve AI özellikli ürünü ayrı iddialar olarak tut; tek commit'i tüm ürüne genelleme. | [Kanıt sınırları ve birincil kaynaklar](AI-DEVELOPMENT-EVIDENCE.md) yazıldı. Bugün otomatik kod yazarlığı tespiti veya sağlayıcı telemetrisi yok; R01 ile hatalar ölçülecek. |
 
 ## Açık kararlar
 

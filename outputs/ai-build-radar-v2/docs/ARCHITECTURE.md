@@ -75,6 +75,8 @@ Build arşivinin “AI ile yapılmış” grubu `ai_tools` alanında **Verified 
 
 **AI geliştirme kanıtının bugünkü sınırı:** GitHub repo açıklamasındaki açık araç beyanı veya bağlı repodaki README’nin ilk bölümündeki doğrudan “bu proje ... ile yapıldı” cümlesi `Builder-stated` üretir. README tarayıcısı örnekleri, alıntıları ve kod bloklarını dışlar; beyan silinirse eski güncel etiket de düşer. GitHub yıldızı/Trending görünümü, programlama dili, `vibe-coding` konusu, Hacker News paylaşımı, One’s Vibe kataloğu veya Hugging Face trendi **tek başına** AI ile geliştirme kanıtı değildir. Kod stili, dosya düzeni veya gizli bir “AI imzası” kontrol edilmiyor. `Verified` bir araçla geliştirme iddiası için bugün otomatik üretilmiyor; kaynak metadata’sı için kullanılan aynı sözcüğü burada daha geniş bir iddia gibi okumayın.
 
+Bu sınırın araştırma temeli, Copilot/Cursor izlerinin **commit düzeyindeki** kapsamı ve gelecek yayın kuralı [AI ile geliştirilme kanıtı](AI-DEVELOPMENT-EVIDENCE.md) belgesindedir. Bu bir mevcut provider entegrasyonu değildir.
+
 **Sonraki kanıt katmanı (henüz uygulanmadı):** doğrulanabilir agent commit/session kaydı veya üreticinin izinli araç telemetrisi, iddianın tam kapsamıyla ayrı kanıt olarak toplanabilir. Config dosyası ve commit mesajı tek başına ancak araştırma ipucudur. Kaynağı olmayan projeye “insan yaptı” etiketi de verilmez. Karışık insan/AI katkısında proje düzeyindeki kesin yüzde veya model adı tahmin edilmez; hangi araç kullanımının hangi kaynakla gözlendiği yazılır. Bu kuralın doğruluğu insan etiketli örneklemde yanlış pozitif/negatiflerle ölçülmeden “%90 başarılı” iddiası yapılamaz.
 
 ## 5. Amaç, görsel ve kategoriler

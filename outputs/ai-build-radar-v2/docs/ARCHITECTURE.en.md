@@ -79,6 +79,8 @@ In the build archive, the “built with AI” group requires `Verified` or `Buil
 
 **Next evidence layer (not implemented):** Verifiable agent commit/session records or opt-in builder tool telemetry could be collected as separately scoped claims. Configuration files and commit messages alone are review leads. Missing evidence is not a “human-built” label. For mixed human/AI work, do not guess a project-wide percentage or model name; show the observed tool participation and its source. A “90% accurate” claim requires a human-labeled sample and measured false positives and negatives.
 
+The research basis for this boundary, the **commit-level** scope of Copilot/Cursor traces, and the future publication rule are in [Evidence for AI-assisted development](AI-DEVELOPMENT-EVIDENCE.en.md). This is not a claim of a current provider integration.
+
 ## 5. Context, previews, categories, and geography
 
 `lib/context-enrichment.ts` derives a sourced candidate for **what the project does** and **its likely purpose** from a README or public project page, and checks the linked repository README for explicit development-tool statements. `complete` means text extraction completed, not that creator intent was verified. `partial`, `missing`, `failed`, and `blocked` are separate. Identical source hashes are not pointlessly reprocessed; an error does not delete a previous successful extraction. Source-language text is retained rather than labeled as a translation.

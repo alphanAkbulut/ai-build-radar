@@ -58,6 +58,8 @@ Kaynağın gerçekten çekildiği zaman `SourceRecord.fetchedAt` alanındadır v
 
 **Unknown:** ilgili alan için yeterli kanıt yok. Bir “bilinmiyor” kaydı üretmek için sahte source URL/quote uydurulmaz; kanıt yokluğu görünümde Unknown olarak hesaplanır. Status enum’u ileride gerekçeli unknown tespitlerini de destekler.
 
+AI kod yazarlığı için genel bir stil dedektörü bu durumları yükseltmez. Sahip beyanı, provider'ın belirli commit/değişiklik izi ve ürünün AI kullanması farklı kanıt kapsamlarıdır; [araştırma, sağlayıcı sınırları ve yayın kuralı](AI-DEVELOPMENT-EVIDENCE.md) ayrı belgelenmiştir.
+
 ## Entity resolution ve sürümler
 
 - HTTP/HTTPS dışında URL kabul edilmez; username/password içeren URL reddedilir.

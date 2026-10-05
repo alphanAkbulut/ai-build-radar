@@ -15,6 +15,8 @@ An **Evidence Object** binds a field/value/status to a build, source and source-
 | Derived | Directory classification or justified inference. | Not a proven fact. |
 | Unknown | No adequate evidence for that field. | Not a negative claim. |
 
+A general code-style detector cannot promote these statuses. An owner statement, a provider trace of a specific commit/change, and a product's use of AI have different evidentiary scope; see the [research, provider limits, and publication rule](AI-DEVELOPMENT-EVIDENCE.en.md).
+
 Collectors may emit `ai_tools`, `tech_stack`, `primary_language`, `repository`, `github_stars`, `hn_mention`, `discovery_reason`, `catalog_membership`, `community_discussion`, `editorial_reference`, `platform_trending`, `platform_rank`, `github_trending_daily`, `github_trending_developer`, and metadata. A rank/star count is not AI-development evidence. There is no current collector producing reliable `models`, `ai_roles`, or `capabilities` claims. The model remains Unknown when unproven.
 
 Identity accepts HTTP(S) URLs without credentials, strips fragments and tracking parameters, preserves identity-bearing query parameters, normalizes GitHub owner/repository paths, and refuses fuzzy name-only merges. Conflicting repository-homepage bridges enter review. Different sources retain separate claims; semantic truth arbitration is not automatic.
