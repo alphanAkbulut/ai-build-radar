@@ -45,3 +45,6 @@ html[data-theme="light"]{color-scheme:light}
 html[data-theme="dark"] .collection-filters button{color:var(--ink);background:var(--surface)}
 
 .article-summary{margin-top:14px}.article-summary label{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin-bottom:14px}.article-summary select{padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--ink)}.article-summary button:disabled{cursor:not-allowed}.article-summary details{margin:10px 0}.article-summary small{display:block;color:var(--muted)}
+
+.discovery-scroll{max-height:420px;overflow-y:auto;scrollbar-gutter:stable;padding-right:12px;margin-bottom:12px}.discovery-scroll>div{padding:14px 0;border-bottom:1px solid var(--border)}.discovery-scroll>div:first-child{padding-top:0}.discovery-scroll:focus-visible{outline:2px solid var(--green);outline-offset:5px}.lesson-panel h2 small{font-size:13px;font-weight:400;color:var(--muted)}
+@media(max-width:640px){.discovery-scroll{max-height:360px}}
