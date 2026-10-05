@@ -10,6 +10,8 @@ Hacker News and Lobsters have a platform-specific threshold of **50 points or 20
 
 The `attention` enrichment queue runs every 15 minutes for up to six due products, searching up to two exact canonical URLs and 50 stories per query in Hacker News Algolia. Name similarity is insufficient. The usual per-product recheck is about daily, or six hours after error. It does not measure X, LinkedIn, or YouTube. Absence of a strong Hacker News result says nothing about all other platforms.
 
+Appearing on GitHub's daily Trending repository page is a separate platform-specific attention signal. “Stars today” is GitHub's display, not Radar's measured star difference. A “popular repo” beside a trending developer is only a sourced mention. Neither proves AI-assisted development. See the [source limits](GITHUB-TRENDING.en.md).
+
 ## Learning gate
 
 A lesson is not an automatic expansion of a feed card. `selectionFor` sets `featured` only when all five checks pass:
@@ -26,7 +28,7 @@ The gate checks the presence and freshness of editorial material, not factual qu
 
 ## Coverage and metrics
 
-`lib/sources.ts` has **25 registered rows, 14 enabled independent discovery sources, and two enabled enrichment jobs**. Eight author feeds plus GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, and Lobsters make up discovery. Registered/enabled does not mean a successful run: inspect `/sources`. The code enforces a floor of ten enabled independent sources; the public goal is 25 **working** ones. X, Reddit, Product Hunt, and YouTube are not enabled. Manually researched Product Hunt/web candidates do not imply a running Product Hunt connector.
+`lib/sources.ts` has in local mode **26 registered rows, 14 enabled independent discovery sources, and three enabled enrichment jobs**. Eight author feeds plus GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, and Lobsters make up discovery. Registered/enabled does not mean a successful run: inspect `/sources`. The code enforces a floor of ten enabled independent sources; the public goal is 25 **working** ones. X, Reddit, Product Hunt, and YouTube are not enabled. Manually researched Product Hunt/web candidates do not imply a running Product Hunt connector.
 
 Each author feed yields candidates from explicit GitHub and Hugging Face Space links in its latest 20 entries. An article date is not a product launch. Hugging Face likes are not growth; DEV reactions belong to the article. Only Lobsters discussions tagged `ai` or `ml` enter the AI feed. Old off-topic evidence remains in history but is excluded from the current feed. `fetched` counts inspected source records, not unique products or quality.
 

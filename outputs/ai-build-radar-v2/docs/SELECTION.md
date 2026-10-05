@@ -10,6 +10,8 @@ Hacker News ve Lobsters için bir projeyle ilişkilendirilmiş paylaşımda **en
 
 `attention` zenginleştirmesi 15 dakikada bir en çok altı projeyi kontrol eder. Hacker News Algolia'da en çok iki kanonik URL sorgusu ve sorgu başına 50 hikâye kullanır; isim benzerliği eşleşme değildir. Proje bazında normal tekrar yaklaşık bir gün, hatada altı saattir. Bu yol X, LinkedIn veya YouTube'daki ilgiyi ölçmez. Güçlü Hacker News sonucu bulunmaması başka yerde ilgi yokluğu anlamına gelmez.
 
+GitHub'ın günlük Trending repo listesinde görünmek ayrıca platform içi ilgi sayılır; “stars today” GitHub'ın gösterimidir, Radar'ın yıldız farkı ölçümü değildir. Trending geliştiricisinin yanında gösterilen “popular repo” yalnız kaynaklı bahsedilmedir. Her iki sinyal de AI ile geliştirme beyanı değildir. [Ayrıntılı kaynak sınırları](GITHUB-TRENDING.md).
+
 ## Öğrenme seçkisine girme
 
 Öğrenme kartı, gündem kartının otomatik genişletilmiş hali değildir. `selectionFor` ancak şu beş koşul birlikte sağlanırsa `featured` verir:
@@ -26,7 +28,7 @@ Kontrol bugün içeriğin varlığı ve tarihe bakar; metnin doğruluğunu, ger�
 
 ## Kaynak kapsamı ve metrikler
 
-`lib/sources.ts` içinde **25 kayıtlı satır, 14 etkin bağımsız keşif kaynağı ve iki etkin zenginleştirme işi** vardır. Sekiz yazar yayını ayrı feed; GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community ve Lobsters diğer altı keşif kaynağıdır. Kayıtlı/etkin kaynak başarılı taranmış kaynak sayılmaz; `/sources` son denemeyi ve son başarıyı ayrı gösterir. Kod en az 10 etkin bağımsız kaynağı şart koşar; public hedef 25 **çalışan** bağımsız kaynaktır. X, Reddit, Product Hunt ve YouTube satırları henüz etkin değildir. Elle incelenmiş Product Hunt/web adayları sürekli Product Hunt taraması sayılmaz.
+`lib/sources.ts` içinde yerel modda **26 kayıtlı satır, 14 etkin bağımsız keşif kaynağı ve üç etkin zenginleştirme işi** vardır. Sekiz yazar yayını ayrı feed; GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community ve Lobsters diğer altı keşif kaynağıdır. Kayıtlı/etkin kaynak başarılı taranmış kaynak sayılmaz; `/sources` son denemeyi ve son başarıyı ayrı gösterir. Kod en az 10 etkin bağımsız kaynağı şart koşar; public hedef 25 **çalışan** bağımsız kaynaktır. X, Reddit, Product Hunt ve YouTube satırları henüz etkin değildir. Elle incelenmiş Product Hunt/web adayları sürekli Product Hunt taraması sayılmaz.
 
 Feed başına son 20 girdideki açık GitHub ve Hugging Face Space bağlantıları aday olur; yazıdaki tarih ürün lansmanı sayılmaz. Hugging Face beğeni sırası büyüme iddiası değildir. DEV reaksiyonu yazıya aittir. Lobsters'ın yalnız `ai` veya `ml` etiketli tartışmaları AI akışına girer. Geçmişte yanlış alınmış konu dışı kanıtlar tarihten silinmez, güncel akışa yansıtılmaz. Kaynağın `fetched` sayısı incelenen kayıt adedidir; benzersiz proje veya kalite puanı değildir.
 

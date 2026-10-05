@@ -31,7 +31,7 @@ Daily Snapshot → UTC day / source count / evidence count
 | `sourceIds` | Kaydın gözlendiği kaynaklar |
 | `reviewRequired`, `reviewReasons` | Belirsiz kimlik eşleşmesi |
 
-AI tool, model, AI role, stack, capability gibi alanlar canonical entity’de kanıtsız string’ler olarak çoğaltılmaz. `Evidence Object.field` üzerinden tutulur ve görünüm üretir. Collector’lar kaynak türüne göre `ai_tools`, `tech_stack`, `primary_language`, `repository`, `github_stars`, `hn_mention`, `discovery_reason`, `catalog_membership`, `community_discussion`, `editorial_reference`, `platform_trending`, `platform_rank` ve metadata alanlarını üretebilir. Bir platform sırası veya yıldız sayısı AI ile geliştirme kanıtı değildir. `models`, `ai_roles`, `capabilities` için alan kanıtı üreten collector henüz yoktur; model bilinmiyorsa UI Unknown gösterir.
+AI tool, model, AI role, stack, capability gibi alanlar canonical entity’de kanıtsız string’ler olarak çoğaltılmaz. `Evidence Object.field` üzerinden tutulur ve görünüm üretir. Collector’lar kaynak türüne göre `ai_tools`, `tech_stack`, `primary_language`, `repository`, `github_stars`, `hn_mention`, `discovery_reason`, `catalog_membership`, `community_discussion`, `editorial_reference`, `platform_trending`, `platform_rank`, `github_trending_daily`, `github_trending_developer` ve metadata alanlarını üretebilir. Bir platform sırası veya yıldız sayısı AI ile geliştirme kanıtı değildir. `models`, `ai_roles`, `capabilities` için alan kanıtı üreten collector henüz yoktur; model bilinmiyorsa UI Unknown gösterir.
 
 ## Evidence Object
 

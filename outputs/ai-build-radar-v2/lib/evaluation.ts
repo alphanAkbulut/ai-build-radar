@@ -50,6 +50,10 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
    const priorRank=Number(older?.value),movement=older&&Number.isInteger(priorRank)&&priorRank>=1&&priorRank<=20?priorRank-rank:null;
    const rankLabel=validRank?`#${rank}${movement===null?'':movement>0?` · ${movement} sıra yükseldi`:movement<0?` · ${-movement} sıra geriledi`:' · sıra değişmedi'} · `:'';
    signals.push({kind:'momentum',source:'Hugging Face',label:`Spaces trend listesinde ${rankLabel}platform içi sinyal`,url:e.sourceUrl,eventAt,checkedAt:e.observedAt,rank:validRank?rank:undefined});
+  }else if(e.field==='github_trending_daily'&&e.sourceId==='github-trending'&&Number(e.value)>=1&&Number(e.value)<=25){
+   signals.push({kind:'momentum',source:'GitHub Trending',label:e.quote,url:e.sourceUrl,eventAt:e.observedAt,checkedAt:e.observedAt,rank:Number(e.value)});
+  }else if(e.field==='github_trending_developer'&&e.sourceId==='github-trending'){
+   signals.push({kind:'mention',source:'GitHub Trending developers',label:e.quote,url:e.sourceUrl,eventAt:e.observedAt,checkedAt:e.observedAt});
   }else if(e.field==='community_discussion'){
    if(e.sourceId==='lobsters'){
     const raw=store.raw.find(row=>row.id===e.rawId)?.payload;

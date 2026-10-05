@@ -13,6 +13,7 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 - The [learning-collection pilot](docs/LEARNING-COLLECTION.en.md) and [Phase 1 validation](docs/VALIDATION.en.md) are dated history, not current runtime reports.
 - [Source audit for the daily AI product prompt](docs/SOURCE-EXPANSION.en.md) ([Türkçe](docs/SOURCE-EXPANSION.md)) records verified candidate sources, access/licensing constraints, and integration order. `/briefing` offers a short read derived from existing data.
 - [TrendRadar comparison](docs/TRENDRADAR-BENCHMARK.en.md) ([Türkçe](docs/TRENDRADAR-BENCHMARK.md)) records runtime evidence, aggregator dependencies, and the ranking/source-visibility ideas adapted for Radar.
+- [GitHub Trending source audit](docs/GITHUB-TRENDING.en.md) ([Türkçe](docs/GITHUB-TRENDING.md)) covers repository/developer signals, the first real run, and private-PoC limits.
 - [AGENTS.md](AGENTS.md) defines agent working rules, not the product architecture.
 
 **Documentation maintenance rule:** With every product/code change, update the affected screen and business rule in the [architecture memory](docs/ARCHITECTURE.en.md) and matching English/Turkish topic documents. Verify “current” numbers against code; use `/sources` run records for working coverage and additions. Preserve old measurements as dated pilot history instead of presenting them as today's state. Code is the executable contract; a GitHub push does not back up live ingestion data or local passwords.
@@ -21,8 +22,8 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 
 | Area | Current implementation |
 | --- | --- |
-| Sources | 25 registered rows; 14 enabled independent discovery sources plus 2 enabled enrichment jobs. Enabled does not mean successfully scanned: read `/sources`. The public target is 25 **working independent discovery sources**. |
-| Discovery | Candidates from GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, and eight author publications. This is not a crawl of the whole web. |
+| Sources | In local mode, 26 registered rows; 14 enabled independent discovery sources plus 3 enabled enrichment jobs (GitHub Trending runs only locally). Enabled does not mean successfully scanned: read `/sources`. The public target is 25 **working independent discovery sources**. |
+| Discovery | Candidates from GitHub search, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters, and eight author publications; GitHub Trending repository/developer lists add a separate signal from the same platform. This is not a crawl of the whole web. |
 | Learning selection | Requires a sourced purpose, recently tested interaction, real preview, concrete differentiator, and application steps. The gate does not automatically judge “wow” quality. |
 | Access | Private local password and session. A Supabase schema exists, but no connected hosted project or public deployment. |
 | AI summaries | No external AI API is connected. Missing-language summaries are not presented as generated translations. |

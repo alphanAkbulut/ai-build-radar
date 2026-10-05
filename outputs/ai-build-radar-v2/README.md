@@ -13,6 +13,7 @@
 - [Öğrenme koleksiyonu pilotu](docs/LEARNING-COLLECTION.md) ve [ilk faz doğrulaması](docs/VALIDATION.md) tarihsel kayıtlardır; güncel sayı veya davranış raporu olarak kullanılmaz.
 - [Günlük AI ürün promptu için kaynak denetimi](docs/SOURCE-EXPANSION.md) ([English](docs/SOURCE-EXPANSION.en.md)): doğrulanan kaynak adayları, erişim/lisans sınırları ve entegrasyon sırası. Mevcut veriden üretilen kısa okuma `/briefing` ekranındadır.
 - [TrendRadar karşılaştırması](docs/TRENDRADAR-BENCHMARK.md) ([English](docs/TRENDRADAR-BENCHMARK.en.md)): gerçek çalışma durumu, kaynak bağımlılığı ve Radar'a uyarlanan sıra/kaynak görünürlüğü.
+- [GitHub Trending kaynak denetimi](docs/GITHUB-TRENDING.md) ([English](docs/GITHUB-TRENDING.en.md)): repo/geliştirici sinyalleri, ilk gerçek koşu ve private PoC sınırları.
 - [AGENTS.md](AGENTS.md) agent çalışma kurallarıdır; ürün mimarisinin yerine geçmez.
 
 **Doküman güncelleme kuralı:** Her ürün/kod değişikliğinde etkilenen ekran ve iş kuralını [mimari hafızada](docs/ARCHITECTURE.md) ve ilgili Türkçe/İngilizce konu belgelerinde birlikte düzeltin. “Şu an” sayıları koddan doğrulayın; işleyen kaynak ve yeni kayıt sayıları için `/sources` koşu kaydına bakın. Eski ölçümü tarihli pilot belgesinde koruyun, bugünkü durum diye sunmayın. Kodun kendisi sözleşmenin uygulamasıdır; GitHub’a push canlı ingestion verisini veya yerel parolayı yedeklemez.
@@ -21,8 +22,8 @@
 
 | Alan | Mevcut durum |
 | --- | --- |
-| Kaynak | 25 kayıtlı satırdan 14 bağımsız keşif kaynağı, ayrıca 2 zenginleştirme işi etkin. Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. Public hedefi 25 **çalışan bağımsız keşif kaynağıdır**. |
-| Veri | GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters ve sekiz kişi yayını üzerinden adaylar. Bütün internet taranmıyor. |
+| Kaynak | Yerel modda 26 kayıtlı satırdan 14 bağımsız keşif kaynağı, ayrıca 3 zenginleştirme işi etkin (GitHub Trending yalnız yerel modda açılır). Etkin olmak başarılı tarama demek değildir; son durum `/sources` ekranındadır. Public hedefi 25 **çalışan bağımsız keşif kaynağıdır**. |
+| Veri | GitHub araması, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters ve sekiz kişi yayını üzerinden adaylar; ayrıca GitHub Trending repo/geliştirici listeleri aynı platformun ayrı sinyali olarak okunur. Bütün internet taranmıyor. |
 | Seçki | Kaynaklı amaç, yakın zamanda denenmiş demo, gerçek önizleme, fark ve öğrenme adımları gerekir. Bu kapı otomatik “wow” değerlendirmesi yapmaz. |
 | Erişim | Yerel parola ve oturumla private. Supabase şeması hazır; bağlı hosted proje/public dağıtım yok. |
 | AI özet | Harici AI API’si bağlı değil. Hazır olmayan dilde özet üretilmiş gibi gösterilmez. |
