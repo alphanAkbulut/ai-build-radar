@@ -1,6 +1,6 @@
 # AI ile geliştirilme iddiası: kanıt ve sınırlar
 
-**Durum:** 5 Ekim 2026 tarihli ürün kararı ve araştırma notu. [English](AI-DEVELOPMENT-EVIDENCE.en.md) · [Veri sözleşmesi](MODEL.md) · [Karar kaydı](DECISIONS.md). Bu belge bugünkü Radar davranışını hedef araştırmadan ayırır; yeni bir collector'ın veya sağlayıcı bağlantısının çalıştığını iddia etmez.
+**Durum:** 6 Ekim 2026 tarihli ürün kararı ve araştırma notu. [English](AI-DEVELOPMENT-EVIDENCE.en.md) · [Veri sözleşmesi](MODEL.md) · [Karar kaydı](DECISIONS.md). Bu belge bugünkü Radar davranışını hedef araştırmadan ayırır; yeni bir collector'ın veya sağlayıcı bağlantısının çalıştığını iddia etmez.
 
 ## Asıl soru
 
@@ -27,6 +27,16 @@
 3. Yetkili provider kayıtları ileride alınırsa **commit/değişiklik kapsamı** ve sağlayıcı adıyla ayrı kanıtlanır. Tek bir agent commit'inden “ürünün tamamı AI ile yapıldı” sonucu çıkarılmaz. Özel ekip telemetrisi izin, gizlilik, maliyet ve erişim kararı olmadan toplanmaz.
 4. Kod benzerliği veya dosya işareti `Derived` aday sinyali olarak iç incelemeye gidebilir; üretici beyanı yerine geçmez. Eksik kanıt `Unknown` kalır; “AI kullanılmadı” anlamına gelmez.
 5. AI ile geliştirildi, AI özellikli, hangi model kullanıldı ve ne kadar AI katkısı var soruları ayrı alanlardır. Yüzdelik katkı veya “%90 kesin” etiketi, tanımlı örneklem ve kalibrasyon olmadan gösterilmez.
+
+## Çapraz kontrol ve beyan manipülasyonu · hedef kural
+
+README veya proje açıklamasındaki “AI ile yapıldı” ifadesi, sahibin kendi iddiasıdır; otomatik olarak bağımsız doğrulama değildir. Hacker News, Product Hunt ve blogların aynı README'yi veya basın metnini aktarması **üç bağımsız kanıt** sayılmaz. Kaynakları `özgün iddia → bağımlı tekrarlar` ilişkisiyle grupla; proje/repo/site kimliğini eşleştir, özgün yayın tarihini ve doğrudan alıntının kapsamını sakla. Bağımsız yazarın ürünü denemesi demo işlevini doğrulayabilir, fakat yalnız geliştiriciden duyduğu araç adını tekrar etmesi geliştirme yöntemini doğrulamaz. Çelişen kaynakları ve kaldırılan beyanları incelemeye çıkar.
+
+AI ile geliştirme için güçlü doğrulama, ilgili **değişikliğe** bağlı erişilebilir agent oturumu, imzalı agent commit'i veya yetkili sağlayıcı kaydı gibi doğrudan iz gerektirir; kapsam bütün ürüne genişletilmez. Geliştirici beyanı yine değerli `Builder-stated` kanıtıdır ve görünür biçimde öyle etiketlenir. Kod benzerliği, araç yönerge dosyası veya AI dedektörü en fazla `Derived` inceleme sinyali olabilir. Birden fazla platformdaki tarihli güçlü ilgi, projeyi **Gündem incelemesinde öne alabilir**; AI geliştirme kanıtı olmadan “AI ile geliştirildi” grubuna taşıyamaz. Çalışan demo ve kaynaklı açıklama varsa “AI alanında ilgi gören, geliştirme yöntemi bilinmiyor” olarak ayrı gösterilebilir.
+
+Instagram benzetmesinin sınırı: Meta, AI içerik etiketlerinde üretici araçların dosyaya koyduğu C2PA/IPTC işaretleri, görünmez filigranlar ve kişinin kendi bildirimini kullanıyor; tüm AI içeriklerini tanıyabildiğini söylemiyor. Hafif AI düzenlemesinin bile yanlış kapsamda “Made with AI” etiketine yol açtığını açıkladı. [Meta'nın açıklaması](https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/) ve [C2PA'nın köken sınırları](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html), bir medya dosyasının izinin bütün bir yazılımın kod yazarlığına taşınamayacağını gösterir. Yazılım için evrensel, zorunlu ve aynı şekilde taşınan bir üretim işareti elimizde yok.
+
+**Uygulama öncesi kontrol:** R01'de birinci taraf beyanı, kopya/yankı haber, bağımsız demo gözlemi, doğrudan agent izi ve kanıtsız viral örneklerden etiketli bir örneklem oluştur. Her iddia için kapsam, özgün kaynak, bağımlı tekrarlar, tarih ve karşı kanıt kaydedilsin. Yanlış pozitifler ölçülmeden kaynak sayısına göre “Verified” yükseltmesi veya otomatik yayın yapılmasın. Bu bağımlılık grafiği ve yeni kapı bugün **uygulanmış değildir**.
 
 **Bugünkü uygulama:** GitHub açıklaması veya bağlı README'nin ilk bölümündeki doğrudan geliştirme aracı beyanı `Builder-stated` üretebilir. Radar bugün kod yazarlığı dedektörü, Copilot oturum doğrulayıcısı veya Cursor yönetici API'si çalıştırmıyor. `Verified` AI geliştirme aracı ataması otomatik üretilmiyor. İlk sonraki iş, [R01 örneklem denetiminde](https://github.com/alphanAkbulut/ai-build-radar/issues/1) pozitif/negatif etiketleri elle kontrol etmek; yanlış pozitif ve kanıt kapsamını kaynak bazında raporlamak. Daha geniş otomasyon ancak bu hata ölçümüne göre seçilir.
 

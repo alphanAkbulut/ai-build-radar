@@ -1,6 +1,6 @@
 # Evidence for AI-assisted development: claims and limits
 
-**Status:** Product decision and research note dated 5 October 2026. [Türkçe](AI-DEVELOPMENT-EVIDENCE.md) · [Data contract](MODEL.en.md) · [Decision log](DECISIONS.en.md). This distinguishes current Radar behavior from research targets; it does not claim a new collector or provider integration is running.
+**Status:** Product decision and research note dated 6 October 2026. [Türkçe](AI-DEVELOPMENT-EVIDENCE.md) · [Data contract](MODEL.en.md) · [Decision log](DECISIONS.en.md). This distinguishes current Radar behavior from research targets; it does not claim a new collector or provider integration is running.
 
 ## The actual question
 
@@ -27,6 +27,16 @@
 3. If authorized provider records become available, record their **commit/change scope** and provider. One agent-authored commit cannot imply that the whole product was AI-built. Private team telemetry requires access, privacy, cost, and permission decisions before collection.
 4. Code similarity or a file clue may be an internal `Derived` review signal; it cannot replace an owner statement. Missing evidence remains `Unknown`, which does not mean “no AI was used.”
 5. Built with AI, has AI functionality, model used, and amount of AI contribution are separate fields. Do not display a percentage contribution or “90% certain” badge without a defined sample and calibration.
+
+## Cross-checking and claim manipulation · target rule
+
+“Built with AI” in a README or project description is the owner's own claim, not independent verification. Hacker News, Product Hunt, and blogs repeating the same README or press release are **not three independent proofs**. Group sources by `original claim → dependent repetitions`; match product/repository/site identity and retain the original publication date and exact claim scope. An independent author trying the product may verify demo behavior, but repeating a tool name learned only from the builder does not verify the development method. Send conflicting sources and withdrawn statements to review.
+
+Strong AI-development verification requires a direct trace tied to the relevant **change**, such as an accessible agent session, signed agent-authored commit, or authorized provider record; do not extend its scope to the entire product. The builder's statement remains useful `Builder-stated` evidence and must be labeled as such. Code similarity, agent-instruction files, and AI detectors can at most produce internal `Derived` review signals. Strong, dated attention across platforms can prioritize a product for **feed review**; it cannot move the product into a “built with AI” group without development evidence. With a working demo and sourced explanation it may appear separately as “attention in AI; development method unknown.”
+
+The Instagram analogy has limits: Meta uses C2PA/IPTC indicators inserted by generation tools, invisible watermarks, and user disclosure for AI-content labels; it does not claim to identify all AI-generated content. It also explained that minor AI edits could trigger an overbroad “Made with AI” label. [Meta's explanation](https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/) and [C2PA's provenance limits](https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html) show why an individual media asset's provenance cannot be projected onto all the code behind a software product. Radar has no universal, mandatory, portable generation marker for software.
+
+**Before implementation:** R01 should label a sample covering owner statements, copied/echoed articles, independent demo observations, direct agent traces, and viral examples without development evidence. Record claim scope, original source, dependent repetitions, dates, and counter-evidence. Measure false positives before source-count-based promotion to `Verified` or automatic publication. This source-dependency graph and new gate are **not implemented today**.
 
 **Current implementation:** A direct development-tool statement in a GitHub description or the first section of a linked README can produce `Builder-stated`. Radar currently runs no code-authorship detector, Copilot session verifier, or Cursor admin API integration. It does not automatically produce `Verified` AI-development-tool attribution. The first next step is [R01's labeled audit](https://github.com/alphanAkbulut/ai-build-radar/issues/1) of positive and negative examples, reporting false positives and claim scope by source. Further automation should follow that error measurement.
 
