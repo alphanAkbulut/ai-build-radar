@@ -5,9 +5,10 @@ import {sources} from './sources';
 import {toolClaims} from './collectors';
 import {latestEvidence} from './projections';
 import {publishableEvidence} from './relevance';
+import {verifiedAgentContribution} from './agent-contribution';
 
 export type FeedSignal={kind:'momentum'|'mention'|'discovery';source:string;label:string;url:string;eventAt:string;checkedAt:string;rank?:number};
-export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';aiEvidence:{sourceUrl:string;quote:string;tool:string;observedAt:string}|null;tools:string[]};
+export type FeedCard={id:string;name:string;description:string;category:string;siteUrl:string;signals:FeedSignal[];status:'momentum'|'mentioned'|'discovered';lastEventAt:string;firstSeenAt:string;aiStatus:'Verified'|'Builder-stated'|'Derived'|'Unknown';agentVerified?:boolean;aiEvidence:{sourceUrl:string;quote:string;tool:string;observedAt:string}|null;tools:string[]};
 const WEEK=7*86400000, DAY=86400000;
 function recent(at:string,now:number,limit:number){const age=now-Date.parse(at);return Number.isFinite(age)&&age>=0&&age<=limit;}
 function sourceName(id:string){return sources.find(s=>s.id===id)?.name||id;}
@@ -64,12 +65,13 @@ export function evaluateFeedBuild(store:Store,build:Build,now=Date.now()):FeedCa
  }
  const aiClaims=evidence.filter(e=>e.field==='ai_tools'&&(e.sourceId!=='github'||toolClaims(e.quote,e.locator).some(claim=>claim.value===e.value)));
  const directClaim=aiClaims.find(e=>e.status==='Verified')||aiClaims.find(e=>e.status==='Builder-stated');
+ const agentContribution=verifiedAgentContribution(store,build.id);
  if(!signals.length&&directClaim&&recent(build.firstSeenAt,now,WEEK))signals.push({kind:'discovery',source:sourceName(directClaim.sourceId),label:'Radar yeni keşfetti · AI geliştirme beyanı kaynaklı',url:directClaim.sourceUrl,eventAt:build.firstSeenAt,checkedAt:directClaim.observedAt});
  if(!signals.length)return null;
  signals.sort((a,b)=>Date.parse(b.eventAt)-Date.parse(a.eventAt));
  const status=signals.some(s=>s.kind==='momentum')?'momentum':signals.some(s=>s.kind==='mention')?'mentioned':'discovered';
  const kind=status==='momentum'?'momentum':status==='mentioned'?'mention':'discovery';
- return {id:build.id,name:build.name,description,category:categoryFor(build).label,siteUrl,signals,status,lastEventAt:signals.find(s=>s.kind===kind)!.eventAt,firstSeenAt:build.firstSeenAt,aiStatus:directClaim?.status||aiClaims[0]?.status||'Unknown',aiEvidence:directClaim?{sourceUrl:directClaim.sourceUrl,quote:directClaim.quote,tool:directClaim.value,observedAt:directClaim.observedAt}:null,tools:[...new Set(aiClaims.map(e=>e.value))]};
+ return {id:build.id,name:build.name,description,category:categoryFor(build).label,siteUrl,signals,status,lastEventAt:signals.find(s=>s.kind===kind)!.eventAt,firstSeenAt:build.firstSeenAt,aiStatus:agentContribution?'Verified':directClaim?.status||aiClaims[0]?.status||'Unknown',agentVerified:!!agentContribution,aiEvidence:directClaim?{sourceUrl:directClaim.sourceUrl,quote:directClaim.quote,tool:directClaim.value,observedAt:directClaim.observedAt}:null,tools:[...new Set(aiClaims.map(e=>e.value))]};
 }
 export function evaluateFeed(store:Store,now=Date.now()){
  const cards=store.builds.flatMap(b=>{const result=evaluateFeedBuild(store,b,now);return result?[result]:[]});

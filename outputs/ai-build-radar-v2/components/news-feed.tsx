@@ -5,6 +5,7 @@ import {feedByDevelopmentEvidence,type FeedCard} from '@/lib/evaluation';
 import {lessons} from '@/lib/lessons';
 import {selectionFor} from '@/lib/selection';
 import {developmentScope} from '@/lib/development-scope';
+import {AiProvenanceBadge} from './ai-provenance-badge';
 
 export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[];mentioned:FeedCard[]}}){
  const proven=feedByDevelopmentEvidence(feed,'ai');
@@ -30,7 +31,8 @@ export function NewsFeed({feed}:{feed:{momentum:FeedCard[];discovered:FeedCard[]
     {reviewed&&<Link href={'/learn/'+reviewed.slug} className="radar-feed-preview"><img src={'/preview/'+card.id} alt={reviewed.name+' — '+(reviewed.media?.label||'Radar ekran görüntüsü')} loading="lazy"/></Link>}
     <span className="feed-signal-tag" data-kind={card.status}>{card.status==='momentum'?'İlgi gördü':card.status==='discovered'?'Yeni keşif':'Bahsedildi'}</span>
     {reviewed&&<span className="feed-signal-tag" data-kind="lesson">Öğrenme dersi hazır</span>}
-    <small>{card.category} · {card.aiStatus==='Verified'?'AI ile geliştirme doğrulandı':card.aiStatus==='Builder-stated'?'AI ile geliştirme: üretici beyanı':'AI ile geliştirildiği belirsiz'}</small>
+    <small>{card.category} · {card.agentVerified?'Belirli değişiklikte agent katkısı':card.aiStatus==='Verified'?'AI geliştirme kanıtı':card.aiStatus==='Builder-stated'?'AI geliştirme: üretici beyanı':'AI ile geliştirildiği belirsiz'}</small>
+    <AiProvenanceBadge buildId={card.id} agentVerified={!!card.agentVerified} builderStated={card.aiStatus==='Builder-stated'}/>
     <h3><Link href={'/builds/'+card.id}>{card.name}</Link></h3>
     <p><strong>Ne yapıyor?</strong> {card.description}</p>
     <div className="discovery-reason"><strong>{card.status==='momentum'?'Neden gündemde?':card.status==='discovered'?'Neden eklendi?':'Nerede bahsedildi?'}</strong>{relevantSignals.map((signal,i)=><p key={i}><a href={signal.url} target="_blank" rel="noopener noreferrer">{signal.source} · {signal.label} ↗</a><small> · Olay/gözlem: {date(signal.eventAt)}</small></p>)}<small>Radar ilk gördü: {date(card.firstSeenAt)} · Kanıt son kontrol: {date(relevantSignals[0]?.checkedAt||card.lastEventAt)}</small></div>

@@ -40,6 +40,8 @@ Instagram benzetmesinin sınırı: Meta, AI içerik etiketlerinde üretici araç
 
 **Bugünkü uygulama:** GitHub açıklaması veya bağlı README'nin ilk bölümündeki doğrudan geliştirme aracı beyanı `Builder-stated` üretebilir. Radar bugün kod yazarlığı dedektörü, Copilot oturum doğrulayıcısı veya Cursor yönetici API'si çalıştırmıyor. `Verified` AI geliştirme aracı ataması otomatik üretilmiyor. İlk sonraki iş, [R01 örneklem denetiminde](https://github.com/alphanAkbulut/ai-build-radar/issues/1) pozitif/negatif etiketleri elle kontrol etmek; yanlış pozitif ve kanıt kapsamını kaynak bazında raporlamak. Daha geniş otomasyon ancak bu hata ölçümüne göre seçilir.
 
+**Arayüz kuralı (6 Ekim 2026):** Turuncu “Geliştirici beyanı” rozeti, yalnız kaynaklı `Builder-stated` AI geliştirme iddiasını gösterir. Yeşil “Agent katkısı kanıtlı” rozeti, yalnız `agent_contribution: Verified` kanıt nesnesinde belirli GitHub commit URL’si, ayrı agent oturum bağlantısı ve kayıtlı kaynak açıklaması bulunduğunda görünür. Rozet kanıt ayrıntısına gider; “ürünün tamamı AI ile geliştirildi” anlamına gelmez. Genel GitHub Verified imzası, AI ürün özelliği veya yıldız sayısı bu rozeti üretmez. Bu koşullar **sunum kapısıdır**, commit yazarı ve oturumu otomatik doğrulayan bir collector değildir. Bugünkü yerel veride bu koşulları sağlayan kayıt yoktur; yeşil rozet gerçek bir doğrudan iz incelenip kaydedilene kadar görünmez.
+
 ## Belge kaynakları
 
 - Suh ve arkadaşları, [*An Empirical Study on Automatically Detecting AI-Generated Source Code*](https://arxiv.org/abs/2411.04299), ICSE 2025 için kabul edilen çalışma.

@@ -40,6 +40,8 @@ The Instagram analogy has limits: Meta uses C2PA/IPTC indicators inserted by gen
 
 **Current implementation:** A direct development-tool statement in a GitHub description or the first section of a linked README can produce `Builder-stated`. Radar currently runs no code-authorship detector, Copilot session verifier, or Cursor admin API integration. It does not automatically produce `Verified` AI-development-tool attribution. The first next step is [R01's labeled audit](https://github.com/alphanAkbulut/ai-build-radar/issues/1) of positive and negative examples, reporting false positives and claim scope by source. Further automation should follow that error measurement.
 
+**Interface rule (6 October 2026):** The orange “Builder statement” badge indicates only a sourced `Builder-stated` AI-development claim. The green “Agent contribution evidenced” badge appears only when an `agent_contribution: Verified` Evidence Object has a specific GitHub commit URL, a separate agent-session link, and recorded source context. It links to the evidence detail; it does not claim the entire product was AI-built. A generic GitHub Verified signature, an AI product feature, or star count cannot trigger it. These checks are a **display gate**, not an automated commit-author/session verification collector. No current local record meets them; the green badge stays absent until a direct trace is reviewed and recorded.
+
 ## Sources
 
 - Suh et al., [*An Empirical Study on Automatically Detecting AI-Generated Source Code*](https://arxiv.org/abs/2411.04299), accepted at ICSE 2025.
