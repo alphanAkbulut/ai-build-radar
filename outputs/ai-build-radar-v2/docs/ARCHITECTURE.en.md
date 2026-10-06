@@ -58,6 +58,8 @@ Registered but **disabled** today: general builder/expert watchlist (45 min), X 
 
 `scripts/worker.ts` checks due work roughly every 30 seconds; `scripts/ingest.ts` processes due work once. Run/source states retain last attempt, last success, next run, and `running`/`completed`/`partial`/`failed`. Errors back off. A sleeping computer or stopped worker performs no scans. One worker must own a shared data directory. The pipeline uses a lock and atomic writes; raw records and evidence are preserved while current projections can change.
 
+The worker loads the source registry when its process starts. After adding an RSS source or adapter, the old worker cannot scan it merely because its code file changed; restart it gracefully while preserving the one-worker rule. `/news` separately shows the planned news interval, source count, and last successful news-source check. Article publication time and scan time remain distinct.
+
 ## 4. Build identity, deduplication, and evidence
 
 The primary unit in `lib/schema.ts` is a **Build Entity**: ID, canonical URL, aliases, name, description, creator, category, first/last seen times, source associations, and context. `firstSeenAt` is when Radar first saw it, not the launch date or the start of a trend. An evidenced first public release can be separate; otherwise it remains unknown. An article's publication date is not automatically a product launch.

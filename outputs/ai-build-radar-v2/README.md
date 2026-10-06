@@ -50,6 +50,8 @@ pnpm build
 
 `pnpm ingest` zamanı gelen etkin kaynakları bir defa işler. `pnpm worker` yaklaşık 30 saniyede bir kontrol eder. Mevcut yerel kurulum `RADAR_DATA_DIR` ile önceki sürümün verisini paylaşabilir; **aynı veri dizinine iki worker başlatmayın.** Başlatıcı ikinci worker açmaz. Bilgisayar uyurken veya worker durmuşken güncelleme olmaz. Son deneme, başarı, eklenen kayıt ve hatalar `/sources` ekranında görünür.
 
+**Yeni kaynak eklendiğinde çalışan worker’ı yeniden başlatın.** Uzun ömürlü süreç kaynak listesini başlangıçta yükler; kod güncellense bile eski süreç yeni RSS kaynağını taramaz. Yeniden başlatmadan önce eski worker’ın kapandığını ve `.ingest-lock` kilidinin temizlendiğini doğrulayın. `/news` kendi tarama planını ve son başarılı haber kontrolünü gösterir; genel “son tarama” başka bir kaynağın kontrolü olabilir.
+
 ## Dizin haritası
 
 | Yer | İçerik |

@@ -50,6 +50,8 @@ pnpm build
 
 `pnpm ingest` processes currently due enabled sources once. `pnpm worker` checks for due sources about every 30 seconds. The local v2 setup may use `RADAR_DATA_DIR` to share v1 data: **never start two workers on the same directory.** The launcher does not start another worker. Scanning stops when the computer sleeps or the worker stops. Last attempt, last success, additions, and errors are visible on `/sources`.
 
+**Restart the running worker after adding a source.** A long-lived process loads the registry at startup; changing code does not make an old process scan a new RSS feed. Before restarting, confirm the old worker has exited and the `.ingest-lock` is clear. `/news` shows its own schedule and last successful news check; the global “last scan” may refer to another source.
+
 ## Directory map
 
 | Path | Responsibility |

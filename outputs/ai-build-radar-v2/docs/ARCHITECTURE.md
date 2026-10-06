@@ -56,6 +56,8 @@ Kayıtta olup bugün **kapalı** olanlar: genel builder/expert watchlist (45 dk)
 
 Worker [`scripts/worker.ts`](../scripts/worker.ts) ile yaklaşık 30 saniyede bir zamanı gelenleri kontrol eder; bir defalık [`scripts/ingest.ts`](../scripts/ingest.ts) aynı kuralı çalıştırır. Kaynak son deneme/başarı/gelecek zamanları ve `running`, `completed`, `partial`, `failed` durumları saklanır. Hata durumunda bekleme uzar; bilgisayar kapalıyken tarama yoktur. “Kaynak etkin” ifadesi “bugün veri getirdi” anlamına gelmez.
 
+Worker kaynak listesini süreç başlangıcında yükler. Yeni RSS kaynağı veya adapter eklendiğinde eski worker aynı kod dosyası değişse bile yeni kaynağı taramaz; tek worker kuralını koruyarak kontrollü yeniden başlatma gerekir. `/news` planlanan haber aralığını, kaynak sayısını ve yalnız haber kaynaklarının son başarılı kontrolünü ayrıca gösterir. Yayın tarihi ile tarama tarihi farklıdır.
+
 ## 4. Build Entity, duplicate ve Evidence
 
 [`lib/schema.ts`](../lib/schema.ts) içindeki ana veri birimi **Build Entity**’dir: kimlik, kanonik URL, alias’lar, ad, açıklama, üretici, kategori, ilk/son görülme zamanı, kaynaklar ve bağlam. `firstSeenAt` Radar’ın ilk gördüğü tarihtir; ürünün ilk yayını veya trend başlangıcı değildir. İlk public yayın kanıt yoksa boş kalır. Bir yazının yayın tarihi ürün lansmanına çevrilmez.

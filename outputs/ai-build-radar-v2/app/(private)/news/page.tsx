@@ -18,6 +18,9 @@ export default async function NewsPage({searchParams}:{searchParams:Promise<{per
   const published=Date.parse(event.publishedAt);
   return Number.isFinite(published)&&published>=after&&published<=now;
  }).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt));
+ const newsSources=sources.filter(source=>source.kind==='News'&&source.enabled);
+ const lastNewsSuccess=newsSources.map(source=>store.sourceStates[source.id]?.lastSuccessAt).filter((value):value is string=>!!value).sort().at(-1)||null;
+ const newsInterval=new Set(newsSources.map(source=>source.intervalMinutes)).size===1?`${newsSources[0]?.intervalMinutes/60} saatte bir`:'kaynağa göre değişir';
  const pages=Math.max(1,Math.ceil(all.length/12));
  const requested=Number(params.page),page=Number.isInteger(requested)&&requested>0?Math.min(requested,pages):1;
  const visible=all.slice((page-1)*12,page*12);
@@ -26,6 +29,7 @@ export default async function NewsPage({searchParams}:{searchParams:Promise<{per
   <div className="discovery-heading"><div><p className="eyebrow">KAYNAĞINDAN YAPAY ZEKA HABERLERİ</p><h1>News<span className="orange">.</span></h1><p>Başlığı, yayıncının kısa açıklamasını ve varsa yazarı okuyup habere geç. RSS açıklamasında açık proje bağlantısı varsa ayrıca gösterilir; bir bağlantı ürünün çalıştığına veya AI ile geliştirildiğine kanıt değildir.</p></div><span className="total-label">{all.length} haber · {hours===48?'Son 48 saat':'Son 7 gün'}</span></div>
   <nav className="people-tabs" aria-label="Haber zaman aralığı"><Link className={period==='recent'?'active':''} href="/news">Son 48 saat</Link><Link className={period==='week'?'active':''} href="/news?period=week">Son 7 gün</Link></nav>
   <p className="collection-note">Yayın tarihine göre sıralanır. Kısa açıklamalar yayıncının kendi dilindedir; Radar henüz AI ile Türkçe özet veya övgü değerlendirmesi üretmiyor. RSS'te bağlantı yoksa tam makaledeki bağlantılar tespit edilemez.</p>
+  <p className="collection-note" role="status">Haber tarama planı: {newsInterval} · {newsSources.length} RSS kaynağı · Son başarılı haber kontrolü: {lastNewsSuccess?date(lastNewsSuccess):'Henüz yok'}. Haberlerin yayın zamanı bu kontrolden ayrıdır. <Link href="/sources">Kaynak durumları →</Link></p>
   {!visible.length&&<div className="lesson-panel"><h2>Bu aralıkta haber yok</h2><p>Son tarama durumunu Kaynaklar ekranında görebilirsin. Kayıtlı bir akışın çalıştığı varsayılmaz.</p><Link href="/sources">Kaynak durumunu gör →</Link></div>}
   <div className="news-list">{visible.map(event=>{
    const matched=linkedNewsBuilds(event,store),matchedUrls=new Set(matched.flatMap(build=>[build.canonicalUrl,...build.aliases].map(url=>canonicalize(url))));
