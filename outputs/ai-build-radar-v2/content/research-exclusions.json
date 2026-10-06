@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ninety-europe",
+    "name": "Ninety",
+    "site": "https://ninety-europe.vercel.app/",
+    "builderPost": "https://dev.to/kiter/ninety-i-vibe-coded-a-schengen-day-accountant-that-admits-when-it-doesnt-know-gja",
+    "reviewedAt": "2026-10-06",
+    "decision": "do-not-publish",
+    "reason": "Canlı örnek, Kanarya Adaları ve İzlanda günlerini Schengen dışında sayıyor. Avrupa Birliği'nin resmî kaynakları Kanarya Adaları'nın Schengen alanına dahil olduğunu ve İzlanda'nın üye olduğunu belirtiyor. Kullanıcıya yanlış seyahat hakkı hesabı gösterebilen bir demoyu seçki veya gündem kartı olarak sunma; ancak temel sınıflandırma düzeltilip bağımsız doğrulama yapılırsa yeniden değerlendir.",
+    "observed": "Varsayılan 'The year in Europe' örneğinde Kanarya Adaları günleri 'outside the area', İzlanda için ürün yazısı 'not Schengen Area' diyor.",
+    "officialEvidence": [
+      "https://www.europarl.europa.eu/doceo/document/E-7-2010-2602-ASW_EN.html",
+      "https://www.consilium.europa.eu/media/32853/2017_140_schengen_a1_web.pdf",
+      "https://home-affairs.ec.europa.eu/policies/schengen/border-crossing/short-stay-calculator_en"
+    ]
+  }
+]

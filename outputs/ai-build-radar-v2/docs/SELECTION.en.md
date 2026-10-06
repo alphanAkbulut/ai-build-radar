@@ -26,6 +26,8 @@ On 5 October the code-derived snapshot was **23 lesson records: five selected an
 
 The gate checks the presence and freshness of editorial material, not factual quality, audience praise, or the “wow” effect. Reviews in `content/lesson-reviews.json` are curated. Autonomous browser review, sentiment analysis, and lesson generation for every candidate are not implemented. The **Apply to my project** action has a separate reproduction-test gate in `lib/adaptation.ts`. Radar's suggested tools are not attributed to the original builder.
 
+Manually researched but unpublished candidates live in `content/research-discoveries.json`; dated exclusion decisions live in `content/research-exclusions.json`. Consult the exclusions before promoting a candidate. These files are editorial review memory, not an automatic publication gate in the current code.
+
 ## Coverage and metrics
 
 `lib/sources.ts` has in local mode **46 registered rows, 24 enabled independent product-discovery sources, 10 news feeds, and three enabled enrichment jobs**. Eight author feeds, ten independent publication feeds, and GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, and Lobsters make up discovery. Publication feeds contribute dated explicit project links only; they do not prove lesson quality or AI-assisted development. Registered/enabled does not mean a successful run: inspect `/sources`. The code enforces a floor of ten enabled independent sources; the public goal is 25 **working** ones. X, Reddit, Product Hunt, and YouTube are not enabled. Manually researched Product Hunt/web candidates do not imply a running Product Hunt connector.

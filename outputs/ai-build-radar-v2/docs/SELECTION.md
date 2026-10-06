@@ -26,6 +26,8 @@ GitHub'ın günlük Trending repo listesinde görünmek ayrıca platform içi il
 
 Kontrol bugün içeriğin varlığı ve tarihe bakar; metnin doğruluğunu, gerçek kullanıcı övgüsünü veya “vay be” etkisini otomatik değerlendirmez. İnceleme kayıtları `content/lesson-reviews.json` içinde editoryaldir; otomatik tarayıcı gezintisi, yorum duygu analizi ve her aday için ders üretimi yoktur. `Projeme uyarla` düğmesinin ayrıca yeniden üretim testi kapısı vardır (`lib/adaptation.ts`). Radar'ın önerdiği araçlar geliştiricinin kullandığı araçlar diye sunulmaz.
 
+Elle araştırılmış fakat henüz yayınlanmamış adaylar `content/research-discoveries.json` içinde, tarihli dışlama kararları `content/research-exclusions.json` içinde tutulur. Bir adayı seçkiye taşımadan önce dışlama kayıtlarını kontrol et. Bu dosyalar şu anda yayın kodunun otomatik kapısı değildir; yanlış olgusal iddiaların yeniden yayınlanmasını önleyen editoryal inceleme hafızasıdır.
+
 ## Kaynak kapsamı ve metrikler
 
 `lib/sources.ts` içinde yerel modda **46 kayıtlı satır, 24 etkin bağımsız ürün keşif kaynağı, 10 haber akışı ve üç etkin zenginleştirme işi** vardır. Sekiz yazar yayını, on bağımsız yayın akışı ve GitHub, Hacker News, One’s Vibe, Hugging Face Spaces, DEV Community, Lobsters bu keşif kaynaklarını oluşturur. Yayın akışları yalnız tarihli açık proje bağlantısı verir; seçki kalitesini veya AI ile geliştirilme iddiasını kanıtlamaz. Kayıtlı/etkin kaynak başarılı taranmış kaynak sayılmaz; `/sources` son denemeyi ve son başarıyı ayrı gösterir. Kod en az 10 etkin bağımsız kaynağı şart koşar; public hedef 25 **çalışan** bağımsız kaynaktır. X, Reddit, Product Hunt ve YouTube satırları henüz etkin değildir. Elle incelenmiş Product Hunt/web adayları sürekli Product Hunt taraması sayılmaz.
