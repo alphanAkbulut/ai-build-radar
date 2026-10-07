@@ -4,7 +4,7 @@
 
 ## Prompttan alınan ürün kararı
 
-Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl geliştirildiklerini öğrenmektir. **AI kullanan ürün**, **AI ile geliştirilmiş ürün**, **yeni lansman** ve **ilgi gören ürün** dört farklı iddiadır. Kaynak bir iddiayı destekliyorsa yalnız o alana kanıt eklenir. Teorik makaleler ve lab duyuruları ayrı haber/araştırma akışına girer; çalışan demo kartına otomatik dönüşmez. İlk kaynaklı haber başlığı akışı artık `/briefing` içindedir; derin Research Gate henüz yoktur.
+Radar'ın ana konusu çalışan AI ürünlerini keşfetmek ve mümkünse nasıl geliştirildiklerini öğrenmektir. **AI kullanan ürün**, **AI ile geliştirilmiş ürün**, **yeni lansman** ve **ilgi gören ürün** dört farklı iddiadır. Kaynak bir iddiayı destekliyorsa yalnız o alana kanıt eklenir. Teorik makaleler ve lab duyuruları ayrı haber/araştırma akışına girer; çalışan demo kartına otomatik dönüşmez. İlk kaynaklı haber başlıkları `/briefing` içinde başladı; sonradan ayrı `/news` ekranı eklendi. Derin Research Gate henüz yoktur.
 
 `/briefing` artık son 48 saat veya 7 günde mevcut kaynakların ürettiği ilgi, geliştirici beyanıyla yeni keşif ve gerçek tarama kapsamını ayrı gösterir. Ana kart için aynı üründe en az iki bağımsız ilgi platformu arar; tek platform ölçümlerini ayrı, küçük bir listede tutar. Top 5–8'i doldurmak için veri uydurmaz; kategori hareketinde “Diğer” etiketini kullanmaz ve en az üç çok kaynaklı ürün arar. Yenilik, fayda, ürün kalitesi ve “wrapper” değerlendirmesi otomatik hesaplanmıyor; bunlar demo incelemesi olmadan puanlanmamalı.
 
@@ -27,16 +27,16 @@ Bu akışlar ilk kullanıcı promptundaki blog/bülten boşluğunu kapatır. Son
 | [AI Launch Watch](https://ailaunchwatch.com/submit-ai) | Ücretli, garanti yerleşim paketleri var. | Düşük öncelikli aday kaynağı; “verified” rozeti Radar doğrulaması değildir. | Şimdilik etkinleştirilmez. |
 | [New Site Radar](https://newsiteradar.com/methodology) | Yeni site ve görünürlük sinyalleri izliyor. | Domain/ürün keşfi; kayıt tarihi lansman veya AI geliştirme tarihi değildir. | Kaynak bağlantısı ve canlı demo kontrolünden sonra aday olabilir. |
 | [Futurepedia](https://www.futurepedia.io/) | Geniş kürasyonlu AI araç dizini. | Kategori ve ürün keşfi; eklenme tarihi dünya çapında yeni lansman değildir. | Güncelleme izi ve kullanım koşulu doğrulanmalı. |
-| [OpenAI News](https://openai.com/news/), [Anthropic News](https://www.anthropic.com/news), [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/) | Birinci el ürün/model duyuruları yayımlıyorlar. | Ayrı “ürün/model/feature release” haber akışı; demo ve AI ile geliştirme iddiaları ayrı. | Sonraki bağımsız News Event sözleşmesiyle eklenmeli. |
+| [OpenAI News](https://openai.com/news/), [Anthropic News](https://www.anthropic.com/news), [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/) | Birinci el ürün/model duyuruları yayımlıyorlar. | Ayrı “ürün/model/feature release” haber akışı; demo ve AI ile geliştirme iddiaları ayrı. | Ayrı News Event sözleşmesi artık var; bu üç kaynağın kendi feed/izin doğrulaması hâlâ bekliyor. |
 | [arXiv API](https://info.arxiv.org/help/api/index.html) | Makale metaverisi için açık arayüz. | Araştırma gündemi; bağlantılı çalışan ürünü ayrıca doğrula. | Gelecek Research Gate; ana build akışına doğrudan eklenmez. |
 
 Prompttaki `ai-tldr.dev`, `dailyaitools.ai` ve diğer dizin adları otomatik etkin kaynak yapılmadı: isim/erişim, kullanım koşulu, tarih alanı ve özgün kayıt bağlantısı tek tek doğrulanmalı. Aynı siteyi farklı sorgularla taramak bağımsız kaynak sayısını artırmaz.
 
 ## Öncelik ve kabul ölçütü
 
-1. Birinci el lab/üretici duyuruları için ayrı **News Event** şeması; gerçek yayın zamanı, resmi URL, ürün/model/özellik türü ve varsa çalışan demo bağlantısı. Başlıklar bir Build Entity ile ancak doğrulanmış URL bağı varsa birleşir.
+1. Mevcut ayrı **News Event** kaydını birinci el lab/üretici duyurularına genişletme; gerçek yayın zamanı ve resmi URL korunur. Ürün/model/özellik türü ile varsa çalışan demo bağlantısını doğrulayan sınıflama **henüz uygulanmadı**. Başlıklar bir Build Entity ile yalnız açık URL bağı varsa ilişkilendirilir; haber ürüne dönüşmez.
 2. Product Hunt için açık ticari kullanım izni ve token; X/Reddit/YouTube için sağlayıcı erişimi. Başarısız kaynak saklanır, başarılıymış gibi sayılmaz.
 3. İkinci el dizinler yalnız aday üretir. Aynı ürün farklı kaynaklardan gelirse URL ile tekilleştirilir; oy/sıra değerleri özgün platforma atfedilir.
 4. İnsan etiketli örneklemde yanlış lansman tarihi, sahte AI geliştirme ataması, bozuk site ve tekrar oranı ölçülür. Kaynak başına alınan/kabul edilen/elenen kayıt ve son başarılı tarama gösterilir.
 
-**Açık karar:** geniş AI haber akışı ile AI ile geliştirilmiş build akışının ürün içindeki görsel ilişkisi. Bugünkü `/briefing` yalnız mevcut build kanıtını özetler; resmi lab haberlerini veya promptta sayılan kapalı platformları taradığını iddia etmez.
+**6 Ekim güncellemesi:** Ayrı `/news` ekranı ve News Event kaydı bu görsel ayrımı uyguluyor; `/briefing` haberleri ayrı bölümde, ürün sinyallerini ayrı bölümde gösteriyor. Bu, OpenAI/Anthropic/Google AI Blog kaynaklarının veya diğer kapalı platformların bağlandığı anlamına gelmez. Güncel davranış için [haber sözleşmesi](NEWS.md) ve [küresel katalog](GLOBAL-SOURCE-CATALOG.md) esas alınır.

@@ -1,6 +1,6 @@
 # Seçki, ilgi ve öğrenme
 
-**Durum:** 5 Ekim 2026 kodu; anlık sayılar inceleme tarihine göre değişebilir. [English](SELECTION.en.md). Ana kuralın teknik kaynağı `lib/selection.ts`, gündemin kaynağı `lib/evaluation.ts`, etkin kaynakların kaynağı `lib/sources.ts` dosyalarıdır.
+**Durum:** 6 Ekim 2026 koduyla karşılaştırıldı; anlık sayılar inceleme tarihine göre değişebilir. [English](SELECTION.en.md). Ana kuralın teknik kaynağı `lib/selection.ts`, gündemin kaynağı `lib/evaluation.ts`, etkin kaynakların kaynağı `lib/sources.ts` dosyalarıdır.
 
 ## Gündeme girme
 

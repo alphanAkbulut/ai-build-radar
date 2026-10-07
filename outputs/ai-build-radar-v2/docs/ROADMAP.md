@@ -1,6 +1,6 @@
 # AI Build Radar · fazlar ve iş sırası
 
-**Durum:** 5 Ekim 2026 planı; fazlar takvim sözü değildir. [English](ROADMAP.en.md) · [Ürün hafızası](PRODUCT-STRATEGY.md) · [Kararlar](DECISIONS.md). Bu belge **hedef ve kabul ölçütlerini** anlatır. İşin gerçekten başlaması/bitmesi GitHub Issues'da, çalışan tarama `/sources` ekranında doğrulanır. `Rxx` kodları iş kimliğidir; “hazır” etiketi değildir.
+**Durum:** 6 Ekim 2026 ile uyumlu plan; fazlar takvim sözü değildir. [English](ROADMAP.en.md) · [Ürün hafızası](PRODUCT-STRATEGY.md) · [Kararlar](DECISIONS.md). Bu belge **hedef ve kabul ölçütlerini** anlatır. İşin gerçekten başlaması/bitmesi GitHub Issues'da, çalışan tarama `/sources` ekranında doğrulanır. `Rxx` kodları iş kimliğidir; “hazır” etiketi değildir.
 
 ## Öncelik kararı
 

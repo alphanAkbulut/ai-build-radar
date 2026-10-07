@@ -1,12 +1,12 @@
 # AI Build Radar · product memory
 
-**Status:** product intent and verified limits as of 5 October 2026. [Türkçe](PRODUCT-STRATEGY.md) · [Roadmap](ROADMAP.en.md) · [Architecture](ARCHITECTURE.en.md). This is a decision reference, not a conversation transcript. GitHub Issues tracks work; the live `/sources` page tracks source health.
+**Status:** product intent and verified limits as of 6 October 2026. [Türkçe](PRODUCT-STRATEGY.md) · [Roadmap](ROADMAP.en.md) · [Architecture](ARCHITECTURE.en.md). This is a decision reference, not a conversation transcript. GitHub Issues tracks work; the live `/sources` page tracks source health.
 
 ## Why it exists
 
 The founding question is: **What can people actually build with AI, which applications are drawing attention, and how can I use a good idea in my own product?** The intended visitor is a curious product manager, developer, or AI-assisted builder. They need more than headlines or a huge tool directory: see a working product, understand its maker and purpose, inspect evidence of attention, distinguish verified tools from guesses, and where feasible adapt a specific feature.
 
-Radar has two layers. The **news/discovery feed** is current, source-backed discovery and attention. The **learning collection** is a small application school of tested, teachable examples. Roughly 30 strong case studies are preferable to 150 shallow cards; that number never relaxes the quality gate. A product may appear in the feed without qualifying as a lesson. The separate `/news` page shows publisher headlines, short source descriptions and authors when available; `/briefing` lists sourced news headlines. Papers and model announcements do not become working-demo cards. A deeper **Research Gate** remains future work.
+Radar has two layers. The **build feed** is current, source-backed product discovery and attention. The **learning collection** is a small application school of tested, teachable examples. Roughly 30 strong case studies are preferable to 150 shallow cards; that number never relaxes the quality gate. The current interim publication gate requires a ready lesson even for feed products; a future separate verified-demo gate may admit working products before a complete lesson exists. The separate `/news` page shows publisher headlines, short source descriptions and authors when available; `/briefing` lists sourced news headlines. Papers and model announcements do not become working-demo cards. A deeper **Research Gate** remains future work.
 
 ## Core visitor journey
 

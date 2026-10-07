@@ -1,6 +1,6 @@
 # Global AI source catalog
 
-**Status: 5 October 2026.** This classifies the user's suggestions; it is not a live scan report. [Türkçe](GLOBAL-SOURCE-CATALOG.md). `/sources` is authoritative for the latest attempt, errors, and counts. Being listed does not imply an active collector or AI-assisted development.
+**Status: reconciled with code on 6 October 2026.** This classifies the user's suggestions; it is not a live scan report. [Türkçe](GLOBAL-SOURCE-CATALOG.md). `/sources` is authoritative for the latest attempt, errors, and counts. Being listed does not imply an active collector or AI-assisted development.
 
 **Roles:** *Build discovery* follows an explicit repository/demo link; *news* stores a publisher headline, publication time and original URL; *research candidate* belongs in a future separate Research Gate; *pending* has no enabled collector. Two pages of one platform are not independent sources. News feeds do not satisfy the target of 25 working independent **build discovery** sources. News is not automatically a trend, recommendation, or runnable demo.
 
@@ -42,7 +42,7 @@
 
 ## Active news contract
 
-`content/news-feeds.json` contains tested feed URLs. Every three hours, each reads at most 20 entries. Entries missing dates, dated in the future, or older than seven days are excluded. Broad feeds require AI-related titles. Canonical URLs deduplicate articles; publication and first-seen timestamps stay separate. `/briefing` shows original titles, publisher and date in a **separate news section**. No Build Entity, AI-development label, hype score, or AI-generated summary is inferred from a headline. `/sources` exposes each run and failure. All ten feeds completed their first live run; consult runtime data for current status.
+`content/news-feeds.json` contains tested feed URLs. Every three hours, each reads at most 20 entries. Entries missing dates, dated in the future, or older than seven days are excluded. Broad feeds require AI-related titles. Canonical URLs deduplicate articles; publication and first-seen timestamps stay separate. `/news` shows original headlines, available short publisher descriptions and authors in 48-hour/seven-day views; `/briefing` lists the same articles in a separate compact headline section. No Build Entity, AI-development label, hype score, or AI-generated summary is inferred from a headline. `/sources` exposes each run and failure. All ten feeds completed their first live run; consult runtime data for current status. Details: [news pipeline contract](NEWS.en.md).
 
 ## Expansion gate
 

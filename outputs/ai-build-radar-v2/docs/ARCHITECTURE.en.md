@@ -2,7 +2,7 @@
 
 **Language:** English · [Türkçe](ARCHITECTURE.md) · [Application guide](../README.en.md)
 
-**Document status:** Explanation of the code as of 5 October 2026, with explicit future targets. This records enduring product logic. The in-app `/sources` page is authoritative for current counts, last successful scans, and worker health. When code and documentation diverge, investigate and update both. Dated topic documents can describe earlier pilots; they are not runtime status reports.
+**Document status:** Implementation and open targets reconciled with code on 6 October 2026. This records enduring product logic. The in-app `/sources` page is authoritative for current counts, last successful scans, and worker health. When code and documentation diverge, investigate and update both. Dated topic documents can describe earlier pilots; they are not runtime status reports.
 
 ## 1. Product decision and boundaries
 
@@ -10,10 +10,10 @@ Radar is not an indiscriminate app directory. A product manager, developer, or c
 
 There are two separate product layers:
 
-1. **Discovery/news feed:** recently surfaced or newly discussed working products, with the source and time of the signal. This is a news and candidate flow; each item is not a course.
+1. **Build feed:** recently surfaced or newly discussed working products that passed the publication gate, with the source and time of each signal. Discovery alone cannot publish a card; the interim gate currently draws the feed and learning collection from the same reviewed product set.
 2. **Learning collection:** a small number of products with a reviewed demo, sourced explanation, and practical learning steps. The selection promise concerns the depth of each item, not the number of items.
 
-Theoretical papers may belong in a future Research Gate; they are not inserted into the working-demo collection. Company storefronts, public comments, and automatic AI-written courses are ideas, not currently delivered features. A candidate may progress to a lesson after review; discovery alone never grants that status.
+Publisher articles live in a separate `/news` lane; a headline does not prove a working demo or AI-assisted development. Theoretical papers may belong in a future Research Gate; they are not inserted into the working-demo collection. Company storefronts, public comments, and automatic AI-written courses are ideas, not currently delivered features. A candidate may progress to a lesson after review; discovery alone never grants that status.
 
 ## 2. Data flow and responsibility
 
@@ -125,7 +125,7 @@ The intended journey is **see and try a working product → inspect the evidence
 
 ### 7.1 `/?view=feed` — This week's attention
 
-**Purpose:** A legible, news-like stream of recently noticed working sites and dated mentions. The page reads `dashboardStore`; `evaluateFeed` produces sourced events and `publishableFeed` selects actually tested demos. Measured **attention** cards come before newly **mentioned** cards; each class uses source-event recency. No universal cross-platform score is claimed.
+**Purpose:** A legible, news-like stream of recently noticed working sites, new discoveries, and dated mentions. The page reads `dashboardStore`; `evaluateFeed` produces sourced events and `publishableFeed` selects actually tested demos. Order is **attention → new discovery → mention**, with source-event recency inside each class. AI-development-evidenced and uncertain methods occupy separate group tabs. No universal cross-platform score is claimed.
 
 Each card explains the product, signal **type + platform + date + count where available**, source link, and **Try** link to the actual site. Under this interim gate every published card has a reviewed lesson and matching real demo capture, so **Learn from this** appears. Cards load eight at a time, with another eight on request. A feed card still does not independently verify the claimed AI-building method. No current matching signal should result in an honest empty state rather than promoting old items as fresh.
 
@@ -185,7 +185,7 @@ Local mode can manually trigger currently due sources. Registered does not mean 
 
 ### 7.12 `/briefing` — Sourced 48-hour Radar briefing
 
-[`lib/briefing.ts`](../lib/briefing.ts) derives a readable 48-hour or seven-day slice from Build/Evidence/News Event/Run data. News appears in its own section with publisher headline, date, and original link; it does not create build cards, trend scores, or AI-development labels. Measured product attention, new discovery, and mere mentions stay distinct; a builder statement is not a virality score. A headline highlight requires **two independent attention platforms for the same product**; single-platform observations appear in a smaller separate list. The view never pads the highlights to five or eight entries. A category movement excludes “Other” and requires at least three distinct products, each with two independent attention sources. The source table reports actual build-discovery and news attempts separately with latest run status; configured but unrun sources are not counted as successes. This page neither scans new sources nor generates an original AI summary. The [global source catalog](GLOBAL-SOURCE-CATALOG.en.md) records proposed and missing integrations.
+[`lib/briefing.ts`](../lib/briefing.ts) derives a readable 48-hour or seven-day slice from Build/Evidence/News Event/Run data. News appears in its own section with publisher headline, date, and original link; the short description and author appear on `/news`. An article does not create build cards, trend scores, or AI-development labels. Measured product attention, new discovery, and mere mentions stay distinct; a builder statement is not a virality score. A headline highlight requires **two independent attention platforms for the same product**; single-platform observations appear in a smaller separate list. The view never pads the highlights to five or eight entries. A category movement excludes “Other” and requires at least three distinct products, each with two independent attention sources. The source table reports actual build-discovery and news attempts separately with latest run status; configured but unrun sources are not counted as successes. This page neither scans new sources nor generates an original AI summary. The [global source catalog](GLOBAL-SOURCE-CATALOG.en.md) records proposed and missing integrations.
 
 The page now leads with linked lessons that passed the sourced-purpose, tested-demo, real-preview, differentiator, and application-step gate. “New candidates” has been renamed “Newly discovered products”: products first seen by Radar within the 48-hour/seven-day window with a maker statement about AI-assisted development. Leaving the time window removes them from this briefing, not the archive. They enter the learning collection only if [`selectionFor`](../lib/selection.ts) later passes; other review status is visible in `/candidates`. The coverage table keeps scanned articles/records separate from accepted project links, since one article may link to multiple projects.
 
@@ -194,6 +194,10 @@ Hugging Face trend evidence comes only from the actual top-20 trend response; a 
 General technology tags on Lobsters do not establish AI relevance: only discussions tagged `ai` or `ml` enter the candidate stream. Existing off-topic evidence stays in history but is excluded from feed projections.
 
 The current publication projection requires the raw record, matching source/record IDs and content hash, and an `ai`/`ml` tag for a Lobsters discussion; missing raw data never passes. The rule in [`lib/relevance.ts`](../lib/relevance.ts) is shared by the feed, build-detail source list, and current evidence view. Old observations remain in `history`; correction does not silently erase provenance. This is a source-specific guard, not a claim of human-level review across all candidates.
+
+### 7.13 `/news` — Publisher articles
+
+**Purpose:** Let readers browse dated AI articles in the publisher's language and open the original story. The page defaults to the past 48 hours, offers a seven-day view, sorts by publication time, and paginates by 12. It shows headline, publisher, available author, and a short sourced description; missing reliable descriptions are labeled. An explicit RSS URL exactly matching an existing Build links to its dossier. Unmatched GitHub/Space URLs are marked pending review. Project links absent from RSS may be missed because full article content is not analyzed. The page shows the three-hour schedule, enabled RSS count, and **latest successful news-source check**, which may be only one source's success; `/sources` gives per-source health. See the [detailed news contract](NEWS.en.md).
 
 ## 8. File ownership, versioning, and data privacy
 
@@ -227,7 +231,7 @@ No paid AI summarization API is attached. Multilingual scaffolding does not mean
 1. **Discover:** retain source, timestamp, and raw record; inspect last successful run scope on `/sources`.
 2. **Resolve identity:** match normalized URL/alias; send conflicts to review.
 3. **Support each claim:** attach source, evidence class, and date; leave unknown values unknown.
-4. **Display honestly:** show candidate/news cards with real site and meaningful context; never claim a “hit” without a sourced attention signal.
+4. **Display honestly:** a real site and meaningful description can create a candidate signal; a visitor-facing build card must also pass the demo/preview gate in `lib/publication.ts`. Never claim a “hit” without sourced attention or turn a publisher headline into a Build card.
 5. **Select a lesson:** test a working interaction, record capture and finding, explain the differentiator, write transferable steps, and pass all five checks.
 6. **Gate adaptation:** separate original implementation from proposed recreation; do not promise reproducibility until its independent checks pass.
 7. **Verify:** run relevant tests/build and inspect page flow and source runs; record what remains unverified.

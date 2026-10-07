@@ -1,6 +1,6 @@
 # Data contract and evidence method
 
-**Status:** implemented local PoC as of 5 October 2026, not a hosted production claim. [Türkçe](MODEL.md). Executable contracts: `lib/schema.ts` and `schemas/*.schema.json`. Live scan states: `/sources`.
+**Status:** implemented local PoC as of 6 October 2026, not a hosted production claim. [Türkçe](MODEL.md). Executable contracts: `lib/schema.ts` and `schemas/*.schema.json`. Live scan states: `/sources`.
 
 The path is **source registry → immutable raw record and run → candidate → exact URL/explicit repository-homepage identity → Build Entity → versioned Evidence Objects**. Ambiguous matches create a resolution review, not an automatic merge. Daily snapshots and run counters describe processing, not worldwide coverage.
 

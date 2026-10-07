@@ -1,6 +1,6 @@
 # Veri sözleşmesi ve yöntem
 
-Bu belge 5 Ekim 2026 itibarıyla uygulanmış **yerel PoC** davranışını anlatır; hosted production sistem iddiası değildir. Makine tarafından doğrulanan sözleşmeler `lib/schema.ts` ve `schemas/*.schema.json` içindedir. Anlık kaynak/koşu sayıları için `/sources` esas alınır. [English](MODEL.en.md).
+Bu belge 6 Ekim 2026 itibarıyla uygulanmış **yerel PoC** davranışını anlatır; hosted production sistem iddiası değildir. Makine tarafından doğrulanan sözleşmeler `lib/schema.ts` ve `schemas/*.schema.json` içindedir. Anlık kaynak/koşu sayıları için `/sources` esas alınır. [English](MODEL.en.md).
 
 ## İlişkiler
 

@@ -1,11 +1,11 @@
 # AI Build Radar · decision log
 
-**Status:** 5 October 2026. [Türkçe](DECISIONS.md) · [Product memory](PRODUCT-STRATEGY.en.md) · [Roadmap](ROADMAP.en.md). These are today's choices and **reasons**, not immutable rules. Mark a decision as a target where code does not implement it. When evidence changes a decision, add a dated entry rather than erasing its earlier rationale.
+**Status:** decisions through 6 October 2026. [Türkçe](DECISIONS.md) · [Product memory](PRODUCT-STRATEGY.en.md) · [Roadmap](ROADMAP.en.md). These are today's choices and **reasons**, not immutable rules. Mark a decision as a target where code does not implement it. When evidence changes a decision, add a dated entry rather than erasing its earlier rationale.
 
 | ID | Decision and reason | Current state / open point |
 | --- | --- | --- |
 | D01 | Start private; fix claim accuracy and source-rights questions before public launch. | Local password and private GitHub exist; no hosted private beta. |
-| D02 | **Feed** and **learning collection** have different quality gates. Visitors can see many discoveries but learn deeply from fewer products. | Implemented; page-role clarity is R04. |
+| D02 | The **feed** answers “why now?” and **learning** answers “what can I apply?” Broad candidate collection does not publish untested product cards. | Two tabs exist; interim `lib/publication.ts` requires a ready lesson even for feed cards. A separate verified-demo publication gate remains R03/R04 work. |
 | D03 | The card's primary action is **Try**, then **Learn**. Code and evidence are secondary. | Partly implemented; real demo and comprehension R03–R05. |
 | D04 | Uses AI, built with AI, drawing attention, and newly released are four separate claims. Preserve `Unknown`. | Evidence model exists; labeled accuracy study R01. |
 | D05 | Each claim needs source/date/quote. A person's mention is not praise. | Sources exist; discussion context and person narrative R08. |

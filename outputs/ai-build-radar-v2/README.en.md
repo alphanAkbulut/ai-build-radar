@@ -4,7 +4,7 @@
 
 **Status:** private, local MVP. Radar discovers working products in the AI ecosystem, shows what is actually known about them, and turns a small reviewed subset into practical lessons. A product that *uses AI*, a product *built with AI*, and a product *drawing attention* are three separate claims with separate evidence.
 
-The product has two distinct surfaces: a timely, sourced **discovery/news feed** and a smaller **learning collection** whose demos and learning steps have been reviewed. Being found by a source or collecting stars never automatically qualifies a project as a lesson.
+The product has two product layers: a timely, sourced **build feed** and a smaller **learning collection** whose demos and learning steps have been reviewed. Publisher articles occupy a third, separate **News** lane; an article never automatically becomes a build card. Being found by a source or collecting stars never qualifies a project as a lesson on its own.
 
 **Publication rule:** Source collection stays broad; product cards in the home feed and Radar briefing currently require a recent core interaction on the same site URL, an actual matching preview, and a recorded learning reason. A repository, AI-builder statement, or site URL alone never creates a **Try** card. `/builds` and `/candidates` are review archives, not product showcases. This deliberately narrow interim gate remains until automated demo checks and a product-publication path separate from full lessons are built ([R03](https://github.com/alphanAkbulut/ai-build-radar/issues/3)).
 
@@ -17,6 +17,7 @@ The product has two distinct surfaces: a timely, sourced **discovery/news feed**
 - The [learning-collection pilot](docs/LEARNING-COLLECTION.en.md) and [Phase 1 validation](docs/VALIDATION.en.md) are dated history, not current runtime reports.
 - [Source audit for the daily AI product prompt](docs/SOURCE-EXPANSION.en.md) ([Türkçe](docs/SOURCE-EXPANSION.md)) records verified candidate sources, access/licensing constraints, and integration order. `/briefing` offers a short read derived from existing data.
 - [Global AI source catalog](docs/GLOBAL-SOURCE-CATALOG.en.md) ([Türkçe](docs/GLOBAL-SOURCE-CATALOG.md)) distinguishes suggested news, newsletter, research, and community sources from enabled feeds and product discovery.
+- [News pipeline contract](docs/NEWS.en.md) ([Türkçe](docs/NEWS.md)) explains the ten RSS feeds, descriptions and authors, exact-link matching, ordering, freshness, and known gaps.
 - [TrendRadar comparison](docs/TRENDRADAR-BENCHMARK.en.md) ([Türkçe](docs/TRENDRADAR-BENCHMARK.md)) records runtime evidence, aggregator dependencies, and the ranking/source-visibility ideas adapted for Radar.
 - [GitHub Trending source audit](docs/GITHUB-TRENDING.en.md) ([Türkçe](docs/GITHUB-TRENDING.md)) covers repository/developer signals, the first real run, and private-PoC limits.
 - [Risk register](docs/RISK-REGISTER.en.md) ([Türkçe](docs/RISK-REGISTER.md)) records open uncertainties, current safeguards, and release gates for external sources.

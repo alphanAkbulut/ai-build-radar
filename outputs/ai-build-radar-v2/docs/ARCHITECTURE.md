@@ -2,7 +2,7 @@
 
 **Dil:** Türkçe · [English](ARCHITECTURE.en.md) · [Uygulama kılavuzu](../README.md)
 
-**Belge durumu:** 5 Ekim 2026 tarihli kodun açıklaması ve açık hedefler. Bu belge kalıcı ürün mantığını kaydeder; anlık sayı, son başarılı tarama ve worker sağlığı için uygulamadaki `/sources` ekranı esas alınır. Kod ile belge çelişirse ikisini birlikte düzeltin.
+**Belge durumu:** 6 Ekim 2026 koduyla karşılaştırılmış uygulama ve açık hedefler. Bu belge kalıcı ürün mantığını kaydeder; anlık sayı, son başarılı tarama ve worker sağlığı için uygulamadaki `/sources` ekranı esas alınır. Kod ile belge çelişirse ikisini birlikte düzeltin.
 
 ## 1. Ürün kararı ve sınırları
 
@@ -10,10 +10,10 @@ Radar bir uygulama dizini değildir. Ürün yöneticisi, geliştirici ve merakl�
 
 İki ayrı katman vardır:
 
-1. **Keşif / haber akışı:** yeni veya yeniden ilgi gören çalışan projeleri, sinyalin geldiği platform ve zamanıyla gösterir. Bu bir aday ve gündem akışıdır; her kart ders değildir.
+1. **Ürün gündemi:** yeni veya yeniden ilgi gören, yayın kapısından geçmiş çalışan projeleri sinyalin geldiği platform ve zamanıyla gösterir. Keşif sinyali tek başına yayın hakkı vermez; geçici yayın kapısı nedeniyle gündem ve öğrenme koleksiyonu bugün aynı incelenmiş ürün kümesinden beslenir.
 2. **Öğrenme koleksiyonu:** demosu denenmiş, amacı kaynakla açıklanmış ve somut uygulama adımları hazırlanmış az sayıdaki proje. Seçkinin iddiası çok proje değil, açınca neye baktığını ve ne çıkaracağını anlamaktır.
 
-Araştırma yazıları ve teorik çalışmalar ileride ayrı bir Research Gate akışına girebilir; bugün çalışan demo gerektiren seçkiye karıştırılmaz. Şirket vitrini, kamuya açık yorumlar ve otomatik AI ders üretimi ürün fikridir; çalışan özellik değildir.
+Yayıncı yazıları ayrı `/news` akışındadır; başlık ürünün demosu veya AI ile geliştirme kanıtı değildir. Araştırma yazıları ve teorik çalışmalar ileride ayrı bir Research Gate akışına girebilir; bugün çalışan demo gerektiren seçkiye karıştırılmaz. Şirket vitrini, kamuya açık yorumlar ve otomatik AI ders üretimi ürün fikridir; çalışan özellik değildir.
 
 ## 2. Veri akışı
 
@@ -123,7 +123,7 @@ Ziyaretçi yolculuğu **çalışan ürünü gör ve dene → kaynaklı proje dos
 
 ### 7.1 `/?view=feed` — Bu hafta ilgi görenler
 
-**Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur; `evaluateFeed` kaynaklı olayları, `publishableFeed` ise gerçekten denenmiş demoları seçer. Kart sırası önce ölçülmüş **İlgi gördü**, sonra doğrulanmış yeni **Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
+**Amaç:** Haber akışı gibi, son günlerde dikkat çeken çalışan siteleri, yeni keşifleri ve kaynaklı bahsedilmeleri tek bakışta anlaşılır kartlarla sunmak. Veri `dashboardStore` üzerinden okunur; `evaluateFeed` kaynaklı olayları, `publishableFeed` ise gerçekten denenmiş demoları seçer. Sıra **İlgi gördü → Yeni keşif → Bahsedildi**; her grubun içinde son kaynak olayının tarihi kullanılır. AI geliştirme kanıtı olanlar ve yöntemi belirsizler ayrı sekmedir. Platformların farklı ölçekli beğeni/yorum sayıları tek bir sahte puana dönüştürülmez.
 
 Kartta proje adı, açıklama, sinyalin **türü + platformu + tarihi + varsa sayısı**, kaynağa bağlantı ve siteye doğrudan giden **Dene** eylemi bulunur. Bu geçici kapıda bütün yayınlanan kartların incelenmiş dersi ve gerçek demo görüntüsü vardır; **Bundan öğren** bağlantısı görünür. İlk sekiz karttan sonra sekizer yüklenir. Akışa girmek AI geliştirme aracının bağımsız doğrulandığı anlamına gelmez; ziyaretçi bunu detay dosyasından ayırt eder. Eşleşen güncel olay yoksa boş durum gösterilmeli, eski proje yeniymiş gibi taşınmamalıdır.
 
@@ -183,7 +183,7 @@ Yerel modda zamanı gelen kaynaklar elle başlatılabilir. Kayıtlı kaynak çal
 
 ### 7.12 `/briefing` — 48 saatlik kaynaklı Radar özeti
 
-[`lib/briefing.ts`](../lib/briefing.ts) mevcut Build/Evidence/News Event/Run verisinden son 48 saatlik veya 7 günlük okunabilir bir kesit çıkarır. Haberler ayrı bölümde yalnız yayıncı başlığı, tarih ve özgün bağlantıyla görünür; ürün kartı, trend puanı veya AI geliştirme etiketi oluşturmaz. Ölçülen ürün ilgisi, yalnız yeni keşif ve yalnız bahsedilme ayrı kalır; geliştirici beyanı viralite puanı olmaz. Ana öne çıkanlar için **aynı üründe en az iki bağımsız ilgi platformu** gerekir; tek platformdaki ölçümler ayrı, küçük bir listede görünür. Beş-sekiz başlık zorla doldurulmaz. “Diğer” dışındaki bir kategori hareketi için en az üç ayrı ürünün her birinde iki bağımsız ilgi kaynağı gerekir. Kaynak tablosu ürün keşfi ve haber koşularını ayrı sayarak gerçekten yapılan denemeleri ve son koşunun durumunu gösterir; ayarlarda kayıtlı fakat çalışmamış kaynak başarı sayılmaz. Bu ekran yeni kaynak taramaz veya özgün AI özeti üretmez. [Küresel kaynak kataloğu](GLOBAL-SOURCE-CATALOG.md) adayları ve eksik entegrasyonları kaydeder.
+[`lib/briefing.ts`](../lib/briefing.ts) mevcut Build/Evidence/News Event/Run verisinden son 48 saatlik veya 7 günlük okunabilir bir kesit çıkarır. Haberler ayrı bölümde yayıncı başlığı, tarih ve özgün bağlantıyla görünür; kısa açıklama ve yazar için `/news` açılır. Haber ürün kartı, trend puanı veya AI geliştirme etiketi oluşturmaz. Ölçülen ürün ilgisi, yalnız yeni keşif ve yalnız bahsedilme ayrı kalır; geliştirici beyanı viralite puanı olmaz. Ana öne çıkanlar için **aynı üründe en az iki bağımsız ilgi platformu** gerekir; tek platformdaki ölçümler ayrı, küçük bir listede görünür. Beş-sekiz başlık zorla doldurulmaz. “Diğer” dışındaki bir kategori hareketi için en az üç ayrı ürünün her birinde iki bağımsız ilgi kaynağı gerekir. Kaynak tablosu ürün keşfi ve haber koşularını ayrı sayarak gerçekten yapılan denemeleri ve son koşunun durumunu gösterir; ayarlarda kayıtlı fakat çalışmamış kaynak başarı sayılmaz. Bu ekran yeni kaynak taramaz veya özgün AI özeti üretmez. [Küresel kaynak kataloğu](GLOBAL-SOURCE-CATALOG.md) adayları ve eksik entegrasyonları kaydeder.
 
 Sayfanın başında gerçek demo, önizleme, kaynaklı amaç, ayırt edici öğrenme gerekçesi ve adım kapısını geçmiş dersler ayrı ve doğrudan bağlantılı gösterilir. Önceden “Yeni adaylar” denilen bölüm artık “Yeni keşfedilen ürünler”dir: Radar'ın son 48 saat/7 günde ilk gördüğü ve üreticinin AI geliştirme beyanı bulunan ürünler. Bu, seçki adayı olarak inceleme alanına girebilir; zaman penceresinden düşünce arşivde kalır, fakat ancak [`selectionFor`](../lib/selection.ts) kapısı geçilirse öğrenme koleksiyonunda görünür. Kaynak tablosunda okunan yazı/kayıt ile kabul edilen proje bağlantısı ayrı sütundur; bir yazı birden çok bağlantı verebilir.
 
@@ -192,6 +192,10 @@ Hugging Face trend kanıtı yalnız gerçek ilk 20 trend listesinden gelir; topl
 Lobsters'ta genel teknoloji etiketleri AI gündemi sayılmaz; yalnız `ai` veya `ml` etiketli tartışmalar aday olur. Önceden alınmış ilgisiz kanıt saklanır fakat akış projeksiyonundan çıkarılır.
 
 Güncel yayın projeksiyonu Lobsters tartışması için ham kayıt, eşleşen kaynak/kayıt kimliği ve içerik hash'i ile `ai`/`ml` etiketi ister; eksik ham kayıt geçiş sağlamaz. [`lib/relevance.ts`](../lib/relevance.ts) kuralı gündem, detayın kaynak listesi ve güncel kanıt görünümünde ortaktır. Eski kayıt `history` içinde kalır; düzeltme geçmişi sessizce silmez. Bu kaynak özelinde bir korumadır, bütün adayları insan gibi değerlendirme iddiası değildir.
+
+### 7.13 `/news` — Yayıncı haberleri
+
+**Amaç:** Ürün demosu aramayan ziyaretçinin tarihli AI haberlerini kaynak diliyle okuyup özgün yazıya geçmesi. Varsayılan son 48 saat veya son 7 gün, yayın tarihine göre sıralanır ve 12'li sayfalanır. Başlık, yayıncı, varsa yazar ve kısa kaynak açıklaması görünür. Güvenilir açıklama yoksa açıkça belirtilir. RSS'teki açık URL mevcut Build kaydıyla tam eşleşirse ilgili dosyaya bağlantı verilir; eşleşmeyen GitHub/Space bağlantıları “inceleme bekliyor” diye ayrılır. Makale içeriği tam okunmadığından burada görülmeyen proje bağlantıları olabilir. Sayfa üç saatlik planı, etkin RSS sayısını ve haber kaynaklarının **en son başarılı** kontrolünü gösterir; bu tek bir kaynağın başarısı olabilir. Her kaynağın ayrı sağlığı `/sources` üzerindedir. [Ayrıntılı haber sözleşmesi](NEWS.md).
 
 ## 8. Dosyaların sahipliği ve sürümleme
 
@@ -225,7 +229,7 @@ Next.js ekranları yerel parola/HMAC oturumuyla private çalışır; oturum 180 
 1. **Keşif:** kaynak, zaman ve ham kayıt saklanır; son başarılı koşunun kapsaması `/sources` ile görülür.
 2. **Kimlik:** URL/alias ile eşleştirilir; çakışma varsa incelemeye bırakılır.
 3. **İddia:** her alan kaynak, durum ve tarihle bağlanır; bilinmeyen doldurulmaz.
-4. **Gösterim:** gerçek site ve anlamlı açıklama varsa aday/gündem kartı çıkar; ilgi sinyali yoksa “hit” denmez.
+4. **Gösterim:** gerçek site ve anlamlı açıklama aday sinyali oluşturabilir; ziyaretçiye açık gündem kartı için ayrıca [`lib/publication.ts`](../lib/publication.ts) demo/önizleme kapısı geçilir. İlgi sinyali yoksa “hit” denmez; haber başlığı build kartına dönüşmez.
 5. **Seçki:** çalışan demo denenir, görüntü alınır, farkı ve öğrenme adımları yazılır; beş kapı kontrol edilir.
 6. **Uyarlama:** orijinal uygulama ile önerilen yeniden yapım ayrılır; yeniden üretim testi olmadan başarı vaat eden düğme açılmaz.
 7. **Doğrulama:** ilgili test, build, ekran akışı ve son kaynak koşusu kontrol edilir; doğrulanmayan kısım yazılır.

@@ -1,6 +1,6 @@
 # Build Radar değerlendirme sözleşmesi
 
-Bu belge 5 Ekim 2026 itibarıyla **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayırır. [English](EVALUATION.en.md). Amaç, bir ürün yöneticisinin “AI ile neler yapılıyor, neden dikkat çekiyor, ben nasıl öğrenirim?” sorusuna doğrulanabilir bir yanıt vermektir. Yeni bir model, yaratıcı arayüz veya çözülen gerçek bir sorun aynı derecede seçilme nedeni olabilir. Popülerlik tek ölçüt değildir.
+Bu belge 6 Ekim 2026 itibarıyla **önerilen ürün standardını** ve **bugün uygulanan kısmı** ayırır. [English](EVALUATION.en.md). Amaç, bir ürün yöneticisinin “AI ile neler yapılıyor, neden dikkat çekiyor, ben nasıl öğrenirim?” sorusuna doğrulanabilir bir yanıt vermektir. Yeni bir model, yaratıcı arayüz veya çözülen gerçek bir sorun aynı derecede seçilme nedeni olabilir. Popülerlik tek ölçüt değildir.
 
 ## İki ayrı yayın yüzeyi
 

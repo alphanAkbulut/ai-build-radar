@@ -1,11 +1,11 @@
 # AI Build Radar · karar kaydı
 
-**Durum:** 5 Ekim 2026. [English](DECISIONS.en.md) · [Ürün hafızası](PRODUCT-STRATEGY.md) · [Yol haritası](ROADMAP.md). Bu sayfa değişmeyen kanunlar değil, bugünkü tercihin **nedenini** ve neyin hâlâ açık olduğunu tutar. Kodun uygulamadığı karar açıkça “hedef” yazılır. Yeni kanıtla değişirse eski gerekçe silinmez; tarihli yeni satır eklenir.
+**Durum:** 6 Ekim 2026 kararları. [English](DECISIONS.en.md) · [Ürün hafızası](PRODUCT-STRATEGY.md) · [Yol haritası](ROADMAP.md). Bu sayfa değişmeyen kanunlar değil, bugünkü tercihin **nedenini** ve neyin hâlâ açık olduğunu tutar. Kodun uygulamadığı karar açıkça “hedef” yazılır. Yeni kanıtla değişirse eski gerekçe silinmez; tarihli yeni satır eklenir.
 
 | ID | Karar ve gerekçe | Bugünkü durum / açık nokta |
 | --- | --- | --- |
 | D01 | Private başla. Yanlış iddia ve veri haklarını küçük çevrede düzeltmeden public açma. | Yerel parola ve private GitHub var; hosted/private beta yok. |
-| D02 | Tek ürünün **gündem** ve **öğrenme** yüzeyleri ayrı kalite kapılarıdır. Kullanıcı çok yeni şeyi görebilir, ancak az sayıda üründen derinlemesine öğrenir. | Uygulandı; sayfa ayrımının kullanıcıya daha anlaşılır anlatımı R04. |
+| D02 | **Gündem** “neden şimdi?”, **öğrenme** “buradan ne uygulanır?” sorusunu yanıtlar. Aday toplama geniş olsa da ziyaretçiye açık ürün kartı demo kanıtı ister. | İki sekme var; geçici `lib/publication.ts` kapısı gündem kartından da hazır ders ister. Ayrı demo yayın kapısı R03/R04 kapsamında açık. |
 | D03 | Kartın ilk eylemi **Dene**, ikinci eylemi **Bundan öğren**. Kod ve kanıt daha sonra gelir. | Akış kısmen var; gerçek demo ve kart anlaşılırlığı R03–R05. |
 | D04 | AI kullanan, AI ile yapılan, ilgi gören ve yeni yayınlanan dört ayrı iddiadır. `Unknown` ayrı tutulur. | Kanıt modeli var; insan etiketli doğruluk ölçümü R01. |
 | D05 | Her iddia kaynak/tarih/alıntı taşımalı; kişiden bahsedilmesi övgü değildir. | Uygulamada kaynaklar var; yorum bağlamı ve kişi anlatısı R08. |

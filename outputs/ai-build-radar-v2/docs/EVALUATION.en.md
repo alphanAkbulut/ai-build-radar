@@ -1,6 +1,6 @@
 # Build Radar evaluation contract
 
-**Status:** proposed product standard separated from implemented behavior as of 5 October 2026. [Türkçe](EVALUATION.md). The visitor should learn what exists, why it attracts attention, and what can be transferred into their own product. New models, unusual interaction design, and practical problem-solving can all matter; popularity alone is insufficient.
+**Status:** proposed product standard separated from implemented behavior as of 6 October 2026. [Türkçe](EVALUATION.md). The visitor should learn what exists, why it attracts attention, and what can be transferred into their own product. New models, unusual interaction design, and practical problem-solving can all matter; popularity alone is insufficient.
 
 The **timely feed** separates measured attention, new AI-development claims, and mentions; each has a source and event/check time. Source observations remain broad, but visitor-facing product cards now require a recently tested demo, a matching actual preview, and a recorded reason to learn. The **learning collection** additionally presents the sourced purpose and application steps. Research papers without a working public demo belong to a future research surface, which has no dedicated page yet.
 

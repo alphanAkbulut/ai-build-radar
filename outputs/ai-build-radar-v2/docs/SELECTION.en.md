@@ -1,6 +1,6 @@
 # Selection, attention, and learning
 
-**Status:** code as of 5 October 2026; runtime counts can change. [Türkçe](SELECTION.md). The executable rules live in `lib/selection.ts`, `lib/evaluation.ts`, and `lib/sources.ts`.
+**Status:** reconciled with code on 6 October 2026; runtime counts can change. [Türkçe](SELECTION.md). The executable rules live in `lib/selection.ts`, `lib/evaluation.ts`, and `lib/sources.ts`.
 
 ## Timely feed
 

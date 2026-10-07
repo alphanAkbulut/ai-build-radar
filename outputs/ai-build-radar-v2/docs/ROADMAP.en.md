@@ -1,6 +1,6 @@
 # AI Build Radar · phases and work order
 
-**Status:** plan as of 5 October 2026; phases are not delivery-date promises. [Türkçe](ROADMAP.md) · [Product memory](PRODUCT-STRATEGY.en.md) · [Decisions](DECISIONS.en.md). This document defines **targets and acceptance criteria**. GitHub Issues tracks actual work; `/sources` verifies live collection. `Rxx` identifiers name work, not completed features.
+**Status:** plan aligned through 6 October 2026; phases are not delivery-date promises. [Türkçe](ROADMAP.md) · [Product memory](PRODUCT-STRATEGY.en.md) · [Decisions](DECISIONS.en.md). This document defines **targets and acceptance criteria**. GitHub Issues tracks actual work; `/sources` verifies live collection. `Rxx` identifiers name work, not completed features.
 
 ## Priority
 

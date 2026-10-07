@@ -1,6 +1,6 @@
 # Küresel AI kaynak kataloğu
 
-**Durum: 5 Ekim 2026.** Kullanıcının önerdiği kaynakların ürün stratejisine göre ayrımıdır; canlı tarama sonucu değildir. [English](GLOBAL-SOURCE-CATALOG.en.md). Son deneme, hata ve alınan kayıt sayısı `/sources` ekranındadır. Bir kaynağın listede olması tarandığı veya makalesindeki ürünün AI ile geliştirildiği anlamına gelmez.
+**Durum: 6 Ekim 2026 koduyla karşılaştırıldı.** Kullanıcının önerdiği kaynakların ürün stratejisine göre ayrımıdır; canlı tarama sonucu değildir. [English](GLOBAL-SOURCE-CATALOG.en.md). Son deneme, hata ve alınan kayıt sayısı `/sources` ekranındadır. Bir kaynağın listede olması tarandığı veya makalesindeki ürünün AI ile geliştirildiği anlamına gelmez.
 
 **Terimler:** **Ürün keşfi** = açık repo/demo bağlantısından aday Build; **haber** = yayıncı başlığı, tarihi ve orijinal URL; **araştırma adayı** = ileride ayrı Research Gate; **bekliyor** = etkin collector yok. Aynı platformun farklı sayfaları bağımsız kaynak diye çoğaltılmaz. Haber akışları 25 çalışan bağımsız *ürün keşfi* hedefini karşılamaz. Çalışan haber akışı da “trend” veya “önerilen ürün” iddiası üretmez.
 
@@ -42,7 +42,7 @@
 
 ## Çalışan haber akışının sözleşmesi
 
-`content/news-feeds.json` yalnız doğrulanmış RSS adreslerini içerir. Her akış 3 saatte bir en çok 20 öğe okur; tarihi eksik, gelecekte veya 7 günden eski öğeleri yayınlamaz. Geniş kaynaklarda AI başlık filtresi kullanır. URL ile tekrarları birleştirir, ilk görülme ve yayın zamanını ayrı tutar. `/briefing` haber başlığını kaynak ve tarihle **ayrı bölümde** gösterir; başlıktan Build Entity, AI-development etiketi, hit puanı veya otomatik özet üretmez. Her kaynak için başarı ve hata `/sources` altında görünür. İlk gerçek koşuda 10 akış tamamlandı; güncel sonuçlar için oraya bakılmalıdır.
+`content/news-feeds.json` doğrulanmış RSS adreslerini içerir. Her akış 3 saatte bir en çok 20 öğe okur; tarihi eksik, gelecekte veya 7 günden eski öğeleri yayınlamaz. Geniş kaynaklarda AI başlık filtresi kullanır. URL ile tekrarları birleştirir, ilk görülme ve yayın zamanını ayrı tutar. `/news` yayıncı başlığı, varsa kısa kaynak açıklaması ve yazarı 48 saat/7 gün görünümünde gösterir; `/briefing` aynı haberleri ayrı kısa başlık bölümünde listeler. Haber başlığından Build Entity, AI-development etiketi, hit puanı veya otomatik özet üretilmez. Her kaynak için başarı ve hata `/sources` altında görünür. İlk gerçek koşuda 10 akış tamamlandı; güncel sonuçlar için oraya bakılmalıdır. Ayrıntı: [haber akışı sözleşmesi](NEWS.md).
 
 ## Sıradaki genişletme ölçütü
 

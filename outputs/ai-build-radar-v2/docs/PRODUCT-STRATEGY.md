@@ -1,12 +1,12 @@
 # AI Build Radar · ürün hafızası
 
-**Durum:** 5 Ekim 2026 ürün niyeti ve bugün doğrulanan sınırlar. [English](PRODUCT-STRATEGY.en.md) · [Yol haritası](ROADMAP.md) · [Mimari](ARCHITECTURE.md). Bu belge bir konuşma dökümü değil, karar verirken korunacak gerekçelerdir. İşlerin güncel durumu GitHub Issues'dadır; çalışan kaynakların güncel durumu uygulamadaki `/sources` ekranındadır.
+**Durum:** 6 Ekim 2026 ürün niyeti ve doğrulanan sınırlar. [English](PRODUCT-STRATEGY.en.md) · [Yol haritası](ROADMAP.md) · [Mimari](ARCHITECTURE.md). Bu belge bir konuşma dökümü değil, karar verirken korunacak gerekçelerdir. İşlerin güncel durumu GitHub Issues'dadır; çalışan kaynakların güncel durumu uygulamadaki `/sources` ekranındadır.
 
 ## Neden var?
 
 Ürünün çıkış sorusu: **AI alanında ne gerçekten yapılabiliyor, hangi uygulama ilgi görüyor ve gördüğüm iyi fikri kendi ürünümde nasıl kullanabilirim?** Hedef ziyaretçi meraklı bir ürün yöneticisi, geliştirici veya AI ile ürün yapan kişidir. Bir haber başlığından veya yüzlerce araçlık dizinden fazlasını ister: çalışan şeyi görür, onu kimin/neden yaptığına bakar, ilginin kanıtını okur, kullanılan araçları gerçek kanıta göre öğrenir ve mümkünse belirli bir özelliği kendi bağlamına uyarlar.
 
-Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bir proje gündemde olabilir ama derse dönüşmeyebilir. Ayrı `/news` sayfası haber başlığı, varsa yayıncının kısa açıklaması ve yazarını gösterir; `/briefing` haber başlıklarını kaynaklı listeler. Teorik makale veya model duyurusu çalışan demo kartına dönüşmez. Derin **Research Gate** hâlâ sonraki fazdır.
+Radar'ın vaadi iki katmanlıdır. **Gündem** güncel, kaynaklı keşif ve ilgi akışıdır. **Öğrenme koleksiyonu** daha az sayıda, denenmiş ve öğretici örneğin uygulama okuludur. 150 yüzeysel kart yerine yaklaşık 30 güçlü vaka hedeflenir; 30 sayı hedefi kalite kapısını gevşetmez. Bugünkü geçici yayın kapısı gündemdeki ürünlerden de hazır ders ister; ileride ayrı doğrulanmış demo kapısı, henüz derse dönüşmemiş çalışan ürünü gündeme alabilir. Ayrı `/news` sayfası haber başlığı, varsa yayıncının kısa açıklaması ve yazarını gösterir; `/briefing` haber başlıklarını kaynaklı listeler. Teorik makale veya model duyurusu çalışan demo kartına dönüşmez. Derin **Research Gate** hâlâ sonraki fazdır.
 
 ## Ziyaretçinin temel yolu
 

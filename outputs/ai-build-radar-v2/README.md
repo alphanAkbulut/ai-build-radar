@@ -4,7 +4,7 @@
 
 **Durum:** private, yerel MVP. Radar, AI alanındaki çalışan ürünleri keşfeder; haklarında gerçekten ne bilindiğini gösterir; seçilmiş örneklerden uygulanabilir dersler çıkarır. Bir ürünün AI kullanması, AI ile geliştirilmiş olması ve popüler olması ayrı iddialardır. Her biri ayrı kanıt ister.
 
-Ürünün iki katmanı vardır: güncel ve kaynaklı **keşif/haber akışı** ile demosu incelenmiş az sayıdaki örnekten oluşan **öğrenme koleksiyonu**. Kaynakta bulunmak veya yüksek yıldız almak tek başına koleksiyona giriş sağlamaz.
+Ürünün iki ürün katmanı vardır: güncel ve kaynaklı **ürün gündemi** ile demosu incelenmiş az sayıdaki örnekten oluşan **öğrenme koleksiyonu**. Yayıncı yazıları üçüncü, ayrı bir **News** alanında okunur; haber otomatik olarak ürün kartına dönüşmez. Kaynakta bulunmak veya yüksek yıldız almak tek başına koleksiyona giriş sağlamaz.
 
 **Yayın kuralı:** Kaynak taraması geniştir; ana Gündem ve Radar özeti ürün kartları şu anda yalnız aynı site URL'sinde yakın zamanda temel etkileşimi denenmiş, gerçek önizlemesi ve öğrenme gerekçesi kayıtlı ürünleri gösterir. Repo, AI geliştirme beyanı veya site URL'si tek başına **Dene** kartı oluşturmaz. `/builds` ve `/candidates` yayın vitrini değil inceleme arşividir. Bu geçici dar kapı otomatik demo kontrolü ve tam dersten ayrı ürün yayın kuralı geliştirilene kadar korunur ([R03](https://github.com/alphanAkbulut/ai-build-radar/issues/3)).
 
@@ -17,6 +17,7 @@
 - [Öğrenme koleksiyonu pilotu](docs/LEARNING-COLLECTION.md) ve [ilk faz doğrulaması](docs/VALIDATION.md) tarihsel kayıtlardır; güncel sayı veya davranış raporu olarak kullanılmaz.
 - [Günlük AI ürün promptu için kaynak denetimi](docs/SOURCE-EXPANSION.md) ([English](docs/SOURCE-EXPANSION.en.md)): doğrulanan kaynak adayları, erişim/lisans sınırları ve entegrasyon sırası. Mevcut veriden üretilen kısa okuma `/briefing` ekranındadır.
 - [Küresel AI kaynak kataloğu](docs/GLOBAL-SOURCE-CATALOG.md) ([English](docs/GLOBAL-SOURCE-CATALOG.en.md)): kullanıcının önerdiği haber, bülten, araştırma ve topluluk kaynakları; etkin/bekleyen ayrımı ve haber–ürün sınırı.
+- [Haber akışı sözleşmesi](docs/NEWS.md) ([English](docs/NEWS.en.md)): 10 RSS kaynağının tarama, açıklama/yazar, eşleştirme, sıralama ve güncellik kuralları; bilinen boşluklar.
 - [TrendRadar karşılaştırması](docs/TRENDRADAR-BENCHMARK.md) ([English](docs/TRENDRADAR-BENCHMARK.en.md)): gerçek çalışma durumu, kaynak bağımlılığı ve Radar'a uyarlanan sıra/kaynak görünürlüğü.
 - [GitHub Trending kaynak denetimi](docs/GITHUB-TRENDING.md) ([English](docs/GITHUB-TRENDING.en.md)): repo/geliştirici sinyalleri, ilk gerçek koşu ve private PoC sınırları.
 - [Risk kaydı](docs/RISK-REGISTER.md) ([English](docs/RISK-REGISTER.en.md)): dış kaynaklar ve yayın için açık belirsizlikler, mevcut önlemler ve karar kapıları.
